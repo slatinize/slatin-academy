@@ -14,16 +14,6 @@ const { modules } = Astro.props;
 ---
 
 <section class="bg-cream">
-  <!-- Navigation arrows -->
-  <div class="flex justify-center gap-4 py-10">
-    <button id="module-prev" class="w-10 h-10 rounded-full border-2 border-text-dark/20 flex items-center justify-center hover:border-text-dark/60 transition-colors" aria-label="Previous module">
-      <svg class="w-4 h-4 text-text-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-    </button>
-    <button id="module-next" class="w-10 h-10 rounded-full border-2 border-text-dark/20 flex items-center justify-center hover:border-text-dark/60 transition-colors" aria-label="Next module">
-      <svg class="w-4 h-4 text-text-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-    </button>
-  </div>
-
   <!-- Module cards grid - full width, no padding -->
   <div class="module-grid" id="module-track">
     {modules.map((mod) => (
@@ -90,15 +80,3 @@ const { modules } = Astro.props;
   }
 </style>
 
-<script>
-  const grid = document.getElementById('module-track');
-  const prev = document.getElementById('module-prev');
-  const next = document.getElementById('module-next');
-
-  prev?.addEventListener('click', () => {
-    grid?.scrollBy({ left: -window.innerWidth, behavior: 'smooth' });
-  });
-  next?.addEventListener('click', () => {
-    grid?.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
-  });
-</script>
