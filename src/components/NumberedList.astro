@@ -18,10 +18,10 @@ const numColor = variant === 'cream' ? 'text-accent-orange/50' : 'text-accent-re
 
 <section class={`${sectionClass} section-padding`}>
   <div class="container-content">
+    {title && <h2 class="text-heading text-center mb-12 reveal">{title}</h2>}
     <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
       <div class="reveal">
-        {title && <h2 class="text-subheading mb-8">{title}</h2>}
-        <div class="space-y-6">
+        <div class="space-y-8">
           {items.map((item) => (
             <div class="flex gap-5 items-start">
               <span class={`text-5xl md:text-6xl font-extrabold ${numColor} leading-none`}>{item.number}</span>
