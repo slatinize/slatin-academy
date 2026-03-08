@@ -16,7 +16,7 @@ const {
 } = Astro.props;
 
 const sectionClass = variant === 'cream' ? 'section-cream' : 'section-dark';
-const orderClass = imagePosition === 'left' ? 'md:order-first' : 'md:order-last';
+const orderClass = imagePosition === 'left' ? 'order-first' : '';
 const hasMedia = imageSrc || videoSrc;
 ---
 
