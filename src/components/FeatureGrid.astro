@@ -1,0 +1,53 @@
+---
+interface Feature {
+  icon?: string;
+  iconSrc?: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  sectionTitle?: string;
+  subtitle?: string;
+  features: Feature[];
+  variant?: 'dark' | 'cream';
+  columns?: 2 | 3;
+}
+
+const { sectionTitle, subtitle, features, variant = 'dark', columns = 2 } = Astro.props;
+const sectionClass = variant === 'cream' ? 'section-cream' : 'section-dark';
+const colClass = columns === 3 ? 'md:grid-cols-3' : 'md:grid-cols-2';
+const cardBg = variant === 'dark' ? 'border border-white/10 bg-dark-card' : 'bg-white/50';
+---
+
+<section class={`${sectionClass} section-padding`}>
+  <div class="container-content">
+    {sectionTitle && (
+      <div class="text-center mb-12 md:mb-16 reveal">
+        {subtitle && (
+          <p class="text-sm font-semibold tracking-widest uppercase mb-4 opacity-60">{subtitle}</p>
+        )}
+        <h2 class="text-heading">{sectionTitle}</h2>
+      </div>
+    )}
+
+    <div class={`grid ${colClass} gap-4 md:gap-6`}>
+      {features.map((feature) => (
+        <div class={`${cardBg} rounded-xl p-8 md:p-10 reveal`}>
+          {feature.iconSrc && (
+            <img src={feature.iconSrc} alt="" class="w-14 h-14 rounded-full mb-5 object-cover" loading="lazy" />
+          )}
+          {feature.icon && !feature.iconSrc && (
+            <div class="w-14 h-14 rounded-full bg-accent-red/20 flex items-center justify-center mb-5">
+              <span class="text-2xl">{feature.icon}</span>
+            </div>
+          )}
+          <h3 class="text-xl md:text-2xl font-bold mb-3">{feature.title}</h3>
+          <p class={`text-base leading-relaxed ${variant === 'dark' ? 'text-white/60' : 'text-text-dark/70'}`}>
+            {feature.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

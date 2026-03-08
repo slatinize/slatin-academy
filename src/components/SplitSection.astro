@@ -1,0 +1,58 @@
+---
+interface Props {
+  variant?: 'dark' | 'cream';
+  imagePosition?: 'left' | 'right';
+  imageSrc?: string;
+  imageAlt?: string;
+  videoSrc?: string;
+}
+
+const {
+  variant = 'dark',
+  imagePosition = 'right',
+  imageSrc,
+  imageAlt = '',
+  videoSrc,
+} = Astro.props;
+
+const sectionClass = variant === 'cream' ? 'section-cream' : 'section-dark';
+const orderClass = imagePosition === 'left' ? 'md:order-first' : 'md:order-last';
+const hasMedia = imageSrc || videoSrc;
+---
+
+<section class={`${sectionClass} section-padding`}>
+  <div class="container-content">
+    <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+      <!-- Text content -->
+      <div class="reveal">
+        <slot />
+      </div>
+
+      <!-- Media (image or video) -->
+      {hasMedia && (
+        <div class={`${orderClass} reveal`}>
+          {videoSrc ? (
+            <div class="w-full rounded-xl shadow-2xl overflow-hidden aspect-video">
+              <video
+                autoplay
+                muted
+                loop
+                playsinline
+                class="w-full h-full object-cover"
+              >
+                <source src={videoSrc} type="video/mp4" />
+              </video>
+            </div>
+          ) : imageSrc ? (
+            <img
+              src={imageSrc}
+              alt={imageAlt}
+              class="w-full rounded-xl shadow-2xl"
+              loading="lazy"
+            />
+          ) : null}
+        </div>
+      )}
+    </div>
+  </div>
+</section>

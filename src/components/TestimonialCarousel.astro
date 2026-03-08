@@ -1,0 +1,71 @@
+---
+interface Testimonial {
+  quote: string;
+  name: string;
+  role: string;
+  featured?: boolean;
+}
+
+interface Props {
+  testimonials: Testimonial[];
+}
+
+const { testimonials } = Astro.props;
+---
+
+<section class="section-cream section-padding overflow-hidden" id="testimonials">
+  <div class="container-content">
+    <div class="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide" id="testimonial-track">
+      {testimonials.map((t) => (
+        <div class={`flex-shrink-0 w-[320px] md:w-[400px] snap-center rounded-2xl p-8 flex flex-col justify-between
+          ${t.featured
+            ? 'bg-accent-red text-white shadow-2xl scale-105'
+            : 'bg-white/60 text-text-dark border border-black/5'
+          }`}>
+          <div>
+            <span class={`text-4xl font-bold leading-none ${t.featured ? 'text-white/30' : 'text-accent-red/30'}`}>&ldquo;</span>
+            <p class="text-sm md:text-base leading-relaxed mt-2">{t.quote}</p>
+          </div>
+          <div class="flex items-center gap-3 mt-6 pt-4 border-t border-current/10">
+            <div class="w-10 h-10 rounded-full bg-current/10 flex items-center justify-center text-sm font-bold">
+              {t.name.charAt(0)}
+            </div>
+            <div>
+              <p class="font-bold text-sm">{t.name}</p>
+              <p class={`text-xs ${t.featured ? 'text-white/70' : 'text-text-dark/50'}`}>{t.role}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Navigation arrows -->
+    <div class="flex justify-center gap-4 mt-8">
+      <button id="testimonial-prev" class="w-10 h-10 rounded-full border-2 border-text-dark/20 flex items-center justify-center hover:border-text-dark/60 transition-colors" aria-label="Previous testimonial">
+        <svg class="w-4 h-4 text-text-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button id="testimonial-next" class="w-10 h-10 rounded-full border-2 border-text-dark/20 flex items-center justify-center hover:border-text-dark/60 transition-colors" aria-label="Next testimonial">
+        <svg class="w-4 h-4 text-text-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+
+<script>
+  const track = document.getElementById('testimonial-track');
+  const prev = document.getElementById('testimonial-prev');
+  const next = document.getElementById('testimonial-next');
+  const scrollAmount = 420;
+
+  prev?.addEventListener('click', () => {
+    track?.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+  next?.addEventListener('click', () => {
+    track?.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+</script>

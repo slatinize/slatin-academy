@@ -1,0 +1,20 @@
+---
+interface Props {
+  preTitle?: string;
+  variant?: 'dark' | 'cream';
+}
+
+const { preTitle, variant = 'cream' } = Astro.props;
+const sectionClass = variant === 'cream' ? 'section-cream' : 'section-dark';
+---
+
+<section class={`${sectionClass} section-padding`}>
+  <div class="container-content text-center max-w-4xl mx-auto reveal">
+    {preTitle && (
+      <p class="text-sm font-semibold tracking-widest uppercase mb-6 opacity-60">{preTitle}</p>
+    )}
+    <h2 class="text-heading">
+      <slot />
+    </h2>
+  </div>
+</section>

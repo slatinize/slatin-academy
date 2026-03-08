@@ -1,0 +1,41 @@
+---
+interface ListItem {
+  number: string;
+  text: string;
+}
+
+interface Props {
+  title?: string;
+  items: ListItem[];
+  imageSrc?: string;
+  variant?: 'dark' | 'cream';
+}
+
+const { title, items, imageSrc, variant = 'cream' } = Astro.props;
+const sectionClass = variant === 'cream' ? 'section-cream' : 'section-dark';
+const numColor = variant === 'cream' ? 'text-accent-orange/50' : 'text-accent-red/40';
+---
+
+<section class={`${sectionClass} section-padding`}>
+  <div class="container-content">
+    <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+      <div class="reveal">
+        {title && <h2 class="text-subheading mb-8">{title}</h2>}
+        <div class="space-y-6">
+          {items.map((item) => (
+            <div class="flex gap-5 items-start">
+              <span class={`text-5xl md:text-6xl font-extrabold ${numColor} leading-none`}>{item.number}</span>
+              <p class={`text-base md:text-lg leading-relaxed pt-2 ${variant === 'cream' ? 'text-text-dark/80' : 'text-white/70'}`} set:html={item.text} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {imageSrc && (
+        <div class="reveal">
+          <img src={imageSrc} alt="" class="w-full rounded-xl shadow-2xl" loading="lazy" />
+        </div>
+      )}
+    </div>
+  </div>
+</section>

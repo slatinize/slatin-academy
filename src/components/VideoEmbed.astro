@@ -1,0 +1,59 @@
+---
+interface Props {
+  videoId: string;
+  platform?: 'vimeo' | 'youtube';
+  title?: string;
+  thumbnailSrc?: string;
+}
+
+const { videoId, platform = 'vimeo', title = 'Video', thumbnailSrc } = Astro.props;
+
+const defaultThumb = platform === 'youtube'
+  ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+  : undefined;
+const thumbnail = thumbnailSrc || defaultThumb;
+
+const embedUrl = platform === 'youtube'
+  ? `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`
+  : `https://player.vimeo.com/video/${videoId}?autoplay=1&title=0&byline=0&portrait=0`;
+---
+
+<section class="section-dark section-padding" id="video">
+  <div class="container-content">
+    <div class="relative aspect-video rounded-xl overflow-hidden bg-dark-card group cursor-pointer" data-video-id={videoId} data-embed-url={embedUrl}>
+      <!-- Thumbnail or dark placeholder -->
+      {thumbnail ? (
+        <img
+          src={thumbnail}
+          alt={title}
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
+      ) : (
+        <div class="w-full h-full bg-gradient-to-br from-dark-card to-dark-secondary"></div>
+      )}
+      <!-- Play button overlay -->
+      <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors">
+        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-accent-red flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+          <svg class="w-6 h-6 md:w-8 md:h-8 text-white ml-1" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5,3 19,12 5,21" />
+          </svg>
+        </div>
+        {title && (
+          <span class="absolute bottom-0 left-0 right-0 text-center pb-6 text-lg md:text-xl font-semibold text-white">
+            {title}
+          </span>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('[data-video-id]').forEach((el) => {
+    el.addEventListener('click', function() {
+      const embedUrl = this.getAttribute('data-embed-url');
+      this.innerHTML = `<iframe src="${embedUrl}" class="w-full h-full absolute inset-0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+    });
+  });
+</script>

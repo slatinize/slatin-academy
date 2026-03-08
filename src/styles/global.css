@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-dark text-white font-sans;
+  }
+
+  /* Red squiggle underline used on emphasis words */
+  .squiggle {
+    position: relative;
+    display: inline-block;
+  }
+  .squiggle::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 12px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12'%3E%3Cpath d='M0 8 Q 12.5 0, 25 8 T 50 8 T 75 8 T 100 8' fill='none' stroke='%23FB4141' stroke-width='3'/%3E%3C/svg%3E") repeat-x;
+    background-size: 50px 12px;
+  }
+}
+
+@layer components {
+  .section-dark {
+    @apply bg-dark text-white;
+  }
+
+  .section-cream {
+    @apply bg-cream text-text-dark;
+  }
+
+  .section-padding {
+    @apply px-6 py-16 md:px-12 md:py-24 lg:px-20 lg:py-32;
+  }
+
+  .container-content {
+    @apply max-w-content mx-auto;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent-red text-white font-bold text-lg rounded-md
+           hover:bg-accent-red-dark transition-colors duration-200 cursor-pointer;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white text-white font-semibold text-lg rounded-md
+           hover:bg-white hover:text-dark transition-colors duration-200 cursor-pointer;
+  }
+
+  .btn-cta-orange {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-accent-orange text-white font-semibold rounded-md
+           hover:brightness-110 transition-all duration-200 cursor-pointer;
+  }
+}
+
+/* Scroll-triggered animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

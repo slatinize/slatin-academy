@@ -1,0 +1,47 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
+}
+
+const { title, subtitle, ctaText, ctaHref = '#pricing', secondaryCtaText, secondaryCtaHref } = Astro.props;
+---
+
+<section class="relative min-h-[90vh] flex items-center section-dark overflow-hidden pt-20">
+  <!-- Grid overlay -->
+  <div class="absolute inset-0 opacity-[0.08]"
+    style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 200px 200px;">
+  </div>
+
+  <div class="container-content px-6 md:px-12 lg:px-20 relative z-10">
+    {subtitle && (
+      <p class="text-sm md:text-base font-semibold tracking-widest uppercase text-white/60 mb-4">
+        Course
+      </p>
+    )}
+    <h1 class="text-display max-w-4xl" set:html={title} />
+    {subtitle && (
+      <p class="text-lg md:text-xl text-white/70 mt-6 max-w-2xl">{subtitle}</p>
+    )}
+
+    <div class="flex flex-wrap gap-4 mt-10">
+      {ctaText && (
+        <a href={ctaHref} class="btn-primary">
+          {ctaText}
+        </a>
+      )}
+      {secondaryCtaText && secondaryCtaHref && (
+        <a href={secondaryCtaHref} class="btn-outline">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5,3 19,12 5,21" />
+          </svg>
+          {secondaryCtaText}
+        </a>
+      )}
+    </div>
+  </div>
+</section>

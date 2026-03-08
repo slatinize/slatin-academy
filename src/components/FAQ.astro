@@ -1,0 +1,93 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FAQItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="section-dark section-padding">
+  <div class="container-content max-w-3xl">
+    <!-- Marquee banner -->
+    <div class="overflow-hidden mb-16 -mx-6 md:-mx-12 reveal">
+      <div class="flex whitespace-nowrap animate-marquee">
+        {[...Array(4)].map(() => (
+          <span class="text-5xl md:text-7xl font-extrabold mx-8">
+            <span class="text-white">Frequently Asked Questions</span>
+            <span class="text-accent-red ml-8">Frequently Asked Questions</span>
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Accordion -->
+    <div class="space-y-0 divide-y divide-white/10">
+      {items.map((item, index) => (
+        <div class="faq-item reveal">
+          <button
+            class="w-full flex items-center justify-between py-6 text-left group"
+            data-faq-toggle={index}
+          >
+            <span class="text-base md:text-lg font-medium pr-8 group-hover:text-accent-red transition-colors">
+              {item.question}
+            </span>
+            <span class="flex-shrink-0 w-8 h-8 rounded-full border border-white/30 flex items-center justify-center transition-transform" data-faq-icon={index}>
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19" class="faq-vertical" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-content hidden pb-6" data-faq-content={index}>
+            <p class="text-white/60 text-base leading-relaxed" set:html={item.answer} />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+  .faq-item.open .faq-vertical {
+    display: none;
+  }
+  .faq-item.open [data-faq-icon] {
+    transform: rotate(0deg);
+  }
+  .faq-item.open button span:first-child {
+    color: #FB4141;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('[data-faq-toggle]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const index = btn.getAttribute('data-faq-toggle');
+      const content = document.querySelector(`[data-faq-content="${index}"]`);
+      const item = btn.closest('.faq-item');
+      if (content && item) {
+        const isOpen = !content.classList.contains('hidden');
+        // Close all
+        document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        // Open this one if it was closed
+        if (!isOpen) {
+          content.classList.remove('hidden');
+          item.classList.add('open');
+        }
+      }
+    });
+  });
+</script>

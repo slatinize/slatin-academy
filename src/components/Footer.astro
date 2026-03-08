@@ -1,0 +1,57 @@
+---
+const quickLinks = [
+  { label: 'Plugin Closer', href: '#' },
+  { label: 'Testimonials', href: '#testimonials' },
+  { label: 'Services', href: 'https://www.slatin.pro/#services' },
+];
+const legalLinks = [
+  { label: 'Privacy Policy', href: 'https://www.slatin.pro/privacy-policy/' },
+  { label: 'Legal Notice', href: 'https://www.slatin.pro/legal-notice/' },
+  { label: 'Cookies', href: 'https://www.slatin.pro/cookies/' },
+  { label: 'Terms & Conditions', href: 'https://www.slatin.pro/terms-and-conditions/' },
+];
+---
+
+<!-- Gradient Footer -->
+<footer>
+  <div class="bg-gradient-to-r from-accent-yellow via-accent-orange to-accent-red py-16 px-6 md:px-12 lg:px-20">
+    <div class="container-content flex flex-col md:flex-row justify-between gap-10">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-dark leading-tight max-w-md">
+        Get full confidence in your sound
+      </h2>
+      <div class="flex gap-16">
+        <div>
+          <h3 class="font-bold text-dark mb-3">Quick Jump</h3>
+          <ul class="space-y-2">
+            {quickLinks.map((link) => (
+              <li>
+                <a href={link.href} class="text-dark underline hover:no-underline font-medium">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p class="font-bold text-dark mb-3 text-sm tracking-wide">SST PRO DYNAMICS SLL</p>
+          <img
+            src="https://www.slatin.pro/wp-content/uploads/2024/03/ADM-Plural-Album-Large-en_US-300x90.png"
+            alt="Apple Digital Masters"
+            class="h-8 w-auto"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="bg-dark-secondary py-4 px-6 md:px-12 lg:px-20">
+    <div class="container-content flex flex-wrap justify-between gap-4 text-sm text-white/50">
+      {legalLinks.map((link) => (
+        <a href={link.href} class="hover:text-white/80 underline transition-colors">
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</footer>

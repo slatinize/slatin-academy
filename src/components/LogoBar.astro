@@ -1,0 +1,20 @@
+---
+interface Props {
+  logoSrc: string;
+  variant?: 'dark' | 'cream';
+}
+
+const { logoSrc, variant = 'cream' } = Astro.props;
+const sectionClass = variant === 'cream' ? 'section-cream' : 'section-dark';
+---
+
+<div class={`${sectionClass} px-6 md:px-12 lg:px-20 py-8 md:py-12`}>
+  <div class="container-content flex justify-center">
+    <img
+      src={logoSrc}
+      alt="Partner logos"
+      class={`w-full max-w-4xl h-auto ${variant === 'dark' ? 'opacity-70' : 'opacity-80'}`}
+      loading="lazy"
+    />
+  </div>
+</div>

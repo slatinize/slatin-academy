@@ -1,0 +1,38 @@
+---
+interface Props {
+  name: string;
+  imageSrc: string;
+  bio: string[];
+  variant?: 'dark' | 'cream';
+}
+
+const { name, imageSrc, bio, variant = 'cream' } = Astro.props;
+const sectionClass = variant === 'cream' ? 'section-cream' : 'section-dark';
+---
+
+<section class={`${sectionClass} section-padding`}>
+  <div class="container-content">
+    <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+      <!-- Photo -->
+      <div class="reveal">
+        <img
+          src={imageSrc}
+          alt={name}
+          class="w-full rounded-xl shadow-2xl"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Bio -->
+      <div class="reveal">
+        <p class="text-sm font-semibold tracking-widest uppercase mb-2 opacity-60">Meet Your Teacher</p>
+        <h2 class="text-4xl md:text-6xl font-extrabold mb-6">{name}</h2>
+        <div class="space-y-4">
+          {bio.map((paragraph) => (
+            <p class={`text-base md:text-lg leading-relaxed ${variant === 'cream' ? 'text-text-dark/80' : 'text-white/70'}`} set:html={paragraph} />
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
