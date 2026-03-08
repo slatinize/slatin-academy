@@ -1,5 +1,5 @@
 ---
-import { LiquidEther } from './LiquidEther';
+import LiquidEther from './LiquidEther.astro';
 
 interface Props {
   title: string;
@@ -17,7 +17,6 @@ const { title, subtitle, ctaText, ctaHref = '#pricing', secondaryCtaText, second
   <!-- Fluid simulation background -->
   <div class="absolute inset-0 z-0">
     <LiquidEther
-      client:load
       colors={['#5C2800', '#B84A1C', '#DD3333', '#FB4141']}
       mouseForce={30}
       cursorSize={160}
