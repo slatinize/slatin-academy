@@ -59,8 +59,9 @@
   }
 
   .btn-cta-orange {
-    @apply inline-flex items-center gap-2 px-6 py-3 bg-accent-orange text-white font-semibold rounded-md
+    @apply inline-flex items-center gap-2 px-4 py-2.5 md:px-6 md:py-3 text-white font-semibold rounded-lg text-sm
            hover:brightness-110 transition-all duration-200 cursor-pointer;
+    background-color: #E8734A;
   }
 }
 
