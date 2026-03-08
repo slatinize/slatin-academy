@@ -4,6 +4,7 @@ interface Testimonial {
   name: string;
   role: string;
   featured?: boolean;
+  avatar?: string;
 }
 
 interface Props {
@@ -45,7 +46,11 @@ const initialIndex = featuredIndex >= 0 ? featuredIndex : 0;
             data-avatar-index={i}
           >
             <div class="avatar-circle rounded-full flex items-center justify-center font-bold text-white bg-text-dark/80 transition-all duration-500 overflow-hidden">
-              {t.name.charAt(0)}
+              {t.avatar ? (
+                <img src={t.avatar} alt={t.name} class="w-full h-full object-cover" loading="lazy" />
+              ) : (
+                t.name.charAt(0)
+              )}
             </div>
             <p class="font-bold text-sm mt-2 whitespace-nowrap transition-opacity duration-500">{t.name}</p>
             <p class="text-xs text-text-dark/50 whitespace-nowrap transition-opacity duration-500">{t.role}</p>
