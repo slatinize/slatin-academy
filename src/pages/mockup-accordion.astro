@@ -1,0 +1,293 @@
+---
+// Temporary mockup - DELETE after design approval
+---
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modules - Accordion</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: #0a0a0a; color: #fff; }
+
+    .section-header {
+      text-align: center;
+      padding: 80px 20px 50px;
+    }
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .section-header h2 span { color: #e74c3c; }
+    .section-header p {
+      color: rgba(255,255,255,0.45);
+      font-size: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .accordion-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    .acc-item {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .acc-item:hover { background: rgba(255,255,255,0.02); }
+
+    .acc-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 22px 0;
+    }
+
+    .acc-thumb {
+      width: 80px;
+      height: 56px;
+      min-width: 80px;
+      border-radius: 10px;
+      object-fit: cover;
+      opacity: 0.5;
+      transition: opacity 0.3s;
+    }
+    .acc-item.active .acc-thumb,
+    .acc-item:hover .acc-thumb { opacity: 1; }
+
+    .acc-num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: rgba(231, 76, 60, 0.2);
+      min-width: 50px;
+      line-height: 1;
+      transition: color 0.3s;
+    }
+    .acc-item.active .acc-num { color: #e74c3c; }
+
+    .acc-text { flex: 1; }
+    .acc-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .acc-sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .acc-arrow {
+      margin-left: auto;
+      font-size: 1.3rem;
+      color: rgba(255,255,255,0.15);
+      transition: all 0.3s;
+      min-width: 24px;
+      text-align: center;
+    }
+    .acc-item.active .acc-arrow { transform: rotate(45deg); color: #e74c3c; }
+
+    .acc-expand {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 0 0 150px;
+    }
+    .acc-item.active .acc-expand {
+      max-height: 300px;
+      padding: 0 0 22px 150px;
+    }
+
+    .acc-topics { list-style: none; }
+    .acc-topics li {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+      padding: 5px 0;
+      padding-left: 18px;
+      position: relative;
+    }
+    .acc-topics li::before {
+      content: '+';
+      position: absolute;
+      left: 0;
+      color: #e74c3c;
+      font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+      .section-header h2 { font-size: 1.8rem; }
+      .acc-thumb { width: 56px; height: 40px; min-width: 56px; border-radius: 8px; }
+      .acc-num { font-size: 1.4rem; min-width: 36px; }
+      .acc-title { font-size: 0.95rem; }
+      .acc-expand { padding-left: 0 !important; }
+      .acc-item.active .acc-expand { padding-left: 0 !important; }
+      .acc-topics { padding-left: 92px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section-header">
+    <h2>What You'll <span>Master</span></h2>
+    <p>7 modules. 30+ lessons. Everything you need to nail your low end.</p>
+  </div>
+
+  <div class="accordion-wrap">
+    <div class="acc-item active">
+      <div class="acc-header">
+        <img class="acc-thumb" src="https://uploads.teachablecdn.com/attachments/BauKxvLpQYqLoxR7j01z_low+end+1+copy.jpg" alt="" />
+        <div class="acc-num">01</div>
+        <div class="acc-text">
+          <div class="acc-title">Low End Theory - Fine-Tuning the Foundation</div>
+          <div class="acc-sub">3 lessons</div>
+        </div>
+        <div class="acc-arrow">+</div>
+      </div>
+      <div class="acc-expand">
+        <ul class="acc-topics">
+          <li>Why Low End Is So Important?</li>
+          <li>Why Is It So Hard to Mix?</li>
+          <li>FAQ & Common Mistakes</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header">
+        <img class="acc-thumb" src="https://uploads.teachablecdn.com/attachments/5LOiP0Txl2oQno23I0gW_low+end.jpg" alt="" />
+        <div class="acc-num">02</div>
+        <div class="acc-text">
+          <div class="acc-title">Navigating Tools and Challenges in Low-End Mixing</div>
+          <div class="acc-sub">4 lessons</div>
+        </div>
+        <div class="acc-arrow">+</div>
+      </div>
+      <div class="acc-expand">
+        <ul class="acc-topics">
+          <li>Your Ears</li>
+          <li>Speakers & Room</li>
+          <li>Headphones</li>
+          <li>Metering</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header">
+        <img class="acc-thumb" src="https://uploads.teachablecdn.com/attachments/iduxgXajRo6h1LaC7Ahw_dQUY9H3oZvvbU7wsrJUyyvruMXwsYj8G2SdTfqv3+copy.jpg" alt="" />
+        <div class="acc-num">03</div>
+        <div class="acc-text">
+          <div class="acc-title">Sound Sculpting - Techniques for the Perfect Kick</div>
+          <div class="acc-sub">2 lessons</div>
+        </div>
+        <div class="acc-arrow">+</div>
+      </div>
+      <div class="acc-expand">
+        <ul class="acc-topics">
+          <li>What Makes a Perfect Kick?</li>
+          <li>Kick Shaping Examples (5 Demos)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header">
+        <img class="acc-thumb" src="https://uploads.teachablecdn.com/attachments/9GER2ESQpyYJYAdxuM3v_mono.jpg" alt="" />
+        <div class="acc-num">04</div>
+        <div class="acc-text">
+          <div class="acc-title">All About The Bass - Achieving Bass Perfection</div>
+          <div class="acc-sub">4 lessons</div>
+        </div>
+        <div class="acc-arrow">+</div>
+      </div>
+      <div class="acc-expand">
+        <ul class="acc-topics">
+          <li>Saturation</li>
+          <li>Mono-Compatibility</li>
+          <li>Creating a Mono-Compatible Wide Bassline</li>
+          <li>Note Selection</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header">
+        <img class="acc-thumb" src="https://uploads.teachablecdn.com/attachments/mQyIVU7NQEbQB6k6p4kA_sidechain.jpg" alt="" />
+        <div class="acc-num">05</div>
+        <div class="acc-text">
+          <div class="acc-title">Kick Bass Chemistry - Decoding the Relationship</div>
+          <div class="acc-sub">4 lessons</div>
+        </div>
+        <div class="acc-arrow">+</div>
+      </div>
+      <div class="acc-expand">
+        <ul class="acc-topics">
+          <li>Kick & Bass - The Ideal Low End</li>
+          <li>Dynamic Phase Rotation - Best Kept Secret</li>
+          <li>Low-End Coherence</li>
+          <li>Optimizing Kick and Bass in Mastering</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header">
+        <img class="acc-thumb" src="https://uploads.teachablecdn.com/attachments/aq3se6LNQkGTFfZVURXp_genre.jpg" alt="" />
+        <div class="acc-num">06</div>
+        <div class="acc-text">
+          <div class="acc-title">Case Studies - Real-Life Examples</div>
+          <div class="acc-sub">4 lessons</div>
+        </div>
+        <div class="acc-arrow">+</div>
+      </div>
+      <div class="acc-expand">
+        <ul class="acc-topics">
+          <li>EDM Example</li>
+          <li>Pop / Dance / Funk Example</li>
+          <li>Trap / Hip Hop</li>
+          <li>Reggaeton</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header">
+        <img class="acc-thumb" src="https://uploads.teachablecdn.com/attachments/Q5bGAEPwRXiGHIpphDVS_LOW+END+MASTERY.jpg" alt="" />
+        <div class="acc-num">07</div>
+        <div class="acc-text">
+          <div class="acc-title">Bonus Lessons</div>
+          <div class="acc-sub">4 lessons</div>
+        </div>
+        <div class="acc-arrow">+</div>
+      </div>
+      <div class="acc-expand">
+        <ul class="acc-topics">
+          <li>Spectre vs RBass or BassXXL</li>
+          <li>Working Towards Loudness</li>
+          <li>Low End Mastery Workshop (Live)</li>
+          <li>Advanced Kick Shaping & Low End Control</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.acc-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const wasActive = item.classList.contains('active');
+        document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
+        if (!wasActive) item.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

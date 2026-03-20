@@ -1,0 +1,759 @@
+---
+// Temporary mockup page - DELETE after design approval
+---
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module Layout Options - Round 2</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: #0a0a0a; color: #fff; }
+
+    .option-label {
+      text-align: center;
+      padding: 60px 20px 10px;
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .option-label span { color: #e74c3c; }
+    .option-desc {
+      text-align: center;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.95rem;
+      padding: 0 20px 40px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .divider {
+      height: 2px;
+      background: rgba(255,255,255,0.05);
+      margin: 0;
+    }
+
+    /* ========================================= */
+    /* OPTION A1: Horizontal Scroll - Wide Cards  */
+    /* ========================================= */
+    .a1-wrap { background: #f5f0e8; padding: 60px 0; overflow: hidden; }
+    .a1-scroll {
+      display: flex;
+      gap: 24px;
+      padding: 0 40px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .a1-scroll::-webkit-scrollbar { display: none; }
+    .a1-card {
+      flex: 0 0 420px;
+      scroll-snap-align: start;
+      background: #1a1a1a;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      min-height: 220px;
+      transition: transform 0.3s;
+    }
+    .a1-card:hover { transform: translateY(-4px); }
+    .a1-img-wrap {
+      width: 180px;
+      min-width: 180px;
+      position: relative;
+      overflow: hidden;
+    }
+    .a1-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .a1-img-num {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(0,0,0,0.7);
+      color: #e74c3c;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 4px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+    .a1-body { padding: 20px; display: flex; flex-direction: column; justify-content: center; }
+    .a1-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .a1-topics { list-style: none; }
+    .a1-topics li {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+      padding: 2px 0;
+    }
+    .a1-topics li::before { content: '+ '; color: #e74c3c; font-weight: 600; }
+
+    /* ========================================= */
+    /* OPTION A2: Horizontal Scroll - Tall Cards  */
+    /* ========================================= */
+    .a2-wrap { background: #0a0a0a; padding: 60px 0; overflow: hidden; }
+    .a2-scroll {
+      display: flex;
+      gap: 20px;
+      padding: 0 40px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .a2-scroll::-webkit-scrollbar { display: none; }
+    .a2-card {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      height: 420px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .a2-card:hover { transform: scale(1.02); }
+    .a2-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .a2-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.15) 100%);
+    }
+    .a2-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 28px;
+    }
+    .a2-num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: #e74c3c;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .a2-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+    .a2-topics { list-style: none; }
+    .a2-topics li {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      padding: 2px 0;
+    }
+
+    /* ========================================= */
+    /* OPTION A3: Horizontal Scroll - No Images   */
+    /* Number-focused, gradient accent             */
+    /* ========================================= */
+    .a3-wrap { background: #f5f0e8; padding: 60px 0; overflow: hidden; }
+    .a3-scroll {
+      display: flex;
+      gap: 20px;
+      padding: 0 40px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .a3-scroll::-webkit-scrollbar { display: none; }
+    .a3-card {
+      flex: 0 0 320px;
+      scroll-snap-align: start;
+      background: #1a1a1a;
+      border-radius: 20px;
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .a3-card:hover { transform: translateY(-4px); }
+    .a3-accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #e74c3c, #f39c12, #e74c3c);
+    }
+    .a3-num {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #e74c3c, #f39c12);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .a3-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .a3-topics { list-style: none; }
+    .a3-topics li {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .a3-topics li:last-child { border-bottom: none; }
+
+    /* ========================================= */
+    /* OPTION B2: Accordion with Images            */
+    /* ========================================= */
+    .b2-wrap { background: #0a0a0a; padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
+    .b2-item {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .b2-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 0;
+    }
+    .b2-thumb {
+      width: 80px;
+      height: 56px;
+      min-width: 80px;
+      border-radius: 10px;
+      object-fit: cover;
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+    .b2-item.active .b2-thumb,
+    .b2-item:hover .b2-thumb { opacity: 1; }
+    .b2-num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: rgba(231, 76, 60, 0.25);
+      min-width: 50px;
+      line-height: 1;
+      transition: color 0.3s;
+    }
+    .b2-item.active .b2-num { color: #e74c3c; }
+    .b2-text { flex: 1; }
+    .b2-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .b2-sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+    }
+    .b2-arrow {
+      margin-left: auto;
+      font-size: 1.3rem;
+      color: rgba(255,255,255,0.2);
+      transition: all 0.3s;
+      min-width: 24px;
+      text-align: center;
+    }
+    .b2-item.active .b2-arrow { transform: rotate(45deg); color: #e74c3c; }
+    .b2-expand {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 0 0 150px;
+    }
+    .b2-item.active .b2-expand {
+      max-height: 300px;
+      padding: 0 0 20px 150px;
+    }
+    .b2-topics { list-style: none; }
+    .b2-topics li {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      padding: 4px 0;
+      padding-left: 16px;
+      position: relative;
+    }
+    .b2-topics li::before {
+      content: '+';
+      position: absolute;
+      left: 0;
+      color: #e74c3c;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ A1: Wide Landscape Cards ============ -->
+  <div class="option-label">A1: <span>Wide Landscape Cards</span></div>
+  <p class="option-desc">Horizontal cards with image on the left, text on the right. Shows everything at a glance.</p>
+  <div class="a1-wrap">
+    <div class="a1-scroll">
+      <div class="a1-card">
+        <div class="a1-img-wrap">
+          <img src="https://uploads.teachablecdn.com/attachments/BauKxvLpQYqLoxR7j01z_low+end+1+copy.jpg" alt="" />
+          <div class="a1-img-num">Module 01</div>
+        </div>
+        <div class="a1-body">
+          <p class="a1-title">Low End Theory - Fine-Tuning the Foundation</p>
+          <ul class="a1-topics">
+            <li>Why Low End Is So Important?</li>
+            <li>Why Is It So Hard to Mix?</li>
+            <li>FAQ & Common Mistakes</li>
+          </ul>
+        </div>
+      </div>
+      <div class="a1-card">
+        <div class="a1-img-wrap">
+          <img src="https://uploads.teachablecdn.com/attachments/5LOiP0Txl2oQno23I0gW_low+end.jpg" alt="" />
+          <div class="a1-img-num">Module 02</div>
+        </div>
+        <div class="a1-body">
+          <p class="a1-title">Navigating Tools and Challenges</p>
+          <ul class="a1-topics">
+            <li>Your Ears</li>
+            <li>Speakers & Room</li>
+            <li>Headphones</li>
+            <li>Metering</li>
+          </ul>
+        </div>
+      </div>
+      <div class="a1-card">
+        <div class="a1-img-wrap">
+          <img src="https://uploads.teachablecdn.com/attachments/iduxgXajRo6h1LaC7Ahw_dQUY9H3oZvvbU7wsrJUyyvruMXwsYj8G2SdTfqv3+copy.jpg" alt="" />
+          <div class="a1-img-num">Module 03</div>
+        </div>
+        <div class="a1-body">
+          <p class="a1-title">Sound Sculpting - The Perfect Kick</p>
+          <ul class="a1-topics">
+            <li>What Makes a Perfect Kick?</li>
+            <li>Kick Shaping (5 Demos)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="a1-card">
+        <div class="a1-img-wrap">
+          <img src="https://uploads.teachablecdn.com/attachments/9GER2ESQpyYJYAdxuM3v_mono.jpg" alt="" />
+          <div class="a1-img-num">Module 04</div>
+        </div>
+        <div class="a1-body">
+          <p class="a1-title">All About The Bass</p>
+          <ul class="a1-topics">
+            <li>Saturation</li>
+            <li>Mono-Compatibility</li>
+            <li>Creating Wide Bassline</li>
+            <li>Note Selection</li>
+          </ul>
+        </div>
+      </div>
+      <div class="a1-card">
+        <div class="a1-img-wrap">
+          <img src="https://uploads.teachablecdn.com/attachments/mQyIVU7NQEbQB6k6p4kA_sidechain.jpg" alt="" />
+          <div class="a1-img-num">Module 05</div>
+        </div>
+        <div class="a1-body">
+          <p class="a1-title">Kick Bass Chemistry</p>
+          <ul class="a1-topics">
+            <li>The Ideal Low End</li>
+            <li>Dynamic Phase Rotation</li>
+            <li>Low-End Coherence</li>
+            <li>Mastering Stage</li>
+          </ul>
+        </div>
+      </div>
+      <div class="a1-card">
+        <div class="a1-img-wrap">
+          <img src="https://uploads.teachablecdn.com/attachments/aq3se6LNQkGTFfZVURXp_genre.jpg" alt="" />
+          <div class="a1-img-num">Module 06</div>
+        </div>
+        <div class="a1-body">
+          <p class="a1-title">Case Studies - Real-Life Examples</p>
+          <ul class="a1-topics">
+            <li>EDM</li>
+            <li>Pop / Dance / Funk</li>
+            <li>Trap / Hip Hop</li>
+            <li>Reggaeton</li>
+          </ul>
+        </div>
+      </div>
+      <div class="a1-card">
+        <div class="a1-img-wrap">
+          <img src="https://uploads.teachablecdn.com/attachments/Q5bGAEPwRXiGHIpphDVS_LOW+END+MASTERY.jpg" alt="" />
+          <div class="a1-img-num">Module 07</div>
+        </div>
+        <div class="a1-body">
+          <p class="a1-title">Bonus Lessons</p>
+          <ul class="a1-topics">
+            <li>Spectre vs RBass</li>
+            <li>Working Towards Loudness</li>
+            <li>Live Workshop</li>
+            <li>Advanced Kick Shaping</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ============ A2: Tall Portrait Cards with Full Bleed Image ============ -->
+  <div class="option-label">A2: <span>Tall Portrait Cards</span></div>
+  <p class="option-desc">Full-bleed image behind each card with strong gradient overlay. Cinematic, immersive feel.</p>
+  <div class="a2-wrap">
+    <div class="a2-scroll">
+      <div class="a2-card">
+        <img src="https://uploads.teachablecdn.com/attachments/BauKxvLpQYqLoxR7j01z_low+end+1+copy.jpg" alt="" />
+        <div class="a2-overlay"></div>
+        <div class="a2-content">
+          <p class="a2-num">Module 01</p>
+          <p class="a2-title">Low End Theory - Fine-Tuning the Foundation</p>
+          <ul class="a2-topics">
+            <li>+ Why Low End Is So Important?</li>
+            <li>+ Why Is It So Hard to Mix?</li>
+            <li>+ FAQ & Common Mistakes</li>
+          </ul>
+        </div>
+      </div>
+      <div class="a2-card">
+        <img src="https://uploads.teachablecdn.com/attachments/5LOiP0Txl2oQno23I0gW_low+end.jpg" alt="" />
+        <div class="a2-overlay"></div>
+        <div class="a2-content">
+          <p class="a2-num">Module 02</p>
+          <p class="a2-title">Navigating Tools and Challenges in Low-End Mixing</p>
+          <ul class="a2-topics">
+            <li>+ Your Ears</li>
+            <li>+ Speakers & Room</li>
+            <li>+ Headphones</li>
+            <li>+ Metering</li>
+          </ul>
+        </div>
+      </div>
+      <div class="a2-card">
+        <img src="https://uploads.teachablecdn.com/attachments/iduxgXajRo6h1LaC7Ahw_dQUY9H3oZvvbU7wsrJUyyvruMXwsYj8G2SdTfqv3+copy.jpg" alt="" />
+        <div class="a2-overlay"></div>
+        <div class="a2-content">
+          <p class="a2-num">Module 03</p>
+          <p class="a2-title">Sound Sculpting - Techniques for the Perfect Kick</p>
+          <ul class="a2-topics">
+            <li>+ What Makes a Perfect Kick?</li>
+            <li>+ Kick Shaping (5 Demos)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="a2-card">
+        <img src="https://uploads.teachablecdn.com/attachments/9GER2ESQpyYJYAdxuM3v_mono.jpg" alt="" />
+        <div class="a2-overlay"></div>
+        <div class="a2-content">
+          <p class="a2-num">Module 04</p>
+          <p class="a2-title">All About The Bass - Achieving Bass Perfection</p>
+          <ul class="a2-topics">
+            <li>+ Saturation</li>
+            <li>+ Mono-Compatibility</li>
+            <li>+ Creating Wide Bassline</li>
+            <li>+ Note Selection</li>
+          </ul>
+        </div>
+      </div>
+      <div class="a2-card">
+        <img src="https://uploads.teachablecdn.com/attachments/mQyIVU7NQEbQB6k6p4kA_sidechain.jpg" alt="" />
+        <div class="a2-overlay"></div>
+        <div class="a2-content">
+          <p class="a2-num">Module 05</p>
+          <p class="a2-title">Kick Bass Chemistry - Decoding the Relationship</p>
+          <ul class="a2-topics">
+            <li>+ The Ideal Low End</li>
+            <li>+ Dynamic Phase Rotation</li>
+            <li>+ Low-End Coherence</li>
+            <li>+ Mastering Stage</li>
+          </ul>
+        </div>
+      </div>
+      <div class="a2-card">
+        <img src="https://uploads.teachablecdn.com/attachments/aq3se6LNQkGTFfZVURXp_genre.jpg" alt="" />
+        <div class="a2-overlay"></div>
+        <div class="a2-content">
+          <p class="a2-num">Module 06</p>
+          <p class="a2-title">Case Studies - Real-Life Examples</p>
+          <ul class="a2-topics">
+            <li>+ EDM</li>
+            <li>+ Pop / Dance / Funk</li>
+            <li>+ Trap / Hip Hop</li>
+            <li>+ Reggaeton</li>
+          </ul>
+        </div>
+      </div>
+      <div class="a2-card">
+        <img src="https://uploads.teachablecdn.com/attachments/Q5bGAEPwRXiGHIpphDVS_LOW+END+MASTERY.jpg" alt="" />
+        <div class="a2-overlay"></div>
+        <div class="a2-content">
+          <p class="a2-num">Module 07</p>
+          <p class="a2-title">Bonus Lessons</p>
+          <ul class="a2-topics">
+            <li>+ Spectre vs RBass</li>
+            <li>+ Working Towards Loudness</li>
+            <li>+ Live Workshop</li>
+            <li>+ Advanced Kick Shaping</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ============ A3: No Images - Number Focused ============ -->
+  <div class="option-label">A3: <span>Gradient Number Cards</span></div>
+  <p class="option-desc">No images. Bold gradient numbers, red-to-orange accent stripe. Clean, typographic.</p>
+  <div class="a3-wrap">
+    <div class="a3-scroll">
+      <div class="a3-card">
+        <div class="a3-accent"></div>
+        <div class="a3-num">01</div>
+        <p class="a3-title">Low End Theory - Fine-Tuning the Foundation</p>
+        <ul class="a3-topics">
+          <li>Why Low End Is So Important?</li>
+          <li>Why Is It So Hard to Mix?</li>
+          <li>FAQ & Common Mistakes</li>
+        </ul>
+      </div>
+      <div class="a3-card">
+        <div class="a3-accent"></div>
+        <div class="a3-num">02</div>
+        <p class="a3-title">Navigating Tools and Challenges</p>
+        <ul class="a3-topics">
+          <li>Your Ears</li>
+          <li>Speakers & Room</li>
+          <li>Headphones</li>
+          <li>Metering</li>
+        </ul>
+      </div>
+      <div class="a3-card">
+        <div class="a3-accent"></div>
+        <div class="a3-num">03</div>
+        <p class="a3-title">Sound Sculpting - The Perfect Kick</p>
+        <ul class="a3-topics">
+          <li>What Makes a Perfect Kick?</li>
+          <li>Kick Shaping (5 Demos)</li>
+        </ul>
+      </div>
+      <div class="a3-card">
+        <div class="a3-accent"></div>
+        <div class="a3-num">04</div>
+        <p class="a3-title">All About The Bass</p>
+        <ul class="a3-topics">
+          <li>Saturation</li>
+          <li>Mono-Compatibility</li>
+          <li>Creating Wide Bassline</li>
+          <li>Note Selection</li>
+        </ul>
+      </div>
+      <div class="a3-card">
+        <div class="a3-accent"></div>
+        <div class="a3-num">05</div>
+        <p class="a3-title">Kick Bass Chemistry</p>
+        <ul class="a3-topics">
+          <li>The Ideal Low End</li>
+          <li>Dynamic Phase Rotation</li>
+          <li>Low-End Coherence</li>
+          <li>Mastering Stage</li>
+        </ul>
+      </div>
+      <div class="a3-card">
+        <div class="a3-accent"></div>
+        <div class="a3-num">06</div>
+        <p class="a3-title">Case Studies - Real-Life Examples</p>
+        <ul class="a3-topics">
+          <li>EDM</li>
+          <li>Pop / Dance / Funk</li>
+          <li>Trap / Hip Hop</li>
+          <li>Reggaeton</li>
+        </ul>
+      </div>
+      <div class="a3-card">
+        <div class="a3-accent"></div>
+        <div class="a3-num">07</div>
+        <p class="a3-title">Bonus Lessons</p>
+        <ul class="a3-topics">
+          <li>Spectre vs RBass</li>
+          <li>Working Towards Loudness</li>
+          <li>Live Workshop</li>
+          <li>Advanced Kick Shaping</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ============ B2: Accordion with Thumbnail Images ============ -->
+  <div class="option-label">B2: <span>Accordion + Images</span></div>
+  <p class="option-desc">The clean accordion list with thumbnail previews. Best of both worlds: minimal layout with visual context.</p>
+  <div class="b2-wrap">
+    <div class="b2-item active">
+      <div class="b2-header">
+        <img class="b2-thumb" src="https://uploads.teachablecdn.com/attachments/BauKxvLpQYqLoxR7j01z_low+end+1+copy.jpg" alt="" />
+        <div class="b2-num">01</div>
+        <div class="b2-text">
+          <div class="b2-title">Low End Theory - Fine-Tuning the Foundation</div>
+          <div class="b2-sub">3 lessons</div>
+        </div>
+        <div class="b2-arrow">+</div>
+      </div>
+      <div class="b2-expand">
+        <ul class="b2-topics">
+          <li>Why Low End Is So Important?</li>
+          <li>Why Is It So Hard to Mix?</li>
+          <li>FAQ & Common Mistakes</li>
+        </ul>
+      </div>
+    </div>
+    <div class="b2-item">
+      <div class="b2-header">
+        <img class="b2-thumb" src="https://uploads.teachablecdn.com/attachments/5LOiP0Txl2oQno23I0gW_low+end.jpg" alt="" />
+        <div class="b2-num">02</div>
+        <div class="b2-text">
+          <div class="b2-title">Navigating Tools and Challenges in Low-End Mixing</div>
+          <div class="b2-sub">4 lessons</div>
+        </div>
+        <div class="b2-arrow">+</div>
+      </div>
+      <div class="b2-expand">
+        <ul class="b2-topics">
+          <li>Your Ears</li>
+          <li>Speakers & Room</li>
+          <li>Headphones</li>
+          <li>Metering</li>
+        </ul>
+      </div>
+    </div>
+    <div class="b2-item">
+      <div class="b2-header">
+        <img class="b2-thumb" src="https://uploads.teachablecdn.com/attachments/iduxgXajRo6h1LaC7Ahw_dQUY9H3oZvvbU7wsrJUyyvruMXwsYj8G2SdTfqv3+copy.jpg" alt="" />
+        <div class="b2-num">03</div>
+        <div class="b2-text">
+          <div class="b2-title">Sound Sculpting - Techniques for the Perfect Kick</div>
+          <div class="b2-sub">2 lessons</div>
+        </div>
+        <div class="b2-arrow">+</div>
+      </div>
+      <div class="b2-expand">
+        <ul class="b2-topics">
+          <li>What Makes a Perfect Kick?</li>
+          <li>Kick Shaping Examples (5 Demos)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="b2-item">
+      <div class="b2-header">
+        <img class="b2-thumb" src="https://uploads.teachablecdn.com/attachments/9GER2ESQpyYJYAdxuM3v_mono.jpg" alt="" />
+        <div class="b2-num">04</div>
+        <div class="b2-text">
+          <div class="b2-title">All About The Bass - Achieving Bass Perfection</div>
+          <div class="b2-sub">4 lessons</div>
+        </div>
+        <div class="b2-arrow">+</div>
+      </div>
+      <div class="b2-expand">
+        <ul class="b2-topics">
+          <li>Saturation</li>
+          <li>Mono-Compatibility</li>
+          <li>Creating a Mono-Compatible Wide Bassline</li>
+          <li>Note Selection</li>
+        </ul>
+      </div>
+    </div>
+    <div class="b2-item">
+      <div class="b2-header">
+        <img class="b2-thumb" src="https://uploads.teachablecdn.com/attachments/mQyIVU7NQEbQB6k6p4kA_sidechain.jpg" alt="" />
+        <div class="b2-num">05</div>
+        <div class="b2-text">
+          <div class="b2-title">Kick Bass Chemistry - Decoding the Relationship</div>
+          <div class="b2-sub">4 lessons</div>
+        </div>
+        <div class="b2-arrow">+</div>
+      </div>
+      <div class="b2-expand">
+        <ul class="b2-topics">
+          <li>Kick & Bass - The Ideal Low End</li>
+          <li>Dynamic Phase Rotation - Best Kept Secret</li>
+          <li>Low-End Coherence</li>
+          <li>Optimizing Kick and Bass in Mastering</li>
+        </ul>
+      </div>
+    </div>
+    <div class="b2-item">
+      <div class="b2-header">
+        <img class="b2-thumb" src="https://uploads.teachablecdn.com/attachments/aq3se6LNQkGTFfZVURXp_genre.jpg" alt="" />
+        <div class="b2-num">06</div>
+        <div class="b2-text">
+          <div class="b2-title">Case Studies - Real-Life Examples</div>
+          <div class="b2-sub">4 lessons</div>
+        </div>
+        <div class="b2-arrow">+</div>
+      </div>
+      <div class="b2-expand">
+        <ul class="b2-topics">
+          <li>EDM Example</li>
+          <li>Pop / Dance / Funk Example</li>
+          <li>Trap / Hip Hop</li>
+          <li>Reggaeton</li>
+        </ul>
+      </div>
+    </div>
+    <div class="b2-item">
+      <div class="b2-header">
+        <img class="b2-thumb" src="https://uploads.teachablecdn.com/attachments/Q5bGAEPwRXiGHIpphDVS_LOW+END+MASTERY.jpg" alt="" />
+        <div class="b2-num">07</div>
+        <div class="b2-text">
+          <div class="b2-title">Bonus Lessons</div>
+          <div class="b2-sub">4 lessons</div>
+        </div>
+        <div class="b2-arrow">+</div>
+      </div>
+      <div class="b2-expand">
+        <ul class="b2-topics">
+          <li>Spectre vs RBass or BassXXL</li>
+          <li>Working Towards Loudness</li>
+          <li>Low End Mastery Workshop (Live)</li>
+          <li>Advanced Kick Shaping & Low End Control</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.b2-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const wasActive = item.classList.contains('active');
+        document.querySelectorAll('.b2-item').forEach(i => i.classList.remove('active'));
+        if (!wasActive) item.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

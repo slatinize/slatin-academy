@@ -1,0 +1,237 @@
+---
+// Temporary mockup - DELETE after design approval
+---
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modules - A1 Wide Cards</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f5f0e8; color: #fff; }
+
+    .section-header {
+      text-align: center;
+      padding: 80px 20px 50px;
+    }
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+    }
+    .section-header h2 span { color: #e74c3c; }
+    .section-header p {
+      color: rgba(26,26,26,0.5);
+      font-size: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .scroll-wrap {
+      padding: 0 0 80px;
+      overflow: hidden;
+    }
+    .scroll-track {
+      display: flex;
+      gap: 24px;
+      padding: 0 40px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .scroll-track::-webkit-scrollbar { display: none; }
+
+    .card {
+      flex: 0 0 420px;
+      scroll-snap-align: start;
+      background: #1a1a1a;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      min-height: 220px;
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-4px); }
+
+    .card-img {
+      width: 180px;
+      min-width: 180px;
+      position: relative;
+      overflow: hidden;
+    }
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card-num {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(0,0,0,0.7);
+      color: #e74c3c;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 4px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+
+    .card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .card-topics { list-style: none; }
+    .card-topics li {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+      padding: 2px 0;
+    }
+    .card-topics li::before { content: '+ '; color: #e74c3c; font-weight: 600; }
+
+    @media (max-width: 768px) {
+      .card { flex: 0 0 85vw; flex-direction: column; }
+      .card-img { width: 100%; min-width: 100%; height: 180px; }
+      .section-header h2 { font-size: 1.8rem; }
+      .scroll-track { padding: 0 20px; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section-header">
+    <h2>What You'll <span>Master</span></h2>
+    <p>7 modules. 30+ lessons. Everything you need to nail your low end.</p>
+  </div>
+
+  <div class="scroll-wrap">
+    <div class="scroll-track">
+      <div class="card">
+        <div class="card-img">
+          <img src="https://uploads.teachablecdn.com/attachments/BauKxvLpQYqLoxR7j01z_low+end+1+copy.jpg" alt="" />
+          <div class="card-num">Module 01</div>
+        </div>
+        <div class="card-body">
+          <p class="card-title">Low End Theory - Fine-Tuning the Foundation</p>
+          <ul class="card-topics">
+            <li>Why Low End Is So Important?</li>
+            <li>Why Is It So Hard to Mix?</li>
+            <li>FAQ & Common Mistakes</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="https://uploads.teachablecdn.com/attachments/5LOiP0Txl2oQno23I0gW_low+end.jpg" alt="" />
+          <div class="card-num">Module 02</div>
+        </div>
+        <div class="card-body">
+          <p class="card-title">Navigating Tools and Challenges</p>
+          <ul class="card-topics">
+            <li>Your Ears</li>
+            <li>Speakers & Room</li>
+            <li>Headphones</li>
+            <li>Metering</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="https://uploads.teachablecdn.com/attachments/iduxgXajRo6h1LaC7Ahw_dQUY9H3oZvvbU7wsrJUyyvruMXwsYj8G2SdTfqv3+copy.jpg" alt="" />
+          <div class="card-num">Module 03</div>
+        </div>
+        <div class="card-body">
+          <p class="card-title">Sound Sculpting - The Perfect Kick</p>
+          <ul class="card-topics">
+            <li>What Makes a Perfect Kick?</li>
+            <li>Kick Shaping (5 Demos)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="https://uploads.teachablecdn.com/attachments/9GER2ESQpyYJYAdxuM3v_mono.jpg" alt="" />
+          <div class="card-num">Module 04</div>
+        </div>
+        <div class="card-body">
+          <p class="card-title">All About The Bass</p>
+          <ul class="card-topics">
+            <li>Saturation</li>
+            <li>Mono-Compatibility</li>
+            <li>Creating Wide Bassline</li>
+            <li>Note Selection</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="https://uploads.teachablecdn.com/attachments/mQyIVU7NQEbQB6k6p4kA_sidechain.jpg" alt="" />
+          <div class="card-num">Module 05</div>
+        </div>
+        <div class="card-body">
+          <p class="card-title">Kick Bass Chemistry</p>
+          <ul class="card-topics">
+            <li>The Ideal Low End</li>
+            <li>Dynamic Phase Rotation</li>
+            <li>Low-End Coherence</li>
+            <li>Mastering Stage</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="https://uploads.teachablecdn.com/attachments/aq3se6LNQkGTFfZVURXp_genre.jpg" alt="" />
+          <div class="card-num">Module 06</div>
+        </div>
+        <div class="card-body">
+          <p class="card-title">Case Studies - Real-Life Examples</p>
+          <ul class="card-topics">
+            <li>EDM</li>
+            <li>Pop / Dance / Funk</li>
+            <li>Trap / Hip Hop</li>
+            <li>Reggaeton</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="https://uploads.teachablecdn.com/attachments/Q5bGAEPwRXiGHIpphDVS_LOW+END+MASTERY.jpg" alt="" />
+          <div class="card-num">Module 07</div>
+        </div>
+        <div class="card-body">
+          <p class="card-title">Bonus Lessons</p>
+          <ul class="card-topics">
+            <li>Spectre vs RBass</li>
+            <li>Working Towards Loudness</li>
+            <li>Live Workshop</li>
+            <li>Advanced Kick Shaping</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

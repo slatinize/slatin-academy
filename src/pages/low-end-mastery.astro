@@ -1,0 +1,307 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SplitSection from '../components/SplitSection.astro';
+import CenteredHeadline from '../components/CenteredHeadline.astro';
+import IconFeatures from '../components/IconFeatures.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import NumberedList from '../components/NumberedList.astro';
+import TestimonialCarousel from '../components/TestimonialCarousel.astro';
+import ModuleCarousel from '../components/ModuleCarousel.astro';
+import TeacherBio from '../components/TeacherBio.astro';
+import LogoBar from '../components/LogoBar.astro';
+import PricingCard from '../components/PricingCard.astro';
+import FAQ from '../components/FAQ.astro';
+import { testimonials, modules, faqItems } from '../data/low-end-mastery';
+---
+
+<BaseLayout
+  title="Low End Mastery - Kick & Bass Mixing Course"
+  description="Master low-end frequencies, kick and bass relationships, and achieve loud, dynamic mixes that translate everywhere. By SLATIN."
+>
+  <!-- 1. Hero -->
+  <Hero
+    title='<span class="squiggle">Low-End</span> Mastery'
+    subtitle="Struggling to get your low end right? From kick and bass chemistry to perfect translation across all playback systems. This course covers the techniques, tools, and ear training you need to achieve punchy, polished low-end mixes."
+    ctaText="Get Full Access"
+    ctaHref="#pricing"
+    secondaryCtaText="See Curriculum"
+    secondaryCtaHref="#modules"
+  />
+
+  <!-- 2. "Get Real Loud" -->
+  <SplitSection
+    variant="dark"
+    imagePosition="left"
+    imageSrc="https://uploads.teachablecdn.com/attachments/BauKxvLpQYqLoxR7j01z_low+end+1+copy.jpg"
+    imageAlt="StandardCLIP plugin interface for loudness"
+  >
+    <h2 class="text-heading mb-6">
+      Get Real <span class="squiggle">Loud</span> 🧨
+    </h2>
+    <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
+      Struggling to hit your target LUFS levels?
+    </p>
+    <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
+      In most cases, it is a <strong class="text-white">low-end issue</strong>.
+    </p>
+    <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
+      Throughout this course, I will show you what it takes to achieve loud, dynamic mixes.
+    </p>
+    <p class="text-xl md:text-2xl font-bold text-accent-red">
+      And it is much more than clipping and limiting... 😏
+    </p>
+  </SplitSection>
+
+  <!-- 4. "Nail Your Kick & Bass" -->
+  <SplitSection
+    variant="dark"
+    imagePosition="left"
+    imageSrc="https://uploads.teachablecdn.com/attachments/mQyIVU7NQEbQB6k6p4kA_sidechain.jpg"
+    imageAlt="Sidechain compression and kick bass mixing"
+  >
+    <h2 class="text-heading mb-6">
+      Nail Your <span class="squiggle">Kick & Bass</span> 💯
+    </h2>
+    <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
+      You probably already use sidechain.
+    </p>
+    <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
+      BUT, what if I told you that...
+    </p>
+    <p class="text-base md:text-lg font-semibold text-accent-red leading-relaxed mb-4">
+      Sidechain is not enough... 🫣
+    </p>
+    <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
+      ...when looking for that spotless Kick & Bass relationship.
+    </p>
+    <p class="text-base md:text-lg text-white font-semibold leading-relaxed">
+      I'll walk you through the exact process.
+    </p>
+  </SplitSection>
+
+  <!-- 5. "Perfect Translation" -->
+  <SplitSection
+    variant="dark"
+    imagePosition="left"
+    imageSrc="https://uploads.teachablecdn.com/attachments/5LOiP0Txl2oQno23I0gW_low+end.jpg"
+    imageAlt="Tonal balance comparison between tracks"
+  >
+    <h2 class="text-heading mb-6">
+      Perfect <span class="squiggle">Translation</span> 🔊
+    </h2>
+    <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
+      It sounds good in the Studio but a <strong class="text-white">disaster in the Car or Club</strong>? 🙉
+    </p>
+    <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
+      Discover the <strong class="text-accent-red">3 keys to flawless Low-End Translation</strong>.
+    </p>
+    <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
+      Make your song bang and your clients happy!
+    </p>
+    <p class="text-base md:text-lg text-white/70 leading-relaxed">
+      + Save your precious time on revisions...
+    </p>
+  </SplitSection>
+
+  <!-- 6. "Mono and Wide" -->
+  <SplitSection
+    variant="dark"
+    imagePosition="left"
+    imageSrc="https://uploads.teachablecdn.com/attachments/9GER2ESQpyYJYAdxuM3v_mono.jpg"
+    imageAlt="Mono-compatible wide bass techniques"
+  >
+    <h2 class="text-heading mb-6">
+      Mono and <span class="squiggle">Wide</span> 🤯
+    </h2>
+    <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
+      If you think that mono-compatible wide bass is impossible to achieve, <strong class="text-white">you are very wrong!</strong>
+    </p>
+    <p class="text-base md:text-lg text-white/70 leading-relaxed">
+      Uncover the techniques that pro sound designers use to create <strong class="text-accent-red">powerful, wide, and fully mono-compatible</strong> basslines.
+    </p>
+  </SplitSection>
+
+  <!-- 7. Centered headline -->
+  <CenteredHeadline preTitle="+ 400 HAPPY STUDENTS ⭐️⭐️⭐️⭐️⭐️" variant="cream">
+    Master the <span class="text-accent-red">low-end frequencies</span> that separate amateur mixes from professional releases. Achieve <span class="text-accent-red">powerful, hard-hitting</span>, and perfectly translated mixes every time.
+  </CenteredHeadline>
+
+  <!-- 8. "Does this sound familiar?" -->
+  <IconFeatures
+    sectionTitle="Does this sound familiar?"
+    subtitle="These are common signs of low-end problems in your mixes:"
+    variant="cream"
+    features={[
+      {
+        title: "",
+        description: "Your mixes sound muddy or thin, and the low end never seems to sit right no matter what you try.",
+      },
+      {
+        title: "",
+        description: "Your tracks sound great in your studio but fall apart on other playback systems: car, club, or phone.",
+      },
+      {
+        title: "",
+        description: "You can't seem to get your masters loud enough without the low end distorting or losing punch.",
+      },
+    ]}
+  />
+
+  <!-- 9. What You Will Master (2x2 grid) -->
+  <FeatureGrid
+    subtitle="WHAT YOU WILL MASTER"
+    variant="dark"
+    columns={2}
+    features={[
+      {
+        iconSrc: "https://www.slatin.pro/wp-content/uploads/2025/05/Ellipse-6-150x150.png",
+        title: "Kick & Bass Chemistry",
+        description: "Learn the science behind the perfect kick and bass relationship, including dynamic phase rotation and advanced sidechain techniques.",
+      },
+      {
+        iconSrc: "https://www.slatin.pro/wp-content/uploads/2025/05/Ellipse-5-150x150.png",
+        title: "Perfect Low-End Translation",
+        description: "Discover the 3 keys to flawless low-end translation that makes your songs bang on every playback system: studio, car, or club.",
+      },
+      {
+        iconSrc: "https://www.slatin.pro/wp-content/uploads/2025/05/Ellipse-4-150x150.png",
+        title: "Loudness Without Compromise",
+        description: "Hit your target LUFS levels with punchy, club-ready mixes. It's much more than just clipping and limiting.",
+      },
+      {
+        iconSrc: "https://www.slatin.pro/wp-content/uploads/2025/05/Ellipse-3-150x150.png",
+        title: "Sound Selection & Shaping",
+        description: "Master the art of selecting the right samples and shaping kicks for any genre, the foundation of 80% of your final sound.",
+      },
+    ]}
+  />
+
+  <!-- 10. "This course is ideal if you" numbered list -->
+  <NumberedList
+    title="This course is ideal if you"
+    variant="cream"
+    imageSrc="https://uploads.teachablecdn.com/attachments/iduxgXajRo6h1LaC7Ahw_dQUY9H3oZvvbU7wsrJUyyvruMXwsYj8G2SdTfqv3+copy.jpg"
+    items={[
+      {
+        number: "01",
+        text: "Struggle with <strong>low-end translation</strong>: your mixes sound different on every playback system.",
+      },
+      {
+        number: "02",
+        text: "Want to understand the <strong>kick and bass relationship</strong> at a deep, professional level.",
+      },
+      {
+        number: "03",
+        text: "Need to achieve <strong>loud, punchy masters</strong> without sacrificing low-end clarity and translation.",
+      },
+    ]}
+  />
+
+  <!-- 11. Testimonials -->
+  <TestimonialCarousel testimonials={testimonials} />
+
+  <!-- 12. Module Carousel -->
+  <ModuleCarousel modules={modules} />
+
+  <!-- 13. Teacher Bio -->
+  <TeacherBio
+    name="SLATIN"
+    imageSrc="https://www.slatin.pro/wp-content/uploads/2025/04/Slatin_Microdynamics.jpg"
+    variant="cream"
+    bio={[
+      `Ruslan Slatin is an <strong>award-winning</strong> producer and <strong>sound engineer</strong> with decades of experience in the global music industry.`,
+      `Celebrated for his distinctive sound and top-tier productions, he has collaborated with some of the most prestigious <strong>international labels</strong> and artists.`,
+      `In addition to running a high-performing commercial mastering studio, completing over 1,000 projects annually, <strong>Ruslan</strong> is a passionate educator.`,
+      `Through specialized courses and private mentoring, he empowers music producers to elevate their sound using proven and novel sound sculpting techniques.`,
+    ]}
+  />
+
+  <!-- 14. Logo Bar -->
+  <LogoBar
+    logoSrc="https://uploads.teachablecdn.com/attachments/izlXe81QyOr1dO25BGS3_YP0ovoEFDRt3h3qRWZaOeB4HCRat2ldNAkIuKstn.webp"
+    variant="dark"
+  />
+
+  <!-- 15. "Save Your Time" -->
+  <SplitSection
+    variant="dark"
+    imagePosition="left"
+    imageSrc="https://uploads.teachablecdn.com/attachments/iduxgXajRo6h1LaC7Ahw_dQUY9H3oZvvbU7wsrJUyyvruMXwsYj8G2SdTfqv3+copy.jpg"
+    imageAlt="Kick frequency analysis and sound selection"
+  >
+    <h2 class="text-heading mb-6">
+      Save Your <span class="squiggle">Time</span> ⏱
+    </h2>
+    <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
+      Sound Selection is <strong class="text-white">KEY</strong> 🔑
+    </p>
+    <p class="text-base md:text-lg text-accent-red leading-relaxed mb-4">
+      ...and it's 80% of your final sound.
+    </p>
+    <p class="text-base md:text-lg text-white/70 leading-relaxed">
+      Whether you use Splice or have an extensive sample library, I'll show you how to pick the right samples and <strong class="text-white">stop second-guessing</strong>. ❌
+    </p>
+  </SplitSection>
+
+  <!-- 16. "Multiple Genres" -->
+  <SplitSection
+    variant="dark"
+    imagePosition="left"
+    imageSrc="https://uploads.teachablecdn.com/attachments/aq3se6LNQkGTFfZVURXp_genre.jpg"
+    imageAlt="Multiple genre examples in DAW"
+  >
+    <h2 class="text-heading mb-6">
+      <span class="squiggle italic">Multiple Genres</span> 🥁
+    </h2>
+    <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
+      Each genre has its unique way of addressing low-end frequencies.
+    </p>
+    <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
+      This course is tailored for <strong class="text-accent-red">creators of modern and loud music</strong>.
+    </p>
+    <p class="text-base md:text-lg text-white/70 leading-relaxed">
+      You'll see exactly how to handle kick and bass in <strong class="text-white">EDM, Pop/Funk, Trap, and Reggaeton</strong>.
+    </p>
+  </SplitSection>
+
+  <!-- 17. "Private Community" -->
+  <SplitSection
+    variant="dark"
+    imagePosition="right"
+    imageSrc="https://uploads.teachablecdn.com/attachments/Es8zQjMTzmUufKqvzLXF_ezgif.com-optimize2.gif"
+    imageAlt="SLATIN Academy private community"
+  >
+    <h2 class="text-heading mb-6">
+      Private <span class="squiggle">Community</span> 💬
+    </h2>
+    <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
+      This is not your average video course...
+    </p>
+    <p class="text-base md:text-lg text-accent-red leading-relaxed mb-4">
+      If you have any questions left, join the chat! 📱
+    </p>
+    <p class="text-base md:text-lg text-white/70 leading-relaxed">
+      Share your work, <strong class="text-white">get feedback</strong> and answers to your questions, and find like-minded people.
+    </p>
+  </SplitSection>
+
+  <!-- 18. Pricing -->
+  <PricingCard
+    subtitle="Get the kick and bass clarity, punch, and translation that your mixes have been missing."
+    price="159€"
+    features={[
+      "Unlimited Access to The Course",
+      "Access to Private Community",
+      "Presets and Resources",
+      "Bonus Modules and Videos",
+      "Ongoing Updates",
+      "Live Q&A Sessions with SLATIN",
+    ]}
+    ctaText="GET FULL ACCESS 🔑"
+    ctaHref="https://learn.slatin.pro/purchase?product_id=5700498"
+  />
+
+  <!-- 19. FAQ -->
+  <FAQ items={faqItems} />
+</BaseLayout>
