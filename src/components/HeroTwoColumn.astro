@@ -2,7 +2,7 @@
 /**
  * HeroTwoColumn — Two-column hero matching slatin.pro/microdynamics
  * Badge above grid, title LEFT aligns with subtitle RIGHT at top
- * Background: dark with subtle vertical grid lines
+ * Background: animated noise pattern + grid lines (grid applied at wrapper level)
  */
 interface Props {
   badgeText?: string;
@@ -15,20 +15,17 @@ interface Props {
 const { badgeText = 'Course', title, subtitle, ctaText, ctaHref = '#pricing' } = Astro.props;
 ---
 
-<section class="relative flex items-center section-dark overflow-hidden pt-24 pb-10" style="min-height: calc(100vh - 120px);">
-  <!-- Grid line pattern overlay -->
-  <div class="hero-grid-lines absolute inset-0 z-0"></div>
-
-  <div class="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20 relative z-10">
+<section class="relative flex items-center text-white overflow-hidden pt-20 pb-6" style="min-height: calc(100vh - 300px);">
+  <div class="w-full px-6 md:px-[8%] lg:px-[15%] relative z-10">
     {badgeText && (
-      <span class="inline-block bg-accent-red text-white text-sm font-semibold px-5 py-2 rounded-full mb-6">
+      <span class="inline-block text-white font-medium mb-6" style="background: #DD3333; padding: 8.5px 17px; border-radius: 20px; font-size: 17px; letter-spacing: -0.34px; line-height: 17px;">
         {badgeText}
       </span>
     )}
     <div class="grid md:grid-cols-[1.2fr_1fr] gap-8 lg:gap-16 items-start">
       <!-- Left column: title -->
       <div>
-        <h1 class="text-display leading-[1.05]" set:html={title} />
+        <h1 class="text-display leading-[1.05] font-medium" set:html={title} />
       </div>
 
       <!-- Right column: subtitle + CTA -->
@@ -49,25 +46,6 @@ const { badgeText = 'Course', title, subtitle, ctaText, ctaHref = '#pricing' } =
 </section>
 
 <style>
-  .hero-grid-lines {
-    background-image:
-      repeating-linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.1) 0px,
-        rgba(255, 255, 255, 0.1) 1px,
-        transparent 1px,
-        transparent
-      ),
-      repeating-linear-gradient(
-        0deg,
-        rgba(255, 255, 255, 0.06) 0px,
-        rgba(255, 255, 255, 0.06) 1px,
-        transparent 1px,
-        transparent
-      );
-    background-size: calc(100% / 5) 100%, 100% calc(100% / 4);
-  }
-
   .hero-cta-outline {
     display: inline-flex;
     align-items: center;

@@ -25,12 +25,12 @@ export default {
         sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
       },
       fontSize: {
-        'display': ['clamp(2.5rem, 5vw, 5rem)', { lineHeight: '1.1', fontWeight: '800' }],
+        'display': ['clamp(2.5rem, 6vw, 6.5rem)', { lineHeight: '1.2', fontWeight: '800' }],
         'heading': ['clamp(2rem, 4vw, 3.5rem)', { lineHeight: '1.15', fontWeight: '700' }],
         'subheading': ['clamp(1.25rem, 2.5vw, 1.75rem)', { lineHeight: '1.3', fontWeight: '600' }],
       },
       maxWidth: {
-        'content': '1280px',
+        'content': '1650px',
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out forwards',

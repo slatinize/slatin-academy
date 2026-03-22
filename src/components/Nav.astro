@@ -8,13 +8,13 @@ const links = [
 ---
 
 <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" data-scrolled="false">
-  <nav class="container-content flex items-center justify-between h-16 md:h-20 px-6 md:px-12 lg:px-20">
+  <nav class="w-full flex items-center justify-between h-16 md:h-20 px-6 md:px-[5%] lg:px-[10%]">
     <!-- Logo -->
     <a href="https://www.slatin.pro" class="flex-shrink-0">
       <img
         src="https://www.slatin.pro/wp-content/uploads/2023/01/Recurso-21.png"
         alt="SLATIN"
-        class="h-6 md:h-7 w-auto"
+        class="h-7 md:h-[30px] w-auto"
       />
     </a>
 
@@ -23,7 +23,7 @@ const links = [
       {links.map((link) => (
         <a
           href={link.href}
-          class="text-sm font-medium text-white/80 hover:text-white transition-colors"
+          class="font-medium text-white hover:text-white/80 transition-colors" style="font-size: 17px;"
         >
           {link.label}
         </a>
