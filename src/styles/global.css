@@ -65,6 +65,18 @@
   }
 }
 
+/* Parallax scroll-under effect */
+.parallax-wrapper {
+  position: relative;
+  clip-path: inset(0px);
+  overflow: hidden;
+}
+
+.parallax-content-over {
+  position: relative;
+  z-index: 100;
+}
+
 /* Scroll-triggered animations */
 .reveal {
   opacity: 0;
