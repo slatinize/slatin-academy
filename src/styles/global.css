@@ -66,15 +66,25 @@
 }
 
 /* Parallax scroll-under effect */
+.parallax-scroll-spacer {
+  height: 200vh;
+  height: 200svh; /* Use small viewport height — stable on iOS, ignores URL bar */
+}
+
 .parallax-wrapper {
   position: sticky;
   top: 0;
   z-index: 1;
+  will-change: transform;           /* GPU-accelerated compositing layer */
+  -webkit-transform: translateZ(0); /* Force GPU layer on older WebKit */
+  transform: translateZ(0);
 }
 
 .parallax-content-over {
   position: relative;
   z-index: 100;
+  /* Soft shadow that creates a smooth visual transition as content scrolls over the parallax hero */
+  box-shadow: 0 -40px 60px 20px rgba(0, 0, 0, 0.5);
 }
 
 /* Grid overlay that spans hero + video with edge fade */
