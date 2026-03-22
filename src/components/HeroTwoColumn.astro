@@ -3,10 +3,8 @@
  * HeroTwoColumn — Two-column hero matching slatin.pro/microdynamics
  * Left: badge + title with squiggle
  * Right: subtitle + outlined CTA
- * Background: dark with animated noise pattern (dark grey SimplexNoise)
+ * Background: dark with subtle vertical grid lines
  */
-import AnimatedGradient from './AnimatedGradient.astro';
-
 interface Props {
   badgeText?: string;
   title: string;
@@ -18,11 +16,9 @@ interface Props {
 const { badgeText = 'Course', title, subtitle, ctaText, ctaHref = '#pricing' } = Astro.props;
 ---
 
-<section class="relative min-h-[90vh] flex items-center section-dark overflow-hidden pt-28 pb-20">
-  <!-- Animated noise pattern background (dark grey, matching original) -->
-  <div class="absolute inset-0 z-0">
-    <AnimatedGradient color1="#282828" color2="#282828" speed={850} blendingMode="organic" />
-  </div>
+<section class="relative min-h-[90vh] flex items-end section-dark overflow-hidden pt-28 pb-24">
+  <!-- Grid line pattern overlay -->
+  <div class="hero-grid-lines absolute inset-0 z-0"></div>
 
   <div class="container-content px-6 md:px-12 lg:px-20 relative z-10">
     <div class="grid md:grid-cols-[1.1fr_1fr] gap-10 lg:gap-20 items-end">
@@ -54,6 +50,18 @@ const { badgeText = 'Course', title, subtitle, ctaText, ctaHref = '#pricing' } =
 </section>
 
 <style>
+  .hero-grid-lines {
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.07) 0px,
+        rgba(255, 255, 255, 0.07) 1px,
+        transparent 1px,
+        transparent
+      );
+    background-size: calc(100% / 5) 100%;
+  }
+
   .hero-cta-outline {
     display: inline-flex;
     align-items: center;
