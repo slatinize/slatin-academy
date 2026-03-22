@@ -82,6 +82,12 @@ const links = [
     -webkit-backdrop-filter: blur(12px);
     border-bottom: none;
   }
+  /* Reduce compositing cost on mobile: only blur when scrolled */
+  @media (max-width: 767px) {
+    #site-header {
+      will-change: background;
+    }
+  }
 </style>
 
 <script>

@@ -22,9 +22,8 @@ import { testimonials, modules, faqItems } from '../data/microdynamics';
   title="Advanced Microdynamics - Mixing & Mastering Course"
   description="Learn advanced microdynamic processing techniques for mixing and mastering. 4+ hours of practical video lessons by SLATIN."
 >
-  <!-- 1. Hero + Video (parallax wrapper with scroll spacer) -->
-  <div class="parallax-scroll-spacer">
-  <div class="parallax-wrapper section-dark">
+  <!-- 1. Hero + Video -->
+  <div class="section-dark relative">
     <!-- Animated gradient background spanning hero + video -->
     <div class="absolute inset-0 z-0" style="width: 100%; height: 100%; -webkit-mask-image: linear-gradient(to bottom, black 0%, black 40%, transparent 65%); mask-image: linear-gradient(to bottom, black 0%, black 40%, transparent 65%);">
       <AnimatedGradient color1="#282828" color2="#282828" speed={850} blendingMode="organic" />
@@ -40,10 +39,8 @@ import { testimonials, modules, faqItems } from '../data/microdynamics';
     />
     <VideoEmbed videoId="1081820388" platform="vimeo" title="The Magic of Microdynamics ✨" thumbnailSrc="https://www.slatin.pro/wp-content/uploads/2025/05/micro-scaled.jpg" standalone={false} />
   </div>
-  </div>
 
-  <!-- Remaining sections scroll over the hero+video -->
-  <div class="parallax-content-over">
+  <div>
 
   <!-- 2. Intro text + 3D visualization video -->
   <SplitSection
@@ -257,5 +254,5 @@ import { testimonials, modules, faqItems } from '../data/microdynamics';
   <!-- 18. FAQ -->
   <FAQ items={faqItems} />
 
-  </div><!-- end parallax-content-over -->
+  </div>
 </BaseLayout>

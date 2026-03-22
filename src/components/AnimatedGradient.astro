@@ -184,8 +184,8 @@ const {
 
     function loop() {
       if (inView) {
-        // During scroll, only render every 4th frame to reduce main-thread contention
-        const shouldRender = !isScrolling || (++frameSkip % 4 === 0);
+        // During scroll on mobile, render every 3rd frame; on desktop render normally
+        const shouldRender = !isScrolling || !onMobile || (++frameSkip % 3 === 0);
         if (shouldRender) {
           for (let x = 0; x < resolution; x++) {
             for (let y = 0; y < resolution; y++) {
