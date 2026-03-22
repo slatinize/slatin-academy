@@ -1,5 +1,5 @@
 ---
-import LiquidEther from './LiquidEther.astro';
+import AnimatedGradient from './AnimatedGradient.astro';
 
 interface Props {
   title: string;
@@ -8,25 +8,21 @@ interface Props {
   ctaHref?: string;
   secondaryCtaText?: string;
   secondaryCtaHref?: string;
+  gradientColor1?: string;
+  gradientColor2?: string;
+  gradientSpeed?: number;
 }
 
-const { title, subtitle, ctaText, ctaHref = '#pricing', secondaryCtaText, secondaryCtaHref } = Astro.props;
+const { title, subtitle, ctaText, ctaHref = '#pricing', secondaryCtaText, secondaryCtaHref, gradientColor1 = '#ff6363', gradientColor2 = '#ff0008', gradientSpeed = 1300 } = Astro.props;
 ---
 
 <section class="relative min-h-[90vh] flex items-center section-dark overflow-hidden pt-20">
-  <!-- Fluid simulation background -->
+  <!-- Animated gradient background -->
   <div class="absolute inset-0 z-0">
-    <LiquidEther
-      colors={['#5C2800', '#B84A1C', '#DD3333', '#FB4141']}
-      mouseForce={30}
-      cursorSize={160}
-      autoDemo={true}
-      autoSpeed={0.18}
-      autoIntensity={3.5}
-      autoResumeDelay={500}
-      autoRampDuration={0.3}
-      resolution={0.5}
-      BFECC={true}
+    <AnimatedGradient
+      color1={gradientColor1}
+      color2={gradientColor2}
+      speed={gradientSpeed}
     />
   </div>
 
