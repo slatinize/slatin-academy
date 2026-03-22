@@ -16,43 +16,53 @@ const {
 } = Astro.props;
 
 const sectionClass = variant === 'cream' ? 'section-cream' : 'section-dark';
-const orderClass = imagePosition === 'left' ? 'order-first' : '';
 const hasMedia = imageSrc || videoSrc;
+const isVideoMedia = !!videoSrc;
 ---
 
-<section class={`${sectionClass} section-padding`}>
-  <div class="container-content">
-    <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-      <!-- Text content -->
-      <div class="reveal">
-        <slot />
+{isVideoMedia ? (
+  <!-- Full-bleed video split: video fills entire column edge-to-edge -->
+  <section class={`${sectionClass} relative overflow-hidden`}>
+    <div class="grid md:grid-cols-2" style="min-height: 550px;">
+      <!-- Text column -->
+      <div class={`flex items-center justify-center ${imagePosition === 'left' ? 'order-last' : ''}`}>
+        <div class="px-6 py-16 md:p-[15%] reveal">
+          <slot />
+        </div>
       </div>
-
-      <!-- Media (image or video) -->
-      {hasMedia && (
-        <div class={`${orderClass} reveal`}>
-          {videoSrc ? (
-            <div class="w-full rounded-xl shadow-2xl overflow-hidden aspect-video">
-              <video
-                autoplay
-                muted
-                loop
-                playsinline
-                class="w-full h-full object-cover"
-              >
-                <source src={videoSrc} type="video/mp4" />
-              </video>
-            </div>
-          ) : imageSrc ? (
+      <!-- Video column — full bleed -->
+      <div class={`relative ${imagePosition === 'left' ? 'order-first' : ''}`}>
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          class="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={videoSrc} type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </section>
+) : (
+  <!-- Image split: standard layout with padding -->
+  <section class={`${sectionClass} section-padding`}>
+    <div class="container-content">
+      <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+        <div class="reveal">
+          <slot />
+        </div>
+        {imageSrc && (
+          <div class={`${imagePosition === 'left' ? 'order-first' : ''} reveal`}>
             <img
               src={imageSrc}
               alt={imageAlt}
               class="w-full rounded-xl shadow-2xl"
               loading="lazy"
             />
-          ) : null}
-        </div>
-      )}
+          </div>
+        )}
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+)}
