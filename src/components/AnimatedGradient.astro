@@ -155,6 +155,17 @@ const {
     let clock = 0;
     let inView = true;
     let rafId: number;
+    let isScrolling = false;
+    let scrollTimer: ReturnType<typeof setTimeout>;
+    let frameSkip = 0;
+
+    // Detect active scrolling — throttle canvas during scroll to free up the compositor
+    function onScroll() {
+      isScrolling = true;
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => { isScrolling = false; }, 150);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
 
     // Intersection observer
     const io = new IntersectionObserver((entries) => {
@@ -173,22 +184,26 @@ const {
 
     function loop() {
       if (inView) {
-        for (let x = 0; x < resolution; x++) {
-          for (let y = 0; y < resolution; y++) {
-            const noise = simplex.noise3D(
-              x / resolution * aspectMod.x,
-              y / resolution * aspectMod.y,
-              clock / speed
-            );
-            const idx = 4 * (x + y * resolution);
-            data[idx]     = mixed('r', x, y, noise);
-            data[idx + 1] = mixed('g', x, y, noise);
-            data[idx + 2] = mixed('b', x, y, noise);
-            data[idx + 3] = 265 * noise;
+        // During scroll, only render every 4th frame to reduce main-thread contention
+        const shouldRender = !isScrolling || (++frameSkip % 4 === 0);
+        if (shouldRender) {
+          for (let x = 0; x < resolution; x++) {
+            for (let y = 0; y < resolution; y++) {
+              const noise = simplex.noise3D(
+                x / resolution * aspectMod.x,
+                y / resolution * aspectMod.y,
+                clock / speed
+              );
+              const idx = 4 * (x + y * resolution);
+              data[idx]     = mixed('r', x, y, noise);
+              data[idx + 1] = mixed('g', x, y, noise);
+              data[idx + 2] = mixed('b', x, y, noise);
+              data[idx + 3] = 265 * noise;
+            }
           }
+          clock++;
+          ctx.putImageData(imgdata, 0, 0);
         }
-        clock++;
-        ctx.putImageData(imgdata, 0, 0);
       }
       rafId = requestAnimationFrame(loop);
     }
@@ -201,6 +216,8 @@ const {
       cancelAnimationFrame(rafId);
       io.disconnect();
       ro.disconnect();
+      window.removeEventListener('scroll', onScroll);
+      clearTimeout(scrollTimer);
     }, { once: true });
 
     // Pause when hidden
