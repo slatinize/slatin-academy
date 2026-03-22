@@ -1,8 +1,7 @@
 ---
 /**
  * HeroTwoColumn — Two-column hero matching slatin.pro/microdynamics
- * Left: badge + title with squiggle
- * Right: subtitle + outlined CTA
+ * Badge above grid, title LEFT aligns with subtitle RIGHT at top
  * Background: dark with subtle vertical grid lines
  */
 interface Props {
@@ -16,28 +15,28 @@ interface Props {
 const { badgeText = 'Course', title, subtitle, ctaText, ctaHref = '#pricing' } = Astro.props;
 ---
 
-<section class="relative min-h-[90vh] flex items-end section-dark overflow-hidden pt-28 pb-24">
+<section class="relative flex items-center section-dark overflow-hidden pt-24 pb-10" style="min-height: calc(100vh - 120px);">
   <!-- Grid line pattern overlay -->
   <div class="hero-grid-lines absolute inset-0 z-0"></div>
 
-  <div class="container-content px-6 md:px-12 lg:px-20 relative z-10">
-    <div class="grid md:grid-cols-[1.1fr_1fr] gap-10 lg:gap-20 items-end">
-      <!-- Left column: badge + title -->
+  <div class="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20 relative z-10">
+    {badgeText && (
+      <span class="inline-block bg-accent-red text-white text-sm font-semibold px-5 py-2 rounded-full mb-6">
+        {badgeText}
+      </span>
+    )}
+    <div class="grid md:grid-cols-[1.2fr_1fr] gap-8 lg:gap-16 items-start">
+      <!-- Left column: title -->
       <div>
-        {badgeText && (
-          <span class="inline-block bg-accent-red text-white text-sm font-semibold px-5 py-2 rounded-full mb-8">
-            {badgeText}
-          </span>
-        )}
         <h1 class="text-display leading-[1.05]" set:html={title} />
       </div>
 
       <!-- Right column: subtitle + CTA -->
       {subtitle && (
-        <div class="flex flex-col justify-end pb-2">
+        <div class="flex flex-col justify-start pt-1">
           <p class="text-base md:text-lg text-white leading-relaxed" set:html={subtitle} />
           {ctaText && (
-            <div class="mt-10">
+            <div class="mt-8">
               <a href={ctaHref} class="hero-cta-outline">
                 {ctaText}
               </a>
@@ -54,12 +53,19 @@ const { badgeText = 'Course', title, subtitle, ctaText, ctaHref = '#pricing' } =
     background-image:
       repeating-linear-gradient(
         90deg,
-        rgba(255, 255, 255, 0.07) 0px,
-        rgba(255, 255, 255, 0.07) 1px,
+        rgba(255, 255, 255, 0.1) 0px,
+        rgba(255, 255, 255, 0.1) 1px,
+        transparent 1px,
+        transparent
+      ),
+      repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.06) 0px,
+        rgba(255, 255, 255, 0.06) 1px,
         transparent 1px,
         transparent
       );
-    background-size: calc(100% / 5) 100%;
+    background-size: calc(100% / 5) 100%, 100% calc(100% / 4);
   }
 
   .hero-cta-outline {
