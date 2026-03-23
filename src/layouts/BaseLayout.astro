@@ -37,6 +37,13 @@ const { title, description = 'Premium music education by SLATIN', ogImage } = As
     <Footer />
 
     <script>
+      // Force scroll to top on page load — prevents mobile browsers from
+      // restoring a stale scroll position (especially after redirects)
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      window.scrollTo(0, 0);
+
       // Scroll reveal animation
       const observer = new IntersectionObserver(
         (entries) => {
