@@ -41,7 +41,11 @@
   }
 
   .section-padding {
-    @apply px-6 py-16 md:px-[5%] md:py-24 lg:px-[10%] lg:py-32;
+    @apply px-6 py-10 md:px-[5%] md:py-24 lg:px-[10%] lg:py-32;
+  }
+
+  .section-padding-split {
+    @apply px-6 py-10 md:px-[5%] md:py-20 lg:px-[10%] lg:py-28;
   }
 
   .container-content {

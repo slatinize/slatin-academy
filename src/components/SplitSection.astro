@@ -23,15 +23,15 @@ const isVideoMedia = !!videoSrc;
 {isVideoMedia ? (
   <!-- Full-bleed video split: video fills entire column edge-to-edge -->
   <section class={`${sectionClass} relative overflow-hidden`}>
-    <div class="grid md:grid-cols-2" style="min-height: 550px;">
+    <div class="split-video-grid grid md:grid-cols-2">
       <!-- Text column -->
       <div class={`flex items-center justify-center ${imagePosition === 'left' ? 'order-last' : ''}`}>
-        <div class="px-6 py-16 md:p-[15%] reveal">
+        <div class="px-6 py-10 md:p-[15%] reveal">
           <slot />
         </div>
       </div>
       <!-- Video column — full bleed -->
-      <div class={`relative ${imagePosition === 'left' ? 'order-first' : ''}`}>
+      <div class={`relative min-h-[250px] md:min-h-0 ${imagePosition === 'left' ? 'order-first' : ''}`}>
         <video
           autoplay
           muted
@@ -46,7 +46,7 @@ const isVideoMedia = !!videoSrc;
   </section>
 ) : (
   <!-- Image split: standard layout with padding -->
-  <section class={`${sectionClass} section-padding`}>
+  <section class={`${sectionClass} section-padding-split`}>
     <div class="container-content">
       <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
         <div class="reveal">
@@ -66,3 +66,11 @@ const isVideoMedia = !!videoSrc;
     </div>
   </section>
 )}
+
+<style>
+  @media (min-width: 768px) {
+    .split-video-grid {
+      min-height: 550px;
+    }
+  }
+</style>
