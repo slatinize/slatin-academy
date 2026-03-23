@@ -13,70 +13,384 @@ interface Props {
 const { modules } = Astro.props;
 ---
 
-<section class="bg-cream">
-  <!-- Module cards grid - full width, no padding -->
-  <div class="module-grid" id="module-track">
-    {modules.map((mod) => (
-      <div class="module-card relative overflow-hidden group cursor-pointer">
-        <!-- Background image or dark fallback -->
-        <div class="absolute inset-0 bg-dark-card">
-          {mod.imageSrc && (
-            <img src={mod.imageSrc} alt={mod.title} class="w-full h-full object-cover transition-opacity duration-500" loading="lazy" />
-          )}
-        </div>
-        <!-- Gradient overlay -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-        <!-- Content -->
-        <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-          <h3 class="text-2xl md:text-3xl font-bold text-white leading-tight">{mod.title}</h3>
-          <p class="text-sm text-white/50 mt-2 uppercase tracking-wider">{mod.moduleNumber}</p>
-          <!-- Topics - visible on hover -->
-          {mod.topics && mod.topics.length > 0 && (
-            <ul class="module-topics mt-4 space-y-1">
-              {mod.topics.map((topic) => (
-                <li class="text-sm text-white/80 leading-relaxed">+ {topic}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </div>
-    ))}
+<section class="module-section" id="modules">
+  <div class="module-header">
+    <p class="module-pre">COURSE CURRICULUM</p>
+    <h2 class="module-heading">What You'll <span>Master</span></h2>
+    <p class="module-sub">7 modules · 30+ lessons · Everything you need to nail your low end</p>
   </div>
+
+  <div class="carousel-wrap">
+    <div class="carousel-track" id="module-track">
+      {/* Original set */}
+      {modules.map((mod, i) => {
+        const num = String(i + 1).padStart(2, '0');
+        return (
+          <div class="mc-card" data-idx={i}>
+            <div class="mc-img">
+              {mod.imageSrc && (
+                <img src={mod.imageSrc} alt={mod.title} loading="lazy" />
+              )}
+              <div class="mc-num-badge">{num}</div>
+            </div>
+            <div class="mc-body">
+              <span class="mc-label">{mod.moduleNumber}</span>
+              <h3 class="mc-title">{mod.title}</h3>
+              {mod.topics && mod.topics.length > 0 && (
+                <ul class="mc-topics">
+                  {mod.topics.map((topic) => (
+                    <li>{topic}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        );
+      })}
+      {/* Cloned set (after originals) for infinite loop */}
+      {modules.map((mod, i) => {
+        const num = String(i + 1).padStart(2, '0');
+        return (
+          <div class="mc-card mc-clone" data-idx={i} aria-hidden="true">
+            <div class="mc-img">
+              {mod.imageSrc && (
+                <img src={mod.imageSrc} alt="" loading="lazy" />
+              )}
+              <div class="mc-num-badge">{num}</div>
+            </div>
+            <div class="mc-body">
+              <span class="mc-label">{mod.moduleNumber}</span>
+              <h3 class="mc-title">{mod.title}</h3>
+              {mod.topics && mod.topics.length > 0 && (
+                <ul class="mc-topics">
+                  {mod.topics.map((topic) => (
+                    <li>{topic}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+
 </section>
 
 <style>
-  .module-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 100%;
-  }
-
-  .module-card {
-    aspect-ratio: 4 / 3;
-  }
-
-  .module-topics {
-    max-height: 0;
-    opacity: 0;
+  .module-section {
+    background: rgb(229, 229, 199);
+    padding: 100px 0 80px;
     overflow: hidden;
-    transition: max-height 0.5s ease, opacity 0.4s ease;
   }
 
-  .module-card:hover .module-topics {
-    max-height: 300px;
-    opacity: 1;
+  .module-header {
+    text-align: center;
+    margin-bottom: 56px;
+    padding: 0 24px;
   }
 
+  .module-pre {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #e74c3c;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .module-heading {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+  }
+
+  .module-heading span {
+    color: #e74c3c;
+  }
+
+  .module-sub {
+    font-size: 1rem;
+    color: rgba(26, 26, 26, 0.5);
+    margin: 0 auto;
+    white-space: nowrap;
+  }
+
+  /* Carousel track */
+  .carousel-wrap {
+    position: relative;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 24px;
+    padding: 0 max(24px, calc((100vw - 1200px) / 2 + 24px));
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+  }
+
+  .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Card */
+  .mc-card {
+    flex: 0 0 520px;
+    scroll-snap-align: start;
+    background: #1a1a1a;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    min-height: 280px;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .mc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Image side */
+  .mc-img {
+    width: 200px;
+    min-width: 200px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mc-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .mc-card:hover .mc-img img {
+    transform: scale(1.05);
+  }
+
+  .mc-num-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #e74c3c;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 2rem;
+    font-weight: 800;
+    padding: 8px 16px;
+    border-radius: 12px;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  /* Text side */
+  .mc-body {
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .mc-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #e74c3c;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .mc-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 24px;
+  }
+
+  .mc-topics {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mc-topics li {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.45);
+    padding: 7px 0 7px 16px;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: color 0.2s ease;
+  }
+
+  .mc-topics li:last-child {
+    border-bottom: none;
+  }
+
+  .mc-topics li::before {
+    content: '+';
+    position: absolute;
+    left: 0;
+    color: #e74c3c;
+    font-weight: 700;
+    font-size: 0.82rem;
+  }
+
+  .mc-card:hover .mc-topics li {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+
+  /* Responsive */
   @media (max-width: 768px) {
-    .module-grid {
-      grid-template-columns: 1fr;
+    .module-section {
+      padding: 64px 0 56px;
+    }
+
+    .carousel-track {
+      gap: 16px;
+      padding: 0 20px;
+    }
+
+    .mc-card {
+      flex: 0 0 85vw;
+      flex-direction: column;
+      min-height: auto;
+    }
+
+    .mc-img {
+      width: 100%;
+      min-width: 100%;
+      height: 180px;
+    }
+
+    .mc-body {
+      padding: 22px 20px;
+    }
+
+    .module-header {
+      margin-bottom: 36px;
+    }
+
+    .carousel-controls {
+      margin-top: 28px;
     }
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {
-    .module-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .mc-card {
+      flex: 0 0 440px;
+    }
+
+    .mc-img {
+      width: 170px;
+      min-width: 170px;
     }
   }
 </style>
 
+<script>
+  const track = document.getElementById('module-track');
+
+  if (track) {
+    const totalOriginal = 7;
+    const gap = 24;
+    let autoTimer: ReturnType<typeof setInterval> | undefined;
+    let pauseTimeout: ReturnType<typeof setTimeout> | undefined;
+    let scrollEndTimer: ReturnType<typeof setTimeout> | undefined;
+    let isResetting = false;
+
+    const getCardWidth = () => {
+      const card = track.querySelector('.mc-card');
+      return card ? card.offsetWidth + gap : 520 + gap;
+    };
+
+    // Start at card 01 (scrollLeft = 0)
+    const initPosition = () => {
+      track.style.scrollBehavior = 'auto';
+      track.scrollLeft = 0;
+      requestAnimationFrame(() => {
+        track.style.scrollBehavior = 'smooth';
+      });
+    };
+
+    // After scroll settles, if we've entered the clone zone, jump back to originals
+    const checkReset = () => {
+      if (isResetting) return;
+      const cardWidth = getCardWidth();
+      const clonesStart = totalOriginal * cardWidth;
+
+      if (track.scrollLeft >= clonesStart - cardWidth / 2) {
+        isResetting = true;
+        track.style.scrollBehavior = 'auto';
+        track.scrollLeft -= totalOriginal * cardWidth;
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            track.style.scrollBehavior = 'smooth';
+            isResetting = false;
+          });
+        });
+      }
+    };
+
+    // Scroll one card to the right (left-to-right: 01→02→03...)
+    const autoAdvance = () => {
+      if (isResetting) return;
+      const cardWidth = getCardWidth();
+      track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    };
+
+    const startAuto = () => {
+      stopAuto();
+      autoTimer = setInterval(autoAdvance, 3000);
+    };
+
+    const stopAuto = () => {
+      if (autoTimer) { clearInterval(autoTimer); autoTimer = undefined; }
+    };
+
+    const pauseAuto = () => {
+      stopAuto();
+      if (pauseTimeout) clearTimeout(pauseTimeout);
+      pauseTimeout = setTimeout(startAuto, 5000);
+    };
+
+    // Debounced scroll-end detection
+    track.addEventListener('scroll', () => {
+      if (isResetting) return;
+      if (scrollEndTimer) clearTimeout(scrollEndTimer);
+      scrollEndTimer = setTimeout(checkReset, 200);
+    }, { passive: true });
+
+    track.addEventListener('touchstart', pauseAuto, { passive: true });
+    track.addEventListener('mousedown', pauseAuto, { passive: true });
+    track.addEventListener('wheel', pauseAuto, { passive: true });
+
+    initPosition();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          startAuto();
+        } else {
+          stopAuto();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(track.closest('.module-section')!);
+  }
+</script>

@@ -4,35 +4,103 @@ interface Props {
   imageSrc: string;
   bio: string[];
   variant?: 'dark' | 'cream';
+  bgColor?: string;
+  compact?: boolean;
+  logoSrc?: string;
 }
 
-const { name, imageSrc, bio, variant = 'cream' } = Astro.props;
+const { name, imageSrc, bio, variant = 'cream', bgColor, compact = false, logoSrc } = Astro.props;
 const sectionClass = variant === 'cream' ? 'section-cream' : 'section-dark';
+const paddingClass = compact ? 'px-6 py-8 md:px-[5%] md:py-12 lg:px-[10%] lg:py-16' : 'section-padding';
 ---
 
-<section class={`${sectionClass} section-padding`}>
-  <div class="container-content">
-    <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-      <!-- Photo -->
-      <div class="reveal">
-        <img
-          src={imageSrc}
-          alt={name}
-          class="w-full rounded-xl shadow-2xl"
-          loading="lazy"
-        />
-      </div>
+<section class={`${sectionClass} bio-section`} style={bgColor ? `background-color: ${bgColor}` : undefined}>
+  <div class="bio-layout">
+    <!-- Photo -->
+    <div class="bio-photo reveal">
+      <img
+        src={imageSrc}
+        alt={name}
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+    </div>
 
-      <!-- Bio -->
-      <div class="reveal">
-        <p class="text-sm font-semibold tracking-widest uppercase mb-2 opacity-60">Meet Your Teacher</p>
-        <h2 class="text-4xl md:text-6xl font-extrabold mb-6">{name}</h2>
-        <div class="space-y-4">
-          {bio.map((paragraph) => (
-            <p class={`text-base md:text-lg leading-relaxed ${variant === 'cream' ? 'text-text-dark/80' : 'text-white/70'}`} set:html={paragraph} />
-          ))}
-        </div>
+    <!-- Bio -->
+    <div class="bio-text reveal">
+      <p class="text-base md:text-lg font-semibold tracking-widest uppercase mb-2 opacity-70">Meet Your Teacher</p>
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">{name}</h2>
+      <div class="space-y-4">
+        {bio.map((paragraph) => (
+          <p class={`text-base md:text-lg leading-relaxed ${variant === 'cream' ? 'text-text-dark' : 'text-white/70'}`} set:html={paragraph} />
+        ))}
       </div>
+      {logoSrc && (
+        <div class="mt-8" style="margin-left: -10%; width: 120%;">
+          <img
+            src={logoSrc}
+            alt="Partner logos"
+            class="bio-logos w-full h-auto" style="max-width: none;"
+            loading="lazy"
+          />
+        </div>
+      )}
     </div>
   </div>
 </section>
+
+<style>
+  .bio-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .bio-layout {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .bio-section {
+    overflow: hidden;
+  }
+
+  .bio-photo {
+    min-height: 400px;
+  }
+
+  .bio-photo img {
+    min-height: 400px;
+  }
+
+  @media (min-width: 768px) {
+    .bio-photo {
+      min-height: 100%;
+    }
+    .bio-photo img {
+      min-height: 100%;
+    }
+  }
+
+  .bio-text {
+    padding: 2rem 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .bio-text {
+      padding: 3rem 4rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .bio-text {
+      padding: 4rem 5rem;
+    }
+  }
+
+  .bio-logos {
+    filter: brightness(0);
+    opacity: 0.85;
+  }
+</style>
