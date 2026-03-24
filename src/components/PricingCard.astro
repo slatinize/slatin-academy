@@ -13,20 +13,20 @@ const { title, subtitle, price, features, ctaText, ctaHref } = Astro.props;
 
 <section class="section-dark section-padding" id="pricing">
   <div class="container-content flex justify-center">
-    <div class="w-full max-w-2xl rounded-2xl overflow-hidden reveal">
+    <div class="w-full max-w-2xl rounded-2xl overflow-hidden pricing-reveal">
       <!-- Card with gradient -->
-      <div class="relative bg-gradient-to-br from-dark-card via-accent-red-dark/20 to-dark-card p-10 md:p-14 text-center border border-white/10 rounded-2xl">
+      <div class="pricing-card relative bg-gradient-to-br from-dark-card via-accent-red-dark/20 to-dark-card p-10 md:p-14 text-center border border-white/10 rounded-2xl">
         <!-- Subtle glow -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-accent-red/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="pricing-glow absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-accent-red/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div class="relative z-10">
           {title && <h2 class="text-heading mb-2">{title}</h2>}
           {subtitle && <p class="text-white/60 text-base mb-8 max-w-md mx-auto">{subtitle}</p>}
 
           <!-- Feature list -->
-          <ul class="space-y-3 mb-10 text-left max-w-sm mx-auto">
-            {features.map((feature) => (
-              <li class="flex items-start gap-3 text-white/80">
+          <ul class="pricing-features space-y-3 mb-10 text-left max-w-sm mx-auto">
+            {features.map((feature, i) => (
+              <li class="pricing-feature flex items-start gap-3 text-white/80" style={`--delay: ${i * 0.08}s`}>
                 <span class="text-accent-red mt-0.5">•</span>
                 {feature}
               </li>
@@ -34,12 +34,12 @@ const { title, subtitle, price, features, ctaText, ctaHref } = Astro.props;
           </ul>
 
           <!-- Price -->
-          <p class="text-6xl md:text-7xl font-extrabold text-white mb-8">{price}</p>
+          <p class="pricing-price text-6xl md:text-7xl font-extrabold text-white mb-8">{price}</p>
 
           <!-- CTA -->
           <a
             href={ctaHref}
-            class="btn-primary text-xl px-12 py-5 w-full max-w-md block mx-auto"
+            class="pricing-cta btn-primary text-xl px-12 py-5 w-full max-w-md block mx-auto"
           >
             {ctaText}
           </a>
@@ -48,3 +48,87 @@ const { title, subtitle, price, features, ctaText, ctaHref } = Astro.props;
     </div>
   </div>
 </section>
+
+<style>
+  .pricing-reveal {
+    opacity: 0;
+    transform: scale(0.92) translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .pricing-reveal.is-visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+
+  .pricing-glow {
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 1.2s ease 0.3s, transform 1.2s ease 0.3s;
+  }
+
+  .pricing-reveal.is-visible .pricing-glow {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .pricing-feature {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition-delay: var(--delay);
+  }
+
+  .pricing-reveal.is-visible .pricing-feature {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .pricing-price {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease 0.6s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.6s;
+  }
+
+  .pricing-reveal.is-visible .pricing-price {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .pricing-cta {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease 0.8s, transform 0.5s ease 0.8s;
+  }
+
+  .pricing-reveal.is-visible .pricing-cta {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Subtle pulse on the glow after reveal */
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.1); }
+  }
+
+  .pricing-reveal.is-visible .pricing-glow {
+    animation: glow-pulse 4s ease-in-out 1.5s infinite;
+  }
+</style>
+
+<script>
+  const pricingEl = document.querySelector('.pricing-reveal');
+  if (pricingEl) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          pricingEl.classList.add('is-visible');
+          observer.unobserve(pricingEl);
+        }
+      });
+    }, { threshold: 0.2 });
+    observer.observe(pricingEl);
+  }
+</script>

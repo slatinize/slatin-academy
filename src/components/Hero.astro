@@ -16,7 +16,7 @@ interface Props {
 const { title, subtitle, ctaText, ctaHref = '#pricing', secondaryCtaText, secondaryCtaHref, gradientColor1 = '#ff6363', gradientColor2 = '#ff0008', gradientSpeed = 1300 } = Astro.props;
 ---
 
-<section class="relative min-h-[90vh] flex items-center section-dark overflow-hidden pt-20">
+<section class="relative min-h-screen flex items-center section-dark overflow-hidden pt-20">
   <!-- Animated gradient background -->
   <div class="absolute inset-0 z-0">
     <AnimatedGradient
@@ -28,9 +28,9 @@ const { title, subtitle, ctaText, ctaHref = '#pricing', secondaryCtaText, second
 
   <div class="container-content px-6 md:px-12 lg:px-20 relative z-10">
     {subtitle && (
-      <p class="text-sm md:text-base font-semibold tracking-widest uppercase text-white/60 mb-4">
+      <span class="inline-block text-white font-medium mb-6" style="background: #DD3333; padding: 8.5px 17px; border-radius: 20px; font-size: 17px; letter-spacing: -0.34px; line-height: 17px;">
         Course
-      </p>
+      </span>
     )}
     <h1 class="text-display max-w-4xl" set:html={title} />
     {subtitle && (

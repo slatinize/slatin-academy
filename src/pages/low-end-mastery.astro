@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
+import HeroTwoColumn from '../components/HeroTwoColumn.astro';
+import AnimatedGradient from '../components/AnimatedGradient.astro';
 import SplitSection from '../components/SplitSection.astro';
 import CenteredHeadline from '../components/CenteredHeadline.astro';
 import IconFeatures from '../components/IconFeatures.astro';
@@ -20,14 +21,24 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
   description="Master low-end frequencies, kick and bass relationships, and achieve loud, dynamic mixes that translate everywhere. By SLATIN."
 >
   <!-- 1. Hero -->
-  <Hero
-    title='<span class="squiggle">Low-End</span> Mastery'
-    subtitle="Struggling to get your low end right? From kick and bass chemistry to perfect translation across all playback systems. This course covers the techniques, tools, and ear training you need to achieve punchy, polished low-end mixes."
-    ctaText="Get Full Access"
-    ctaHref="#pricing"
-    secondaryCtaText="See Curriculum"
-    secondaryCtaHref="#modules"
-  />
+  <div class="relative section-dark overflow-hidden" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-bottom: 6vh;">
+    <div class="absolute inset-0 z-0">
+      <AnimatedGradient color1="#ff6363" color2="#ff0008" speed={1300} />
+    </div>
+    <div class="relative z-10">
+      <HeroTwoColumn
+        badgeText="Course"
+        title='Low-End<br><span class="squiggle">Mastery</span>'
+        subtitle='<span style="font-size: 1.25rem; line-height: 1.6;"><strong>Struggling to get your low end right?</strong> From kick and bass chemistry to perfect translation across all systems...</span><br><br><span style="font-size: 1.05rem; line-height: 1.6; opacity: 0.8;">Acquire the techniques, tools, and ear training you need to achieve punchy, polished low-end mixes.</span>'
+        ctaText="Get Full Access"
+        ctaHref="#pricing"
+        secondaryCtaText="See Curriculum"
+        secondaryCtaHref="#modules"
+      />
+    </div>
+  </div>
+
+  <div class="section-dark" style="height: 3.45rem;"></div>
 
   <!-- 2. "Get Real Loud" -->
   <SplitSection
@@ -37,18 +48,18 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
     imageAlt="StandardCLIP plugin interface for loudness"
   >
     <h2 class="text-heading mb-6">
-      Get Real <span class="squiggle">Loud</span> 🧨
+      Get Real <span class="squiggle">Loud</span>
     </h2>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
-      Struggling to hit your target LUFS levels?
+      Can't hit your target LUFS without destroying your dynamics?
     </p>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
-      In most cases, it is a <strong class="text-white">low-end issue</strong>.
+      In most cases, it is a <strong class="text-white">low-end issue.</strong>
     </p>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
-      Throughout this course, I will show you what it takes to achieve loud, dynamic mixes.
+      In this course, I'll show you exactly what it takes to achieve loud, punchy mixes that still breathe.
     </p>
-    <p class="text-xl md:text-2xl font-bold text-accent-red">
+    <p class="text-base md:text-lg font-bold text-accent-red">
       And it is much more than clipping and limiting... 😏
     </p>
   </SplitSection>
@@ -61,7 +72,7 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
     imageAlt="Sidechain compression and kick bass mixing"
   >
     <h2 class="text-heading mb-6">
-      Nail Your <span class="squiggle">Kick & Bass</span> 💯
+      Nail Your <span class="squiggle">Kick & Bass</span>
     </h2>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
       You probably already use sidechain.
@@ -73,10 +84,10 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
       Sidechain is not enough... 🫣
     </p>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
-      ...when looking for that spotless Kick & Bass relationship.
+      ...when you're chasing that tight, punchy Kick & Bass relationship that pros obsess over.
     </p>
     <p class="text-base md:text-lg text-white font-semibold leading-relaxed">
-      I'll walk you through the exact process.
+      I'll walk you through the exact process I use on every project.
     </p>
   </SplitSection>
 
@@ -88,19 +99,19 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
     imageAlt="Tonal balance comparison between tracks"
   >
     <h2 class="text-heading mb-6">
-      Perfect <span class="squiggle">Translation</span> 🔊
+      Perfect <span class="squiggle">Translation</span>
     </h2>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
-      It sounds good in the Studio but a <strong class="text-white">disaster in the Car or Club</strong>? 🙉
+      Sounds great in the studio but a <strong class="text-white">disaster in the car or club?</strong> 🙉
     </p>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
-      Discover the <strong class="text-accent-red">3 keys to flawless Low-End Translation</strong>.
+      Discover the <strong class="text-accent-red">3 keys to flawless low-end translation.</strong>
     </p>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
-      Make your song bang and your clients happy!
+      Make your tracks hit hard on every system and keep your clients coming back.
     </p>
     <p class="text-base md:text-lg text-white/70 leading-relaxed">
-      + Save your precious time on revisions...
+      + Stop wasting hours on revision after revision...
     </p>
   </SplitSection>
 
@@ -112,46 +123,51 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
     imageAlt="Mono-compatible wide bass techniques"
   >
     <h2 class="text-heading mb-6">
-      Mono and <span class="squiggle">Wide</span> 🤯
+      Mono and <span class="squiggle">Wide</span>
     </h2>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
-      If you think that mono-compatible wide bass is impossible to achieve, <strong class="text-white">you are very wrong!</strong>
+      Think mono-compatible wide bass is impossible? <strong class="text-white">Think again.</strong>
     </p>
     <p class="text-base md:text-lg text-white/70 leading-relaxed">
-      Uncover the techniques that pro sound designers use to create <strong class="text-accent-red">powerful, wide, and fully mono-compatible</strong> basslines.
+      Learn the exact techniques top sound designers use to craft <strong class="text-accent-red">powerful, wide, and fully mono-compatible</strong> basslines.
     </p>
   </SplitSection>
 
-  <!-- 7. Centered headline -->
-  <CenteredHeadline preTitle="+ 400 HAPPY STUDENTS ⭐️⭐️⭐️⭐️⭐️" variant="cream">
-    Master the <span class="text-accent-red">low-end frequencies</span> that separate amateur mixes from professional releases. Achieve <span class="text-accent-red">powerful, hard-hitting</span>, and perfectly translated mixes every time.
-  </CenteredHeadline>
+  <div class="section-dark" style="height: 3.3rem;"></div>
 
-  <!-- 8. "Does this sound familiar?" -->
-  <IconFeatures
-    sectionTitle="Does this sound familiar?"
-    subtitle="These are common signs of low-end problems in your mixes:"
-    variant="cream"
-    features={[
-      {
-        title: "",
-        description: "Your mixes sound muddy or thin, and the low end never seems to sit right no matter what you try.",
-      },
-      {
-        title: "",
-        description: "Your tracks sound great in your studio but fall apart on other playback systems: car, club, or phone.",
-      },
-      {
-        title: "",
-        description: "You can't seem to get your masters loud enough without the low end distorting or losing punch.",
-      },
-    ]}
-  />
+  <!-- 7. Headline + Pain Points (Option B) -->
+  <section class="section-cream section-padding" style="padding-bottom: 1.5rem;">
+    <div class="container-content">
+      <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+        <div class="reveal">
+          <span class="inline-block text-white font-medium mb-6" style="background: #DD3333; padding: 10px 20px; border-radius: 20px; font-size: 15px; letter-spacing: -0.3px; line-height: 15px;">+ 400 Happy Students ⭐️⭐️⭐️⭐️⭐️</span>
+          <h2 class="text-heading">
+            Your low end is the foundation, <span class="text-accent-red">everything else follows.</span>
+          </h2>
+        </div>
+        <div class="flex flex-col gap-8 reveal">
+          <div class="flex gap-5 items-start">
+            <span class="text-4xl md:text-5xl font-extrabold text-accent-red leading-none min-w-[55px]">01</span>
+            <p class="text-lg md:text-xl leading-relaxed opacity-80">Mixes sound <strong>muddy or thin</strong> and the low end never sits right, no matter what you try.</p>
+          </div>
+          <div class="flex gap-5 items-start">
+            <span class="text-4xl md:text-5xl font-extrabold text-accent-red leading-none min-w-[55px]">02</span>
+            <p class="text-lg md:text-xl leading-relaxed opacity-80">Tracks sound great in the studio but <strong>fall apart</strong> on other systems: car, club, or phone.</p>
+          </div>
+          <div class="flex gap-5 items-start">
+            <span class="text-4xl md:text-5xl font-extrabold text-accent-red leading-none min-w-[55px]">03</span>
+            <p class="text-lg md:text-xl leading-relaxed opacity-80">Can't get masters <strong>loud enough</strong> without the low end distorting or losing punch.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- 9. What You Will Master (2x2 grid) -->
+  <div style="margin-top: -3rem; padding-bottom: 2.5rem;">
   <FeatureGrid
     subtitle="WHAT YOU WILL MASTER"
-    variant="dark"
+    variant="cream"
     columns={2}
     features={[
       {
@@ -176,11 +192,12 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
       },
     ]}
   />
+  </div>
 
   <!-- 10. "This course is ideal if you" numbered list -->
   <NumberedList
     title="This course is ideal if you"
-    variant="cream"
+    variant="dark"
     imageSrc="https://uploads.teachablecdn.com/attachments/iduxgXajRo6h1LaC7Ahw_dQUY9H3oZvvbU7wsrJUyyvruMXwsYj8G2SdTfqv3+copy.jpg"
     items={[
       {
@@ -199,7 +216,9 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
   />
 
   <!-- 11. Testimonials -->
+  <div style="margin-top: -4rem; padding-bottom: 2rem;">
   <TestimonialCarousel testimonials={testimonials} />
+  </div>
 
   <!-- 12. Module Carousel -->
   <ModuleCarousel modules={modules} />
@@ -207,7 +226,7 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
   <!-- 13. Teacher Bio -->
   <TeacherBio
     name="SLATIN"
-    imageSrc="https://www.slatin.pro/wp-content/uploads/2025/04/Slatin_Microdynamics.jpg"
+    imageSrc="/images/slatin-sofa.jpg"
     variant="cream"
     bgColor="#d9d4ab"
     compact
@@ -221,14 +240,15 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
   />
 
   <!-- 14. "Save Your Time" -->
+  <div class="section-dark" style="height: 2rem;"></div>
   <SplitSection
     variant="dark"
-    imagePosition="left"
+    imagePosition="right"
     imageSrc="https://uploads.teachablecdn.com/attachments/iduxgXajRo6h1LaC7Ahw_dQUY9H3oZvvbU7wsrJUyyvruMXwsYj8G2SdTfqv3+copy.jpg"
     imageAlt="Kick frequency analysis and sound selection"
   >
     <h2 class="text-heading mb-6">
-      Save Your <span class="squiggle">Time</span> ⏱
+      Save Your <span class="squiggle">Time</span>
     </h2>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
       Sound Selection is <strong class="text-white">KEY</strong> 🔑
@@ -242,7 +262,7 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
   </SplitSection>
 
   <!-- 16. "Multiple Genres" -->
-  <div style="margin-top: -5rem;">
+  <div style="margin-top: -2.5rem;">
   <SplitSection
     variant="dark"
     imagePosition="left"
@@ -250,7 +270,7 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
     imageAlt="Multiple genre examples in DAW"
   >
     <h2 class="text-heading mb-6">
-      <span class="squiggle">Multiple Genres</span> 🥁
+      <span class="squiggle">Multiple Genres</span>
     </h2>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
       Each genre has its unique way of addressing low-end frequencies.
@@ -270,9 +290,10 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
     imagePosition="right"
     imageSrc="https://uploads.teachablecdn.com/attachments/Es8zQjMTzmUufKqvzLXF_ezgif.com-optimize2.gif"
     imageAlt="SLATIN Academy private community"
+    alignTop
   >
     <h2 class="text-heading mb-6">
-      Private <span class="squiggle">Community</span> 💬
+      Private <span class="squiggle">Community</span>
     </h2>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
       This is not your average video course...

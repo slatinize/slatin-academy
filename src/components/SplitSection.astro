@@ -5,6 +5,7 @@ interface Props {
   imageSrc?: string;
   imageAlt?: string;
   videoSrc?: string;
+  alignTop?: boolean;
 }
 
 const {
@@ -13,6 +14,7 @@ const {
   imageSrc,
   imageAlt = '',
   videoSrc,
+  alignTop = false,
 } = Astro.props;
 
 const sectionClass = variant === 'cream' ? 'section-cream' : 'section-dark';
@@ -48,7 +50,7 @@ const isVideoMedia = !!videoSrc;
   <!-- Image split: standard layout with padding -->
   <section class={`${sectionClass} section-padding-split`}>
     <div class="container-content">
-      <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+      <div class={`grid md:grid-cols-2 gap-10 md:gap-16 ${alignTop ? 'items-start' : 'items-center'}`}>
         <div class="reveal">
           <slot />
         </div>

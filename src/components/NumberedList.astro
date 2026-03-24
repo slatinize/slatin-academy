@@ -16,7 +16,7 @@ const sectionClass = variant === 'cream' ? 'section-cream' : 'section-dark';
 const numColor = variant === 'cream' ? 'text-accent-orange/50' : 'text-accent-red/40';
 ---
 
-<section class={`${sectionClass} section-padding`}>
+<section class={`${sectionClass}`} style="padding: 3.5rem 5%; ">
   <div class="container-content">
     {title && <h2 class="text-heading text-center mb-12 reveal">{title}</h2>}
     <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
@@ -24,8 +24,8 @@ const numColor = variant === 'cream' ? 'text-accent-orange/50' : 'text-accent-re
         <div class="space-y-8">
           {items.map((item) => (
             <div class="flex gap-5 items-start">
-              <span class={`text-5xl md:text-6xl font-extrabold ${numColor} leading-none`}>{item.number}</span>
-              <p class={`text-base md:text-lg leading-relaxed pt-2 ${variant === 'cream' ? 'text-text-dark/80' : 'text-white/70'}`} set:html={item.text} />
+              <span class={`text-5xl md:text-[4rem] font-extrabold ${numColor} leading-none`}>{item.number}</span>
+              <p class={`text-base md:text-[1.2rem] leading-relaxed pt-2 ${variant === 'cream' ? 'text-text-dark/80' : 'text-white/70'}`} set:html={item.text} />
             </div>
           ))}
         </div>
