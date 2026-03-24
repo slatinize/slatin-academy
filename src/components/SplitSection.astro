@@ -55,11 +55,11 @@ const isVideoMedia = !!videoSrc;
           <slot />
         </div>
         {imageSrc && (
-          <div class={`${imagePosition === 'left' ? 'order-first' : ''} reveal`}>
+          <div class={`${imagePosition === 'left' ? 'order-first' : ''} reveal split-img-wrap`}>
             <img
               src={imageSrc}
               alt={imageAlt}
-              class="w-full rounded-xl shadow-2xl"
+              class="split-img rounded-xl shadow-2xl"
               loading="lazy"
             />
           </div>
@@ -70,6 +70,24 @@ const isVideoMedia = !!videoSrc;
 )}
 
 <style>
+  .split-img-wrap {
+    overflow: hidden;
+    border-radius: 0.75rem;
+  }
+
+  .split-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  @media (min-width: 768px) {
+    .split-img {
+      height: 330px;
+    }
+  }
+
   @media (min-width: 768px) {
     .split-video-grid {
       min-height: 550px;
