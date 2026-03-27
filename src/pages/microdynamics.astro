@@ -34,8 +34,10 @@ import { testimonials, modules, faqItems } from '../data/microdynamics';
       badgeText="Course"
       title='Advanced <span class="squiggle">Microdynamics</span>'
       subtitle="<strong>As an experienced Producer or Mixing Engineer, you've likely mastered EQ, compression and spatial effects...</strong><br><br><span style='font-size: 0.85em; opacity: 0.75;'>Yet, there's a critical aspect many talented professionals overlook: Microdynamics.</span>"
-      secondaryCtaText="Learn All About It"
-      secondaryCtaHref="#pricing"
+      ctaText="Get Full Access"
+      ctaHref="#pricing"
+      secondaryCtaText="See Curriculum"
+      secondaryCtaHref="#modules"
       titleSize="clamp(3rem, 6vw, 6.5rem)"
       subtitleSize="text-lg md:text-xl"
       badgeTopMargin="0"
@@ -57,7 +59,10 @@ import { testimonials, modules, faqItems } from '../data/microdynamics';
       Consider this: <strong>90% of today's hit records</strong> are surprisingly simple arrangements!
     </p>
     <p class="text-white font-medium mb-4" style="font-size: 21px; line-height: 25px;">
-      They don't rely on countless layers to sound impressive.<br>So, what separates these <strong>top-tier mixes</strong> from amateur productions? 🤔
+      They don't rely on countless layers to sound impressive.
+    </p>
+    <p class="text-white font-medium mb-4" style="font-size: 21px; line-height: 25px;">
+      So, what separates these <strong>top-tier mixes</strong> from amateur productions? 🤔
     </p>
     <p class="text-white font-medium" style="font-size: 21px; line-height: 24px;">
       → <strong>Microdynamics</strong> 🏆
@@ -71,23 +76,25 @@ import { testimonials, modules, faqItems } from '../data/microdynamics';
     videoSrc="https://www.slatin.pro/wp-content/uploads/2025/05/3D_OzoneMultiband_resized.mp4"
   >
     <p class="text-white font-medium mb-4" style="font-size: 21px; line-height: 25px;">
-      Microdynamic control is the precise management of <strong>transients and bodies</strong> across the entire frequency range
+      Microdynamic control is the precise management of <strong>transients and bodies</strong> across the entire frequency range.
     </p>
     <p class="text-white font-medium mb-4" style="font-size: 21px; line-height: 25px;">
-      + subtle <strong>dynamic variations</strong> within individual sounds ☝️
+      + Subtle <strong>dynamic variations</strong> within individual sounds ☝️
     </p>
     <p class="text-white font-medium" style="font-size: 21px; line-height: 25px;">
-      And THIS is the least-discussed secret to achieving <strong>clarity, depth, and precise sonic definition</strong> in professional mixes 🔑
+      And THIS is the least-discussed secret to achieving <strong>clarity, depth, and precise sonic definition</strong> in professional mixes 💡
     </p>
   </SplitSection>
 
   <!-- 5. Centered headline -->
-  <CenteredHeadline preTitle="THE HIDDEN KEY TO SONIC EXCELLENCE" variant="cream">
-    <span style="font-weight: 600;">The effective use of <span class="text-accent-red">Microdynamics</span> is what allows simple arrangements to captivate listeners, <span class="text-accent-red">sound polished</span> and translate flawlessly across all playback systems.</span>
-  </CenteredHeadline>
+  <div style="margin-top: -2rem; margin-bottom: -5rem;">
+    <CenteredHeadline preTitle="THE HIDDEN KEY TO SONIC EXCELLENCE" variant="cream">
+      <span style="font-weight: 600;"><span class="text-accent-red">Microdynamics</span> is what makes simple arrangements <span class="text-accent-red">sound polished</span>, captivating and flawless on every system.</span>
+    </CenteredHeadline>
+  </div>
 
   <!-- Thin divider -->
-  <div class="section-cream" style="padding: 1.5rem 10%; margin-top: -4rem; margin-bottom: -4rem; position: relative; z-index: 1;">
+  <div class="section-cream" style="padding: 1.5rem 10%; margin-top: -4rem; margin-bottom: -6rem; position: relative; z-index: 1;">
     <hr style="border: none; border-top: 1px solid rgba(0,0,0,0.15); margin: 0;" />
   </div>
 
@@ -99,15 +106,15 @@ import { testimonials, modules, faqItems } from '../data/microdynamics';
     features={[
       {
         title: "",
-        description: 'Your tracks sound "good," but not quite "finished" or world-class. Something is missing.',
+        description: 'Your tracks sound "good", but not quite <strong>"finished"</strong> or world-class. Something is <strong>missing</strong>.',
       },
       {
         title: "",
-        description: "You layer a ton of elements to ensure your music is dynamic and engaging.",
+        description: 'You layer <strong>a ton of elements</strong> to ensure your music is dynamic and engaging.',
       },
       {
         title: "",
-        description: "Your mixes have great balance, but you struggle to achieve loud and dynamic masters.",
+        description: 'Your mixes have great balance, but you struggle to achieve <strong>loud and dynamic</strong> masters.',
       },
     ]}
   />
@@ -119,22 +126,24 @@ import { testimonials, modules, faqItems } from '../data/microdynamics';
     columns={2}
     features={[
       {
-        iconSrc: "https://www.slatin.pro/wp-content/uploads/2025/05/Ellipse-6-150x150.png",
+        iconSrc: "/images/eq-microdynamics.png",
+        iconStyle: "object-position: calc(50% - 2px) center;",
         title: "Advanced Microdynamic Processing",
-        description: 'Achieve sonic precision through transient shaping, transparent "resonant body" band-focused compression, parallel dynamics, and mid-side processing.',
+        description: 'Achieve sonic precision through transient shaping, transparent "resonant body" band-focused compression, parallel dynamics and mid-side processing.',
       },
       {
-        iconSrc: "https://www.slatin.pro/wp-content/uploads/2025/05/Ellipse-5-150x150.png",
+        iconSrc: "/images/Ellipse-5-150x150.png",
         title: 'Get That "Analog" Sound fully ITB',
-        description: 'Most top engineers work fully in the box – no outboard gear. So how do they get that "analog" feel? By understanding the microdynamic variations that analog gear adds – and knowing how to recreate them.',
+        description: 'Most top engineers work fully in the box, no outboard gear. So how do they get that "analog" feel? By understanding the microdynamic variations that analog gear adds and knowing how to recreate them.',
       },
       {
-        iconSrc: "https://www.slatin.pro/wp-content/uploads/2025/05/Ellipse-4-150x150.png",
+        iconSrc: "/images/mastering-detail.png",
+        iconStyle: "object-position: center calc(50% + 0.25px);",
         title: "Mastering-Level Detail",
         description: "Deliver polished and LOUD songs through advanced mastering techniques, preserving and enhancing dynamic integrity.",
       },
       {
-        iconSrc: "https://www.slatin.pro/wp-content/uploads/2025/05/Ellipse-3-150x150.png",
+        iconSrc: "/images/Ellipse-3-150x150.png",
         title: "Critical Listening and Analysis",
         description: "Sharpen your ability to identify and rectify subtle microdynamic issues, ensuring professional results every time.",
       },
@@ -149,7 +158,7 @@ import { testimonials, modules, faqItems } from '../data/microdynamics';
     items={[
       {
         number: "01",
-        text: "Are already comfortable with mixing fundamentals and want the <strong>next-level refinement</strong> that distinguishes professional mixes.",
+        text: "Are comfortable with mixing fundamentals and want the <strong>next-level refinement</strong> that sets professional mixes apart.",
       },
       {
         number: "02",
@@ -157,7 +166,7 @@ import { testimonials, modules, faqItems } from '../data/microdynamics';
       },
       {
         number: "03",
-        text: "Want <strong>advanced techniques</strong>, demonstrated clearly, without fluff or filler.",
+        text: "Want <strong>advanced techniques</strong> demonstrated clearly without fluff or filler.",
       },
     ]}
   />
@@ -166,7 +175,7 @@ import { testimonials, modules, faqItems } from '../data/microdynamics';
   <TestimonialCarousel testimonials={testimonials} />
 
   <!-- 10. Module Carousel -->
-  <ModuleCarousel modules={modules} />
+  <ModuleCarousel modules={modules} subtitle="6 modules · 15+ lessons · Everything you need to master microdynamics" />
 
   <!-- 11. Teacher Bio -->
   <TeacherBio
@@ -190,11 +199,11 @@ import { testimonials, modules, faqItems } from '../data/microdynamics';
     imagePosition="left"
     videoSrc="https://www.slatin.pro/wp-content/uploads/2025/05/V4_Multiplicity_resized-1.mp4"
   >
-    <h2 class="text-heading mb-6">
+    <h2 class="text-heading mb-8">
       <span class="squiggle">+4 Hours</span>, All Value
     </h2>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
-      <strong class="text-white">Practical lessons</strong> divided into short (2–15 min) videos you can actually use in your sessions.
+      <strong class="text-white">Practical lessons</strong> divided into short (2-15 min) videos you can actually use in your sessions.
     </p>
     <p class="text-base md:text-lg text-white/70 leading-relaxed">
       Whether you're brushing up on fundamentals or tightening your workflow, it's solid info you'll go back to <strong class="text-white">more than once</strong>.
@@ -207,15 +216,16 @@ import { testimonials, modules, faqItems } from '../data/microdynamics';
     imagePosition="right"
     imageSrc="https://www.slatin.pro/wp-content/uploads/2025/04/AnityEUl6LpfPozJvQCWwv4KvOgMI0IuVuzqFXS6-1-1024x462.webp"
     imageAlt="SLATIN Academy community video call"
+    fullBleed={true}
   >
-    <h2 class="text-heading mb-6">
+    <h2 class="text-heading mb-8">
       <span class="squiggle">Much More</span> than a Simple Course
     </h2>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
-      What sets our programs apart? The <strong class="text-white">built-in community</strong>.
+      What sets our programs apart? The <strong class="text-white">built-in community</strong> 🤝
     </p>
     <p class="text-base md:text-lg text-white/70 leading-relaxed">
-      With exclusive access to our <strong class="text-white">private Discord</strong>, you're not just learning – you're connecting with other engineers, getting feedback, and growing together at your own pace.
+      With exclusive access to our <strong class="text-white">private Discord</strong>, you're not just learning, you're connecting with other engineers, getting feedback and growing together at your own pace.
     </p>
   </SplitSection>
 
@@ -225,11 +235,11 @@ import { testimonials, modules, faqItems } from '../data/microdynamics';
     imagePosition="left"
     videoSrc="https://www.slatin.pro/wp-content/uploads/2025/05/3D_OzoneMultiband_resized.mp4"
   >
-    <h2 class="text-heading mb-6">
-      <span class="squiggle italic">Multiple Genres</span>
+    <h2 class="text-heading mb-8">
+      <span class="squiggle">Multiple Genres</span>
     </h2>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
-      From Pop & Rock to House, Techno, and Latin – everything we teach applies to <strong class="text-white">Real-World projects</strong>.
+      From Pop & Rock to House, Techno and Latin, everything we teach applies to <strong class="text-white">Real-World projects</strong> 🎵
     </p>
     <p class="text-base md:text-lg text-white/70 leading-relaxed">
       Only the latest techniques and <strong class="text-white">up-to-date</strong> plugins, always grounded in practical examples.
@@ -244,7 +254,7 @@ import { testimonials, modules, faqItems } from '../data/microdynamics';
 
   <!-- 17. Pricing -->
   <PricingCard
-    subtitle="Elevate your production, mixing, and mastering skills through deep understanding of microdynamics."
+    subtitle="Elevate your <strong class='text-white'>production, mixing and mastering</strong> skills through deep understanding of microdynamics."
     price="149€"
     features={[
       "Access to The Course (+4h)",
@@ -259,7 +269,9 @@ import { testimonials, modules, faqItems } from '../data/microdynamics';
   />
 
   <!-- 18. FAQ -->
+  <div style="margin-top: -7rem;">
   <FAQ items={faqItems} />
+  </div>
 
   </div>
 </BaseLayout>

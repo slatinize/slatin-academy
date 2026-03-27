@@ -2,6 +2,8 @@
 interface Feature {
   icon?: string;
   iconSrc?: string;
+  iconClass?: string;
+  iconStyle?: string;
   title: string;
   description: string;
 }
@@ -35,7 +37,7 @@ const cardBg = variant === 'dark' ? 'border border-white/10 bg-dark-card' : 'bg-
       {features.map((feature) => (
         <div class={`${cardBg} rounded-xl p-8 md:p-10 reveal`}>
           {feature.iconSrc && (
-            <img src={feature.iconSrc} alt="" class="w-14 h-14 rounded-full mb-5 object-cover" loading="lazy" />
+            <img src={feature.iconSrc} alt="" class={`${feature.iconClass || 'w-14 h-14'} rounded-full mb-5 object-cover`} style={feature.iconStyle || ''} loading="lazy" />
           )}
           {feature.icon && !feature.iconSrc && (
             <div class="w-14 h-14 rounded-full bg-accent-red/20 flex items-center justify-center mb-5">

@@ -10,16 +10,17 @@ interface Module {
 
 interface Props {
   modules: Module[];
+  subtitle?: string;
 }
 
-const { modules } = Astro.props;
+const { modules, subtitle } = Astro.props;
 ---
 
 <section class="module-section" id="modules">
   <div class="module-header">
     <p class="module-pre">COURSE CURRICULUM</p>
     <h2 class="module-heading">What You'll <span>Master</span></h2>
-    <p class="module-sub">7 modules · 30+ lessons · Everything you need to nail your low end</p>
+    {subtitle && <p class="module-sub">{subtitle}</p>}
   </div>
 
   <div class="carousel-wrap">
@@ -309,7 +310,7 @@ const { modules } = Astro.props;
   const track = document.getElementById('module-track');
 
   if (track) {
-    const totalOriginal = 7;
+    const totalOriginal = track.querySelectorAll('.mc-card:not(.mc-clone)').length;
     const gap = 24;
     let autoTimer: ReturnType<typeof setInterval> | undefined;
     let pauseTimeout: ReturnType<typeof setTimeout> | undefined;

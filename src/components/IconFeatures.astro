@@ -15,7 +15,7 @@ const { sectionTitle, subtitle, features, variant = 'cream' } = Astro.props;
 const sectionClass = variant === 'cream' ? 'section-cream' : 'section-dark';
 ---
 
-<section class={`${sectionClass} section-padding`} style="padding-bottom: 3rem;">
+<section class={`${sectionClass} section-padding`} style="padding-bottom: 4.5rem;">
   <div class="container-content">
     <div class="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-16 items-start">
       <!-- Left heading -->
@@ -38,7 +38,7 @@ const sectionClass = variant === 'cream' ? 'section-cream' : 'section-dark';
               </svg>
             </div>
             <p class={`text-base md:text-lg leading-relaxed ${variant === 'cream' ? 'text-text-dark/80' : 'text-white/70'}`}>
-              {feature.description}
+              <Fragment set:html={feature.description} />
             </p>
           </div>
         ))}

@@ -6,6 +6,7 @@ interface Props {
   imageAlt?: string;
   videoSrc?: string;
   alignTop?: boolean;
+  fullBleed?: boolean;
 }
 
 const {
@@ -15,15 +16,17 @@ const {
   imageAlt = '',
   videoSrc,
   alignTop = false,
+  fullBleed = false,
 } = Astro.props;
 
 const sectionClass = variant === 'cream' ? 'section-cream' : 'section-dark';
 const hasMedia = imageSrc || videoSrc;
 const isVideoMedia = !!videoSrc;
+const useFullBleed = isVideoMedia || fullBleed;
 ---
 
-{isVideoMedia ? (
-  <!-- Full-bleed video split: video fills entire column edge-to-edge -->
+{useFullBleed ? (
+  <!-- Full-bleed split: media fills entire column edge-to-edge -->
   <section class={`${sectionClass} relative overflow-hidden`}>
     <div class="split-video-grid grid md:grid-cols-2">
       <!-- Text column -->
@@ -32,17 +35,26 @@ const isVideoMedia = !!videoSrc;
           <slot />
         </div>
       </div>
-      <!-- Video column — full bleed -->
+      <!-- Media column — full bleed -->
       <div class={`relative min-h-[250px] md:min-h-0 ${imagePosition === 'left' ? 'order-first' : ''}`}>
-        <video
-          autoplay
-          muted
-          loop
-          playsinline
-          class="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src={videoSrc} type="video/mp4" />
-        </video>
+        {isVideoMedia ? (
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            class="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src={videoSrc} type="video/mp4" />
+          </video>
+        ) : (
+          <img
+            src={imageSrc}
+            alt={imageAlt}
+            class="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+          />
+        )}
       </div>
     </div>
   </section>

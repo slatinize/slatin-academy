@@ -13,12 +13,13 @@ import TeacherBio from '../components/TeacherBio.astro';
 import LogoBar from '../components/LogoBar.astro';
 import PricingCard from '../components/PricingCard.astro';
 import FAQ from '../components/FAQ.astro';
+import FullWidthImage from '../components/FullWidthImage.astro';
 import { testimonials, modules, faqItems } from '../data/low-end-mastery';
 ---
 
 <BaseLayout
   title="Low End Mastery - Kick & Bass Mixing Course"
-  description="Master low-end frequencies, kick and bass relationships, and achieve loud, dynamic mixes that translate everywhere. By SLATIN."
+  description="Master low-end frequencies, kick and bass relationships and achieve loud, dynamic mixes that translate everywhere. By SLATIN."
 >
   <!-- 1. Hero -->
   <div class="relative section-dark overflow-hidden" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-bottom: 6vh;">
@@ -29,11 +30,12 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
       <HeroTwoColumn
         badgeText="Course"
         title='Low-End<br><span class="squiggle">Mastery</span>'
-        subtitle='<span style="font-size: 1.25rem; line-height: 1.6;"><strong>Struggling to get your low end right?</strong> From kick and bass chemistry to perfect translation across all systems...</span><br><br><span style="font-size: 1.05rem; line-height: 1.6; opacity: 0.8;">Acquire the techniques, tools, and ear training you need to achieve punchy, polished low-end mixes.</span>'
+        subtitle='<span style="font-size: 1.25rem; line-height: 1.6;"><strong>Struggling to get your low end right? From kick and bass chemistry to perfect translation across all systems...</strong></span><br><br><span style="font-size: 1.05rem; line-height: 1.6; opacity: 0.8;">Acquire the techniques, tools and ear training you need to achieve punchy, polished low-end mixes.</span>'
         ctaText="Get Full Access"
         ctaHref="#pricing"
         secondaryCtaText="See Curriculum"
         secondaryCtaHref="#modules"
+        fullHeight
       />
     </div>
   </div>
@@ -47,7 +49,7 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
     imageSrc="https://uploads.teachablecdn.com/attachments/BauKxvLpQYqLoxR7j01z_low+end+1+copy.jpg"
     imageAlt="StandardCLIP plugin interface for loudness"
   >
-    <h2 class="text-heading mb-6">
+    <h2 class="text-heading mb-8">
       Get Real <span class="squiggle">Loud</span>
     </h2>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
@@ -72,7 +74,7 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
     imageSrc="https://uploads.teachablecdn.com/attachments/mQyIVU7NQEbQB6k6p4kA_sidechain.jpg"
     imageAlt="Sidechain compression and kick bass mixing"
   >
-    <h2 class="text-heading mb-6">
+    <h2 class="text-heading mb-8">
       Nail Your <span class="squiggle">Kick & Bass</span>
     </h2>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
@@ -100,7 +102,7 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
     imageSrc="https://uploads.teachablecdn.com/attachments/5LOiP0Txl2oQno23I0gW_low+end.jpg"
     imageAlt="Tonal balance comparison between tracks"
   >
-    <h2 class="text-heading mb-6">
+    <h2 class="text-heading mb-8">
       Perfect <span class="squiggle">Translation</span>
     </h2>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
@@ -125,14 +127,14 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
     imageSrc="https://uploads.teachablecdn.com/attachments/9GER2ESQpyYJYAdxuM3v_mono.jpg"
     imageAlt="Mono-compatible wide bass techniques"
   >
-    <h2 class="text-heading mb-6">
+    <h2 class="text-heading mb-8">
       Mono and <span class="squiggle">Wide</span>
     </h2>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
       Think mono-compatible wide bass is impossible? <strong class="text-white">Think again.</strong>
     </p>
     <p class="text-base md:text-lg text-white/70 leading-relaxed">
-      Learn the exact techniques top sound designers use to craft <strong class="text-accent-red">powerful, wide, and fully mono-compatible</strong> basslines.
+      Learn the exact techniques top sound designers use to craft <strong class="text-accent-red">powerful, wide and fully mono-compatible</strong> basslines.
     </p>
   </SplitSection>
 
@@ -149,15 +151,15 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
           </h2>
         </div>
         <div class="flex flex-col gap-8 reveal">
-          <div class="flex gap-5 items-start">
+          <div class="flex gap-5 items-center">
             <span class="text-4xl md:text-5xl font-extrabold text-accent-red leading-none min-w-[55px]">01</span>
             <p class="text-lg md:text-xl leading-relaxed opacity-80">Mixes sound <strong>muddy or thin</strong> and the low end never sits right, no matter what you try.</p>
           </div>
-          <div class="flex gap-5 items-start">
+          <div class="flex gap-5 items-center">
             <span class="text-4xl md:text-5xl font-extrabold text-accent-red leading-none min-w-[55px]">02</span>
-            <p class="text-lg md:text-xl leading-relaxed opacity-80">Tracks sound great in the studio but <strong>fall apart</strong> on other systems: car, club, or phone.</p>
+            <p class="text-lg md:text-xl leading-relaxed opacity-80">Tracks sound great in the studio but <strong>fall apart</strong> on other systems: car, club or phone.</p>
           </div>
-          <div class="flex gap-5 items-start">
+          <div class="flex gap-5 items-center">
             <span class="text-4xl md:text-5xl font-extrabold text-accent-red leading-none min-w-[55px]">03</span>
             <p class="text-lg md:text-xl leading-relaxed opacity-80">Can't get masters <strong>loud enough</strong> without the low end distorting or losing punch.</p>
           </div>
@@ -174,22 +176,22 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
     columns={2}
     features={[
       {
-        iconSrc: "https://www.slatin.pro/wp-content/uploads/2025/05/Ellipse-6-150x150.png",
+        iconSrc: "/images/Ellipse-6-150x150.png",
         title: "Kick & Bass Chemistry",
         description: "Learn the science behind the perfect kick and bass relationship, including dynamic phase rotation and advanced sidechain techniques.",
       },
       {
-        iconSrc: "https://www.slatin.pro/wp-content/uploads/2025/05/Ellipse-5-150x150.png",
+        iconSrc: "/images/low-end-translation.png",
         title: "Perfect Low-End Translation",
-        description: "Discover the 3 keys to flawless low-end translation that makes your songs bang on every playback system: studio, car, or club.",
+        description: "Discover the 3 keys to flawless low-end translation that makes your songs bang on every playback system.",
       },
       {
-        iconSrc: "https://www.slatin.pro/wp-content/uploads/2025/05/Ellipse-4-150x150.png",
+        iconSrc: "/images/loudness-icon.png",
         title: "Loudness Without Compromise",
         description: "Hit your target LUFS levels with punchy, club-ready mixes. It's much more than just clipping and limiting.",
       },
       {
-        iconSrc: "https://www.slatin.pro/wp-content/uploads/2025/05/Ellipse-3-150x150.png",
+        iconSrc: "/images/sound-selection-icon.png",
         title: "Sound Selection & Shaping",
         description: "Master the art of selecting the right samples and shaping kicks for any genre, the foundation of 80% of your final sound.",
       },
@@ -224,7 +226,7 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
   </div>
 
   <!-- 12. Module Carousel -->
-  <ModuleCarousel modules={modules} />
+  <ModuleCarousel modules={modules} subtitle="7 modules · 25+ lessons · Everything you need to nail your low end" />
 
   <!-- 13. Teacher Bio -->
   <TeacherBio
@@ -250,17 +252,17 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
     imageSrc="https://uploads.teachablecdn.com/attachments/iduxgXajRo6h1LaC7Ahw_dQUY9H3oZvvbU7wsrJUyyvruMXwsYj8G2SdTfqv3+copy.jpg"
     imageAlt="Kick frequency analysis and sound selection"
   >
-    <h2 class="text-heading mb-6">
+    <h2 class="text-heading mb-8">
       Save Your <span class="squiggle">Time</span>
     </h2>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
-      Sound Selection is <strong class="text-white">KEY</strong> 🔑
+      Sound Selection is <strong class="text-white">KEY</strong> 🎯
     </p>
     <p class="text-base md:text-lg text-accent-red leading-relaxed mb-4">
       ...and it's 80% of your final sound.
     </p>
     <p class="text-base md:text-lg text-white/70 leading-relaxed">
-      Whether you use Splice or have an extensive sample library, I'll show you how to pick the right samples and <strong class="text-white">stop second-guessing</strong>. ❌
+      Whether you use Splice or have an extensive sample library, I'll show you how to pick the right samples and <strong class="text-white">stop second-guessing</strong> ❌
     </p>
   </SplitSection>
 
@@ -272,7 +274,7 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
     imageSrc="https://uploads.teachablecdn.com/attachments/aq3se6LNQkGTFfZVURXp_genre.jpg"
     imageAlt="Multiple genre examples in DAW"
   >
-    <h2 class="text-heading mb-6">
+    <h2 class="text-heading mb-8">
       <span class="squiggle">Multiple Genres</span>
     </h2>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
@@ -282,7 +284,7 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
       This course is tailored for <strong class="text-accent-red">creators of modern and loud music</strong>.
     </p>
     <p class="text-base md:text-lg text-white/70 leading-relaxed">
-      You'll see exactly how to handle kick and bass in <strong class="text-white">EDM, Pop/Funk, Trap, and Reggaeton</strong>.
+      You'll see exactly how to handle kick and bass in <strong class="text-white">EDM, Pop/Funk, Trap and Reggaeton</strong>.
     </p>
   </SplitSection>
   </div>
@@ -296,7 +298,7 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
     imageAlt="SLATIN Academy private community"
     alignTop
   >
-    <h2 class="text-heading mb-6">
+    <h2 class="text-heading mb-8">
       Private <span class="squiggle">Community</span>
     </h2>
     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">
@@ -306,13 +308,21 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
       If you have any questions left, join the chat! 📱
     </p>
     <p class="text-base md:text-lg text-white/70 leading-relaxed">
-      Share your work, <strong class="text-white">get feedback</strong> and answers to your questions, and find like-minded people.
+      Share your work, <strong class="text-white">get feedback</strong> and answers to your questions and find like-minded people.
     </p>
   </SplitSection>
 
-  <!-- 18. Pricing -->
+  <!-- 18. Full-width course banner -->
+  <FullWidthImage
+    src="/images/slatin-teacher.webp"
+    alt="Low End Mastery course overview"
+    objectPosition="45% 38%"
+  />
+
+  <!-- 19. Pricing -->
+  <div style="margin-top: -3rem;">
   <PricingCard
-    subtitle="Get the kick and bass clarity, punch, and translation that your mixes have been missing."
+    subtitle="Get the kick and bass <strong class='text-white'>clarity, punch and translation</strong> that your mixes have been missing."
     price="159€"
     features={[
       "Unlimited Access to The Course",
@@ -325,7 +335,10 @@ import { testimonials, modules, faqItems } from '../data/low-end-mastery';
     ctaText="GET FULL ACCESS 🔑"
     ctaHref="https://learn.slatin.pro/purchase?product_id=5700498"
   />
+  </div>
 
   <!-- 19. FAQ -->
+  <div style="margin-top: -7rem;">
   <FAQ items={faqItems} />
+  </div>
 </BaseLayout>

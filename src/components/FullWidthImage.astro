@@ -2,9 +2,10 @@
 interface Props {
   src: string;
   alt?: string;
+  objectPosition?: string;
 }
 
-const { src, alt = '' } = Astro.props;
+const { src, alt = '', objectPosition = 'center center' } = Astro.props;
 ---
 
 <section class="w-full">
@@ -12,6 +13,7 @@ const { src, alt = '' } = Astro.props;
     src={src}
     alt={alt}
     class="w-full h-[40vh] md:h-[60vh] object-cover"
+    style={`object-position: ${objectPosition}`}
     loading="lazy"
   />
 </section>

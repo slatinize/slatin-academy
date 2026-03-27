@@ -21,7 +21,7 @@ const { title, subtitle, price, features, ctaText, ctaHref } = Astro.props;
 
         <div class="relative z-10">
           {title && <h2 class="text-heading mb-2">{title}</h2>}
-          {subtitle && <p class="text-white/60 text-base mb-8 max-w-md mx-auto">{subtitle}</p>}
+          {subtitle && <p class="text-white/60 text-lg mb-10 max-w-md mx-auto leading-relaxed" set:html={subtitle} />}
 
           <!-- Feature list -->
           <ul class="pricing-features space-y-3 mb-10 text-left max-w-sm mx-auto">

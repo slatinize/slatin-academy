@@ -12,6 +12,7 @@ interface Props {
   ctaHref?: string;
   secondaryCtaText?: string;
   secondaryCtaHref?: string;
+  buttonGap?: string;
   titleSize?: string;
   subtitleSize?: string;
   badgeTopMargin?: string;
@@ -19,7 +20,7 @@ interface Props {
   fullHeight?: boolean;
 }
 
-const { badgeText = 'Course', title, subtitle, ctaText, ctaHref = '#pricing', secondaryCtaText, secondaryCtaHref, titleSize, subtitleSize, badgeTopMargin, gridRatio, fullHeight = false } = Astro.props;
+const { badgeText = 'Course', title, subtitle, ctaText, ctaHref = '#pricing', secondaryCtaText, secondaryCtaHref, buttonGap, titleSize, subtitleSize, badgeTopMargin, gridRatio, fullHeight = false } = Astro.props;
 ---
 
 <section class={`hero-section relative flex text-white overflow-hidden ${fullHeight ? 'items-center pt-28 pb-10 hero-full' : 'items-center pt-28 md:pt-52 pb-10'}`}>
@@ -40,7 +41,7 @@ const { badgeText = 'Course', title, subtitle, ctaText, ctaHref = '#pricing', se
         <div class="flex flex-col justify-start pt-6 md:pt-10">
           <p class={`${subtitleSize || 'text-base md:text-lg'} text-white leading-relaxed`} set:html={subtitle} />
           {(ctaText || secondaryCtaText) && (
-            <div class="flex flex-wrap gap-6 mt-8">
+            <div class="flex flex-wrap mt-8" style={`gap: ${buttonGap || '1.5rem'};`}>
               {ctaText && (
                 <a href={ctaHref} class="hero-cta-primary">
                   {ctaText}
