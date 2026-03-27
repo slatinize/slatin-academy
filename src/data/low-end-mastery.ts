@@ -1,13 +1,14 @@
 export const modules = [
   {
-    title: "Low End Theory - Fine-Tuning the Foundation",
+    title: "Low End Theory - Fine\u2011Tuning the Foundation",
     moduleNumber: "MODULE 01",
     topics: [
       "Why Low End Is So Important?",
       "Why Is It So Hard to Mix?",
       "Frequently Asked Questions & Common Mistakes",
     ],
-    imageSrc: "https://uploads.teachablecdn.com/attachments/BauKxvLpQYqLoxR7j01z_low+end+1+copy.jpg",
+    imageSrc: "/images/module-01-ozone-eq.png",
+    imagePosition: "center top",
   },
   {
     title: "Navigating Tools and Challenges in Low-End Mixing",
@@ -18,7 +19,8 @@ export const modules = [
       "Headphones",
       "Metering",
     ],
-    imageSrc: "https://uploads.teachablecdn.com/attachments/5LOiP0Txl2oQno23I0gW_low+end.jpg",
+    imageSrc: "/images/module-02-shaperbox.png",
+    imagePosition: "center top",
   },
   {
     title: "Sound Sculpting - Techniques for Mastering the Perfect Kick",
@@ -27,7 +29,8 @@ export const modules = [
       "What Makes a Perfect Kick?",
       "Kick Shaping Examples (5 Practical Demonstrations)",
     ],
-    imageSrc: "https://uploads.teachablecdn.com/attachments/iduxgXajRo6h1LaC7Ahw_dQUY9H3oZvvbU7wsrJUyyvruMXwsYj8G2SdTfqv3+copy.jpg",
+    imageSrc: "/images/module-03-proq3.png",
+    imagePosition: "center top",
   },
   {
     title: "All About The Bass - Achieving Bass Perfection",
@@ -38,7 +41,8 @@ export const modules = [
       "Creating a Mono-Compatible Wide Bassline",
       "Note Selection",
     ],
-    imageSrc: "https://uploads.teachablecdn.com/attachments/9GER2ESQpyYJYAdxuM3v_mono.jpg",
+    imageSrc: "/images/module-04-vectorscope.png",
+    imagePosition: "center top",
   },
   {
     title: "Kick Bass Chemistry - Decoding the Relationship",
@@ -49,7 +53,8 @@ export const modules = [
       "Low-End Coherence",
       "Optimizing Kick and Bass in the Mastering Stage",
     ],
-    imageSrc: "https://uploads.teachablecdn.com/attachments/mQyIVU7NQEbQB6k6p4kA_sidechain.jpg",
+    imageSrc: "/images/module-05-bassxxl.png",
+    imagePosition: "center top",
   },
   {
     title: "Case Studies - Real-Life Examples",
@@ -60,7 +65,8 @@ export const modules = [
       "Trap / Hip Hop",
       "Reggaeton",
     ],
-    imageSrc: "https://uploads.teachablecdn.com/attachments/aq3se6LNQkGTFfZVURXp_genre.jpg",
+    imageSrc: "/images/module-06-standardclip.png",
+    imagePosition: "center top",
   },
   {
     title: "Bonus Lessons",
@@ -71,7 +77,8 @@ export const modules = [
       "Low End Mastery Workshop (Live Recording)",
       "Advanced Kick Shaping & Low End Control",
     ],
-    imageSrc: "https://uploads.teachablecdn.com/attachments/Q5bGAEPwRXiGHIpphDVS_LOW+END+MASTERY.jpg",
+    imageSrc: "/images/module-07-rx.png",
+    imagePosition: "center top",
   },
 ];
 

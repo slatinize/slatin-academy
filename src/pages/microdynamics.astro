@@ -33,29 +33,34 @@ import { testimonials, modules, faqItems } from '../data/microdynamics';
     <HeroTwoColumn
       badgeText="Course"
       title='Advanced <span class="squiggle">Microdynamics</span>'
-      subtitle="As an experienced Producer or Mixing Engineer, you've likely mastered EQ, Compression, and Spatial effects...<br><br>Yet, there's a critical aspect many talented professionals overlook: Microdynamics."
-      ctaText="Learn All About It"
-      ctaHref="#pricing"
+      subtitle="<strong>As an experienced Producer or Mixing Engineer, you've likely mastered EQ, compression and spatial effects...</strong><br><br><span style='font-size: 0.85em; opacity: 0.75;'>Yet, there's a critical aspect many talented professionals overlook: Microdynamics.</span>"
+      secondaryCtaText="Learn All About It"
+      secondaryCtaHref="#pricing"
+      titleSize="clamp(3rem, 6vw, 6.5rem)"
+      subtitleSize="text-lg md:text-xl"
+      badgeTopMargin="0"
+      gridRatio="1.4fr 1fr"
+      fullHeight
     />
+    <div style="height: 2rem;"></div>
     <VideoEmbed videoId="1081820388" platform="vimeo" title="The Magic of Microdynamics ✨" thumbnailSrc="https://www.slatin.pro/wp-content/uploads/2025/05/micro-scaled.jpg" standalone={false} />
   </div>
 
-  <div>
-
   <!-- 2. Intro text + 3D visualization video -->
+  <div style="margin-top: -3rem;"></div>
   <SplitSection
     variant="dark"
     imagePosition="right"
     videoSrc="https://www.slatin.pro/wp-content/uploads/2025/05/3D_Insight_resized.mp4"
   >
     <p class="text-white font-medium mb-4" style="font-size: 21px; line-height: 25px;">
-      Consider this: 90% of today's hit records are surprisingly simple arrangements!
+      Consider this: <strong>90% of today's hit records</strong> are surprisingly simple arrangements!
     </p>
     <p class="text-white font-medium mb-4" style="font-size: 21px; line-height: 25px;">
-      They don't rely on countless layers to sound impressive.<br>So, what separates these top-tier mixes from amateur productions? 🤔
+      They don't rely on countless layers to sound impressive.<br>So, what separates these <strong>top-tier mixes</strong> from amateur productions? 🤔
     </p>
     <p class="text-white font-medium" style="font-size: 21px; line-height: 24px;">
-      → Microdynamics 🏆
+      → <strong>Microdynamics</strong> 🏆
     </p>
   </SplitSection>
 
@@ -66,20 +71,25 @@ import { testimonials, modules, faqItems } from '../data/microdynamics';
     videoSrc="https://www.slatin.pro/wp-content/uploads/2025/05/3D_OzoneMultiband_resized.mp4"
   >
     <p class="text-white font-medium mb-4" style="font-size: 21px; line-height: 25px;">
-      Microdynamic control is the precise management of transients and bodies across the entire frequency range
+      Microdynamic control is the precise management of <strong>transients and bodies</strong> across the entire frequency range
     </p>
     <p class="text-white font-medium mb-4" style="font-size: 21px; line-height: 25px;">
-      + subtle dynamic variations within individual sounds ☝️
+      + subtle <strong>dynamic variations</strong> within individual sounds ☝️
     </p>
     <p class="text-white font-medium" style="font-size: 21px; line-height: 25px;">
-      And THIS is the least-discussed secret to achieving clarity, depth, and precise sonic definition in professional mixes 🔑
+      And THIS is the least-discussed secret to achieving <strong>clarity, depth, and precise sonic definition</strong> in professional mixes 🔑
     </p>
   </SplitSection>
 
   <!-- 5. Centered headline -->
   <CenteredHeadline preTitle="THE HIDDEN KEY TO SONIC EXCELLENCE" variant="cream">
-    The effective use of <span class="text-accent-red">Microdynamics</span> is what allows simple arrangements to captivate listeners, <span class="text-accent-red">sound polished</span>, and translate flawlessly across all playback systems.
+    <span style="font-weight: 600;">The effective use of <span class="text-accent-red">Microdynamics</span> is what allows simple arrangements to captivate listeners, <span class="text-accent-red">sound polished</span> and translate flawlessly across all playback systems.</span>
   </CenteredHeadline>
+
+  <!-- Thin divider -->
+  <div class="section-cream" style="padding: 1.5rem 10%; margin-top: -4rem; margin-bottom: -4rem; position: relative; z-index: 1;">
+    <hr style="border: none; border-top: 1px solid rgba(0,0,0,0.15); margin: 0;" />
+  </div>
 
   <!-- 6. "Does this sound familiar?" -->
   <IconFeatures
@@ -161,20 +171,17 @@ import { testimonials, modules, faqItems } from '../data/microdynamics';
   <!-- 11. Teacher Bio -->
   <TeacherBio
     name="SLATIN"
-    imageSrc="https://www.slatin.pro/wp-content/uploads/2025/04/Slatin_Microdynamics.jpg"
+    imageSrc="/images/slatin-sofa.jpg"
     variant="cream"
+    bgColor="#d9d4ab"
+    compact
     bio={[
       `Ruslan Slatin is an <strong>award-winning</strong> producer and <strong>sound engineer</strong> with decades of experience in the global music industry.`,
       `Celebrated for his distinctive sound and top-tier productions, he has collaborated with some of the most prestigious <strong>international labels</strong> and artists.`,
-      `In addition to running a high-performing commercial mastering studio – completing over 1,000 projects annually – <strong>Ruslan</strong> is a passionate educator.`,
+      `In addition to running a high-performing commercial mastering studio, completing over 1,000 projects annually, <strong>Ruslan</strong> is a passionate educator.`,
       `Through specialized courses and private mentoring, he empowers music producers to elevate their sound using proven and novel sound sculpting techniques.`,
     ]}
-  />
-
-  <!-- 12. Logo Bar -->
-  <LogoBar
-    logoSrc="https://www.slatin.pro/wp-content/uploads/2025/05/LOGOS-SLATIN-1500-%C3%97-300-px.png"
-    variant="cream"
+    logoSrc="https://uploads.teachablecdn.com/attachments/izlXe81QyOr1dO25BGS3_YP0ovoEFDRt3h3qRWZaOeB4HCRat2ldNAkIuKstn.webp"
   />
 
   <!-- 13. "+4 Hours, All Value" -->

@@ -11,10 +11,18 @@ const sectionClass = variant === 'cream' ? 'section-cream' : 'section-dark';
 <section class={`${sectionClass} section-padding`}>
   <div class="container-content text-center max-w-4xl mx-auto reveal">
     {preTitle && (
-      <p class="text-sm font-semibold tracking-widest uppercase mb-6 opacity-60">{preTitle}</p>
+      <p class="text-sm font-bold tracking-[0.2em] uppercase mb-8 opacity-60">{preTitle}</p>
     )}
-    <h2 class="text-heading">
+    <h2 class="centered-headline-text">
       <slot />
     </h2>
   </div>
 </section>
+
+<style>
+  .centered-headline-text {
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+</style>

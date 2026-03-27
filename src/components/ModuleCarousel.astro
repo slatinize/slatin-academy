@@ -4,6 +4,8 @@ interface Module {
   moduleNumber: string;
   topics: string[];
   imageSrc?: string;
+  imageFit?: 'cover' | 'contain';
+  imagePosition?: string;
 }
 
 interface Props {
@@ -29,7 +31,7 @@ const { modules } = Astro.props;
           <div class="mc-card" data-idx={i}>
             <div class="mc-img">
               {mod.imageSrc && (
-                <img src={mod.imageSrc} alt={mod.title} loading="lazy" />
+                <img src={mod.imageSrc} alt={mod.title} loading="lazy" style={mod.imagePosition ? `object-position: ${mod.imagePosition};` : ''} />
               )}
               <div class="mc-num-badge">{num}</div>
             </div>
@@ -54,7 +56,7 @@ const { modules } = Astro.props;
           <div class="mc-card mc-clone" data-idx={i} aria-hidden="true">
             <div class="mc-img">
               {mod.imageSrc && (
-                <img src={mod.imageSrc} alt="" loading="lazy" />
+                <img src={mod.imageSrc} alt="" loading="lazy" style={mod.imagePosition ? `object-position: ${mod.imagePosition};` : ''} />
               )}
               <div class="mc-num-badge">{num}</div>
             </div>
@@ -162,6 +164,7 @@ const { modules } = Astro.props;
     min-width: 200px;
     position: relative;
     overflow: hidden;
+    background: #111;
   }
 
   .mc-img img {
