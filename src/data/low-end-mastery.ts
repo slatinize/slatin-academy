@@ -19,7 +19,7 @@ export const modules = [
       "Headphones",
       "Metering",
     ],
-    imageSrc: "/images/module-02-shaperbox.png",
+    imageSrc: "/images/module2-low-end.png",
     imagePosition: "center top",
   },
   {
