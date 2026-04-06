@@ -11,7 +11,7 @@ import OutcomeCards from '../OutcomeCards.astro';
 import MarqueeBanner from '../MarqueeBanner.astro';
 import PricingDuo from '../PricingDuo.astro';
 import TabbedTestimonials from '../TabbedTestimonials.astro';
-import FAQ from '../FAQ.astro';
+import FAQCategorized from '../FAQCategorized.astro';
 import type { Locale } from '../../utils/i18n';
 import type { Testimonial, FaqItem, FeatureCard, OutcomeCard, PricingPlan, AlumniTestimonial } from '../../data/types';
 
@@ -177,5 +177,5 @@ const {
   />
 
   <!-- 13. FAQ -->
-  <FAQ items={faqItems} />
+  <FAQCategorized items={faqItems} />
 </BaseLayout>

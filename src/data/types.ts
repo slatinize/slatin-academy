@@ -17,6 +17,7 @@ export interface Module {
 export interface FaqItem {
   question: string;
   answer: string;
+  category?: string;
 }
 
 export interface Feature {
