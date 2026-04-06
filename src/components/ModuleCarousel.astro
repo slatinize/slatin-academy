@@ -40,11 +40,16 @@ const { modules, subtitle } = Astro.props;
               <span class="mc-label">{mod.moduleNumber}</span>
               <h3 class="mc-title">{mod.title}</h3>
               {mod.topics && mod.topics.length > 0 && (
-                <ul class="mc-topics">
-                  {mod.topics.map((topic) => (
-                    <li>{topic}</li>
-                  ))}
-                </ul>
+                <div class="mc-topics-wrap">
+                  <ul class="mc-topics">
+                    {mod.topics.map((topic) => (
+                      <li>{topic}</li>
+                    ))}
+                  </ul>
+                  <button class="mc-toggle" aria-label="Show topics">
+                    <span class="mc-toggle-icon">+</span>
+                  </button>
+                </div>
               )}
             </div>
           </div>
@@ -65,11 +70,16 @@ const { modules, subtitle } = Astro.props;
               <span class="mc-label">{mod.moduleNumber}</span>
               <h3 class="mc-title">{mod.title}</h3>
               {mod.topics && mod.topics.length > 0 && (
-                <ul class="mc-topics">
-                  {mod.topics.map((topic) => (
-                    <li>{topic}</li>
-                  ))}
-                </ul>
+                <div class="mc-topics-wrap">
+                  <ul class="mc-topics">
+                    {mod.topics.map((topic) => (
+                      <li>{topic}</li>
+                    ))}
+                  </ul>
+                  <button class="mc-toggle" aria-label="Show topics">
+                    <span class="mc-toggle-icon">+</span>
+                  </button>
+                </div>
               )}
             </div>
           </div>
@@ -186,7 +196,7 @@ const { modules, subtitle } = Astro.props;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    color: #e74c3c;
+    color: #fff;
     border: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 2rem;
     font-weight: 800;
@@ -257,6 +267,15 @@ const { modules, subtitle } = Astro.props;
     color: rgba(255, 255, 255, 0.65);
   }
 
+  /* Topics wrapper & toggle (desktop: toggle hidden, topics always visible) */
+  .mc-topics-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mc-toggle {
+    display: none;
+  }
 
   /* Responsive */
   @media (max-width: 768px) {
@@ -267,7 +286,6 @@ const { modules, subtitle } = Astro.props;
     .carousel-track {
       gap: 16px;
       padding: 0 16px 0 24px;
-      align-items: flex-start;
     }
 
     .mc-card {
@@ -284,6 +302,53 @@ const { modules, subtitle } = Astro.props;
 
     .mc-body {
       padding: 22px 20px;
+    }
+
+    .mc-title {
+      margin-bottom: 0;
+    }
+
+    .mc-topics {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .mc-topics-wrap.is-open .mc-topics {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    .mc-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      margin: 12px auto 0;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.3s ease;
+      padding: 0;
+    }
+
+    .mc-toggle:active {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .mc-toggle-icon {
+      color: #e74c3c;
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1;
+      transition: transform 0.3s ease;
+    }
+
+    .mc-topics-wrap.is-open .mc-toggle-icon {
+      transform: rotate(45deg);
     }
 
     .module-header {
@@ -397,5 +462,16 @@ const { modules, subtitle } = Astro.props;
     }, { threshold: 0.3 });
 
     observer.observe(track.closest('.module-section')!);
+
+    // Expandable topics on mobile
+    track.querySelectorAll('.mc-toggle').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const wrap = btn.closest('.mc-topics-wrap');
+        if (!wrap) return;
+        wrap.classList.toggle('is-open');
+        btn.setAttribute('aria-label', wrap.classList.contains('is-open') ? 'Hide topics' : 'Show topics');
+      });
+    });
   }
 </script>
