@@ -2,288 +2,288 @@ import type { Testimonial, Module, FaqItem, Feature, NumberedItem } from '../typ
 
 export const pageData = {
   meta: {
-    title: "Advanced Microdynamics - Mixing & Mastering Course",
-    description: "Learn advanced microdynamic processing techniques for mixing and mastering. 4+ hours of practical video lessons by SLATIN.",
+    title: "Curso Avanzado de Microdinámica - Mezcla y Mastering",
+    description: "Aprende técnicas avanzadas de procesamiento microdinámico para mezcla y mastering. +4 horas de lecciones prácticas en vídeo por SLATIN.",
   },
 
   hero: {
-    badgeText: "Course",
-    title: 'Advanced <span class="squiggle">Microdynamics</span>',
-    subtitle: `<strong>As an experienced Producer or Mixing Engineer, you've likely mastered EQ, compression and spatial effects...</strong><br><br><span style='font-size: 0.85em; opacity: 0.75;'>Yet, there's a critical aspect many talented professionals overlook: Microdynamics.</span>`,
-    ctaText: "Get Full Access",
+    badgeText: "Avanzado",
+    title: 'Curso de <span class="squiggle">Microdinámica</span>',
+    subtitle: `<strong>Como productor o ingeniero de mezcla con experiencia, probablemente ya dominas EQ, compresión y efectos espaciales...</strong><br><br><span style='font-size: 0.85em; opacity: 0.75;'>Sin embargo, hay un aspecto crucial que muchos profesionales talentosos pasan por alto: las Microdinámicas.</span>`,
+    ctaText: "Acceso Completo",
     ctaHref: "#pricing",
-    secondaryCtaText: "See Curriculum",
+    secondaryCtaText: "Ver Contenido",
     secondaryCtaHref: "#modules",
   },
 
   video: {
-    title: "The Magic of Microdynamics ✨",
+    title: "La Magia de las Microdinámicas ✨",
   },
 
   introSections: [
     {
       paragraphs: [
-        'Consider this: <strong>90% of today\'s hit records</strong> are surprisingly simple arrangements!',
-        "They don't rely on countless layers to sound impressive.",
-        'So, what separates these <strong>top-tier mixes</strong> from amateur productions? 🤔',
-        '→ <strong>Microdynamics</strong> 🏆',
+        'Te has fijado? <strong>El 90% de los hits actuales</strong> tienen arreglos sorprendentemente simples!',
+        "No dependen de capas infinitas para sonar impresionantes.",
+        'Entonces, ¿qué separa esas <strong>mezclas de alto nivel</strong> de las producciones amateur? 🤔',
+        '→ <strong>Las Microdinámicas</strong> 🏆',
       ],
     },
     {
       paragraphs: [
-        'Microdynamic control is the precise management of <strong>transients and bodies</strong> across the entire frequency range.',
-        '+ Subtle <strong>dynamic variations</strong> within individual sounds ☝️',
-        'And THIS is the least-discussed secret to achieving <strong>clarity, depth, and precise sonic definition</strong> in professional mixes 💡',
+        'El control microdinámico es la gestión precisa de <strong>transientes y cuerpos</strong> a lo largo de todo el rango de frecuencias.',
+        '+ Las <strong>variaciones dinámicas</strong> sutiles en cada elemento ☝️',
+        'Y esta es la clave (menos discutida) para lograr <strong>claridad, profundidad y una definición sonora incomparable</strong> en mezclas profesionales 💡',
       ],
     },
   ],
 
   centeredHeadline: {
-    preTitle: "THE HIDDEN KEY TO SONIC EXCELLENCE",
-    content: '<span style="font-weight: 600;"><span class="text-accent-red">Microdynamics</span> is what makes simple arrangements <span class="text-accent-red">sound polished</span>, captivating and flawless on every system.</span>',
+    preTitle: "LA CLAVE DE LA EXCELENCIA SÓNICA",
+    content: '<span style="font-weight: 600;">La <span class="text-accent-red">Microdinámica</span> es lo que permite que arreglos simples <span class="text-accent-red">suenen pulidos</span>, cautiven al oyente y se traduzcan a la perfección en cualquier sistema.</span>',
   },
 
   painPoints: {
-    sectionTitle: "Does this sound familiar?",
-    subtitle: "These are common signs of insufficient microdynamic attention:",
+    sectionTitle: "Te suena familiar?",
+    subtitle: "Estas son señales comunes de una atención insuficiente a las microdinámicas:",
     features: [
       {
         title: "",
-        description: 'Your tracks sound "good", but not quite <strong>"finished"</strong> or world-class. Something is <strong>missing</strong>.',
+        description: 'Tus temas suenan "bien", pero no <strong>"terminados"</strong>. Sientes que te falta <strong>algo</strong>.',
       },
       {
         title: "",
-        description: 'You layer <strong>a ton of elements</strong> to ensure your music is dynamic and engaging.',
+        description: 'Añades una <strong>gran cantidad de capas</strong> para que tu música suene dinámica y mantenga el interés.',
       },
       {
         title: "",
-        description: 'Your mixes have great balance, but you struggle to achieve <strong>loud and dynamic</strong> masters.',
+        description: 'Tus mezclas tienen un buen equilibrio, pero te cuesta lograr <strong>másters potentes y con buen groove</strong>.',
       },
     ],
   },
 
   featureGrid: {
-    subtitle: "WHAT YOU WILL MASTER",
+    subtitle: "LO QUE DOMINARÁS",
     features: [
       {
         iconSrc: "/images/eq-microdynamics.png",
         iconStyle: "object-position: calc(50% - 2px) center;",
-        title: "Advanced Microdynamic Processing",
-        description: 'Achieve sonic precision through transient shaping, transparent "resonant body" band-focused compression, parallel dynamics and mid-side processing.',
+        title: "Procesamiento Microdinámico Avanzado",
+        description: 'Alcanza precisión sónica mediante modelado de transientes, compresión transparente por bandas de "cuerpos resonantes", dinámica paralela y procesamiento mid-side avanzado.',
       },
       {
         iconSrc: "/images/Ellipse-5-150x150.png",
-        title: 'Get That "Analog" Sound fully ITB',
-        description: 'Most top engineers work fully in the box, no outboard gear. So how do they get that "analog" feel? By understanding the microdynamic variations that analog gear adds and knowing how to recreate them.',
+        title: 'Logra Ese Sonido "Analógico" totalmente ITB',
+        description: 'La gran mayoría de los ingenieros top trabajan completamente "in the box" - sin hardware externo. Entonces, ¿cómo logran ese carácter analógico? Entendiendo al detalle las variaciones microdinámicas que aporta el equipo analógico - y sabiendo cómo recrearlas.',
       },
       {
         iconSrc: "/images/mastering-detail.png",
         iconStyle: "object-position: center calc(50% + 0.25px);",
-        title: "Mastering-Level Detail",
-        description: "Deliver polished and LOUD songs through advanced mastering techniques, preserving and enhancing dynamic integrity.",
+        title: "Microdinámica aplicada al Mastering",
+        description: "Entrega canciones pulidas y ALTAS (de LUFS) mediante técnicas avanzadas de mastering, preservando y realzando la integridad dinámica.",
       },
       {
         iconSrc: "/images/Ellipse-3-150x150.png",
-        title: "Critical Listening and Analysis",
-        description: "Sharpen your ability to identify and rectify subtle microdynamic issues, ensuring professional results every time.",
+        title: "Escucha Crítica y Análisis",
+        description: "Agudiza tu capacidad para identificar y corregir problemas microdinámicos sutiles, asegurándote resultados profesionales en cada ocasión.",
       },
     ] as Feature[],
   },
 
   idealFor: {
-    title: "This course is ideal if you",
+    title: "El curso es ideal para ti si",
     items: [
       {
         number: "01",
-        text: "Are comfortable with mixing fundamentals and want the <strong>next-level refinement</strong> that sets professional mixes apart.",
+        text: "Ya dominas los fundamentos de la mezcla y buscas ese <strong>refinamiento superior</strong> que distingue a las mezclas profesionales.",
       },
       {
         number: "02",
-        text: "Struggle with mixes that sound technically correct yet fail to <strong>fully translate emotionally</strong> and dynamically.",
+        text: "Tienes dificultades con mezclas que suenan técnicamente correctas pero no logran <strong>traducirse a nivel emocional</strong> y dinámico.",
       },
       {
         number: "03",
-        text: "Want <strong>advanced techniques</strong> demonstrated clearly without fluff or filler.",
+        text: "Quieres <strong>técnicas avanzadas</strong>, explicadas con claridad, sin relleno ni rodeos.",
       },
     ] as NumberedItem[],
   },
 
   moduleCarousel: {
-    subtitle: "6 modules · 15+ lessons · Everything you need to master microdynamics",
+    subtitle: "6 módulos · 15+ lecciones · Todo lo que necesitas para dominar las microdinámicas",
   },
 
   teacherBio: {
     bio: [
-      'Ruslan Slatin is an <strong>award-winning</strong> producer and <strong>sound engineer</strong> with decades of experience in the global music industry.',
-      'Celebrated for his distinctive sound and top-tier productions, he has collaborated with some of the most prestigious <strong>international labels</strong> and artists.',
-      'In addition to running a high-performing commercial mastering studio, completing over 1,000 projects annually, <strong>Ruslan</strong> is a passionate educator.',
-      'Through specialized courses and private mentoring, he empowers music producers to elevate their sound using proven and novel sound sculpting techniques.',
+      'Ruslan Slatin es un <strong>galardonado</strong> productor e <strong>ingeniero de sonido</strong> con décadas de experiencia en la industria musical global.',
+      'Reconocido por su sonido distintivo y producciones de alto nivel, ha colaborado con algunos de los <strong>sellos y artistas internacionales</strong> más prestigiosos.',
+      'Además de dirigir un estudio de mastering de alto rendimiento, con más de 1.000 proyectos completados al año, <strong>Ruslan</strong> es un educador apasionado.',
+      'A través de cursos especializados y mentorías privadas, ayuda a productores musicales a elevar su sonido utilizando técnicas probadas e innovadoras para "moldear" el sonido.',
     ],
   },
 
   splitSections: {
     hours: {
-      heading: '<span class="squiggle">+4 Hours</span>, All Value',
+      heading: '<span class="squiggle">+4 Horas</span>, Todo Valor, Cero Relleno',
       paragraphs: [
-        '<strong class="text-white">Practical lessons</strong> divided into short (2-15 min) videos you can actually use in your sessions.',
-        'Whether you\'re brushing up on fundamentals or tightening your workflow, it\'s solid info you\'ll go back to <strong class="text-white">more than once</strong>.',
+        '<strong class="text-white">Lecciones prácticas</strong> divididas en vídeos cortos (2-15 min) que puedes aplicar en tus sesiones.',
+        'Ya sea que estés repasando fundamentos o puliendo tu flujo de trabajo, es información sólida a la que recurrirás <strong class="text-white">más de una vez</strong>.',
       ],
     },
     community: {
-      heading: '<span class="squiggle-basic">Much More</span> than a Simple Course',
+      heading: '<span class="squiggle-basic">Mucho Más</span> que un Curso',
       paragraphs: [
-        'What sets our programs apart? The <strong class="text-white">built-in community</strong> 🤝',
-        'With exclusive access to our <strong class="text-white">private Discord</strong>, you\'re not just learning, you\'re connecting with other engineers, getting feedback and growing together at your own pace.',
+        '¿Qué hace diferentes nuestros programas? Nuestra <strong class="text-white">comunidad</strong> 🤝',
+        'Con acceso exclusivo a nuestro <strong class="text-white">canal privado de Discord</strong>, no solo estás aprendiendo – también estás conectando con otros ingenieros, recibiendo feedback y creciendo junto a ellos a tu propio ritmo.',
       ],
     },
     genres: {
-      heading: '<span class="squiggle-basic">Multiple Genres</span>',
+      heading: '<span class="squiggle-basic">Múltiples Géneros</span>',
       paragraphs: [
-        'From Pop & Rock to House, Techno and Latin, everything we teach applies to <strong class="text-white">Real-World projects</strong> 🎵',
-        'Only the latest techniques and <strong class="text-white">up-to-date</strong> plugins, always grounded in practical examples.',
+        'Desde Pop y Rock hasta House, Techno y Urbano – todo lo que enseñamos se aplica a <strong class="text-white">proyectos reales</strong> 🎵',
+        'Solo las técnicas y <strong class="text-white">plugins más actuales</strong>, siempre basados en ejemplos prácticos.',
       ],
     },
   },
 
   pricing: {
-    subtitle: "Elevate your <strong class='text-white'>production, mixing and mastering</strong> skills through deep understanding of microdynamics.",
+    subtitle: "Eleva tus habilidades de <strong class='text-white'>producción, mezcla y mastering</strong> a través de una comprensión profunda de las microdinámicas.",
     price: "149€",
     features: [
-      "Access to The Course (+4h)",
-      "Access to Private Community",
-      "Presets and Resources",
-      "Bonus Modules and Videos",
-      "Frequent Updates",
-      "Live Q&A Sessions with SLATIN",
+      "Acceso al Curso (+4h)",
+      "Acceso a nuestra Comunidad Privada",
+      "Presets y Recursos",
+      "Módulos y Videos Extra",
+      "Actualizaciones Frecuentes",
+      "Sesiones de Q&A con SLATIN",
     ],
-    ctaText: "JOIN NOW 🔑",
+    ctaText: "ÚNETE AHORA 🔑",
     ctaHref: "https://learn.slatin.pro/purchase?product_id=6205122",
   },
 
   testimonials: [
     {
-      quote: "As a singer and producer, I needed clarity, direction and a real understanding of mixing. Within weeks, I learned to listen with purpose and make decisions with confidence. Now my tracks sound big, clean and professional. My sound has power, identity and intention. This isn't just a course, it's the upgrade you need to sound like a pro 🔥",
+      quote: "Como cantante y productor, necesitaba claridad, dirección y una comprensión real de la mezcla. En pocas semanas, aprendí a escuchar con propósito y a tomar decisiones con confianza. Ahora mis pistas suenan grandes, limpias y profesionales. Mi sonido tiene fuerza y carácter. Esto no es solo un curso, es la mejora que necesitas para sonar como un profesional. 🔥",
       name: "Jaime Hernández",
-      role: "Producer",
+      role: "Productor",
       avatar: "https://www.slatin.pro/wp-content/uploads/2025/05/borja-283x300.jpg",
     },
     {
-      quote: "I've learned more in three months than I have in my entire life and regained more enthusiasm than ever for music, my level has increased so much that I'm still surprised. Stop watching videos on the internet because they will only confuse you. If you really like this profession, don't hesitate, study with SLATIN and his team.",
+      quote: "He aprendido más en tres meses que en toda mi vida y he recuperado el entusiasmo por la música, mi nivel ha aumentado tanto que todavía me sigue sorprendiendo. Parad de ver videos en internet porque solo os confundirán. Si realmente te gusta esta profesión, no dudes — estudia con SLATIN y su equipo.",
       name: "PowTow",
-      role: "Producer & Engineer",
+      role: "Productor e Ingeniero",
       featured: true,
       avatar: "https://www.slatin.pro/wp-content/uploads/2025/05/powtow-300x295.jpg",
     },
     {
-      quote: "Imagine putting your song through an X-ray, and on the other side there's an elite doctor analyzing it and giving you not just the diagnosis, but also the actual solution to your problem. That's what Slatin does with expertise. It's always good having a second pair of ears!",
+      quote: "Imagina poner tu canción a través de una radiografía, y al otro lado hay un médico de élite analizándola y dándote no solo el diagnóstico, sino también la solución real a tu problema. Eso es lo que hace Slatin con su experiencia. ¡Siempre es bueno tener un par de oídos adicionales!",
       name: "Rafael C.",
       role: "Ghost producer & Engineer",
       avatar: "https://www.slatin.pro/wp-content/uploads/2025/05/rafael-300x300.jpg",
     },
     {
-      quote: "The course with Slatin has been a turning point for me in my criteria as a mixing and mastering engineer. Although I had a good level, it has been a great improvement for the better. I truly recommend it to all producers and mixing engineers of any level.",
+      quote: "El curso con Slatin ha sido un punto de inflexión para mí en mi criterio como ingeniero de mezcla y master. Aunque tenía un buen nivel, ha sido una gran mejora. Lo recomiendo a todos los productores e ingenieros de mezcla de cualquier nivel, Slatin domina cualquier estilo y nivel musical.",
       name: "The Wayne",
-      role: "Producer & Engineer",
+      role: "Productor e Ingeniero",
       avatar: "https://www.slatin.pro/wp-content/uploads/2025/05/marc-300x300.jpg",
     },
     {
-      quote: "Slatin transformed my production skills and knowledge. While working with Slatin, I have received international support from Tiesto, Gate21, DJs From Mars and many many others!",
+      quote: "Slatin transformó mis habilidades y conocimientos de producción. Mientras trabajaba con Slatin, recibí apoyo internacional de Tiësto, Gate21, DJs From Mars y muchos, muchos más.",
       name: "RICO",
-      role: "DJ & Producer",
+      role: "DJ y Productor",
       avatar: "https://www.slatin.pro/wp-content/uploads/2023/02/274551021_495935155469334_8694730205219369974_n-300x300.jpg",
     },
     {
-      quote: "The classes with SLATIN have raised the level of my productions, both in sound and creativity. Apart from technical knowledge, he has a great ability to teach, making everything seem easy.",
+      quote: "Las clases con SLATIN han elevado el nivel de mis producciones, tanto en sonido como en creatividad. Además del conocimiento técnico, tiene una gran habilidad para enseñar, haciendo que todo parezca fácil.",
       name: "Auriga",
-      role: "DJ & Producer",
+      role: "DJ y Productor",
       avatar: "https://www.slatin.pro/wp-content/uploads/2023/03/289838124_556531009338664_1910523833993545341_n-300x300.jpg",
     },
     {
-      quote: "SLATIN was the game changer in my life. Today, I am achieving the goals I once dreamed of, thanks to the three years I spent learning from him. He is an incredible and approachable teacher and his professionalism stands out.",
+      quote: "SLATIN fue un punto de inflexión en mi vida. Hoy estoy alcanzando las metas con las que antes solo soñaba, gracias a los tres años que pasé aprendiendo con él. Es un profesor increíble y cercano, y su profesionalismo destaca por encima del resto.",
       name: "Krumel",
-      role: "DJ & Producer",
+      role: "DJ y Productor",
       avatar: "https://www.slatin.pro/wp-content/uploads/2023/03/333790209_684358630111700_8875204025891176004_n-300x300.jpg",
     },
     {
-      quote: "Rus has truly helped me take my tracks to the next level, whether it's mixing, mastering, production or music business.",
+      quote: "Rus realmente me ha ayudado a llevar mis temas al siguiente nivel. Ya sea en mezcla, mastering, producción o music business.",
       name: "Nicolas K",
-      role: "DJ & Producer",
+      role: "DJ y Productor",
       avatar: "https://www.slatin.pro/wp-content/uploads/2023/02/315355245_3301396186845452_2314762611349232539_n-300x300.jpg",
     },
   ] as Testimonial[],
 
   modules: [
     {
-      title: "Foundations of Microdynamics",
-      moduleNumber: "MODULE 01",
-      topics: ["Importance of Microdynamics", "Microdynamics vs. Macrodynamics", "Analyzing and visualizing microdynamics & its impact on our song"],
+      title: "Fundamentos de las Microdinámicas",
+      moduleNumber: "MÓDULO 01",
+      topics: ["Importancia de las Microdinámicas", "Microdinámicas vs. Macrodinámicas", "Análisis y visualización de las microdinámicas y su impacto en nuestra canción"],
       imageSrc: "https://www.slatin.pro/wp-content/uploads/2025/05/Screenshot-2025-05-05-at-13.11.23-scaled.jpg",
     },
     {
-      title: "Advanced Processing Tools",
-      moduleNumber: "MODULE 02",
-      topics: ["Multiplicity - Advanced multiband settings", "MAutoDynamicEQ - Sidechaining, Expansion, Compression", "Tools - Spiff, Ozone 11"],
+      title: "Procesamiento Avanzado",
+      moduleNumber: "MÓDULO 02",
+      topics: ["Multiplicity - Ajustes multibanda avanzados", "MAutoDynamicEQ - Sidechain, Expansión, Compresión", "Herramientas - Spiff, Ozone 11"],
       imageSrc: "https://www.slatin.pro/wp-content/uploads/2025/05/Screenshot-2025-05-05-at-13.11.05-scaled.jpg",
     },
     {
-      title: "Microdynamic Applications for Production",
-      moduleNumber: "MODULE 03",
-      topics: ["Microdynamics for groove and excitement during Production", "Micromodulation on individual elements with Shaperbox 3"],
+      title: "Aplicaciones de la Microdinámica en la Producción",
+      moduleNumber: "MÓDULO 03",
+      topics: ["Microdinámicas para lograr groove y movimiento durante la producción", "Micromodulación en elementos individuales con ShaperBox 3"],
       imageSrc: "https://www.slatin.pro/wp-content/uploads/2025/05/Screenshot-2025-05-05-at-13.12.13-scaled.jpg",
     },
     {
-      title: "Microdynamic Applications for Mixing",
-      moduleNumber: "MODULE 04",
-      topics: ["Low End Coherence", "Microdynamics applied on Vocal Mixing", "Microdynamic adjustments on Drums"],
+      title: "Aplicaciones de la Microdinámica en la Mezcla",
+      moduleNumber: "MÓDULO 04",
+      topics: ["Coherencia en el Low End", "Microdinámicas aplicadas a la mezcla de voces", "Ajustes microdinámicos en baterías"],
       imageSrc: "https://www.slatin.pro/wp-content/uploads/2025/05/Screenshot-2025-05-05-at-13.11.40-scaled.jpg",
     },
     {
-      title: "Mastering-Level Microdynamic Control",
-      moduleNumber: "MODULE 05",
-      topics: ["Utilizing Your Side Channel Full Potential", "Squeezing extra loudness during Mastering", "Multiband Tools & Microdynamic Limiting"],
+      title: "Control Microdinámico en el Mastering",
+      moduleNumber: "MÓDULO 05",
+      topics: ["Aprovechando al máximo los sides para lograr volumen", "Conseguir más volumen y controlar el groove durante el Mastering", "Mastering con herramientas multibanda y limitación microdinámica"],
       imageSrc: "https://www.slatin.pro/wp-content/uploads/2025/04/promo-1.jpg",
     },
     {
-      title: "Bonus Section",
-      moduleNumber: "MODULE 06",
-      topics: ["Always updated with new Videos", "Presets and Resources"],
+      title: "Extras",
+      moduleNumber: "MÓDULO 06",
+      topics: ["Siempre actualizado con nuevos videos", "Presets y recursos"],
       imageSrc: "https://www.slatin.pro/wp-content/uploads/2025/05/punctuate.jpg",
     },
   ] as Module[],
 
   faqItems: [
     {
-      question: "Who, specifically, is this Course for?",
-      answer: `<strong>This Program is Tailored for Producers and Mixing Engineers that:</strong><br><br>
+      question: "¿Para quién, específicamente, es este curso?",
+      answer: `<strong>La mentoría está diseñada para Productores e Ingenieros que:</strong><br><br>
         <ul class="list-disc ml-5 space-y-2">
-          <li>Want to cut through the noise of infinite misleading content & learn the "WHYs" behind each technique.</li>
-          <li>Want to improve their technical skills and knowledge of music production, mixing and mastering.</li>
-          <li>Are willing to invest in their education and development.</li>
+          <li>Desean erradicar "la desinformación de contenido inacabable" y aprender los "Porqués" detrás de cada técnica.</li>
+          <li>Quieren mejorar sus habilidades y conocimiento de producción, mezcla y mastering.</li>
+          <li>Están dispuestos a invertir en su educación y desarrollo.</li>
         </ul>`,
     },
     {
-      question: "What language is the course taught in?",
-      answer: "The course is taught in English, with subtitles available in both English and Spanish to help you follow along comfortably.",
+      question: "¿En qué idioma se imparte el curso?",
+      answer: "El curso se imparte en inglés, con subtítulos disponibles tanto en inglés como en español para que puedas seguirlo cómodamente.",
     },
     {
-      question: "Is this course compatible with my current studies in music at a school or institute?",
-      answer: "100%! While formal education provides a structured curriculum and access to resources, mentoring can offer personalized guidance and support that can enhance and supplement the learning experience.",
+      question: "¿Es este curso compatible con mis estudios actuales de música en una escuela o instituto?",
+      answer: "¡100%! Si bien la educación formal proporciona un plan de estudios estructurado y muy generalizado, la mentoría puede ofrecer orientación y apoyo personalizados que pueden mejorar y complementar la experiencia de aprendizaje de forma muy positiva.",
     },
     {
-      question: "Do you have experience in teaching and mentoring?",
-      answer: "Absolutely! With over 8 years of experience teaching at various international music institutes, I have successfully trained hundreds of students. These institutes include: Anonymous Studios (Los Angeles), SAE Institute (Madrid), Millenia (Valencia), DJP Music School (Madrid). I have also worked with numerous students one-on-one, many of whom have gone on to achieve great success in the music industry.",
+      question: "¿Tienes experiencia enseñando?",
+      answer: "¡Absolutamente! Tengo más de 8 años de experiencia con cientos de alumnos enseñando en diversos centros internacionales. Entre los que se encuentran: Anonymous Studios (Los Angeles), SAE Institute (Madrid), Millenia (Valencia), DJP Music School (Madrid). También he trabajado con estudiantes 1 a 1, muchos de los cuales ya tienen éxito en la industria musical.",
     },
     {
-      question: "What Equipment (Hardware) do I need?",
-      answer: "You'll need a computer or laptop, plus a reliable pair of headphones or studio monitors (ideally in an acoustically treated space). Any setup you're comfortable working with will do the job.",
+      question: "¿Qué equipo (Hardware) necesito?",
+      answer: "Necesitarás un ordenador o portátil, además de unos auriculares fiables o monitores de estudio (idealmente en un espacio con tratamiento acústico). Cualquier configuración con la que te sientas cómodo trabajando servirá.",
     },
     {
-      question: "What DAW & Software do I need?",
-      answer: "We will be using Ableton Live 12 and Reaper during the lessons. But all the techniques and concepts are 100% compatible with any other DAW.",
+      question: "¿Qué DAW o Software necesito?",
+      answer: "Utilizaremos Ableton 12 y Reaper durante las lecciones. Pero todas las técnicas y conceptos son 100% compatibles con cualquier otro DAW.",
     },
     {
-      question: "What if I have more questions?",
-      answer: `For any questions, you can email our Studio Manager at: <a href="mailto:admin@slatin.pro" class="text-accent-red hover:underline">admin@slatin.pro</a>.`,
+      question: "¿Y si tengo más preguntas?",
+      answer: `Para cualquier pregunta extra, puedes enviar un mail al Studio Manager en: <a href="mailto:admin@slatin.pro" class="text-accent-red hover:underline">admin@slatin.pro</a>.`,
     },
   ] as FaqItem[],
 };
