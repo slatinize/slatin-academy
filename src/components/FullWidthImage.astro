@@ -3,17 +3,48 @@ interface Props {
   src: string;
   alt?: string;
   objectPosition?: string;
+  parallax?: boolean;
 }
 
-const { src, alt = '', objectPosition = 'center center' } = Astro.props;
+const { src, alt = '', objectPosition = 'center center', parallax = false } = Astro.props;
 ---
 
-<section class="w-full">
-  <img
-    src={src}
-    alt={alt}
-    class="w-full h-[40vh] md:h-[60vh] object-cover"
-    style={`object-position: ${objectPosition}`}
-    loading="lazy"
-  />
-</section>
+{parallax ? (
+  <section class="w-full h-[40vh] md:h-[60vh] overflow-hidden relative" data-parallax>
+    <img
+      src={src}
+      alt={alt}
+      class="w-full absolute inset-0 object-cover"
+      style={`object-position: ${objectPosition}; height: 140%; top: -20%;`}
+      loading="lazy"
+    />
+  </section>
+) : (
+  <section class="w-full">
+    <img
+      src={src}
+      alt={alt}
+      class="w-full h-[40vh] md:h-[60vh] object-cover"
+      style={`object-position: ${objectPosition}`}
+      loading="lazy"
+    />
+  </section>
+)}
+
+<script>
+  const sections = document.querySelectorAll('[data-parallax]');
+  sections.forEach(section => {
+    const img = section.querySelector('img');
+    if (!img) return;
+    const onScroll = () => {
+      const rect = section.getBoundingClientRect();
+      const viewH = window.innerHeight;
+      if (rect.bottom < 0 || rect.top > viewH) return;
+      const progress = (viewH - rect.top) / (viewH + rect.height);
+      const offset = (progress - 0.5) * 100;
+      img.style.transform = `translateY(${offset}px)`;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  });
+</script>
