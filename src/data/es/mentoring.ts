@@ -31,7 +31,7 @@ export const pageData = {
       "Networking and building community with like-minded individuals.",
       "An extensive selection of the best Samples, Presets, and Books.",
       "Email Templates for reaching out to Labels, Managers, and Promoters.",
-      '<a href="https://www.slatin.pro/fusion" class="text-accent-red hover:underline">FUSION</a> &ndash; Valhalla VintageVerb Reverb Pack &ndash; for free.',
+      '<a href="https://www.slatin.pro/fusion" class="text-accent-red hover:underline">FUSION</a> &ndash; Valhalla Reverb Pack &ndash; for free.',
       "And much more&hellip;",
     ],
   },
