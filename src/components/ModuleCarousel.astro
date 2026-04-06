@@ -46,8 +46,9 @@ const { modules, subtitle } = Astro.props;
                       <li>{topic}</li>
                     ))}
                   </ul>
-                  <button class="mc-toggle" aria-label="Show topics">
-                    <span class="mc-toggle-icon">+</span>
+                  <button class="mc-toggle" aria-label="Show lessons">
+                    <span class="mc-toggle-label">View lessons</span>
+                    <span class="mc-toggle-chevron">▾</span>
                   </button>
                 </div>
               )}
@@ -76,8 +77,9 @@ const { modules, subtitle } = Astro.props;
                       <li>{topic}</li>
                     ))}
                   </ul>
-                  <button class="mc-toggle" aria-label="Show topics">
-                    <span class="mc-toggle-icon">+</span>
+                  <button class="mc-toggle" aria-label="Show lessons">
+                    <span class="mc-toggle-label">View lessons</span>
+                    <span class="mc-toggle-chevron">▾</span>
                   </button>
                 </div>
               )}
@@ -324,31 +326,33 @@ const { modules, subtitle } = Astro.props;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 36px;
-      height: 36px;
-      margin: 12px auto 0;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
+      gap: 6px;
+      margin: 16px auto 0;
+      background: none;
+      border: none;
       cursor: pointer;
-      transition: background 0.2s ease, transform 0.3s ease;
       padding: 0;
     }
 
     .mc-toggle:active {
-      background: rgba(255, 255, 255, 0.15);
+      opacity: 0.7;
     }
 
-    .mc-toggle-icon {
-      color: #e74c3c;
-      font-size: 1.1rem;
-      font-weight: 700;
-      line-height: 1;
+    .mc-toggle-label {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .mc-toggle-chevron {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.75rem;
       transition: transform 0.3s ease;
     }
 
-    .mc-topics-wrap.is-open .mc-toggle-icon {
-      transform: rotate(45deg);
+    .mc-topics-wrap.is-open .mc-toggle-chevron {
+      transform: rotate(180deg);
     }
 
     .module-header {
@@ -470,7 +474,10 @@ const { modules, subtitle } = Astro.props;
         const wrap = btn.closest('.mc-topics-wrap');
         if (!wrap) return;
         wrap.classList.toggle('is-open');
-        btn.setAttribute('aria-label', wrap.classList.contains('is-open') ? 'Hide topics' : 'Show topics');
+        const isOpen = wrap.classList.contains('is-open');
+        const label = btn.querySelector('.mc-toggle-label');
+        if (label) label.textContent = isOpen ? 'Hide lessons' : 'View lessons';
+        btn.setAttribute('aria-label', isOpen ? 'Hide lessons' : 'Show lessons');
       });
     });
   }
