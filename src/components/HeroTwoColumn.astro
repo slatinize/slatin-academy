@@ -30,7 +30,7 @@ const { badgeText = 'Course', title, subtitle, ctaText, ctaHref = '#pricing', se
         {badgeText}
       </span>
     )}
-    <div class={`grid grid-cols-1 md:grid-cols-[var(--hero-ratio)] gap-8 lg:gap-16 items-center`} style={`--hero-ratio: ${gridRatio || '1.2fr 1fr'};`}>
+    <div class="hero-grid gap-8 lg:gap-16 items-center" style={`--hero-ratio: ${gridRatio || '1.2fr 1fr'};`}>
       <!-- Left column: title -->
       <div>
         <h1 class="hero-title leading-[1.05] font-medium" style={titleSize ? `font-size: ${titleSize}` : undefined} set:html={title} />
@@ -41,7 +41,7 @@ const { badgeText = 'Course', title, subtitle, ctaText, ctaHref = '#pricing', se
         <div class="flex flex-col justify-start pt-6 md:pt-10">
           <p class={`${subtitleSize || 'text-base md:text-lg'} text-white leading-relaxed`} set:html={subtitle} />
           {(ctaText || secondaryCtaText) && (
-            <div class="flex flex-wrap mt-8" style={`gap: ${buttonGap || '1.5rem'};`}>
+            <div class="flex flex-col sm:flex-row flex-wrap mt-8" style={`gap: ${buttonGap || '1.5rem'};`}>
               {ctaText && (
                 <a href={ctaHref} class="hero-cta-primary">
                   {ctaText}
@@ -61,6 +61,10 @@ const { badgeText = 'Course', title, subtitle, ctaText, ctaHref = '#pricing', se
 </section>
 
 <style>
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
   .hero-title {
     font-size: clamp(3rem, 7.5vw, 8rem);
     font-weight: 600;
@@ -70,6 +74,9 @@ const { badgeText = 'Course', title, subtitle, ctaText, ctaHref = '#pricing', se
     min-height: auto;
   }
   @media (min-width: 768px) {
+    .hero-grid {
+      grid-template-columns: var(--hero-ratio, 1.2fr 1fr);
+    }
     .hero-section {
       min-height: calc(100vh - 300px);
     }
