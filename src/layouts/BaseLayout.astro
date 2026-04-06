@@ -57,6 +57,54 @@ const { title, description = 'Premium music education by SLATIN', ogImage } = As
         { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
       );
       document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+      // Squiggle scribble underlines — inject inline SVGs (matching WP Salient nectar-scribble)
+      const svgNS = 'http://www.w3.org/2000/svg';
+      const scribbleTypes = {
+        squiggle: {
+          viewBox: '-347 -30.1947 694 96.19',
+          d: 'M-335,54 C-335,54 -171,-58 -194,-3 C-217,52 -224.12,73.55 -127,11 C-68,-27 -137,50 -33,42 C31.44,37.04 147.15,-29.31 335,2',
+          stroke: '#dd3333',
+          strokeWidth: '8',
+        },
+        'squiggle-basic': {
+          viewBox: '-400 -55 730 60',
+          d: 'm -383.25 -6 c 55.25 -22 130.75 -33.5 293.25 -38 c 54.5 -0.5 195 -2.5 401 15',
+          stroke: '#ba1616',
+          strokeWidth: '14',
+        },
+      };
+
+      Object.entries(scribbleTypes).forEach(([cls, cfg]) => {
+        document.querySelectorAll('.' + cls).forEach((el) => {
+          const svg = document.createElementNS(svgNS, 'svg');
+          svg.setAttribute('class', 'squiggle-svg');
+          svg.setAttribute('viewBox', cfg.viewBox);
+          svg.setAttribute('preserveAspectRatio', 'none');
+          const path = document.createElementNS(svgNS, 'path');
+          path.setAttribute('d', cfg.d);
+          path.setAttribute('pathLength', '1');
+          path.setAttribute('stroke', cfg.stroke);
+          path.setAttribute('stroke-width', cfg.strokeWidth);
+          path.setAttribute('fill', 'none');
+          svg.appendChild(path);
+          el.appendChild(svg);
+        });
+      });
+
+      // Squiggle draw-on animation triggered by scroll
+      const squiggleObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('drawn');
+              squiggleObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+      document.querySelectorAll('.squiggle, .squiggle-basic').forEach((el) => squiggleObserver.observe(el));
     </script>
   </body>
 </html>
