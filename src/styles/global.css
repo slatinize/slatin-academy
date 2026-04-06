@@ -187,6 +187,16 @@
   transform: translateY(0);
 }
 
+/* Responsive pull-up: tighter on mobile, larger on desktop */
+.pull-up-faq {
+  margin-top: -2.5rem;
+}
+@media (min-width: 768px) {
+  .pull-up-faq {
+    margin-top: -7rem;
+  }
+}
+
 /* Outline text for marquee banners */
 .text-outline {
   -webkit-text-stroke: 1px currentColor;

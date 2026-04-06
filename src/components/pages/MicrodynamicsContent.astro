@@ -80,7 +80,7 @@ const {
     videoSrc="https://www.slatin.pro/wp-content/uploads/2025/05/3D_Insight_resized.mp4"
   >
     {introSections[0].paragraphs.map((p, i) => (
-      <p class={`text-white font-medium ${i < introSections[0].paragraphs.length - 1 ? 'mb-4' : ''}`} style="font-size: 21px; line-height: 25px;" set:html={p} />
+      <p class={`text-white font-medium ${i < introSections[0].paragraphs.length - 1 ? 'mb-4' : ''}`} style="font-size: 21px; line-height: 31px;" set:html={p} />
     ))}
   </SplitSection>
 
@@ -91,7 +91,7 @@ const {
     videoSrc="https://www.slatin.pro/wp-content/uploads/2025/05/3D_OzoneMultiband_resized.mp4"
   >
     {introSections[1].paragraphs.map((p, i) => (
-      <p class={`text-white font-medium ${i < introSections[1].paragraphs.length - 1 ? 'mb-4' : ''}`} style="font-size: 21px; line-height: 25px;" set:html={p} />
+      <p class={`text-white font-medium ${i < introSections[1].paragraphs.length - 1 ? 'mb-4' : ''}`} style="font-size: 21px; line-height: 31px;" set:html={p} />
     ))}
   </SplitSection>
 
@@ -204,7 +204,7 @@ const {
   />
 
   <!-- 18. FAQ -->
-  <div style="margin-top: -7rem;">
+  <div class="pull-up-faq">
   <FAQ items={faqItems} />
   </div>
 
