@@ -430,7 +430,7 @@ const { modules, subtitle } = Astro.props;
     };
 
     // Track whether a card's lessons panel is open
-    let hasOpenCard = () => track.querySelectorAll('.mc-topics-wrap.is-open').length > 0;
+    const hasOpenCard = () => track.querySelectorAll('.mc-topics-wrap.is-open').length > 0;
 
     // Scroll one card to the right (left-to-right: 01→02→03...)
     let isAutoScrolling = false;
@@ -449,13 +449,14 @@ const { modules, subtitle } = Astro.props;
     };
 
     const stopAuto = () => {
-      if (autoTimer) { clearInterval(autoTimer); autoTimer = undefined; }
+      clearInterval(autoTimer);
+      autoTimer = undefined;
+      clearTimeout(pauseTimeout);
+      pauseTimeout = undefined;
     };
 
     const pauseAuto = () => {
       stopAuto();
-      if (pauseTimeout) clearTimeout(pauseTimeout);
-      // Don't resume auto-advance while a card's lessons are open
       if (!hasOpenCard()) {
         pauseTimeout = setTimeout(startAuto, 5000);
       }
@@ -482,15 +483,34 @@ const { modules, subtitle } = Astro.props;
       });
     };
 
-    // Debounced scroll-end detection
+    // Guard: suppress scroll-triggered collapse while the user is touching
+    // or momentum-scrolling (stays true for 800ms after finger lifts)
+    let isTouching = false;
+    let momentumTimer: ReturnType<typeof setTimeout> | undefined;
+    const MOMENTUM_MS = 800;
+
+    const touchStart = () => {
+      isTouching = true;
+      clearTimeout(momentumTimer);
+      pauseAuto();
+    };
+    const touchRelease = () => {
+      clearTimeout(momentumTimer);
+      momentumTimer = setTimeout(() => { isTouching = false; }, MOMENTUM_MS);
+    };
+
+    track.addEventListener('touchstart', touchStart, { passive: true });
+    track.addEventListener('touchend', touchRelease, { passive: true });
+    track.addEventListener('touchcancel', touchRelease, { passive: true });
+
+    // Collapse open cards on scroll, unless it's auto-advance, reset, or touch
     track.addEventListener('scroll', () => {
-      if (!isAutoScrolling && !isResetting) collapseAllTopics();
+      if (!isAutoScrolling && !isResetting && !isTouching) collapseAllTopics();
       if (isResetting) return;
-      if (scrollEndTimer) clearTimeout(scrollEndTimer);
+      clearTimeout(scrollEndTimer);
       scrollEndTimer = setTimeout(checkReset, 200);
     }, { passive: true });
 
-    track.addEventListener('touchstart', pauseAuto, { passive: true });
     track.addEventListener('mousedown', pauseAuto, { passive: true });
     track.addEventListener('wheel', pauseAuto, { passive: true });
 
@@ -549,13 +569,12 @@ const { modules, subtitle } = Astro.props;
       // Stop auto-advance while a card is open; resume when closed
       if (isOpen) {
         stopAuto();
-        if (pauseTimeout) clearTimeout(pauseTimeout);
       } else {
         pauseAuto();
       }
     };
 
-    track.querySelectorAll('.mc-card').forEach((card) => {
+    track.querySelectorAll('.mc-card:not(.mc-clone)').forEach((card) => {
       card.addEventListener('click', () => toggleCard(card));
     });
   }
