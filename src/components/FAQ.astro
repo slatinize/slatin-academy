@@ -2,6 +2,7 @@
 interface FAQItem {
   question: string;
   answer: string;
+  category?: string;
 }
 
 interface Props {
@@ -9,6 +10,15 @@ interface Props {
 }
 
 const { items } = Astro.props;
+
+// Extract unique categories preserving insertion order
+const categories = [...new Set(items.map(item => item.category).filter(Boolean))] as string[];
+const hasCategories = categories.length > 1;
+
+// Count items per category
+const categoryCounts = hasCategories
+  ? Object.fromEntries(categories.map(cat => [cat, items.filter(i => i.category === cat).length]))
+  : {};
 ---
 
 <section class="section-dark section-padding">
@@ -25,10 +35,28 @@ const { items } = Astro.props;
       </div>
     </div>
 
+    <!-- Category tabs (only when multiple categories exist) -->
+    {hasCategories && (
+      <div class="flex flex-wrap gap-2 mb-10 reveal" data-faq-tabs>
+        {categories.map((cat, i) => (
+          <button
+            class={`faq-tab ${i === 0 ? 'active' : ''}`}
+            data-faq-cat={cat}
+          >
+            {cat}
+            <span class="faq-tab-count">{categoryCounts[cat]}</span>
+          </button>
+        ))}
+      </div>
+    )}
+
     <!-- Accordion -->
-    <div class="space-y-0 divide-y divide-white/10">
+    <div data-faq-list>
       {items.map((item, index) => (
-        <div class="faq-item reveal">
+        <div
+          class={`faq-item reveal ${hasCategories && item.category !== categories[0] ? 'faq-hidden' : ''}`}
+          data-faq-category={item.category || ''}
+        >
           <button
             class="w-full flex items-center justify-between py-6 text-left group"
             data-faq-toggle={index}
@@ -60,6 +88,65 @@ const { items } = Astro.props;
   .animate-marquee {
     animation: marquee 20s linear infinite;
   }
+
+  /* Tab styles — matches TabbedTestimonials design language */
+  .faq-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1.1rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  .faq-tab:hover {
+    color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.04);
+  }
+  .faq-tab.active {
+    background: #DD3333;
+    border-color: #DD3333;
+    color: #fff;
+  }
+  .faq-tab-count {
+    font-size: 0.7rem;
+    opacity: 0.6;
+  }
+  .faq-tab.active .faq-tab-count {
+    opacity: 0.8;
+  }
+
+  /* Item borders — manual bottom border avoids divide-y artifacts on hidden items */
+  .faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Smooth show/hide for filtered items */
+  .faq-item {
+    overflow: hidden;
+    max-height: 500px;
+    opacity: 1;
+    transition: max-height 0.3s ease, opacity 0.2s ease, padding 0.3s ease;
+  }
+  .faq-item.faq-hidden {
+    max-height: 0;
+    opacity: 0;
+    border-bottom-color: transparent;
+    pointer-events: none;
+  }
+  .faq-item.faq-hidden button {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  /* Accordion open states */
   .faq-item.open .faq-vertical {
     display: none;
   }
@@ -72,16 +159,50 @@ const { items } = Astro.props;
 </style>
 
 <script>
+  // Category filtering
+  document.querySelectorAll('[data-faq-tabs]').forEach((tabContainer) => {
+    const tabs = tabContainer.querySelectorAll('.faq-tab');
+    const section = tabContainer.closest('section');
+    if (!section) return;
+    const items = section.querySelectorAll('.faq-item');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const category = tab.getAttribute('data-faq-cat');
+
+        // Update active tab
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // Close all open items
+        section.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+        section.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+
+        // Filter items
+        items.forEach((item) => {
+          const itemCat = item.getAttribute('data-faq-category');
+          if (itemCat === category) {
+            item.classList.remove('faq-hidden');
+          } else {
+            item.classList.add('faq-hidden');
+          }
+        });
+      });
+    });
+  });
+
+  // Accordion toggle (scoped per section for multi-instance support)
   document.querySelectorAll('[data-faq-toggle]').forEach((btn) => {
     btn.addEventListener('click', () => {
       const index = btn.getAttribute('data-faq-toggle');
-      const content = document.querySelector(`[data-faq-content="${index}"]`);
+      const section = btn.closest('section');
+      const content = section?.querySelector(`[data-faq-content="${index}"]`);
       const item = btn.closest('.faq-item');
-      if (content && item) {
+      if (content && item && section) {
         const isOpen = !content.classList.contains('hidden');
-        // Close all
-        document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        // Close all within this section
+        section.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+        section.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
         // Open this one if it was closed
         if (!isOpen) {
           content.classList.remove('hidden');

@@ -211,58 +211,72 @@ export const pageData = {
     {
       question: "Who, specifically, is this Mentoring for?",
       answer: `<strong>This Program is Tailored for Producers and Mixing Engineers that:</strong><ul class="list-disc pl-5 mt-2 space-y-1"><li>Want to accelerate their growth, and unlock their full potential in record time.</li><li>Want to cut through the noise of infinite misleading content & learn the "WHYs" behind each technique.</li><li>Want to improve their technical skills and knowledge of music production, mixing, and mastering.</li><li>Need tailored feedback on their work and direct access to an experienced mentor for guidance.</li><li>Want to learn how to promote their music effectively, build their brand, and grow their fanbase.</li><li>Are willing to invest in their education and development.</li><li>Are motivated to improve themselves and committed to achieving their goals.</li></ul>`,
+      category: "About",
     },
     {
       question: "Who should NOT enroll in this Mentoring?",
       answer: `<strong>This Program is NOT for:</strong><ul class="list-disc pl-5 mt-2 space-y-1"><li>Complete beginners who have no prior knowledge of music production or engineering.</li><li>Individuals who are not willing to invest time and effort in their own growth and development.</li><li>People who are looking for a quick fix or shortcut to success without putting in the necessary work.</li><li>Those who are not open to learning new techniques or approaches.</li><li>Individuals who are not willing to invest in their own education and growth.</li></ul>`,
+      category: "About",
     },
     {
       question: "Do you have experience in teaching and mentoring?",
       answer: "Absolutely! With over 8 years of experience teaching at various international music institutes, including Anonymous Studios (Los Angeles), SAE Institute (Madrid), Millenia (Valencia), and DJP Music School (Madrid). I have also worked with numerous students one-on-one, many of whom have gone on to achieve great success in the music industry.",
+      category: "About",
     },
     {
       question: "How is this different from a Music Production School or Institute?",
       answer: `The Mentoring Program provides <strong>personalized guidance</strong> and support <strong>tailored to each individual's needs</strong> and goals. Unlike traditional schools that follow a predetermined curriculum, the Mentoring Program will be customized to a <strong>SMALL GROUP</strong>. Additionally, you will learn firsthand and have daily access to a <strong>professional</strong> with over 15 years of experience in the industry.`,
+      category: "About",
     },
     {
       question: "How is this different from buying Courses or Tutorials online?",
       answer: `Unlike pre-recorded content, our program is tailored to the needs and aspirations of each individual in the group, and we'll work together to create a <strong>customized plan</strong> that addresses your strengths, weaknesses, and unique challenges. Additionally, the program offers a supportive community, weekly feedback, and <strong>regular accountability check-ins</strong>.`,
+      category: "About",
     },
     {
       question: "Could you provide me with an outline of the Mentoring Program?",
       answer: "As everyone's needs are unique, we will create a customized plan. Highlights include: Understanding and Applying EQ, Mastering Compression, Advanced Compression / Complex Curves, Mid/Side Processing, Business 101, Social Media Growth, How To Get Clients, Sound Design, Sidechain Compression, Micro-Dynamics, Vocal Mixing, The Magic of Tapes, All Mastering Secrets, Advanced Compression / Tonal Control, Automating your Studio, Using AI for Production, and Dolby Atmos Mixing.",
+      category: "Program",
     },
     {
       question: "What language will the mentoring program be conducted in?",
       answer: "Group mentoring is conducted in English, but one-on-one calls can be held in Spanish and Russian.",
+      category: "Program",
     },
     {
       question: "How long is the 1-on-1 Weekly Call?",
       answer: "The weekly one-on-one call will last for 60 minutes, during which we will provide accountability check-ins, help you execute your custom roadmap/plan, review your projects, finish songs, address any doubts you may have and provide personalized business guidance.",
+      category: "Program",
     },
     {
       question: "How big is the group?",
       answer: "The minimum number of participants for the Group Mentoring program is four, and the maximum is fifteen. This ensures the group is large enough to foster a collaborative and supportive environment while allowing individual attention and feedback.",
+      category: "Program",
     },
     {
       question: "At what time do the classes take place?",
       answer: `The classes are generally scheduled for Mondays at 20:00 CEST (Central European Time). The days and times can be adjusted based on the group's preference. If you cannot assist in person, <strong>all sessions are recorded and shared</strong> with the group on the same day.`,
+      category: "Program",
     },
     {
       question: "What Equipment (Hardware) do I need?",
       answer: "To participate in the Mentoring Program, you will need a computer or laptop with a reliable internet connection, and a pair of headphones or studio monitors of your choice.",
+      category: "Setup & Payment",
     },
     {
       question: "What DAW & Software do I need?",
       answer: "We will be using Ableton Live 12 and Reaper for the lessons and feedback sessions. But all the techniques and concepts are 100% compatible with any other DAW. If you don't own a specific plugin, I will always show you a Free or Native alternative.",
+      category: "Setup & Payment",
     },
     {
       question: "How does the payment system work?",
       answer: `This mentoring program is <strong>Subscription based</strong>, and it has a commitment of <strong>Three Months</strong>.`,
+      category: "Setup & Payment",
     },
     {
       question: "What If I have more questions?",
       answer: `For any questions, you can email our Studio Manager at: <a href="mailto:admin@slatin.pro" class="text-accent-red hover:underline">admin@slatin.pro</a>.`,
+      category: "Setup & Payment",
     },
   ] as FaqItem[],
 };
