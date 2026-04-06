@@ -482,11 +482,23 @@ const { modules, subtitle } = Astro.props;
       });
     };
 
-    // Track active touch to avoid collapsing cards during touch-scroll on mobile
+    // Track active touch (including momentum scroll) to avoid collapsing cards on mobile
     let isTouching = false;
-    track.addEventListener('touchstart', () => { isTouching = true; pauseAuto(); }, { passive: true });
-    track.addEventListener('touchend', () => { isTouching = false; }, { passive: true });
-    track.addEventListener('touchcancel', () => { isTouching = false; }, { passive: true });
+    let touchScrollTimer: ReturnType<typeof setTimeout> | undefined;
+    track.addEventListener('touchstart', () => {
+      isTouching = true;
+      if (touchScrollTimer) clearTimeout(touchScrollTimer);
+      pauseAuto();
+    }, { passive: true });
+    track.addEventListener('touchend', () => {
+      // Keep flag true during momentum/inertia scroll after finger lifts
+      if (touchScrollTimer) clearTimeout(touchScrollTimer);
+      touchScrollTimer = setTimeout(() => { isTouching = false; }, 800);
+    }, { passive: true });
+    track.addEventListener('touchcancel', () => {
+      if (touchScrollTimer) clearTimeout(touchScrollTimer);
+      touchScrollTimer = setTimeout(() => { isTouching = false; }, 800);
+    }, { passive: true });
 
     // Debounced scroll-end detection
     track.addEventListener('scroll', () => {
