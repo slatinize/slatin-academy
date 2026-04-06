@@ -128,22 +128,17 @@ const categoryCounts = hasCategories
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  /* Smooth show/hide for filtered items */
-  .faq-item {
-    overflow: hidden;
-    max-height: 500px;
-    opacity: 1;
-    transition: max-height 0.3s ease, opacity 0.2s ease, padding 0.3s ease;
+  /* Fade transition for category switching */
+  [data-faq-list] {
+    transition: opacity 0.15s ease;
   }
-  .faq-item.faq-hidden {
-    max-height: 0;
+  [data-faq-list].faq-fading {
     opacity: 0;
-    border-bottom-color: transparent;
-    pointer-events: none;
   }
-  .faq-item.faq-hidden button {
-    padding-top: 0;
-    padding-bottom: 0;
+
+  /* Hidden items — instant, no height animation */
+  .faq-item.faq-hidden {
+    display: none;
   }
 
   /* Accordion open states */
@@ -166,27 +161,34 @@ const categoryCounts = hasCategories
     if (!section) return;
     const items = section.querySelectorAll('.faq-item');
 
+    const list = section.querySelector('[data-faq-list]');
+
     tabs.forEach((tab) => {
       tab.addEventListener('click', () => {
         const category = tab.getAttribute('data-faq-cat');
+        if (tab.classList.contains('active')) return;
 
         // Update active tab
         tabs.forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
 
-        // Close all open items
-        section.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
-        section.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        // Fade out, swap content, fade in
+        if (list) {
+          list.classList.add('faq-fading');
+          setTimeout(() => {
+            // Close all open items
+            section.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+            section.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
 
-        // Filter items
-        items.forEach((item) => {
-          const itemCat = item.getAttribute('data-faq-category');
-          if (itemCat === category) {
-            item.classList.remove('faq-hidden');
-          } else {
-            item.classList.add('faq-hidden');
-          }
-        });
+            // Filter items
+            items.forEach((item) => {
+              const itemCat = item.getAttribute('data-faq-category');
+              item.classList.toggle('faq-hidden', itemCat !== category);
+            });
+
+            list.classList.remove('faq-fading');
+          }, 150);
+        }
       });
     });
   });
