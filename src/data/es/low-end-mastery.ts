@@ -2,257 +2,257 @@ import type { Testimonial, Module, FaqItem, Feature, NumberedItem } from '../typ
 
 export const pageData = {
   meta: {
-    title: "Low End Mastery - Kick & Bass Mixing Course",
-    description: "Master low-end frequencies, kick and bass relationships and achieve loud, dynamic mixes that translate everywhere. By SLATIN.",
+    title: "Low End Mastery - Curso de Mezcla de Kick & Bass",
+    description: "Domina las frecuencias graves, la relación kick y bass y consigue mezclas potentes y dinámicas que traduzcan en cualquier sistema. Por SLATIN.",
   },
 
   hero: {
-    badgeText: "Course",
+    badgeText: "Curso",
     title: 'Low-End<br><span class="squiggle">Mastery</span>',
-    subtitle: '<span style="font-size: 1.25rem; line-height: 1.6;"><strong>Struggling to get your low end right? From kick and bass chemistry to perfect translation across all systems...</strong></span><br><br><span style="font-size: 1.05rem; line-height: 1.6; opacity: 0.8;">Acquire the techniques, tools and ear training you need to achieve punchy, polished low-end mixes.</span>',
-    ctaText: "Get Full Access",
+    subtitle: '<span style="font-size: 1.25rem; line-height: 1.6;"><strong>No consigues que tu low end suene bien? De la química entre kick y bass a la traducción perfecta en todos los sistemas...</strong></span><br><br><span style="font-size: 1.05rem; line-height: 1.6; opacity: 0.8;">Adquiere las técnicas, herramientas y entrenamiento auditivo que necesitas para lograr mezclas de graves potentes y pulidas.</span>',
+    ctaText: "Acceso Completo",
     ctaHref: "#pricing",
-    secondaryCtaText: "See Curriculum",
+    secondaryCtaText: "Ver Contenido",
     secondaryCtaHref: "#modules",
   },
 
   splitSections: {
     getLoud: {
-      heading: 'Get Real <span class="squiggle-basic">Loud</span>',
+      heading: 'Consigue Volumen <span class="squiggle-basic">Real</span>',
       paragraphs: [
-        "Can't hit your target LUFS without destroying your dynamics?",
-        'In most cases, it is a <strong class="text-white">low-end issue.</strong>',
-        "In this course, I'll show you exactly what it takes to achieve loud, punchy mixes that still breathe.",
+        "No llegas a tus LUFS objetivo sin destruir la dinámica?",
+        'En la mayoría de los casos, es un <strong class="text-white">problema de graves.</strong>',
+        "En este curso te muestro exactamente qué hace falta para lograr mezclas potentes y con punch que sigan respirando.",
       ],
-      accent: "And it is much more than clipping and limiting... 😏",
+      accent: "Y es mucho más que clipping y limiting... 😏",
     },
     kickBass: {
-      heading: 'Nail Your <span class="squiggle-basic">Kick & Bass</span>',
+      heading: 'Clava Tu <span class="squiggle-basic">Kick & Bass</span>',
       paragraphs: [
-        "You probably already use sidechain.",
-        "BUT, what if I told you that...",
+        "Seguramente ya usas sidechain.",
+        "PERO, ¿y si te dijera que...",
       ],
-      accent: "Sidechain is not enough... 🫣",
+      accent: "El sidechain no es suficiente... 🫣",
       afterAccent: [
-        "...when you're chasing that tight, punchy Kick & Bass relationship that pros obsess over.",
+        "...cuando buscas esa relación Kick & Bass ajustada y potente que obsesiona a los profesionales.",
       ],
-      bold: "I'll walk you through the exact process I use on every project.",
+      bold: "Te guiaré paso a paso por el proceso exacto que uso en cada proyecto.",
     },
     translation: {
-      heading: 'Perfect <span class="squiggle-basic">Translation</span>',
+      heading: 'Traducción <span class="squiggle-basic">Perfecta</span>',
       paragraphs: [
-        'Sounds great in the studio but a <strong class="text-white">disaster in the car or club?</strong> 🙉',
-        'Discover the <strong class="text-accent-red">3 keys to flawless low-end translation.</strong>',
-        "Make your tracks hit hard on every system and keep your clients coming back.",
-        "+ Stop wasting hours on revision after revision...",
+        'Suena genial en el estudio pero es un <strong class="text-white">desastre en el coche o en el club?</strong> 🙉',
+        'Descubre las <strong class="text-accent-red">3 claves para una traducción de graves impecable.</strong>',
+        "Haz que tus tracks peguen fuerte en cualquier sistema y que tus clientes vuelvan.",
+        "+ Deja de perder horas en revisión tras revisión...",
       ],
     },
     monoWide: {
-      heading: 'Mono and <span class="squiggle-basic">Wide</span>',
+      heading: 'Mono y <span class="squiggle-basic">Wide</span>',
       paragraphs: [
-        'Think mono-compatible wide bass is impossible? <strong class="text-white">Think again.</strong>',
-        'Learn the exact techniques top sound designers use to craft <strong class="text-accent-red">powerful, wide and fully mono-compatible</strong> basslines.',
+        '¿Crees que un bajo ancho y compatible en mono es imposible? <strong class="text-white">Piénsalo otra vez.</strong>',
+        'Aprende las técnicas exactas que usan los mejores sound designers para crear <strong class="text-accent-red">líneas de bajo potentes, anchas y totalmente compatibles en mono</strong>.',
       ],
     },
     saveTime: {
-      heading: 'Save Your <span class="squiggle-basic">Time</span>',
+      heading: 'Ahorra Tu <span class="squiggle-basic">Tiempo</span>',
       paragraphs: [
-        'Sound Selection is <strong class="text-white">KEY</strong> 🎯',
+        'La Selección de Sonido es <strong class="text-white">CLAVE</strong> 🎯',
       ],
-      accent: "...and it's 80% of your final sound.",
+      accent: "...y supone el 80% de tu sonido final.",
       afterAccent: [
-        'Whether you use Splice or have an extensive sample library, I\'ll show you how to pick the right samples and <strong class="text-white">stop second-guessing</strong> ❌',
+        'Ya sea que uses Splice o tengas una librería de samples extensa, te enseñaré a elegir los samples correctos y a <strong class="text-white">dejar de dudar</strong> ❌',
       ],
     },
     genres: {
-      heading: '<span class="squiggle-basic">Multiple Genres</span>',
+      heading: '<span class="squiggle-basic">Múltiples Géneros</span>',
       paragraphs: [
-        "Each genre has its unique way of addressing low-end frequencies.",
-        'This course is tailored for <strong class="text-accent-red">creators of modern and loud music</strong>.',
-        'You\'ll see exactly how to handle kick and bass in <strong class="text-white">EDM, Pop/Funk, Trap and Reggaeton</strong>.',
+        "Cada género tiene su forma única de tratar las frecuencias graves.",
+        'Este curso está diseñado para <strong class="text-accent-red">creadores de música moderna y potente</strong>.',
+        'Verás exactamente cómo manejar kick y bass en <strong class="text-white">EDM, Pop/Funk, Trap y Reggaeton</strong>.',
       ],
     },
     community: {
-      heading: 'Private <span class="squiggle-basic">Community</span>',
+      heading: 'Comunidad <span class="squiggle-basic">Privada</span>',
       paragraphs: [
-        "This is not your average video course...",
+        "Esto no es un curso de vídeo cualquiera...",
       ],
-      accent: "If you have any questions left, join the chat! 📱",
+      accent: "Si te quedan dudas, únete al chat! 📱",
       afterAccent: [
-        'Share your work, <strong class="text-white">get feedback</strong> and answers to your questions and find like-minded people.',
+        'Comparte tu trabajo, <strong class="text-white">recibe feedback</strong> y respuestas a tus preguntas y encuentra personas con tus mismos intereses.',
       ],
     },
   },
 
   painPoints: {
-    badge: "+ 400 Happy Students ⭐️⭐️⭐️⭐️⭐️",
-    headline: 'Your low end is the foundation, <span class="text-accent-red">everything else follows.</span>',
+    badge: "+ 400 Alumnos Satisfechos ⭐️⭐️⭐️⭐️⭐️",
+    headline: 'Tu low end es la base, <span class="text-accent-red">todo lo demás viene después.</span>',
     items: [
-      'Mixes sound <strong>muddy or thin</strong> and the low end never sits right, no matter what you try.',
-      'Tracks sound great in the studio but <strong>fall apart</strong> on other systems: car, club or phone.',
-      "Can't get masters <strong>loud enough</strong> without the low end distorting or losing punch.",
+      'Las mezclas suenan <strong>turbias o delgadas</strong> y los graves nunca encajan, hagas lo que hagas.',
+      'Los tracks suenan genial en el estudio pero se <strong>desmoronan</strong> en otros sistemas: coche, club o móvil.',
+      "No consigues másters con <strong>suficiente volumen</strong> sin que los graves distorsionen o pierdan punch.",
     ],
   },
 
   featureGrid: {
-    subtitle: "WHAT YOU WILL MASTER",
+    subtitle: "LO QUE DOMINARÁS",
     features: [
       {
         iconSrc: "/images/Ellipse-6-150x150.png",
-        title: "Kick & Bass Chemistry",
-        description: "Learn the science behind the perfect kick and bass relationship, including dynamic phase rotation and advanced sidechain techniques.",
+        title: "Química de Kick & Bass",
+        description: "Aprende la ciencia detrás de la relación perfecta entre kick y bass, incluyendo rotación de fase dinámica y técnicas avanzadas de sidechain.",
       },
       {
         iconSrc: "/images/low-end-translation.png",
-        title: "Perfect Low-End Translation",
-        description: "Discover the 3 keys to flawless low-end translation that makes your songs bang on every playback system.",
+        title: "Traducción de Graves Perfecta",
+        description: "Descubre las 3 claves para una traducción de graves impecable que haga que tus canciones suenen potentes en cualquier sistema de reproducción.",
       },
       {
         iconSrc: "/images/loudness-icon.png",
-        title: "Loudness Without Compromise",
-        description: "Hit your target LUFS levels with punchy, club-ready mixes. It's much more than just clipping and limiting.",
+        title: "Volumen Sin Compromiso",
+        description: "Alcanza tus niveles de LUFS objetivo con mezclas potentes y listas para el club. Es mucho más que solo clipping y limiting.",
       },
       {
         iconSrc: "/images/sound-selection-icon.png",
-        title: "Sound Selection & Shaping",
-        description: "Master the art of selecting the right samples and shaping kicks for any genre, the foundation of 80% of your final sound.",
+        title: "Selección y Modelado de Sonido",
+        description: "Domina el arte de seleccionar los samples correctos y moldear kicks para cualquier género — la base del 80% de tu sonido final.",
       },
     ] as Feature[],
   },
 
   idealFor: {
-    title: "This course is ideal if you",
+    title: "Este curso es ideal para ti si",
     items: [
       {
         number: "01",
-        text: "Struggle with <strong>low-end translation</strong>: your mixes sound different on every playback system.",
+        text: "Tienes problemas con la <strong>traducción de graves</strong>: tus mezclas suenan diferente en cada sistema de reproducción.",
       },
       {
         number: "02",
-        text: "Want to understand the <strong>kick and bass relationship</strong> at a deep, professional level.",
+        text: "Quieres entender la <strong>relación entre kick y bass</strong> a un nivel profundo y profesional.",
       },
       {
         number: "03",
-        text: "Need to achieve <strong>loud, punchy masters</strong> without sacrificing low-end clarity and translation.",
+        text: "Necesitas lograr <strong>másters potentes y con punch</strong> sin sacrificar claridad ni traducción de graves.",
       },
     ] as NumberedItem[],
   },
 
   moduleCarousel: {
-    subtitle: "7 modules · 25+ lessons · Everything you need to nail your low end",
+    subtitle: "7 módulos · 25+ lecciones · Todo lo que necesitas para dominar tu low end",
   },
 
   teacherBio: {
     bio: [
-      'Ruslan Slatin is an <strong>award-winning</strong> producer and <strong>sound engineer</strong> with decades of experience in the global music industry.',
-      'Celebrated for his distinctive sound and top-tier productions, he has collaborated with some of the most prestigious <strong>international labels</strong> and artists.',
-      'In addition to running a high-performing commercial mastering studio, completing over 1,000 projects annually, <strong>Ruslan</strong> is a passionate educator.',
-      'Through specialized courses and private mentoring, he empowers music producers to elevate their sound using proven and novel sound sculpting techniques.',
+      'Ruslan Slatin es un <strong>galardonado</strong> productor e <strong>ingeniero de sonido</strong> con décadas de experiencia en la industria musical global.',
+      'Reconocido por su sonido distintivo y producciones de alto nivel, ha colaborado con algunos de los <strong>sellos y artistas internacionales</strong> más prestigiosos.',
+      'Además de dirigir un estudio de mastering de alto rendimiento, con más de 1.000 proyectos completados al año, <strong>Ruslan</strong> es un educador apasionado.',
+      'A través de cursos especializados y mentorías privadas, ayuda a productores musicales a elevar su sonido utilizando técnicas probadas e innovadoras para moldear el sonido.',
     ],
   },
 
   pricing: {
-    subtitle: "Get the kick and bass <strong class='text-white'>clarity, punch and translation</strong> that your mixes have been missing.",
+    subtitle: "Consigue la <strong class='text-white'>claridad, punch y traducción</strong> de kick y bass que le falta a tus mezclas.",
     price: "159€",
     features: [
-      "Unlimited Access to The Course",
-      "Access to Private Community",
-      "Presets and Resources",
-      "Bonus Modules and Videos",
-      "Ongoing Updates",
-      "Live Q&A Sessions with SLATIN",
+      "Acceso Ilimitado al Curso",
+      "Acceso a Comunidad Privada",
+      "Presets y Recursos",
+      "Módulos y Vídeos Extra",
+      "Actualizaciones Continuas",
+      "Sesiones de Q&A con SLATIN",
     ],
-    ctaText: "GET FULL ACCESS 🔑",
+    ctaText: "ACCESO COMPLETO 🔑",
     ctaHref: "https://learn.slatin.pro/purchase?product_id=5700498",
   },
 
   testimonials: [
     {
-      quote: "He's an expert in producing, mixing and mastering. With his help, I received international recognition from Tiesto, Gate21, DJs From Mars and more. I highly recommend Slatin.",
+      quote: "Es un experto en producción, mezcla y mastering. Con su ayuda, recibí reconocimiento internacional de Tiesto, Gate21, DJs From Mars y más. Recomiendo mucho a Slatin.",
       name: "RICO",
-      role: "DJ & Producer",
+      role: "DJ & Productor",
       avatar: "https://uploads.teachablecdn.com/attachments/kG4eHuWTEirpaies5HfQ_rico.jpg",
     },
     {
-      quote: "Slatin has truly helped me take my tracks to the next level. Whether it's mixing, mastering, production or music business, Slatin will go out of his way to answer whatever questions you may have and make sure you leave a session genuinely content.",
+      quote: "Slatin realmente me ha ayudado a llevar mis tracks al siguiente nivel. Ya sea mezcla, mastering, producción o negocio musical, Slatin se esfuerza al máximo para responder cualquier pregunta y asegurarse de que salgas de la sesión realmente satisfecho.",
       name: "Nicolas K",
-      role: "DJ & Producer",
+      role: "DJ & Productor",
       featured: true,
       avatar: "https://uploads.teachablecdn.com/attachments/ulbYLEsRoiYbHxF1zSTA_nioc.jpg",
     },
     {
-      quote: "As a singer and producer, I needed clarity, direction and a real understanding of mixing. Within weeks, I learned to listen with purpose and make decisions with confidence. Now my tracks sound big, clean and professional.",
+      quote: "Como cantante y productor, necesitaba claridad, dirección y una comprensión real de la mezcla. En pocas semanas, aprendí a escuchar con intención y a tomar decisiones con confianza. Ahora mis tracks suenan grandes, limpios y profesionales.",
       name: "Jaime Hernández",
-      role: "Producer",
+      role: "Productor",
       avatar: "https://www.slatin.pro/wp-content/uploads/2025/05/borja-283x300.jpg",
     },
     {
-      quote: "The course with Slatin has been a turning point for me in my criteria as a mixing and mastering engineer. Although I had a good level, it has been a great improvement for the better. I truly recommend it to all producers and mixing engineers of any level.",
+      quote: "El curso con Slatin ha sido un punto de inflexión en mi criterio como ingeniero de mezcla y mastering. Aunque tenía un buen nivel, ha sido una gran mejora. Lo recomiendo de verdad a todos los productores e ingenieros de mezcla de cualquier nivel.",
       name: "The Wayne",
-      role: "Producer & Engineer",
+      role: "Productor & Ingeniero",
       avatar: "https://www.slatin.pro/wp-content/uploads/2025/05/marc-300x300.jpg",
     },
     {
-      quote: "The classes with SLATIN have raised the level of my productions, both in sound and creativity. Apart from technical knowledge, he has a great ability to teach, making everything seem easy.",
+      quote: "Las clases con SLATIN han elevado el nivel de mis producciones, tanto en sonido como en creatividad. Aparte de conocimientos técnicos, tiene una gran capacidad para enseñar, haciendo que todo parezca fácil.",
       name: "Auriga",
-      role: "DJ & Producer",
+      role: "DJ & Productor",
       avatar: "https://www.slatin.pro/wp-content/uploads/2023/03/289838124_556531009338664_1910523833993545341_n-300x300.jpg",
     },
     {
-      quote: "SLATIN was the game changer in my life. Today, I am achieving the goals I once dreamed of, thanks to the three years I spent learning from him. He is an incredible and approachable teacher and his professionalism stands out.",
+      quote: "SLATIN fue el cambio radical en mi vida. Hoy estoy alcanzando las metas que una vez soñé, gracias a los tres años que pasé aprendiendo con él. Es un profesor increíble y cercano, y su profesionalidad destaca.",
       name: "Krumel",
-      role: "DJ & Producer",
+      role: "DJ & Productor",
       avatar: "https://www.slatin.pro/wp-content/uploads/2023/03/333790209_684358630111700_8875204025891176004_n-300x300.jpg",
     },
   ] as Testimonial[],
 
   modules: [
     {
-      title: "Low End Theory - Fine\u2011Tuning the Foundation",
-      moduleNumber: "MODULE 01",
-      topics: ["Why Low End Is So Important?", "Why Is It So Hard to Mix?", "Frequently Asked Questions & Common Mistakes"],
+      title: "Teoría del Low End - Afinando los Cimientos",
+      moduleNumber: "MÓDULO 01",
+      topics: ["¿Por Qué el Low End Es Tan Importante?", "¿Por Qué Es Tan Difícil de Mezclar?", "Preguntas Frecuentes y Errores Comunes"],
       imageSrc: "/images/module-01-ozone-eq.png",
       imagePosition: "center top",
     },
     {
-      title: "Navigating Tools and Challenges in Low-End Mixing",
-      moduleNumber: "MODULE 02",
-      topics: ["Your Ears", "Speakers & Room", "Headphones", "Metering"],
+      title: "Herramientas y Retos en la Mezcla de Graves",
+      moduleNumber: "MÓDULO 02",
+      topics: ["Tus Oídos", "Monitores y Sala", "Auriculares", "Medición"],
       imageSrc: "/images/module2-low-end.png",
       imagePosition: "center top",
     },
     {
-      title: "Sound Sculpting - Techniques for Mastering the Perfect Kick",
-      moduleNumber: "MODULE 03",
-      topics: ["What Makes a Perfect Kick?", "Kick Shaping Examples (5 Practical Demonstrations)"],
+      title: "Modelado de Sonido - Técnicas para el Kick Perfecto",
+      moduleNumber: "MÓDULO 03",
+      topics: ["¿Qué Hace un Kick Perfecto?", "Ejemplos de Modelado de Kick (5 Demostraciones Prácticas)"],
       imageSrc: "/images/module-03-proq3.png",
       imagePosition: "center top",
     },
     {
-      title: "All About The Bass - Achieving Bass Perfection",
-      moduleNumber: "MODULE 04",
-      topics: ["Saturation", "Mono-Compatibility", "Creating a Mono-Compatible Wide Bassline", "Note Selection"],
+      title: "Todo Sobre el Bass - Alcanzando la Perfección",
+      moduleNumber: "MÓDULO 04",
+      topics: ["Saturación", "Compatibilidad Mono", "Crear un Bass Ancho y Compatible en Mono", "Selección de Notas"],
       imageSrc: "/images/module-04-vectorscope.png",
       imagePosition: "center top",
     },
     {
-      title: "Kick Bass Chemistry - Decoding the Relationship",
-      moduleNumber: "MODULE 05",
-      topics: ["Kick & Bass - The Ideal Low End", "Dynamic Phase Rotation - Best Kept Secret", "Low-End Coherence", "Optimizing Kick and Bass in the Mastering Stage"],
+      title: "Química Kick & Bass - Decodificando la Relación",
+      moduleNumber: "MÓDULO 05",
+      topics: ["Kick & Bass - El Low End Ideal", "Rotación de Fase Dinámica - El Secreto Mejor Guardado", "Coherencia de Graves", "Optimizar Kick y Bass en la Etapa de Mastering"],
       imageSrc: "/images/module-05-bassxxl.png",
       imagePosition: "center top",
     },
     {
-      title: "Case Studies - Real-Life Examples",
-      moduleNumber: "MODULE 06",
-      topics: ["EDM Example", "Pop / Dance / Funk Example", "Trap / Hip Hop", "Reggaeton"],
+      title: "Casos Prácticos - Ejemplos Reales",
+      moduleNumber: "MÓDULO 06",
+      topics: ["Ejemplo EDM", "Ejemplo Pop / Dance / Funk", "Trap / Hip Hop", "Reggaeton"],
       imageSrc: "/images/module-06-standardclip.png",
       imagePosition: "center top",
     },
     {
-      title: "Bonus Lessons",
-      moduleNumber: "MODULE 07",
-      topics: ["Using Spectre instead of RBass or BassXXL", "Working Towards Loudness", "Low End Mastery Workshop (Live Recording)", "Advanced Kick Shaping & Low End Control"],
+      title: "Lecciones Extra",
+      moduleNumber: "MÓDULO 07",
+      topics: ["Usar Spectre en vez de RBass o BassXXL", "Trabajar Hacia el Volumen", "Workshop de Low End Mastery (Grabación en Vivo)", "Modelado Avanzado de Kick y Control de Graves"],
       imageSrc: "/images/module-07-rx.png",
       imagePosition: "center top",
     },
@@ -260,37 +260,37 @@ export const pageData = {
 
   faqItems: [
     {
-      question: "Who, specifically, is this Course for?",
-      answer: `<strong>This Course is Tailored for Producers and Mixing Engineers that:</strong><br><br>
+      question: "¿Para quién es este Curso, específicamente?",
+      answer: `<strong>Este Curso está Diseñado para Productores e Ingenieros de Mezcla que:</strong><br><br>
         <ul class="list-disc ml-5 space-y-2">
-          <li>Struggle with getting their low end to translate across different playback systems.</li>
-          <li>Want to understand the science and art behind kick and bass relationships.</li>
-          <li>Are looking for practical, genre-specific low-end techniques they can apply immediately.</li>
+          <li>Tienen dificultades para que sus graves traduzcan en diferentes sistemas de reproducción.</li>
+          <li>Quieren entender la ciencia y el arte detrás de la relación entre kick y bass.</li>
+          <li>Buscan técnicas prácticas de graves específicas por género que puedan aplicar de inmediato.</li>
         </ul>`,
     },
     {
-      question: "What language is the course taught in?",
-      answer: "The course is taught in English, with subtitles available in both English and Spanish to help you follow along comfortably.",
+      question: "¿En qué idioma se imparte el curso?",
+      answer: "El curso se imparte en inglés, con subtítulos disponibles en inglés y español para que puedas seguirlo cómodamente.",
     },
     {
-      question: "Is this course compatible with my current studies in music at a school or institute?",
-      answer: "100%! While formal education provides a structured curriculum and access to resources, mentoring can offer personalized guidance and support that can enhance and supplement the learning experience.",
+      question: "¿Es compatible este curso con mis estudios actuales de música en una escuela o instituto?",
+      answer: "¡100%! Mientras que la educación formal proporciona un plan de estudios estructurado y acceso a recursos, la mentoría puede ofrecer orientación personalizada y apoyo que complementan y mejoran la experiencia de aprendizaje.",
     },
     {
-      question: "Do you have experience in teaching and mentoring?",
-      answer: "Absolutely! With over 8 years of experience teaching at various international music institutes, I have successfully trained hundreds of students. These institutes include: Anonymous Studios (Los Angeles), SAE Institute (Madrid), Millenia (Valencia), DJP Music School (Madrid). I have also worked with numerous students one-on-one, many of whom have gone on to achieve great success in the music industry.",
+      question: "¿Tienes experiencia enseñando y como mentor?",
+      answer: "¡Por supuesto! Con más de 8 años de experiencia enseñando en diversas escuelas de música internacionales, he formado con éxito a cientos de estudiantes. Estas escuelas incluyen: Anonymous Studios (Los Ángeles), SAE Institute (Madrid), Millenia (Valencia), DJP Music School (Madrid). También he trabajado con numerosos estudiantes de forma individual, muchos de los cuales han logrado un gran éxito en la industria musical.",
     },
     {
-      question: "What Equipment (Hardware) do I need?",
-      answer: "You'll need a computer or laptop, plus a reliable pair of headphones or studio monitors (ideally in an acoustically treated space). Any setup you're comfortable working with will do the job.",
+      question: "¿Qué Equipamiento (Hardware) necesito?",
+      answer: "Necesitarás un ordenador o portátil, más unos auriculares o monitores de estudio fiables (idealmente en un espacio tratado acústicamente). Cualquier setup con el que te sientas cómodo servirá.",
     },
     {
-      question: "What DAW & Software do I need?",
-      answer: "We will be using Ableton Live 12 and Reaper during the lessons. But all the techniques and concepts are 100% compatible with any other DAW.",
+      question: "¿Qué DAW y Software necesito?",
+      answer: "Usaremos Ableton Live 12 y Reaper durante las lecciones. Pero todas las técnicas y conceptos son 100% compatibles con cualquier otro DAW.",
     },
     {
-      question: "What if I have more questions?",
-      answer: `For any questions, you can email our Studio Manager at: <a href="mailto:admin@slatin.pro" class="text-accent-red hover:underline">admin@slatin.pro</a>.`,
+      question: "¿Y si tengo más preguntas?",
+      answer: `Para cualquier pregunta, puedes enviar un email a nuestro Studio Manager a: <a href="mailto:admin@slatin.pro" class="text-accent-red hover:underline">admin@slatin.pro</a>.`,
     },
   ] as FaqItem[],
 };
