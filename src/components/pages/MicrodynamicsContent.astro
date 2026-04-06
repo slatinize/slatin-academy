@@ -135,7 +135,7 @@ const {
   <TestimonialCarousel testimonials={testimonials} />
 
   <!-- 10. Module Carousel -->
-  <ModuleCarousel modules={modules} subtitle={moduleCarousel.subtitle} />
+  <ModuleCarousel modules={modules} subtitle={moduleCarousel.subtitle} lang={lang} />
 
   <!-- 11. Teacher Bio -->
   <TeacherBio
@@ -146,6 +146,7 @@ const {
     compact
     bio={teacherBio.bio}
     logoSrc="https://uploads.teachablecdn.com/attachments/izlXe81QyOr1dO25BGS3_YP0ovoEFDRt3h3qRWZaOeB4HCRat2ldNAkIuKstn.webp"
+    lang={lang}
   />
 
   <!-- 13. "+4 Hours, All Value" -->
@@ -205,7 +206,7 @@ const {
 
   <!-- 18. FAQ -->
   <div class="pull-up-faq">
-  <FAQ items={faqItems} />
+  <FAQ items={faqItems} lang={lang} />
   </div>
 
 </BaseLayout>

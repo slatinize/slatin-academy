@@ -11,15 +11,17 @@ interface Module {
 interface Props {
   modules: Module[];
   subtitle?: string;
+  lang?: string;
 }
 
-const { modules, subtitle } = Astro.props;
+const { modules, subtitle, lang = 'en' } = Astro.props;
+const isEs = lang === 'es';
 ---
 
-<section class="module-section" id="modules">
+<section class="module-section" id="modules" data-lang={lang}>
   <div class="module-header">
-    <p class="module-pre">COURSE CURRICULUM</p>
-    <h2 class="module-heading">What You'll <span>Master</span></h2>
+    <p class="module-pre">{isEs ? 'CONTENIDO DEL CURSO' : 'COURSE CURRICULUM'}</p>
+    <h2 class="module-heading">{isEs ? 'Lo Que ' : "What You'll "}<span>{isEs ? 'Dominarás' : 'Master'}</span></h2>
     {subtitle && <p class="module-sub">{subtitle}</p>}
   </div>
 
@@ -47,7 +49,7 @@ const { modules, subtitle } = Astro.props;
                     ))}
                   </ul>
                   <button class="mc-toggle" aria-label="Show lessons">
-                    <span class="mc-toggle-label">View lessons</span>
+                    <span class="mc-toggle-label">{isEs ? 'Ver lecciones' : 'View lessons'}</span>
                     <span class="mc-toggle-chevron">▾</span>
                   </button>
                 </div>
@@ -78,7 +80,7 @@ const { modules, subtitle } = Astro.props;
                     ))}
                   </ul>
                   <button class="mc-toggle" aria-label="Show lessons">
-                    <span class="mc-toggle-label">View lessons</span>
+                    <span class="mc-toggle-label">{isEs ? 'Ver lecciones' : 'View lessons'}</span>
                     <span class="mc-toggle-chevron">▾</span>
                   </button>
                 </div>
@@ -141,8 +143,8 @@ const { modules, subtitle } = Astro.props;
   .carousel-track {
     display: flex;
     gap: 24px;
-    padding: 12px max(28px, calc((100vw - 1200px) / 2 + 28px)) 12px;
-    scroll-padding-left: max(28px, calc((100vw - 1200px) / 2 + 28px));
+    padding: 12px max(28px, calc((100vw - 1200px) / 2 * 0.2 + 28px)) 12px;
+    scroll-padding-left: max(28px, calc((100vw - 1200px) / 2 * 0.2 + 28px));
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -389,6 +391,9 @@ const { modules, subtitle } = Astro.props;
   const track = document.getElementById('module-track');
 
   if (track) {
+    const sectionLang = track.closest('.module-section')?.getAttribute('data-lang') || 'en';
+    const viewLabel = sectionLang === 'es' ? 'Ver lecciones' : 'View lessons';
+    const hideLabel = sectionLang === 'es' ? 'Ocultar lecciones' : 'Hide lessons';
     const totalOriginal = track.querySelectorAll('.mc-card:not(.mc-clone)').length;
     const getGap = () => parseFloat(getComputedStyle(track).columnGap) || 24;
     let autoTimer: ReturnType<typeof setInterval> | undefined;
@@ -478,7 +483,7 @@ const { modules, subtitle } = Astro.props;
         const btn = wrap.querySelector('.mc-toggle');
         if (btn) {
           const label = btn.querySelector('.mc-toggle-label');
-          if (label) label.textContent = 'View lessons';
+          if (label) label.textContent = viewLabel;
           btn.setAttribute('aria-label', 'Show lessons');
         }
       });
@@ -563,7 +568,7 @@ const { modules, subtitle } = Astro.props;
       const btn = wrap.querySelector('.mc-toggle');
       if (btn) {
         const label = btn.querySelector('.mc-toggle-label');
-        if (label) label.textContent = isOpen ? 'Hide lessons' : 'View lessons';
+        if (label) label.textContent = isOpen ? hideLabel : viewLabel;
         btn.setAttribute('aria-label', isOpen ? 'Hide lessons' : 'Show lessons');
       }
 

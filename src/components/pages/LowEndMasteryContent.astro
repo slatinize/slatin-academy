@@ -155,7 +155,7 @@ const {
   </div>
 
   <!-- 12. Module Carousel -->
-  <ModuleCarousel modules={modules} subtitle={moduleCarousel.subtitle} />
+  <ModuleCarousel modules={modules} subtitle={moduleCarousel.subtitle} lang={lang} />
 
   <!-- 13. Teacher Bio -->
   <TeacherBio
@@ -166,6 +166,7 @@ const {
     compact
     bio={teacherBio.bio}
     logoSrc="https://uploads.teachablecdn.com/attachments/izlXe81QyOr1dO25BGS3_YP0ovoEFDRt3h3qRWZaOeB4HCRat2ldNAkIuKstn.webp"
+    lang={lang}
   />
 
   <!-- 14. "Save Your Time" -->
@@ -224,6 +225,6 @@ const {
 
   <!-- 19. FAQ -->
   <div class="pull-up-faq">
-  <FAQ items={faqItems} />
+  <FAQ items={faqItems} lang={lang} />
   </div>
 </BaseLayout>
