@@ -3,32 +3,32 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import AnimatedGradient from '../AnimatedGradient.astro';
 import HeroCentered from '../HeroCentered.astro';
 import SplitSection from '../SplitSection.astro';
+import MentorIntro from '../MentorIntro.astro';
 import FullWidthImage from '../FullWidthImage.astro';
 import BackgroundQuote from '../BackgroundQuote.astro';
 import TestimonialCarousel from '../TestimonialCarousel.astro';
 import CenteredHeadline from '../CenteredHeadline.astro';
-import OutcomeCards from '../OutcomeCards.astro';
+import TransformationTimeline from '../TransformationTimeline.astro';
 import MarqueeBanner from '../MarqueeBanner.astro';
 import PricingDuo from '../PricingDuo.astro';
 import TabbedTestimonials from '../TabbedTestimonials.astro';
 import FAQ from '../FAQ.astro';
 import type { Locale } from '../../utils/i18n';
-import type { Testimonial, FaqItem, FeatureCard, OutcomeCard, PricingPlan, AlumniTestimonial } from '../../data/types';
+import type { Testimonial, FaqItem, FeatureCard, PricingPlan, AlumniTestimonial } from '../../data/types';
 
 interface Props {
   lang: Locale;
   meta: { title: string; description: string };
-  hero: { title: string; subtitle: string; ctaText: string; ctaHref: string; subCtaText: string };
-  intro: { heading: string; paragraph: string };
+  hero: { tagline?: string; title: string; subtitle: string; ctaText: string; ctaHref: string; subCtaText: string };
+  intro: { tagline: string; name: string; nameAccent: string; bio: string; stats: { value: string; label: string; highlight?: boolean }[] };
   backgroundQuote: string;
   whatsIncluded: string;
   extras: { title: string; lines: string[] };
-  outcomes: { sectionTitle: string };
+  outcomes: { sectionTitle: string; phases: { label: string; title: string; icon: string; color: string; items: string[] }[] };
   marquee: { text: string; subtitle: string };
   alumniTitle: string;
   testimonials: Testimonial[];
   featureCards: FeatureCard[];
-  outcomeCards: OutcomeCard[];
   pricingPlans: PricingPlan[];
   alumniTestimonials: AlumniTestimonial[];
   faqItems: FaqItem[];
@@ -36,7 +36,7 @@ interface Props {
 
 const {
   lang, meta, hero, intro, backgroundQuote, whatsIncluded, extras,
-  outcomes, marquee, alumniTitle, testimonials, featureCards, outcomeCards,
+  outcomes, marquee, alumniTitle, testimonials, featureCards,
   pricingPlans, alumniTestimonials, faqItems,
 } = Astro.props;
 ---
@@ -48,53 +48,34 @@ const {
       <AnimatedGradient color1="#DD3333" color2="#1a0000" speed={1300} blendingMode="linear" />
     </div>
     <HeroCentered
+      tagline={hero.tagline}
       title={hero.title}
       subtitle={hero.subtitle}
       ctaText={hero.ctaText}
       ctaHref={hero.ctaHref}
       subCtaText={hero.subCtaText}
-      avatars={[
-        "/images/mentoring/circle-auriga.jpg",
-        "/images/mentoring/circle-krumel.jpg",
-        "/images/mentoring/circle-65649546.jpg",
-        "/images/mentoring/circle-screenshot.jpg",
-        "/images/mentoring/circle-nicolas.jpg",
-      ]}
     />
   </div>
 
-  <!-- 2. Intro/Bio -->
-  <SplitSection
-    variant="dark"
-    imagePosition="left"
+  <!-- 2. Mentor Intro + Logos -->
+  <MentorIntro
+    tagline={intro.tagline}
+    name={intro.name}
+    nameAccent={intro.nameAccent}
+    bio={intro.bio}
     imageSrc="/images/mentoring/headshot.jpg"
-    imageAlt="Ruslan Slatin"
-    imageClass="rounded-full"
-  >
-    <h2 class="text-2xl md:text-3xl font-semibold mb-6 leading-snug" set:html={intro.heading} />
-    <p class="text-white/70 text-base leading-relaxed" style="max-width: 450px;" set:html={intro.paragraph} />
-  </SplitSection>
+    logosSrc="/images/mentoring/logos-white.png"
+    stats={intro.stats}
+  />
 
-  <!-- 3. Logos bar -->
-  <section class="section-dark py-0 overflow-hidden">
-    <div class="px-[5%] md:px-[5%] lg:px-[5%]">
-      <img
-        src="/images/mentoring/logos-white.png"
-        alt="Client logos"
-        class="w-full md:w-[70%] mx-auto object-contain"
-        loading="lazy"
-      />
-    </div>
-  </section>
+  <!-- 4. Testimonial carousel -->
+  <TestimonialCarousel testimonials={testimonials} />
 
-  <!-- 4. Background quote -->
+  <!-- 5. Background quote -->
   <BackgroundQuote
     backgroundImage="/images/mentoring/studio-bg.jpg"
     quote={backgroundQuote}
   />
-
-  <!-- 5. Testimonial carousel -->
-  <TestimonialCarousel testimonials={testimonials} />
 
   <!-- 6. "What's Included?" title -->
   <section class="section-dark px-6 pt-4 pb-4 md:px-[5%] md:pt-20 md:pb-10 lg:px-[10%]">
@@ -154,10 +135,10 @@ const {
     </div>
   </section>
 
-  <!-- 9. Key Outcomes -->
-  <OutcomeCards
+  <!-- 9. Transformation Timeline -->
+  <TransformationTimeline
     sectionTitle={outcomes.sectionTitle}
-    cards={outcomeCards}
+    phases={outcomes.phases}
   />
 
   <!-- 10. "Start Today" marquee -->

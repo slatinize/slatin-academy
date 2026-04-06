@@ -7,16 +7,24 @@ export const pageData = {
   },
 
   hero: {
-    title: "Build a Profitable Music Career on Your Own Terms",
-    subtitle: "Revamp your Mixing and Mastering Skills in Record Time 🧨",
+    tagline: "Mentoring Program",
+    title: 'Build a Profitable Music Career on <span class="gradient-text-red">Your Own Terms</span>',
+    subtitle: "Everything you need to mix like a pro and build a career that pays.",
     ctaText: "START TODAY",
     ctaHref: "#getaccess",
-    subCtaText: "Weekly Calls + Daily Feedback + Pro Community",
+    subCtaText: "",
   },
 
   intro: {
-    heading: "My name is Ruslan, and I am an Award-Winning Music Producer and Engineer.",
-    paragraph: "Music has been my passion since I was young, and I've worked hard to turn it into a thriving career. With +15 years of experience, I'm excited to share my knowledge and guide you on your own path to success.",
+    tagline: "Your Mentor",
+    name: "Ruslan",
+    nameAccent: "SLATIN",
+    bio: "I've mixed and mastered over 1,000 songs for Sony, Warner, Def Jam, Netflix, and more — earning multi-platinum certifications and a spot in the top 1% of mixing engineers. Now, everything I've learned is yours.",
+    stats: [
+      { value: "Top 1%", label: "Mixing Engineers", highlight: true },
+      { value: "1,000+", label: "Songs Engineered" },
+      { value: "Multi-Platinum", label: "Certified" },
+    ],
   },
 
   backgroundQuote: 'Unlock your <strong>full potential</strong> and accelerate your growth by joining my <strong>Mentoring Program.</strong>',
@@ -37,7 +45,44 @@ export const pageData = {
   },
 
   outcomes: {
-    sectionTitle: 'Key <em><span class="squiggle-basic">Outcomes</span></em>',
+    sectionTitle: 'Where This <em><span class="squiggle-basic">Takes You</span></em>',
+    phases: [
+      {
+        label: "Day 0",
+        title: "Where You Are Now",
+        icon: "✕",
+        color: "rgba(255,255,255,0.3)",
+        items: [
+          "Guessing what sounds \"right\"",
+          "Mixes that don't translate",
+          "No feedback loop or accountability",
+          "Undercharging or working for free",
+        ],
+      },
+      {
+        label: "After 90 Days",
+        title: "Confident Decisions",
+        icon: "→",
+        color: "#ed8e00",
+        items: [
+          "Understand the why of your decisions",
+          "Loud sound that translates across every system",
+          "Price your work with confidence",
+          "Weekly feedback + clear growth plan",
+        ],
+      },
+      {
+        label: "After +5 Months",
+        title: "Professional Work",
+        icon: "★",
+        color: "#DD3333",
+        items: [
+          "Full confidence and freedom while working",
+          "Business growth and expansion",
+          "Dominate all your tools and knowledge",
+        ],
+      },
+    ],
   },
 
   marquee: {

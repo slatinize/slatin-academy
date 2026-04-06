@@ -5,16 +5,20 @@ interface Props {
   ctaText: string;
   ctaHref: string;
   subCtaText?: string;
+  tagline?: string;
   avatars?: string[];
 }
 
-const { title, subtitle, ctaText, ctaHref, subCtaText, avatars = [] } = Astro.props;
+const { title, subtitle, ctaText, ctaHref, subCtaText, tagline, avatars = [] } = Astro.props;
 ---
 
 <section class="relative min-h-screen flex items-center justify-center text-center px-6 py-20 overflow-hidden">
-  <div class="relative z-10 max-w-4xl mx-auto">
+  <div class="relative z-10 max-w-[900px] mx-auto">
+    {tagline && (
+      <p class="hero-tagline reveal">{tagline}</p>
+    )}
     <h1 class="hero-title reveal" set:html={title} />
-    <h4 class="hero-subtitle reveal" set:html={subtitle} />
+    <p class="hero-subtitle reveal" set:html={subtitle} />
 
     <a href={ctaHref} class="hero-cta reveal">
       {ctaText}
@@ -48,31 +52,44 @@ const { title, subtitle, ctaText, ctaHref, subCtaText, avatars = [] } = Astro.pr
 </section>
 
 <style>
+  .hero-tagline {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #DD3333;
+    margin-bottom: 24px;
+  }
+
   .hero-title {
-    font-size: clamp(2.5rem, 5vw, 5.5rem);
-    font-weight: 800;
-    line-height: 1.08;
-    letter-spacing: -0.02em;
+    font-size: clamp(2.7rem, 5.4vw, 4.8rem);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
     margin-bottom: 1.2rem;
   }
 
   .hero-subtitle {
-    font-size: clamp(1rem, 1.5vw, 1.35rem);
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
     font-weight: 400;
-    opacity: 0.85;
-    margin-bottom: 2rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 2.2rem;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
   }
 
   .hero-cta {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 1.1rem 3.5rem;
+    padding: 1rem 3rem;
     background: #DD3333;
     color: white;
-    font-weight: 800;
-    font-size: clamp(1.1rem, 1.5vw, 1.4rem);
-    letter-spacing: 0.04em;
+    font-weight: 700;
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
+    letter-spacing: 0.06em;
     border-radius: 0.5rem;
     transition: all 0.25s ease;
     cursor: pointer;
@@ -89,11 +106,9 @@ const { title, subtitle, ctaText, ctaHref, subCtaText, avatars = [] } = Astro.pr
   }
 
   .hero-sub-cta {
-    font-size: clamp(0.75rem, 0.9vw, 0.95rem);
-    margin-top: 1.4rem;
-    text-decoration: underline;
-    text-underline-offset: 5px;
-    text-decoration-color: rgba(255, 255, 255, 0.3);
-    opacity: 0.7;
+    font-size: clamp(0.75rem, 0.9vw, 0.85rem);
+    margin-top: 1rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.05em;
   }
 </style>

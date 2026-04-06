@@ -7,16 +7,24 @@ export const pageData = {
   },
 
   hero: {
-    title: "Build a Profitable Music Career on Your Own Terms",
-    subtitle: "Revamp your Mixing and Mastering Skills in Record Time 🧨",
-    ctaText: "START TODAY",
+    tagline: "Programa de Mentoría",
+    title: 'Construye una Carrera Musical Rentable en <span class="gradient-text-red">Tus Propios Términos</span>',
+    subtitle: "Todo lo que necesitas para mezclar como un profesional y construir una carrera que pague.",
+    ctaText: "EMPIEZA HOY",
     ctaHref: "#getaccess",
-    subCtaText: "Weekly Calls + Daily Feedback + Pro Community",
+    subCtaText: "",
   },
 
   intro: {
-    heading: "My name is Ruslan, and I am an Award-Winning Music Producer and Engineer.",
-    paragraph: "Music has been my passion since I was young, and I've worked hard to turn it into a thriving career. With +15 years of experience, I'm excited to share my knowledge and guide you on your own path to success.",
+    tagline: "Tu Mentor",
+    name: "Ruslan",
+    nameAccent: "SLATIN",
+    bio: "He mezclado y masterizado más de 1.000 canciones para Sony, Warner, Def Jam, Netflix y más — obteniendo certificaciones multi-platino y un puesto en el top 1% de ingenieros de mezcla. Ahora, todo lo que he aprendido es tuyo.",
+    stats: [
+      { value: "Top 1%", label: "Ingenieros de Mezcla", highlight: true },
+      { value: "1.000+", label: "Canciones Producidas" },
+      { value: "Multi-Platino", label: "Certificado" },
+    ],
   },
 
   backgroundQuote: 'Unlock your <strong>full potential</strong> and accelerate your growth by joining my <strong>Mentoring Program.</strong>',
@@ -37,7 +45,44 @@ export const pageData = {
   },
 
   outcomes: {
-    sectionTitle: 'Key <em><span class="squiggle-basic">Outcomes</span></em>',
+    sectionTitle: 'A Dónde Te <em><span class="squiggle-basic">Lleva Esto</span></em>',
+    phases: [
+      {
+        label: "Día 0",
+        title: "Donde Estás Ahora",
+        icon: "✕",
+        color: "rgba(255,255,255,0.3)",
+        items: [
+          "Adivinando qué suena \"bien\"",
+          "Mezclas que no traducen",
+          "Sin feedback ni responsabilidad",
+          "Cobrando poco o trabajando gratis",
+        ],
+      },
+      {
+        label: "Después de 90 Días",
+        title: "Decisiones Seguras",
+        icon: "→",
+        color: "#ed8e00",
+        items: [
+          "Entender el porqué de tus decisiones",
+          "Sonido potente que traduce en cualquier sistema",
+          "Cobrar tu trabajo con confianza",
+          "Feedback semanal + plan de crecimiento claro",
+        ],
+      },
+      {
+        label: "Después de +5 Meses",
+        title: "Trabajo Profesional",
+        icon: "★",
+        color: "#DD3333",
+        items: [
+          "Confianza total y libertad al trabajar",
+          "Crecimiento y expansión del negocio",
+          "Dominar todas tus herramientas y conocimientos",
+        ],
+      },
+    ],
   },
 
   marquee: {
