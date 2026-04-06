@@ -1,10 +1,13 @@
 ---
-const links = [
-  { label: 'Mentoring', href: '/mentoring' },
-  { label: 'Low End', href: '/low-end-mastery' },
-  { label: 'Microdynamics', href: '/microdynamics' },
-  { label: 'Mastering', href: '/mastering-challenge' },
-];
+import { ui } from '../data/ui';
+import { getAlternateUrl, type Locale } from '../utils/i18n';
+
+interface Props { lang?: Locale }
+const lang: Locale = Astro.props.lang ?? 'en';
+const t = ui[lang];
+const alternateLang: Locale = lang === 'en' ? 'es' : 'en';
+const alternateHref = getAlternateUrl(Astro.url, alternateLang);
+const links = t.nav.links;
 ---
 
 <header id="site-header" class="fixed top-0 left-0 right-0 z-50" data-scrolled="false">
@@ -30,16 +33,25 @@ const links = [
       ))}
     </div>
 
-    <!-- CTA Button (desktop only) -->
-    <a
-      href="https://www.slatin.pro/submit-your-song/"
-      class="hidden md:inline-flex nav-cta"
-    >
-      <svg class="w-[18px] h-[18px]" viewBox="0 0 32 32" fill="currentColor">
-        <path d="M0 20.667c-0.367 0-0.667-0.299-0.667-0.667v-8c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v8c0 0.368-0.3 0.667-0.667 0.667zM4 24.667c-0.367 0-0.667-0.299-0.667-0.667v-16c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v16c0 0.368-0.3 0.667-0.667 0.667zM16 20.667c-0.367 0-0.667-0.299-0.667-0.667v-8c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v8c0 0.368-0.3 0.667-0.667 0.667zM12 23.333c-0.367 0-0.667-0.299-0.667-0.667v-13.333c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v13.333c0 0.368-0.3 0.667-0.667 0.667zM8 27.333c-0.367 0-0.667-0.299-0.667-0.667v-21.333c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v21.333c0 0.368-0.3 0.667-0.667 0.667zM20 23.333c-0.367 0-0.667-0.299-0.667-0.667v-13.333c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v13.333c0 0.368-0.3 0.667-0.667 0.667zM32 20.667c-0.367 0-0.667-0.299-0.667-0.667v-8c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v8c0 0.368-0.3 0.667-0.667 0.667zM28 23.333c-0.367 0-0.667-0.299-0.667-0.667v-13.333c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v13.333c0 0.368-0.3 0.667-0.667 0.667zM24 26c-0.367 0-0.667-0.299-0.667-0.667v-18.667c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v18.667c0 0.368-0.3 0.667-0.667 0.667z"/>
-      </svg>
-      Submit Your Song
-    </a>
+    <!-- Desktop Right: Lang Switcher + CTA -->
+    <div class="hidden md:flex items-center gap-5">
+      <a
+        href={alternateHref}
+        class="lang-switcher"
+        aria-label={t.langSwitcher.ariaLabel}
+      >
+        {t.langSwitcher.label}
+      </a>
+      <a
+        href="https://www.slatin.pro/submit-your-song/"
+        class="nav-cta"
+      >
+        <svg class="w-[18px] h-[18px]" viewBox="0 0 32 32" fill="currentColor">
+          <path d="M0 20.667c-0.367 0-0.667-0.299-0.667-0.667v-8c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v8c0 0.368-0.3 0.667-0.667 0.667zM4 24.667c-0.367 0-0.667-0.299-0.667-0.667v-16c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v16c0 0.368-0.3 0.667-0.667 0.667zM16 20.667c-0.367 0-0.667-0.299-0.667-0.667v-8c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v8c0 0.368-0.3 0.667-0.667 0.667zM12 23.333c-0.367 0-0.667-0.299-0.667-0.667v-13.333c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v13.333c0 0.368-0.3 0.667-0.667 0.667zM8 27.333c-0.367 0-0.667-0.299-0.667-0.667v-21.333c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v21.333c0 0.368-0.3 0.667-0.667 0.667zM20 23.333c-0.367 0-0.667-0.299-0.667-0.667v-13.333c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v13.333c0 0.368-0.3 0.667-0.667 0.667zM32 20.667c-0.367 0-0.667-0.299-0.667-0.667v-8c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v8c0 0.368-0.3 0.667-0.667 0.667zM28 23.333c-0.367 0-0.667-0.299-0.667-0.667v-13.333c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v13.333c0 0.368-0.3 0.667-0.667 0.667zM24 26c-0.367 0-0.667-0.299-0.667-0.667v-18.667c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v18.667c0 0.368-0.3 0.667-0.667 0.667z"/>
+        </svg>
+        {t.nav.submitSong}
+      </a>
+    </div>
 
     <!-- Mobile Hamburger -->
     <button
@@ -61,11 +73,19 @@ const links = [
           {link.label}
         </a>
       ))}
+      <a
+        href={alternateHref}
+        class="text-lg font-medium text-white/80 hover:text-white flex items-center gap-2"
+        aria-label={t.langSwitcher.ariaLabel}
+      >
+        <span class="lang-switcher">{t.langSwitcher.label}</span>
+        {lang === 'en' ? 'Español' : 'English'}
+      </a>
       <a href="https://www.slatin.pro/submit-your-song/" class="nav-cta nav-cta-mobile mt-4">
         <svg class="w-[18px] h-[18px]" viewBox="0 0 32 32" fill="currentColor">
           <path d="M0 20.667c-0.367 0-0.667-0.299-0.667-0.667v-8c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v8c0 0.368-0.3 0.667-0.667 0.667zM4 24.667c-0.367 0-0.667-0.299-0.667-0.667v-16c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v16c0 0.368-0.3 0.667-0.667 0.667zM16 20.667c-0.367 0-0.667-0.299-0.667-0.667v-8c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v8c0 0.368-0.3 0.667-0.667 0.667zM12 23.333c-0.367 0-0.667-0.299-0.667-0.667v-13.333c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v13.333c0 0.368-0.3 0.667-0.667 0.667zM8 27.333c-0.367 0-0.667-0.299-0.667-0.667v-21.333c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v21.333c0 0.368-0.3 0.667-0.667 0.667zM20 23.333c-0.367 0-0.667-0.299-0.667-0.667v-13.333c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v13.333c0 0.368-0.3 0.667-0.667 0.667zM32 20.667c-0.367 0-0.667-0.299-0.667-0.667v-8c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v8c0 0.368-0.3 0.667-0.667 0.667zM28 23.333c-0.367 0-0.667-0.299-0.667-0.667v-13.333c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v13.333c0 0.368-0.3 0.667-0.667 0.667zM24 26c-0.367 0-0.667-0.299-0.667-0.667v-18.667c0-0.368 0.3-0.667 0.667-0.667s0.667 0.299 0.667 0.667v18.667c0 0.368-0.3 0.667-0.667 0.667z"/>
         </svg>
-        Submit Your Song
+        {t.nav.submitSong}
       </a>
     </div>
   </div>
@@ -90,6 +110,26 @@ const links = [
     #site-header {
       will-change: background;
     }
+  }
+
+  /* Language switcher */
+  .lang-switcher {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 5px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    transition: border-color 0.2s, background-color 0.2s;
+    text-decoration: none;
+  }
+  .lang-switcher:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.08);
   }
 
   /* CTA button — matches WP Salient animated gradient */

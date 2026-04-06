@@ -1,0 +1,229 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroTwoColumn from '../HeroTwoColumn.astro';
+import AnimatedGradient from '../AnimatedGradient.astro';
+import SplitSection from '../SplitSection.astro';
+import CenteredHeadline from '../CenteredHeadline.astro';
+import IconFeatures from '../IconFeatures.astro';
+import FeatureGrid from '../FeatureGrid.astro';
+import NumberedList from '../NumberedList.astro';
+import TestimonialCarousel from '../TestimonialCarousel.astro';
+import ModuleCarousel from '../ModuleCarousel.astro';
+import TeacherBio from '../TeacherBio.astro';
+import PricingCard from '../PricingCard.astro';
+import FAQ from '../FAQ.astro';
+import FullWidthImage from '../FullWidthImage.astro';
+import type { Locale } from '../../utils/i18n';
+import type { Testimonial, Module, FaqItem, Feature, NumberedItem } from '../../data/types';
+
+interface Props {
+  lang: Locale;
+  meta: { title: string; description: string };
+  hero: { badgeText: string; title: string; subtitle: string; ctaText: string; ctaHref: string; secondaryCtaText: string; secondaryCtaHref: string };
+  splitSections: {
+    getLoud: { heading: string; paragraphs: string[]; accent: string };
+    kickBass: { heading: string; paragraphs: string[]; accent: string; afterAccent: string[]; bold: string };
+    translation: { heading: string; paragraphs: string[] };
+    monoWide: { heading: string; paragraphs: string[] };
+    saveTime: { heading: string; paragraphs: string[]; accent: string; afterAccent: string[] };
+    genres: { heading: string; paragraphs: string[] };
+    community: { heading: string; paragraphs: string[]; accent: string; afterAccent: string[] };
+  };
+  painPoints: { badge: string; headline: string; items: string[] };
+  featureGrid: { subtitle: string; features: Feature[] };
+  idealFor: { title: string; items: NumberedItem[] };
+  moduleCarousel: { subtitle: string };
+  teacherBio: { bio: string[] };
+  pricing: { subtitle: string; price: string; features: string[]; ctaText: string; ctaHref: string };
+  testimonials: Testimonial[];
+  modules: Module[];
+  faqItems: FaqItem[];
+}
+
+const {
+  lang, meta, hero, splitSections, painPoints, featureGrid, idealFor,
+  moduleCarousel, teacherBio, pricing, testimonials, modules, faqItems,
+} = Astro.props;
+---
+
+<BaseLayout title={meta.title} description={meta.description} lang={lang}>
+  <!-- 1. Hero -->
+  <div class="relative section-dark overflow-hidden" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-bottom: 6vh;">
+    <div class="absolute inset-0 z-0">
+      <AnimatedGradient color1="#ff6363" color2="#ff0008" speed={1300} />
+    </div>
+    <div class="relative z-10">
+      <HeroTwoColumn
+        badgeText={hero.badgeText}
+        title={hero.title}
+        subtitle={hero.subtitle}
+        ctaText={hero.ctaText}
+        ctaHref={hero.ctaHref}
+        secondaryCtaText={hero.secondaryCtaText}
+        secondaryCtaHref={hero.secondaryCtaHref}
+        fullHeight
+      />
+    </div>
+  </div>
+
+  <div class="section-dark" style="height: 3.45rem;"></div>
+
+  <!-- 2. "Get Real Loud" -->
+  <SplitSection variant="dark" imagePosition="left" imageSrc="/images/get-real-loud.png" imageAlt="StandardCLIP plugin interface for loudness">
+    <h2 class="text-heading mb-8" set:html={splitSections.getLoud.heading} />
+    {splitSections.getLoud.paragraphs.map((p) => (
+      <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4" set:html={p} />
+    ))}
+    <p class="text-base md:text-lg font-bold text-accent-red" set:html={splitSections.getLoud.accent} />
+  </SplitSection>
+
+  <!-- 4. "Nail Your Kick & Bass" -->
+  <div style="margin-top: -1.5rem;"></div>
+  <SplitSection variant="dark" imagePosition="left" imageSrc="/images/nail-kick-bass.png" imageAlt="Sidechain compression and kick bass mixing">
+    <h2 class="text-heading mb-8" set:html={splitSections.kickBass.heading} />
+    {splitSections.kickBass.paragraphs.map((p) => (
+      <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4" set:html={p} />
+    ))}
+    <p class="text-base md:text-lg font-semibold text-accent-red leading-relaxed mb-4" set:html={splitSections.kickBass.accent} />
+    {splitSections.kickBass.afterAccent.map((p) => (
+      <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4" set:html={p} />
+    ))}
+    <p class="text-base md:text-lg text-white font-semibold leading-relaxed" set:html={splitSections.kickBass.bold} />
+  </SplitSection>
+
+  <!-- 5. "Perfect Translation" -->
+  <div style="margin-top: -1.5rem;"></div>
+  <SplitSection variant="dark" imagePosition="left" imageSrc="/images/perfect-translation.png" imageAlt="Tonal balance comparison between tracks" imageObjectPosition="calc(50% - 2px) center">
+    <h2 class="text-heading mb-8" set:html={splitSections.translation.heading} />
+    {splitSections.translation.paragraphs.map((p, i) => (
+      <p class={`text-base md:text-lg text-white/70 leading-relaxed ${i < splitSections.translation.paragraphs.length - 1 ? 'mb-4' : ''}`} set:html={p} />
+    ))}
+  </SplitSection>
+
+  <!-- 6. "Mono and Wide" -->
+  <div style="margin-top: -1.5rem;"></div>
+  <SplitSection variant="dark" imagePosition="left" imageSrc="/images/mono-wide.png" imageAlt="Mono-compatible wide bass techniques" imageObjectPosition="calc(50% + 32px) center">
+    <h2 class="text-heading mb-8" set:html={splitSections.monoWide.heading} />
+    {splitSections.monoWide.paragraphs.map((p, i) => (
+      <p class={`text-base md:text-lg text-white/70 leading-relaxed ${i < splitSections.monoWide.paragraphs.length - 1 ? 'mb-4' : ''}`} set:html={p} />
+    ))}
+  </SplitSection>
+
+  <div class="section-dark" style="height: 3.3rem;"></div>
+
+  <!-- 7. Headline + Pain Points -->
+  <section class="section-cream section-padding" style="padding-bottom: 1.5rem;">
+    <div class="container-content">
+      <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+        <div class="reveal">
+          <span class="inline-block text-white font-medium mb-6" style="background: #DD3333; padding: 10px 20px; border-radius: 20px; font-size: 15px; letter-spacing: -0.3px; line-height: 15px;" set:html={painPoints.badge} />
+          <h2 class="text-heading" set:html={painPoints.headline} />
+        </div>
+        <div class="flex flex-col gap-8 reveal">
+          {painPoints.items.map((item, i) => (
+            <div class="flex gap-5 items-center">
+              <span class="text-4xl md:text-5xl font-extrabold text-accent-red leading-none min-w-[55px]">{String(i + 1).padStart(2, '0')}</span>
+              <p class="text-lg md:text-xl leading-relaxed opacity-80" set:html={item} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. What You Will Master -->
+  <div style="margin-top: -3rem; padding-bottom: 2.5rem;">
+  <FeatureGrid
+    subtitle={featureGrid.subtitle}
+    variant="cream"
+    columns={2}
+    features={featureGrid.features}
+  />
+  </div>
+
+  <!-- 10. "This course is ideal if you" -->
+  <NumberedList
+    title={idealFor.title}
+    variant="dark"
+    imageSrc="https://uploads.teachablecdn.com/attachments/iduxgXajRo6h1LaC7Ahw_dQUY9H3oZvvbU7wsrJUyyvruMXwsYj8G2SdTfqv3+copy.jpg"
+    items={idealFor.items}
+  />
+
+  <!-- 11. Testimonials -->
+  <div style="margin-top: -4rem; padding-bottom: 2rem;">
+  <TestimonialCarousel testimonials={testimonials} />
+  </div>
+
+  <!-- 12. Module Carousel -->
+  <ModuleCarousel modules={modules} subtitle={moduleCarousel.subtitle} />
+
+  <!-- 13. Teacher Bio -->
+  <TeacherBio
+    name="SLATIN"
+    imageSrc="/images/slatin-sofa.jpg"
+    variant="cream"
+    bgColor="#d9d4ab"
+    compact
+    bio={teacherBio.bio}
+    logoSrc="https://uploads.teachablecdn.com/attachments/izlXe81QyOr1dO25BGS3_YP0ovoEFDRt3h3qRWZaOeB4HCRat2ldNAkIuKstn.webp"
+  />
+
+  <!-- 14. "Save Your Time" -->
+  <div class="section-dark" style="height: 2rem;"></div>
+  <SplitSection variant="dark" imagePosition="right" imageSrc="/images/save-your-time.gif" imageAlt="Kick frequency analysis and sound selection">
+    <h2 class="text-heading mb-8" set:html={splitSections.saveTime.heading} />
+    {splitSections.saveTime.paragraphs.map((p) => (
+      <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4" set:html={p} />
+    ))}
+    <p class="text-base md:text-lg text-accent-red leading-relaxed mb-4" set:html={splitSections.saveTime.accent} />
+    {splitSections.saveTime.afterAccent.map((p) => (
+      <p class="text-base md:text-lg text-white/70 leading-relaxed" set:html={p} />
+    ))}
+  </SplitSection>
+
+  <!-- 16. "Multiple Genres" -->
+  <div style="margin-top: -2.5rem;">
+  <SplitSection variant="dark" imagePosition="left" imageSrc="https://uploads.teachablecdn.com/attachments/aq3se6LNQkGTFfZVURXp_genre.jpg" imageAlt="Multiple genre examples in DAW">
+    <h2 class="text-heading mb-8" set:html={splitSections.genres.heading} />
+    {splitSections.genres.paragraphs.map((p, i) => (
+      <p class={`text-base md:text-lg text-white/70 leading-relaxed ${i < splitSections.genres.paragraphs.length - 1 ? 'mb-4' : ''}`} set:html={p} />
+    ))}
+  </SplitSection>
+  </div>
+
+  <!-- 17. "Private Community" -->
+  <div style="margin-top: -1.5rem;"></div>
+  <SplitSection variant="dark" imagePosition="right" imageSrc="https://uploads.teachablecdn.com/attachments/Es8zQjMTzmUufKqvzLXF_ezgif.com-optimize2.gif" imageAlt="SLATIN Academy private community" alignTop>
+    <h2 class="text-heading mb-8" set:html={splitSections.community.heading} />
+    {splitSections.community.paragraphs.map((p) => (
+      <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4" set:html={p} />
+    ))}
+    <p class="text-base md:text-lg text-accent-red leading-relaxed mb-4" set:html={splitSections.community.accent} />
+    {splitSections.community.afterAccent.map((p) => (
+      <p class="text-base md:text-lg text-white/70 leading-relaxed" set:html={p} />
+    ))}
+  </SplitSection>
+
+  <!-- 18. Full-width course banner -->
+  <FullWidthImage
+    src="/images/slatin-teacher.webp"
+    alt="Low End Mastery course overview"
+    objectPosition="45% 38%"
+  />
+
+  <!-- 19. Pricing -->
+  <div style="margin-top: -3rem;">
+  <PricingCard
+    subtitle={pricing.subtitle}
+    price={pricing.price}
+    features={pricing.features}
+    ctaText={pricing.ctaText}
+    ctaHref={pricing.ctaHref}
+  />
+  </div>
+
+  <!-- 19. FAQ -->
+  <div style="margin-top: -7rem;">
+  <FAQ items={faqItems} />
+  </div>
+</BaseLayout>

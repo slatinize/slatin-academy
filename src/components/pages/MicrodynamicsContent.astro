@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroTwoColumn from '../HeroTwoColumn.astro';
+import AnimatedGradient from '../AnimatedGradient.astro';
+import VideoEmbed from '../VideoEmbed.astro';
+import SplitSection from '../SplitSection.astro';
+import CenteredHeadline from '../CenteredHeadline.astro';
+import IconFeatures from '../IconFeatures.astro';
+import FeatureGrid from '../FeatureGrid.astro';
+import NumberedList from '../NumberedList.astro';
+import TestimonialCarousel from '../TestimonialCarousel.astro';
+import ModuleCarousel from '../ModuleCarousel.astro';
+import TeacherBio from '../TeacherBio.astro';
+import PricingCard from '../PricingCard.astro';
+import FAQ from '../FAQ.astro';
+import FullWidthImage from '../FullWidthImage.astro';
+import type { Locale } from '../../utils/i18n';
+import type { Testimonial, Module, FaqItem, Feature, NumberedItem } from '../../data/types';
+
+interface Props {
+  lang: Locale;
+  meta: { title: string; description: string };
+  hero: { badgeText: string; title: string; subtitle: string; ctaText: string; ctaHref: string; secondaryCtaText: string; secondaryCtaHref: string };
+  video: { title: string };
+  introSections: { paragraphs: string[] }[];
+  centeredHeadline: { preTitle: string; content: string };
+  painPoints: { sectionTitle: string; subtitle: string; features: { title: string; description: string }[] };
+  featureGrid: { subtitle: string; features: Feature[] };
+  idealFor: { title: string; items: NumberedItem[] };
+  moduleCarousel: { subtitle: string };
+  teacherBio: { bio: string[] };
+  splitSections: {
+    hours: { heading: string; paragraphs: string[] };
+    community: { heading: string; paragraphs: string[] };
+    genres: { heading: string; paragraphs: string[] };
+  };
+  pricing: { subtitle: string; price: string; features: string[]; ctaText: string; ctaHref: string };
+  testimonials: Testimonial[];
+  modules: Module[];
+  faqItems: FaqItem[];
+}
+
+const {
+  lang, meta, hero, video, introSections, centeredHeadline, painPoints,
+  featureGrid, idealFor, moduleCarousel, teacherBio, splitSections,
+  pricing, testimonials, modules, faqItems,
+} = Astro.props;
+---
+
+<BaseLayout title={meta.title} description={meta.description} lang={lang}>
+  <!-- 1. Hero + Video -->
+  <div class="section-dark relative">
+    <div class="absolute inset-0 z-0" style="width: 100%; height: 100%; -webkit-mask-image: linear-gradient(to bottom, black 0%, black 40%, transparent 65%); mask-image: linear-gradient(to bottom, black 0%, black 40%, transparent 65%);">
+      <AnimatedGradient color1="#282828" color2="#282828" speed={850} blendingMode="organic" />
+    </div>
+    <div class="parallax-grid-overlay"></div>
+    <HeroTwoColumn
+      badgeText={hero.badgeText}
+      title={hero.title}
+      subtitle={hero.subtitle}
+      ctaText={hero.ctaText}
+      ctaHref={hero.ctaHref}
+      secondaryCtaText={hero.secondaryCtaText}
+      secondaryCtaHref={hero.secondaryCtaHref}
+      titleSize="clamp(3rem, 6vw, 6.5rem)"
+      subtitleSize="text-lg md:text-xl"
+      badgeTopMargin="0"
+      gridRatio="1.4fr 1fr"
+      fullHeight
+    />
+    <div style="height: 2rem;"></div>
+    <VideoEmbed videoId="1081820388" platform="vimeo" title={video.title} thumbnailSrc="https://www.slatin.pro/wp-content/uploads/2025/05/micro-scaled.jpg" standalone={false} />
+  </div>
+
+  <!-- 2. Intro text + 3D visualization video -->
+  <div style="margin-top: -3rem;"></div>
+  <SplitSection
+    variant="dark"
+    imagePosition="right"
+    videoSrc="https://www.slatin.pro/wp-content/uploads/2025/05/3D_Insight_resized.mp4"
+  >
+    {introSections[0].paragraphs.map((p, i) => (
+      <p class={`text-white font-medium ${i < introSections[0].paragraphs.length - 1 ? 'mb-4' : ''}`} style="font-size: 21px; line-height: 25px;" set:html={p} />
+    ))}
+  </SplitSection>
+
+  <!-- 4. Compressor image + definition -->
+  <SplitSection
+    variant="dark"
+    imagePosition="left"
+    videoSrc="https://www.slatin.pro/wp-content/uploads/2025/05/3D_OzoneMultiband_resized.mp4"
+  >
+    {introSections[1].paragraphs.map((p, i) => (
+      <p class={`text-white font-medium ${i < introSections[1].paragraphs.length - 1 ? 'mb-4' : ''}`} style="font-size: 21px; line-height: 25px;" set:html={p} />
+    ))}
+  </SplitSection>
+
+  <!-- 5. Centered headline -->
+  <div style="margin-top: -2rem; margin-bottom: -5rem;">
+    <CenteredHeadline preTitle={centeredHeadline.preTitle} variant="cream">
+      <Fragment set:html={centeredHeadline.content} />
+    </CenteredHeadline>
+  </div>
+
+  <!-- Thin divider -->
+  <div class="section-cream" style="padding: 1.5rem 10%; margin-top: -4rem; margin-bottom: -6rem; position: relative; z-index: 1;">
+    <hr style="border: none; border-top: 1px solid rgba(0,0,0,0.15); margin: 0;" />
+  </div>
+
+  <!-- 6. "Does this sound familiar?" -->
+  <IconFeatures
+    sectionTitle={painPoints.sectionTitle}
+    subtitle={painPoints.subtitle}
+    variant="cream"
+    features={painPoints.features}
+  />
+
+  <!-- 7. What You Will Master -->
+  <FeatureGrid
+    subtitle={featureGrid.subtitle}
+    variant="dark"
+    columns={2}
+    features={featureGrid.features}
+  />
+
+  <!-- 8. "This course is ideal if you" -->
+  <NumberedList
+    title={idealFor.title}
+    variant="cream"
+    imageSrc="https://www.slatin.pro/wp-content/uploads/2025/05/Screenshot-2025-05-05-at-13.10.21-1024x624.jpg"
+    items={idealFor.items}
+  />
+
+  <!-- 9. Testimonials -->
+  <TestimonialCarousel testimonials={testimonials} />
+
+  <!-- 10. Module Carousel -->
+  <ModuleCarousel modules={modules} subtitle={moduleCarousel.subtitle} />
+
+  <!-- 11. Teacher Bio -->
+  <TeacherBio
+    name="SLATIN"
+    imageSrc="/images/slatin-sofa.jpg"
+    variant="cream"
+    bgColor="#d9d4ab"
+    compact
+    bio={teacherBio.bio}
+    logoSrc="https://uploads.teachablecdn.com/attachments/izlXe81QyOr1dO25BGS3_YP0ovoEFDRt3h3qRWZaOeB4HCRat2ldNAkIuKstn.webp"
+  />
+
+  <!-- 13. "+4 Hours, All Value" -->
+  <SplitSection
+    variant="dark"
+    imagePosition="left"
+    videoSrc="https://www.slatin.pro/wp-content/uploads/2025/05/V4_Multiplicity_resized-1.mp4"
+  >
+    <h2 class="text-heading mb-8" set:html={splitSections.hours.heading} />
+    {splitSections.hours.paragraphs.map((p, i) => (
+      <p class={`text-base md:text-lg text-white/70 leading-relaxed ${i < splitSections.hours.paragraphs.length - 1 ? 'mb-4' : ''}`} set:html={p} />
+    ))}
+  </SplitSection>
+
+  <!-- 14. "Much More than a Simple Course" -->
+  <SplitSection
+    variant="dark"
+    imagePosition="right"
+    imageSrc="https://www.slatin.pro/wp-content/uploads/2025/04/AnityEUl6LpfPozJvQCWwv4KvOgMI0IuVuzqFXS6-1-1024x462.webp"
+    imageAlt="SLATIN Academy community video call"
+    fullBleed={true}
+  >
+    <h2 class="text-heading mb-8" set:html={splitSections.community.heading} />
+    {splitSections.community.paragraphs.map((p, i) => (
+      <p class={`text-base md:text-lg text-white/70 leading-relaxed ${i < splitSections.community.paragraphs.length - 1 ? 'mb-4' : ''}`} set:html={p} />
+    ))}
+  </SplitSection>
+
+  <!-- 15. "Multiple Genres" -->
+  <SplitSection
+    variant="dark"
+    imagePosition="left"
+    imageSrc="/images/multiple-genres-micro.gif"
+    imageAlt="Multiple genres microdynamics example"
+    fullBleed={true}
+  >
+    <h2 class="text-heading mb-8" set:html={splitSections.genres.heading} />
+    {splitSections.genres.paragraphs.map((p, i) => (
+      <p class={`text-base md:text-lg text-white/70 leading-relaxed ${i < splitSections.genres.paragraphs.length - 1 ? 'mb-4' : ''}`} set:html={p} />
+    ))}
+  </SplitSection>
+
+  <!-- 16. Full-width studio photo -->
+  <FullWidthImage
+    src="https://www.slatin.pro/wp-content/uploads/2025/05/Advanced-Microdynamics_03.jpg"
+    alt="Advanced Microdynamics course overview"
+  />
+
+  <!-- 17. Pricing -->
+  <PricingCard
+    subtitle={pricing.subtitle}
+    price={pricing.price}
+    features={pricing.features}
+    ctaText={pricing.ctaText}
+    ctaHref={pricing.ctaHref}
+  />
+
+  <!-- 18. FAQ -->
+  <div style="margin-top: -7rem;">
+  <FAQ items={faqItems} />
+  </div>
+
+</BaseLayout>
