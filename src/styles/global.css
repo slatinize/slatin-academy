@@ -73,6 +73,15 @@
     height: 30%;
     z-index: -1;
   }
+  @media (max-width: 768px) {
+    .squiggle-basic > .squiggle-svg {
+      height: 18%;
+      bottom: -10%;
+    }
+    .squiggle-basic > .squiggle-svg path {
+      stroke-width: 8 !important;
+    }
+  }
   .squiggle-basic > .squiggle-svg path {
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
