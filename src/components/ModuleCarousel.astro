@@ -109,7 +109,7 @@ const { modules, subtitle } = Astro.props;
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.15em;
-    color: #e74c3c;
+    color: #FB4141;
     text-transform: uppercase;
     margin-bottom: 16px;
   }
@@ -123,14 +123,13 @@ const { modules, subtitle } = Astro.props;
   }
 
   .module-heading span {
-    color: #e74c3c;
+    color: #FB4141;
   }
 
   .module-sub {
     font-size: 1rem;
     color: rgba(26, 26, 26, 0.5);
     margin: 0 auto;
-    white-space: nowrap;
   }
 
   /* Carousel track */
@@ -141,7 +140,7 @@ const { modules, subtitle } = Astro.props;
   .carousel-track {
     display: flex;
     gap: 24px;
-    padding: 0 max(24px, calc((100vw - 1200px) / 2 + 24px));
+    padding: 12px max(24px, calc((100vw - 1200px) / 2 + 24px)) 12px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -166,9 +165,11 @@ const { modules, subtitle } = Astro.props;
     transition: transform 0.35s ease, box-shadow 0.35s ease;
   }
 
-  .mc-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+  @media (hover: hover) {
+    .mc-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+    }
   }
 
   /* Image side */
@@ -187,8 +188,10 @@ const { modules, subtitle } = Astro.props;
     transition: transform 0.5s ease;
   }
 
-  .mc-card:hover .mc-img img {
-    transform: scale(1.05);
+  @media (hover: hover) {
+    .mc-card:hover .mc-img img {
+      transform: scale(1.05);
+    }
   }
 
   .mc-num-badge {
@@ -221,7 +224,7 @@ const { modules, subtitle } = Astro.props;
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.12em;
-    color: #e74c3c;
+    color: #FB4141;
     text-transform: uppercase;
     margin-bottom: 12px;
     display: block;
@@ -260,13 +263,15 @@ const { modules, subtitle } = Astro.props;
     content: '+';
     position: absolute;
     left: 0;
-    color: #e74c3c;
+    color: #FB4141;
     font-weight: 700;
     font-size: 0.82rem;
   }
 
-  .mc-card:hover .mc-topics li {
-    color: rgba(255, 255, 255, 0.65);
+  @media (hover: hover) {
+    .mc-card:hover .mc-topics li {
+      color: rgba(255, 255, 255, 0.65);
+    }
   }
 
   /* Topics wrapper & toggle (desktop: toggle hidden, topics always visible) */
@@ -287,7 +292,7 @@ const { modules, subtitle } = Astro.props;
 
     .carousel-track {
       gap: 16px;
-      padding: 0 16px 0 24px;
+      padding: 8px 16px 8px 24px;
       scroll-padding-left: 24px;
     }
 
@@ -383,7 +388,7 @@ const { modules, subtitle } = Astro.props;
 
   if (track) {
     const totalOriginal = track.querySelectorAll('.mc-card:not(.mc-clone)').length;
-    const gap = 24;
+    const gap = window.innerWidth <= 768 ? 16 : 24;
     let autoTimer: ReturnType<typeof setInterval> | undefined;
     let pauseTimeout: ReturnType<typeof setTimeout> | undefined;
     let scrollEndTimer: ReturnType<typeof setTimeout> | undefined;
