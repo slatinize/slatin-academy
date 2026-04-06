@@ -40,11 +40,17 @@ const { modules, subtitle } = Astro.props;
               <span class="mc-label">{mod.moduleNumber}</span>
               <h3 class="mc-title">{mod.title}</h3>
               {mod.topics && mod.topics.length > 0 && (
-                <ul class="mc-topics">
-                  {mod.topics.map((topic) => (
-                    <li>{topic}</li>
-                  ))}
-                </ul>
+                <div class="mc-topics-wrap">
+                  <ul class="mc-topics">
+                    {mod.topics.map((topic) => (
+                      <li>{topic}</li>
+                    ))}
+                  </ul>
+                  <button class="mc-toggle" aria-label="Show lessons">
+                    <span class="mc-toggle-label">View lessons</span>
+                    <span class="mc-toggle-chevron">▾</span>
+                  </button>
+                </div>
               )}
             </div>
           </div>
@@ -65,11 +71,17 @@ const { modules, subtitle } = Astro.props;
               <span class="mc-label">{mod.moduleNumber}</span>
               <h3 class="mc-title">{mod.title}</h3>
               {mod.topics && mod.topics.length > 0 && (
-                <ul class="mc-topics">
-                  {mod.topics.map((topic) => (
-                    <li>{topic}</li>
-                  ))}
-                </ul>
+                <div class="mc-topics-wrap">
+                  <ul class="mc-topics">
+                    {mod.topics.map((topic) => (
+                      <li>{topic}</li>
+                    ))}
+                  </ul>
+                  <button class="mc-toggle" aria-label="Show lessons">
+                    <span class="mc-toggle-label">View lessons</span>
+                    <span class="mc-toggle-chevron">▾</span>
+                  </button>
+                </div>
               )}
             </div>
           </div>
@@ -186,7 +198,7 @@ const { modules, subtitle } = Astro.props;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    color: #e74c3c;
+    color: #fff;
     border: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 2rem;
     font-weight: 800;
@@ -257,16 +269,25 @@ const { modules, subtitle } = Astro.props;
     color: rgba(255, 255, 255, 0.65);
   }
 
+  /* Topics wrapper & toggle (desktop: toggle hidden, topics always visible) */
+  .mc-topics-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mc-toggle {
+    display: none;
+  }
 
   /* Responsive */
   @media (max-width: 768px) {
     .module-section {
-      padding: 64px 0 56px;
+      padding: 64px 0 40px;
     }
 
     .carousel-track {
       gap: 16px;
-      padding: 0 16px 0 16px;
+      padding: 0 16px 0 24px;
     }
 
     .mc-card {
@@ -278,11 +299,61 @@ const { modules, subtitle } = Astro.props;
     .mc-img {
       width: 100%;
       min-width: 100%;
-      height: 180px;
+      height: auto;
+      aspect-ratio: 16 / 10;
     }
 
     .mc-body {
       padding: 22px 20px;
+    }
+
+    .mc-title {
+      margin-bottom: 0;
+    }
+
+    .mc-topics {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .mc-topics-wrap.is-open .mc-topics {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    .mc-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin: 16px auto 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .mc-toggle:active {
+      opacity: 0.7;
+    }
+
+    .mc-toggle-label {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .mc-toggle-chevron {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.75rem;
+      transition: transform 0.3s ease;
+    }
+
+    .mc-topics-wrap.is-open .mc-toggle-chevron {
+      transform: rotate(180deg);
     }
 
     .module-header {
@@ -396,5 +467,19 @@ const { modules, subtitle } = Astro.props;
     }, { threshold: 0.3 });
 
     observer.observe(track.closest('.module-section')!);
+
+    // Expandable topics on mobile
+    track.querySelectorAll('.mc-toggle').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const wrap = btn.closest('.mc-topics-wrap');
+        if (!wrap) return;
+        wrap.classList.toggle('is-open');
+        const isOpen = wrap.classList.contains('is-open');
+        const label = btn.querySelector('.mc-toggle-label');
+        if (label) label.textContent = isOpen ? 'Hide lessons' : 'View lessons';
+        btn.setAttribute('aria-label', isOpen ? 'Hide lessons' : 'Show lessons');
+      });
+    });
   }
 </script>
