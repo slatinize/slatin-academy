@@ -1,0 +1,3 @@
+[submodule "simply-static"]
+	path = simply-static
+	url = https://github.com/Simply-Static/simply-static.git
