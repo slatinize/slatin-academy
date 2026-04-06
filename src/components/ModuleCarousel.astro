@@ -444,8 +444,22 @@ const { modules, subtitle } = Astro.props;
       pauseTimeout = setTimeout(startAuto, 5000);
     };
 
+    // Close any open topic panels on scroll
+    const collapseAllTopics = () => {
+      track.querySelectorAll('.mc-topics-wrap.is-open').forEach((wrap) => {
+        wrap.classList.remove('is-open');
+        const btn = wrap.querySelector('.mc-toggle');
+        if (btn) {
+          const label = btn.querySelector('.mc-toggle-label');
+          if (label) label.textContent = 'View lessons';
+          btn.setAttribute('aria-label', 'Show lessons');
+        }
+      });
+    };
+
     // Debounced scroll-end detection
     track.addEventListener('scroll', () => {
+      collapseAllTopics();
       if (isResetting) return;
       if (scrollEndTimer) clearTimeout(scrollEndTimer);
       scrollEndTimer = setTimeout(checkReset, 200);
