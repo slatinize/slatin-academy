@@ -482,29 +482,31 @@ const { modules, subtitle } = Astro.props;
       });
     };
 
-    // Track active touch (including momentum scroll) to avoid collapsing cards on mobile
+    // Guard: suppress scroll-triggered collapse while the user is touching
+    // or momentum-scrolling (stays true for 800ms after finger lifts)
     let isTouching = false;
-    let touchScrollTimer: ReturnType<typeof setTimeout> | undefined;
-    track.addEventListener('touchstart', () => {
-      isTouching = true;
-      if (touchScrollTimer) clearTimeout(touchScrollTimer);
-      pauseAuto();
-    }, { passive: true });
-    track.addEventListener('touchend', () => {
-      // Keep flag true during momentum/inertia scroll after finger lifts
-      if (touchScrollTimer) clearTimeout(touchScrollTimer);
-      touchScrollTimer = setTimeout(() => { isTouching = false; }, 800);
-    }, { passive: true });
-    track.addEventListener('touchcancel', () => {
-      if (touchScrollTimer) clearTimeout(touchScrollTimer);
-      touchScrollTimer = setTimeout(() => { isTouching = false; }, 800);
-    }, { passive: true });
+    let momentumTimer: ReturnType<typeof setTimeout> | undefined;
+    const MOMENTUM_MS = 800;
 
-    // Debounced scroll-end detection
+    const touchStart = () => {
+      isTouching = true;
+      clearTimeout(momentumTimer);
+      pauseAuto();
+    };
+    const touchRelease = () => {
+      clearTimeout(momentumTimer);
+      momentumTimer = setTimeout(() => { isTouching = false; }, MOMENTUM_MS);
+    };
+
+    track.addEventListener('touchstart', touchStart, { passive: true });
+    track.addEventListener('touchend', touchRelease, { passive: true });
+    track.addEventListener('touchcancel', touchRelease, { passive: true });
+
+    // Collapse open cards on scroll, unless it's auto-advance, reset, or touch
     track.addEventListener('scroll', () => {
       if (!isAutoScrolling && !isResetting && !isTouching) collapseAllTopics();
       if (isResetting) return;
-      if (scrollEndTimer) clearTimeout(scrollEndTimer);
+      clearTimeout(scrollEndTimer);
       scrollEndTimer = setTimeout(checkReset, 200);
     }, { passive: true });
 
