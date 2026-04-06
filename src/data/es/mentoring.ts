@@ -8,7 +8,7 @@ export const pageData = {
 
   hero: {
     tagline: "Programa de Mentoría",
-    title: 'Construye una Carrera Musical Rentable en <span class="gradient-text-red">Tus Propios Términos</span>',
+    title: 'Construye una Carrera Musical Rentable Bajo <span class="gradient-text-red">Tus Propios Términos</span>',
     subtitle: "Todo lo que necesitas para mezclar como un profesional y construir una carrera que pague.",
     ctaText: "EMPIEZA HOY",
     ctaHref: "#getaccess",
