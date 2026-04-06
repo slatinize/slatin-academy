@@ -429,11 +429,18 @@ const { modules, subtitle } = Astro.props;
       }
     };
 
+    // Track whether a card's lessons panel is open
+    let hasOpenCard = () => track.querySelectorAll('.mc-topics-wrap.is-open').length > 0;
+
     // Scroll one card to the right (left-to-right: 01→02→03...)
+    let isAutoScrolling = false;
     const autoAdvance = () => {
-      if (isResetting) return;
+      if (isResetting || hasOpenCard()) return;
       const cardWidth = getCardWidth();
+      isAutoScrolling = true;
       track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      // Clear flag after smooth scroll completes
+      setTimeout(() => { isAutoScrolling = false; }, 600);
     };
 
     const startAuto = () => {
@@ -448,7 +455,10 @@ const { modules, subtitle } = Astro.props;
     const pauseAuto = () => {
       stopAuto();
       if (pauseTimeout) clearTimeout(pauseTimeout);
-      pauseTimeout = setTimeout(startAuto, 5000);
+      // Don't resume auto-advance while a card's lessons are open
+      if (!hasOpenCard()) {
+        pauseTimeout = setTimeout(startAuto, 5000);
+      }
     };
 
     // Smoothly collapse open topic panels on scroll to prevent layout jump
@@ -474,7 +484,7 @@ const { modules, subtitle } = Astro.props;
 
     // Debounced scroll-end detection
     track.addEventListener('scroll', () => {
-      collapseAllTopics();
+      if (!isAutoScrolling && !isResetting) collapseAllTopics();
       if (isResetting) return;
       if (scrollEndTimer) clearTimeout(scrollEndTimer);
       scrollEndTimer = setTimeout(checkReset, 200);
@@ -534,6 +544,14 @@ const { modules, subtitle } = Astro.props;
         const label = btn.querySelector('.mc-toggle-label');
         if (label) label.textContent = isOpen ? 'Hide lessons' : 'View lessons';
         btn.setAttribute('aria-label', isOpen ? 'Hide lessons' : 'Show lessons');
+      }
+
+      // Stop auto-advance while a card is open; resume when closed
+      if (isOpen) {
+        stopAuto();
+        if (pauseTimeout) clearTimeout(pauseTimeout);
+      } else {
+        pauseAuto();
       }
     };
 
