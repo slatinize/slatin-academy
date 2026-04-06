@@ -482,15 +482,20 @@ const { modules, subtitle } = Astro.props;
       });
     };
 
+    // Track active touch to avoid collapsing cards during touch-scroll on mobile
+    let isTouching = false;
+    track.addEventListener('touchstart', () => { isTouching = true; pauseAuto(); }, { passive: true });
+    track.addEventListener('touchend', () => { isTouching = false; }, { passive: true });
+    track.addEventListener('touchcancel', () => { isTouching = false; }, { passive: true });
+
     // Debounced scroll-end detection
     track.addEventListener('scroll', () => {
-      if (!isAutoScrolling && !isResetting) collapseAllTopics();
+      if (!isAutoScrolling && !isResetting && !isTouching) collapseAllTopics();
       if (isResetting) return;
       if (scrollEndTimer) clearTimeout(scrollEndTimer);
       scrollEndTimer = setTimeout(checkReset, 200);
     }, { passive: true });
 
-    track.addEventListener('touchstart', pauseAuto, { passive: true });
     track.addEventListener('mousedown', pauseAuto, { passive: true });
     track.addEventListener('wheel', pauseAuto, { passive: true });
 
