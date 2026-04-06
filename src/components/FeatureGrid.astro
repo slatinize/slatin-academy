@@ -35,16 +35,18 @@ const cardBg = variant === 'dark' ? 'border border-white/10 bg-dark-card' : 'bg-
 
     <div class={`grid ${colClass} gap-4 md:gap-6`}>
       {features.map((feature) => (
-        <div class={`${cardBg} rounded-xl p-8 md:p-10 reveal`}>
+        <div class={`${cardBg} rounded-xl p-8 md:p-10 reveal feature-card`}>
           {feature.iconSrc && (
-            <img src={feature.iconSrc} alt="" class={`${feature.iconClass || 'w-14 h-14'} rounded-full mb-5 object-cover`} style={feature.iconStyle || ''} loading="lazy" />
+            <div class="feature-img-wrap mb-5 overflow-hidden" style={feature.iconStyle || ''}>
+              <img src={feature.iconSrc} alt="" class={`${feature.iconClass || 'w-14 h-14'} object-cover feature-img`} loading="lazy" />
+            </div>
           )}
           {feature.icon && !feature.iconSrc && (
             <div class="w-14 h-14 rounded-full bg-accent-red/20 flex items-center justify-center mb-5">
               <span class="text-2xl">{feature.icon}</span>
             </div>
           )}
-          <h3 class="text-xl md:text-2xl font-bold mb-3">{feature.title}</h3>
+          <h3 class="text-xl md:text-2xl font-bold mb-3" set:html={feature.title} />
           <p class={`text-base leading-relaxed ${variant === 'dark' ? 'text-white/60' : 'text-text-dark/70'}`}>
             {feature.description}
           </p>
@@ -53,3 +55,25 @@ const cardBg = variant === 'dark' ? 'border border-white/10 bg-dark-card' : 'bg-
     </div>
   </div>
 </section>
+
+<style>
+  .feature-card {
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .feature-img-wrap {
+    border-radius: inherit;
+  }
+
+  .feature-img {
+    transition: transform 0.4s ease;
+  }
+
+  .feature-card:hover .feature-img {
+    transform: scale(1.04);
+  }
+</style>

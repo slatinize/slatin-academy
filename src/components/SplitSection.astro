@@ -8,6 +8,7 @@ interface Props {
   alignTop?: boolean;
   fullBleed?: boolean;
   imageObjectPosition?: string;
+  imageClass?: string;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   alignTop = false,
   fullBleed = false,
   imageObjectPosition,
+  imageClass,
 } = Astro.props;
 
 const sectionClass = variant === 'cream' ? 'section-cream' : 'section-dark';
@@ -69,11 +71,11 @@ const useFullBleed = isVideoMedia || fullBleed;
           <slot />
         </div>
         {imageSrc && (
-          <div class={`${imagePosition === 'left' ? 'order-first' : ''} reveal split-img-wrap`}>
+          <div class={`${imagePosition === 'left' ? 'order-first' : ''} reveal ${imageClass?.includes('rounded-full') ? 'split-img-wrap-circle' : 'split-img-wrap'}`}>
             <img
               src={imageSrc}
               alt={imageAlt}
-              class="split-img rounded-xl shadow-2xl"
+              class={`${imageClass?.includes('rounded-full') ? 'split-img-circle' : 'split-img rounded-xl'} shadow-2xl ${imageClass || ''}`}
               style={imageObjectPosition ? `object-position: ${imageObjectPosition}` : ''}
               loading="lazy"
             />
@@ -88,6 +90,19 @@ const useFullBleed = isVideoMedia || fullBleed;
   .split-img-wrap {
     overflow: hidden;
     border-radius: 0.75rem;
+  }
+
+  .split-img-wrap-circle {
+    display: flex;
+    justify-content: center;
+  }
+
+  .split-img-circle {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
   }
 
   .split-img {

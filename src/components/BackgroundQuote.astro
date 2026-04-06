@@ -1,0 +1,41 @@
+---
+interface Props {
+  backgroundImage: string;
+  quote: string;
+}
+
+const { backgroundImage, quote } = Astro.props;
+---
+
+<section class="bg-quote-section relative overflow-hidden" style={`background-image: url('${backgroundImage}')`}>
+  <div class="bg-quote-overlay"></div>
+  <div class="relative z-10 max-w-6xl mx-auto px-6 py-6 md:py-10 text-center reveal">
+    <p class="bg-quote-text" set:html={quote} />
+  </div>
+</section>
+
+<style>
+  .bg-quote-section {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bg-quote-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, #0a0a0a 0%, rgba(255, 255, 255, 0.001) 75%);
+    z-index: 1;
+  }
+
+  .bg-quote-text {
+    font-size: clamp(1.4rem, 3vw, 3rem);
+    font-style: italic;
+    line-height: 1.5;
+    color: white;
+  }
+</style>

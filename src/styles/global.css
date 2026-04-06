@@ -185,3 +185,17 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Outline text for marquee banners */
+.text-outline {
+  -webkit-text-stroke: 1px currentColor;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Orange-to-red gradient text (matches WP Salient extra-color-gradient-1) */
+.gradient-text-red {
+  background: linear-gradient(90deg, #ed8e00, #dd3333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
