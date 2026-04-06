@@ -73,18 +73,17 @@ const links = t.nav.links;
           {link.label}
         </a>
       ))}
-      <div class="flex items-center gap-4 mt-2">
-        <a
-          href={alternateHref}
-          class="lang-switcher"
-          aria-label={t.langSwitcher.ariaLabel}
-        >
-          {t.langSwitcher.label}
-        </a>
-        <a href="https://www.slatin.pro/submit-your-song/" class="btn-cta-orange text-center flex-1">
-          {t.nav.submitSong}
-        </a>
-      </div>
+      <a
+        href={alternateHref}
+        class="text-lg font-medium text-white/80 hover:text-white flex items-center gap-2"
+        aria-label={t.langSwitcher.ariaLabel}
+      >
+        <span class="lang-switcher">{t.langSwitcher.label}</span>
+        {lang === 'en' ? 'Español' : 'English'}
+      </a>
+      <a href="https://www.slatin.pro/submit-your-song/" class="btn-cta-orange text-center mt-2">
+        {t.nav.submitSong}
+      </a>
     </div>
   </div>
 </header>
