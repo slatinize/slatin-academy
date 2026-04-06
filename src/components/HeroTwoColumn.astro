@@ -30,7 +30,7 @@ const { badgeText = 'Course', title, subtitle, ctaText, ctaHref = '#pricing', se
         {badgeText}
       </span>
     )}
-    <div class={`grid gap-8 lg:gap-16 items-center`} style={`grid-template-columns: ${gridRatio || '1.2fr 1fr'};`}>
+    <div class={`grid grid-cols-1 md:grid-cols-[var(--hero-ratio)] gap-8 lg:gap-16 items-center`} style={`--hero-ratio: ${gridRatio || '1.2fr 1fr'};`}>
       <!-- Left column: title -->
       <div>
         <h1 class="hero-title leading-[1.05] font-medium" style={titleSize ? `font-size: ${titleSize}` : undefined} set:html={title} />

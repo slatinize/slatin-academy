@@ -11,6 +11,7 @@
 
   body {
     @apply bg-dark text-white font-sans;
+    overflow-x: hidden;
   }
 
   /* Red scribble underline — inline SVG matching WP Salient nectar-scribble */
