@@ -11,15 +11,17 @@ interface Module {
 interface Props {
   modules: Module[];
   subtitle?: string;
+  lang?: string;
 }
 
-const { modules, subtitle } = Astro.props;
+const { modules, subtitle, lang = 'en' } = Astro.props;
+const isEs = lang === 'es';
 ---
 
-<section class="module-section" id="modules">
+<section class="module-section" id="modules" data-lang={lang}>
   <div class="module-header">
-    <p class="module-pre">COURSE CURRICULUM</p>
-    <h2 class="module-heading">What You'll <span>Master</span></h2>
+    <p class="module-pre">{isEs ? 'CONTENIDO DEL CURSO' : 'COURSE CURRICULUM'}</p>
+    <h2 class="module-heading">{isEs ? 'Lo Que ' : "What You'll "}<span>{isEs ? 'Dominarás' : 'Master'}</span></h2>
     {subtitle && <p class="module-sub">{subtitle}</p>}
   </div>
 
@@ -40,11 +42,17 @@ const { modules, subtitle } = Astro.props;
               <span class="mc-label">{mod.moduleNumber}</span>
               <h3 class="mc-title">{mod.title}</h3>
               {mod.topics && mod.topics.length > 0 && (
-                <ul class="mc-topics">
-                  {mod.topics.map((topic) => (
-                    <li>{topic}</li>
-                  ))}
-                </ul>
+                <div class="mc-topics-wrap">
+                  <ul class="mc-topics">
+                    {mod.topics.map((topic) => (
+                      <li>{topic}</li>
+                    ))}
+                  </ul>
+                  <button class="mc-toggle" aria-label="Show lessons">
+                    <span class="mc-toggle-label">{isEs ? 'Ver lecciones' : 'View lessons'}</span>
+                    <span class="mc-toggle-chevron">▾</span>
+                  </button>
+                </div>
               )}
             </div>
           </div>
@@ -65,11 +73,17 @@ const { modules, subtitle } = Astro.props;
               <span class="mc-label">{mod.moduleNumber}</span>
               <h3 class="mc-title">{mod.title}</h3>
               {mod.topics && mod.topics.length > 0 && (
-                <ul class="mc-topics">
-                  {mod.topics.map((topic) => (
-                    <li>{topic}</li>
-                  ))}
-                </ul>
+                <div class="mc-topics-wrap">
+                  <ul class="mc-topics">
+                    {mod.topics.map((topic) => (
+                      <li>{topic}</li>
+                    ))}
+                  </ul>
+                  <button class="mc-toggle" aria-label="Show lessons">
+                    <span class="mc-toggle-label">{isEs ? 'Ver lecciones' : 'View lessons'}</span>
+                    <span class="mc-toggle-chevron">▾</span>
+                  </button>
+                </div>
               )}
             </div>
           </div>
@@ -97,7 +111,7 @@ const { modules, subtitle } = Astro.props;
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.15em;
-    color: #e74c3c;
+    color: #FB4141;
     text-transform: uppercase;
     margin-bottom: 16px;
   }
@@ -111,14 +125,14 @@ const { modules, subtitle } = Astro.props;
   }
 
   .module-heading span {
-    color: #e74c3c;
+    color: #FB4141;
   }
 
   .module-sub {
     font-size: 1rem;
     color: rgba(26, 26, 26, 0.5);
     margin: 0 auto;
-    white-space: nowrap;
+    max-width: 600px;
   }
 
   /* Carousel track */
@@ -129,7 +143,8 @@ const { modules, subtitle } = Astro.props;
   .carousel-track {
     display: flex;
     gap: 24px;
-    padding: 0 max(24px, calc((100vw - 1200px) / 2 + 24px));
+    padding: 12px max(28px, calc((100vw - 1200px) / 2 * 0.2 + 28px)) 12px;
+    scroll-padding-left: max(28px, calc((100vw - 1200px) / 2 * 0.2 + 28px));
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -151,12 +166,15 @@ const { modules, subtitle } = Astro.props;
     display: flex;
     flex-direction: row;
     min-height: 280px;
+    cursor: pointer;
     transition: transform 0.35s ease, box-shadow 0.35s ease;
   }
 
-  .mc-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+  @media (hover: hover) {
+    .mc-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+    }
   }
 
   /* Image side */
@@ -175,8 +193,10 @@ const { modules, subtitle } = Astro.props;
     transition: transform 0.5s ease;
   }
 
-  .mc-card:hover .mc-img img {
-    transform: scale(1.05);
+  @media (hover: hover) {
+    .mc-card:hover .mc-img img {
+      transform: scale(1.05);
+    }
   }
 
   .mc-num-badge {
@@ -186,7 +206,7 @@ const { modules, subtitle } = Astro.props;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    color: #ffffff;
+    color: #fff;
     border: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 2rem;
     font-weight: 800;
@@ -209,7 +229,7 @@ const { modules, subtitle } = Astro.props;
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.12em;
-    color: #e74c3c;
+    color: #FB4141;
     text-transform: uppercase;
     margin-bottom: 12px;
     display: block;
@@ -248,25 +268,37 @@ const { modules, subtitle } = Astro.props;
     content: '+';
     position: absolute;
     left: 0;
-    color: #e74c3c;
+    color: #FB4141;
     font-weight: 700;
     font-size: 0.82rem;
   }
 
-  .mc-card:hover .mc-topics li {
-    color: rgba(255, 255, 255, 0.65);
+  @media (hover: hover) {
+    .mc-card:hover .mc-topics li {
+      color: rgba(255, 255, 255, 0.65);
+    }
   }
 
+  /* Topics wrapper & toggle (desktop: toggle hidden, topics always visible) */
+  .mc-topics-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mc-toggle {
+    display: none;
+  }
 
   /* Responsive */
   @media (max-width: 768px) {
     .module-section {
-      padding: 64px 0 56px;
+      padding: 64px 0 40px;
     }
 
     .carousel-track {
       gap: 16px;
-      padding: 0 20px;
+      padding: 8px 16px 8px 24px;
+      scroll-padding-left: 24px;
     }
 
     .mc-card {
@@ -278,11 +310,60 @@ const { modules, subtitle } = Astro.props;
     .mc-img {
       width: 100%;
       min-width: 100%;
-      height: 180px;
+      height: auto;
+      aspect-ratio: 16 / 10;
     }
 
     .mc-body {
       padding: 22px 20px;
+    }
+
+    .mc-title {
+      margin-bottom: 0;
+    }
+
+    .mc-topics {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .mc-topics-wrap.is-open .mc-topics {
+      opacity: 1;
+    }
+
+    .mc-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 6px;
+      margin: 16px 0 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .mc-toggle:active {
+      opacity: 0.7;
+    }
+
+    .mc-toggle-label {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .mc-toggle-chevron {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.75rem;
+      transition: transform 0.3s ease;
+    }
+
+    .mc-topics-wrap.is-open .mc-toggle-chevron {
+      transform: rotate(180deg);
     }
 
     .module-header {
@@ -310,8 +391,11 @@ const { modules, subtitle } = Astro.props;
   const track = document.getElementById('module-track');
 
   if (track) {
+    const sectionLang = track.closest('.module-section')?.getAttribute('data-lang') || 'en';
+    const viewLabel = sectionLang === 'es' ? 'Ver lecciones' : 'View lessons';
+    const hideLabel = sectionLang === 'es' ? 'Ocultar lecciones' : 'Hide lessons';
     const totalOriginal = track.querySelectorAll('.mc-card:not(.mc-clone)').length;
-    const gap = 24;
+    const getGap = () => parseFloat(getComputedStyle(track).columnGap) || 24;
     let autoTimer: ReturnType<typeof setInterval> | undefined;
     let pauseTimeout: ReturnType<typeof setTimeout> | undefined;
     let scrollEndTimer: ReturnType<typeof setTimeout> | undefined;
@@ -319,6 +403,7 @@ const { modules, subtitle } = Astro.props;
 
     const getCardWidth = () => {
       const card = track.querySelector('.mc-card');
+      const gap = getGap();
       return card ? card.offsetWidth + gap : 520 + gap;
     };
 
@@ -350,11 +435,18 @@ const { modules, subtitle } = Astro.props;
       }
     };
 
+    // Track whether a card's lessons panel is open
+    const hasOpenCard = () => track.querySelectorAll('.mc-topics-wrap.is-open').length > 0;
+
     // Scroll one card to the right (left-to-right: 01→02→03...)
+    let isAutoScrolling = false;
     const autoAdvance = () => {
-      if (isResetting) return;
+      if (isResetting || hasOpenCard()) return;
       const cardWidth = getCardWidth();
+      isAutoScrolling = true;
       track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      // Clear flag after smooth scroll completes
+      setTimeout(() => { isAutoScrolling = false; }, 600);
     };
 
     const startAuto = () => {
@@ -363,23 +455,68 @@ const { modules, subtitle } = Astro.props;
     };
 
     const stopAuto = () => {
-      if (autoTimer) { clearInterval(autoTimer); autoTimer = undefined; }
+      clearInterval(autoTimer);
+      autoTimer = undefined;
+      clearTimeout(pauseTimeout);
+      pauseTimeout = undefined;
     };
 
     const pauseAuto = () => {
       stopAuto();
-      if (pauseTimeout) clearTimeout(pauseTimeout);
-      pauseTimeout = setTimeout(startAuto, 5000);
+      if (!hasOpenCard()) {
+        pauseTimeout = setTimeout(startAuto, 5000);
+      }
     };
 
-    // Debounced scroll-end detection
+    // Smoothly collapse open topic panels on scroll to prevent layout jump
+    const collapseAllTopics = () => {
+      track.querySelectorAll('.mc-topics-wrap.is-open').forEach((wrap) => {
+        const topics = wrap.querySelector('.mc-topics') as HTMLElement | null;
+        if (topics) {
+          // Set explicit height so transition can animate from current to 0
+          topics.style.maxHeight = topics.scrollHeight + 'px';
+          requestAnimationFrame(() => {
+            topics.style.maxHeight = '0';
+          });
+        }
+        wrap.classList.remove('is-open');
+        const btn = wrap.querySelector('.mc-toggle');
+        if (btn) {
+          const label = btn.querySelector('.mc-toggle-label');
+          if (label) label.textContent = viewLabel;
+          btn.setAttribute('aria-label', 'Show lessons');
+        }
+      });
+    };
+
+    // Guard: suppress scroll-triggered collapse while the user is touching
+    // or momentum-scrolling (stays true for 800ms after finger lifts)
+    let isTouching = false;
+    let momentumTimer: ReturnType<typeof setTimeout> | undefined;
+    const MOMENTUM_MS = 800;
+
+    const touchStart = () => {
+      isTouching = true;
+      clearTimeout(momentumTimer);
+      pauseAuto();
+    };
+    const touchRelease = () => {
+      clearTimeout(momentumTimer);
+      momentumTimer = setTimeout(() => { isTouching = false; }, MOMENTUM_MS);
+    };
+
+    track.addEventListener('touchstart', touchStart, { passive: true });
+    track.addEventListener('touchend', touchRelease, { passive: true });
+    track.addEventListener('touchcancel', touchRelease, { passive: true });
+
+    // Collapse open cards on scroll, unless it's auto-advance, reset, or touch
     track.addEventListener('scroll', () => {
+      if (!isAutoScrolling && !isResetting && !isTouching) collapseAllTopics();
       if (isResetting) return;
-      if (scrollEndTimer) clearTimeout(scrollEndTimer);
+      clearTimeout(scrollEndTimer);
       scrollEndTimer = setTimeout(checkReset, 200);
     }, { passive: true });
 
-    track.addEventListener('touchstart', pauseAuto, { passive: true });
     track.addEventListener('mousedown', pauseAuto, { passive: true });
     track.addEventListener('wheel', pauseAuto, { passive: true });
 
@@ -396,5 +533,55 @@ const { modules, subtitle } = Astro.props;
     }, { threshold: 0.3 });
 
     observer.observe(track.closest('.module-section')!);
+
+    // Toggle lessons — whole card is clickable
+    const toggleCard = (card: Element) => {
+      const wrap = card.querySelector('.mc-topics-wrap');
+      if (!wrap) return;
+      const topics = wrap.querySelector('.mc-topics') as HTMLElement | null;
+      const wasOpen = wrap.classList.contains('is-open');
+
+      if (wasOpen) {
+        // Animate collapse: set explicit height first, then transition to 0
+        if (topics) {
+          topics.style.maxHeight = topics.scrollHeight + 'px';
+          requestAnimationFrame(() => {
+            topics.style.maxHeight = '0';
+          });
+        }
+        wrap.classList.remove('is-open');
+      } else {
+        // Animate expand: set to scrollHeight, CSS transition handles it
+        wrap.classList.add('is-open');
+        if (topics) {
+          topics.style.maxHeight = topics.scrollHeight + 'px';
+          // After transition, remove inline style so it can grow naturally
+          const onEnd = () => {
+            topics.style.maxHeight = '';
+            topics.removeEventListener('transitionend', onEnd);
+          };
+          topics.addEventListener('transitionend', onEnd);
+        }
+      }
+
+      const isOpen = wrap.classList.contains('is-open');
+      const btn = wrap.querySelector('.mc-toggle');
+      if (btn) {
+        const label = btn.querySelector('.mc-toggle-label');
+        if (label) label.textContent = isOpen ? hideLabel : viewLabel;
+        btn.setAttribute('aria-label', isOpen ? 'Hide lessons' : 'Show lessons');
+      }
+
+      // Stop auto-advance while a card is open; resume when closed
+      if (isOpen) {
+        stopAuto();
+      } else {
+        pauseAuto();
+      }
+    };
+
+    track.querySelectorAll('.mc-card:not(.mc-clone)').forEach((card) => {
+      card.addEventListener('click', () => toggleCard(card));
+    });
   }
 </script>

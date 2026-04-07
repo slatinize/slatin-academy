@@ -7,9 +7,10 @@ interface Props {
   bgColor?: string;
   compact?: boolean;
   logoSrc?: string;
+  lang?: string;
 }
 
-const { name, imageSrc, bio, variant = 'cream', bgColor, compact = false, logoSrc } = Astro.props;
+const { name, imageSrc, bio, variant = 'cream', bgColor, compact = false, logoSrc, lang = 'en' } = Astro.props;
 const sectionClass = variant === 'cream' ? 'section-cream' : 'section-dark';
 ---
 
@@ -26,7 +27,7 @@ const sectionClass = variant === 'cream' ? 'section-cream' : 'section-dark';
 
     <!-- Bio -->
     <div class="bio-text reveal">
-      <p class="text-base md:text-lg font-semibold tracking-widest uppercase mb-2 opacity-70">Meet Your Teacher</p>
+      <p class="text-base md:text-lg font-semibold tracking-widest uppercase mb-2 opacity-70">{lang === 'es' ? 'Tu Profesor' : 'Meet Your Teacher'}</p>
       <h2 class="text-3xl md:text-5xl font-bold mb-6">{name}</h2>
       <div class="space-y-4">
         {bio.map((paragraph) => (
@@ -34,7 +35,7 @@ const sectionClass = variant === 'cream' ? 'section-cream' : 'section-dark';
         ))}
       </div>
       {logoSrc && (
-        <div class="mt-8" style="margin-left: -6%; width: 112%;">
+        <div class="mt-8 bio-logos-wrap">
           <img
             src={logoSrc}
             alt="Partner logos"
@@ -103,6 +104,17 @@ const sectionClass = variant === 'cream' ? 'section-cream' : 'section-dark';
   @media (min-width: 1024px) {
     .bio-text {
       padding: 4rem 5rem;
+    }
+  }
+
+  .bio-logos-wrap {
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .bio-logos-wrap {
+      margin-left: -6%;
+      width: 112%;
     }
   }
 

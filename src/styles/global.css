@@ -11,24 +11,86 @@
 
   body {
     @apply bg-dark text-white font-sans;
+    overflow-x: hidden;
   }
 
-  /* Red scribble underline — thick hand-drawn style matching Salient theme */
+  /* Prevent iOS double-tap zoom on interactive elements */
+  a, button, input, select, textarea {
+    touch-action: manipulation;
+  }
+
+  /* Red scribble underline — inline SVG matching WP Salient nectar-scribble */
   .squiggle {
     position: relative;
     display: inline-block;
-    z-index: 1;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: 1em;
   }
-  .squiggle::after {
-    content: '';
+  .squiggle > .squiggle-svg {
     position: absolute;
-    left: -2%;
-    bottom: -16px;
-    width: 104%;
-    height: 22px;
+    left: 0;
+    top: auto;
+    bottom: -30%;
+    width: 100%;
+    height: 50%;
     z-index: -1;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-347 -30.1947 694 96.19' preserveAspectRatio='none'%3E%3Cpath d='M-335,54 C-335,54 -171,-58 -194,-3 C-217,52 -224.12,73.55 -127,11 C-68,-27 -137,50 -33,42 C31.44,37.04 147.15,-29.31 335,2' stroke='%23FB4141' stroke-width='10' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
-    background-size: 100% 100%;
+  }
+  .squiggle > .squiggle-svg path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    stroke-linecap: round;
+    opacity: 0;
+  }
+  .squiggle.drawn > .squiggle-svg path {
+    opacity: 1;
+    animation: squiggle-draw 1.3s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  }
+  @keyframes squiggle-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* Basic underline — gentle arc, matching WP Salient nectar-scribble basic-underline */
+  .squiggle-basic {
+    position: relative;
+    display: inline-block;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: 1em;
+  }
+  .squiggle-basic > .squiggle-svg {
+    position: absolute;
+    left: 0;
+    top: auto;
+    bottom: -20%;
+    width: 100%;
+    height: 30%;
+    z-index: -1;
+  }
+  @media (max-width: 768px) {
+    .squiggle-basic > .squiggle-svg {
+      height: 18%;
+      bottom: -10%;
+    }
+    .squiggle-basic > .squiggle-svg path {
+      stroke-width: 8 !important;
+    }
+  }
+  .squiggle-basic > .squiggle-svg path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    stroke-linecap: round;
+    opacity: 0;
+  }
+  .squiggle-basic.drawn > .squiggle-svg path {
+    opacity: 1;
+    animation: squiggle-draw 1.3s cubic-bezier(0.65, 0, 0.35, 1) forwards;
   }
 }
 
@@ -137,4 +199,28 @@
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Responsive pull-up: tighter on mobile, larger on desktop */
+.pull-up-faq {
+  margin-top: -2.5rem;
+}
+@media (min-width: 768px) {
+  .pull-up-faq {
+    margin-top: -7rem;
+  }
+}
+
+/* Outline text for marquee banners */
+.text-outline {
+  -webkit-text-stroke: 1px currentColor;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Orange-to-red gradient text (matches WP Salient extra-color-gradient-1) */
+.gradient-text-red {
+  background: linear-gradient(90deg, #ed8e00, #dd3333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

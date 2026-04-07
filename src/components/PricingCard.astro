@@ -15,7 +15,7 @@ const { title, subtitle, price, features, ctaText, ctaHref } = Astro.props;
   <div class="container-content flex justify-center">
     <div class="w-full max-w-2xl rounded-2xl overflow-hidden pricing-reveal">
       <!-- Card with gradient -->
-      <div class="pricing-card relative bg-gradient-to-br from-dark-card via-accent-red-dark/20 to-dark-card p-10 md:p-14 text-center border border-white/10 rounded-2xl">
+      <div class="pricing-card relative bg-gradient-to-br from-dark-card via-accent-red-dark/20 to-dark-card p-6 md:p-14 text-center border border-white/10 rounded-2xl">
         <!-- Subtle glow -->
         <div class="pricing-glow absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-accent-red/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -34,12 +34,12 @@ const { title, subtitle, price, features, ctaText, ctaHref } = Astro.props;
           </ul>
 
           <!-- Price -->
-          <p class="pricing-price text-6xl md:text-7xl font-extrabold text-white mb-8">{price}</p>
+          <p class="pricing-price text-5xl md:text-7xl font-extrabold text-white mb-8">{price}</p>
 
           <!-- CTA -->
           <a
             href={ctaHref}
-            class="pricing-cta btn-primary text-xl px-12 py-5 w-full max-w-md block mx-auto"
+            class="pricing-cta btn-primary text-base md:text-xl px-8 md:px-12 py-4 md:py-5 w-full max-w-md block mx-auto"
           >
             {ctaText}
           </a>

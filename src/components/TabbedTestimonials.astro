@@ -1,0 +1,116 @@
+---
+interface AlumniTestimonial {
+  name: string;
+  avatar: string;
+  review: string;
+}
+
+interface Props {
+  title?: string;
+  alumni: AlumniTestimonial[];
+}
+
+const { title, alumni } = Astro.props;
+---
+
+<section class="section-dark px-6 py-10 md:px-[5%] md:py-16 lg:px-[10%] lg:py-20">
+  <div class="container-content max-w-4xl mx-auto">
+    {title && (
+      <div class="text-center mb-10 reveal">
+        <h2 class="text-heading" set:html={title} />
+      </div>
+    )}
+
+    <!-- Tab navigation -->
+    <div class="tab-nav flex flex-wrap justify-center gap-2 mb-8 reveal">
+      {alumni.map((person, i) => (
+        <button
+          class={`tab-btn ${i === 0 ? 'active' : ''}`}
+          data-tab-index={i}
+        >
+          {person.name}
+        </button>
+      ))}
+    </div>
+
+    <!-- Tab panels -->
+    <div class="tab-panels reveal">
+      {alumni.map((person, i) => (
+        <div
+          class={`tab-panel ${i === 0 ? '' : 'hidden'}`}
+          data-panel-index={i}
+        >
+          <div class="tab-panel-inner">
+            <img
+              src={person.avatar}
+              alt={person.name}
+              class="w-20 h-20 rounded-full object-cover flex-shrink-0 ring-2 ring-white/10"
+              loading="lazy"
+            />
+            <div>
+              <h3 class="text-lg font-bold mb-3 text-white">{person.name}</h3>
+              <div class="text-white/60 text-[15px] leading-relaxed space-y-3" set:html={person.review} />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .tab-btn {
+    padding: 0.5rem 1.1rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .tab-btn:hover {
+    color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .tab-btn.active {
+    background: #DD3333;
+    color: white;
+    border-color: #DD3333;
+  }
+
+  .tab-panel-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .tab-panel-inner {
+      flex-direction: row;
+      align-items: flex-start;
+      text-align: left;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const index = btn.getAttribute('data-tab-index');
+
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+      const panel = document.querySelector(`[data-panel-index="${index}"]`);
+      if (panel) panel.classList.remove('hidden');
+    });
+  });
+</script>

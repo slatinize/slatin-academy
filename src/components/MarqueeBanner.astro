@@ -1,0 +1,46 @@
+---
+interface Props {
+  text: string;
+  subtitle?: string;
+  id?: string;
+}
+
+const { text, subtitle, id } = Astro.props;
+---
+
+<section class="section-dark py-8 md:py-12" id={id}>
+  <!-- Scrolling text marquee -->
+  <div class="mb-14 pb-6 overflow-hidden">
+    <div class="flex whitespace-nowrap animate-marquee-banner">
+      {[...Array(6)].map(() => (
+        <span class="marquee-text text-6xl md:text-8xl lg:text-9xl mx-6">
+          {text}
+        </span>
+      ))}
+    </div>
+  </div>
+
+  {subtitle && (
+    <div class="text-center px-6 pb-4 reveal">
+      <h2 class="text-2xl md:text-4xl lg:text-[46px] font-medium gradient-text-red leading-normal pb-2 tracking-tight" set:html={subtitle} />
+    </div>
+  )}
+</section>
+
+<style>
+  @keyframes marquee-banner {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee-banner {
+    animation: marquee-banner 25s linear infinite;
+    width: max-content;
+  }
+
+  .marquee-text {
+    color: #ffffff;
+    font-weight: 500;
+    letter-spacing: -0.0025em;
+  }
+</style>

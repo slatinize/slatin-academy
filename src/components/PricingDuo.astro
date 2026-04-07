@@ -1,0 +1,114 @@
+---
+interface PricingPlan {
+  title: string;
+  subtitle: string;
+  features: string[];
+  highlightFeatures?: string[];
+  ctaText: string;
+  ctaHref: string;
+  variant: 'dark' | 'light';
+}
+
+interface Props {
+  plans: PricingPlan[];
+}
+
+const { plans } = Astro.props;
+---
+
+<section class="section-dark px-6 py-8 md:px-[5%] md:py-12 lg:px-[10%] lg:py-16" id="pricing">
+  <div class="container-content max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-5">
+      {plans.map((plan) => {
+        const isDark = plan.variant === 'dark';
+        const hasHighlights = plan.highlightFeatures && plan.highlightFeatures.length > 0;
+
+        return (
+          <div class={`pricing-card ${isDark ? 'pricing-dark' : 'pricing-light'} rounded-2xl p-8 md:p-10 flex flex-col reveal`}>
+            <h2 class="text-2xl md:text-3xl font-extrabold mb-1">{plan.title}</h2>
+            <p class={`text-sm font-semibold mb-6 ${isDark ? 'opacity-50' : 'opacity-40'}`}>
+              {plan.subtitle}
+            </p>
+
+            <ul class="pricing-features space-y-2.5 mb-8">
+              {plan.features.map((feature) => (
+                <li class="flex items-start gap-2.5">
+                  <span class="mt-0.5 flex-shrink-0 opacity-50">
+                    <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                  </span>
+                  <span class="opacity-80">{feature}</span>
+                </li>
+              ))}
+              {hasHighlights && (
+                <li class="pt-2 border-t border-current/10"></li>
+              )}
+              {plan.highlightFeatures && plan.highlightFeatures.map((feature) => (
+                <li class="flex items-start gap-2.5 text-accent-red font-bold">
+                  <span class="mt-0.5 flex-shrink-0">
+                    <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                  </span>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-auto">
+              <a
+                href={plan.ctaHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="pricing-cta"
+              >
+                {plan.ctaText}
+              </a>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing-dark {
+    background: #3D3D3D;
+    color: #ffffff;
+  }
+
+  .pricing-light {
+    background: #ffffff;
+    color: #020202;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .pricing-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.25);
+  }
+
+  .pricing-cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 2rem;
+    background: #DD3333;
+    color: white;
+    font-weight: 700;
+    font-size: 1.05rem;
+    border-radius: 0.5rem;
+    transition: all 0.25s ease;
+  }
+
+  .pricing-cta:hover {
+    background: #FB4141;
+    box-shadow: 0 6px 24px rgba(221, 51, 51, 0.3);
+  }
+</style>

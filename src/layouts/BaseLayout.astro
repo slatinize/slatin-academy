@@ -7,18 +7,20 @@ import '@fontsource/plus-jakarta-sans/800.css';
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import { getAlternateUrl, locales, type Locale } from '../utils/i18n';
 
 interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  lang?: Locale;
 }
 
-const { title, description = 'Premium music education by SLATIN', ogImage } = Astro.props;
+const { title, description = 'Premium music education by SLATIN', ogImage, lang = 'en' } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,15 +28,21 @@ const { title, description = 'Premium music education by SLATIN', ogImage } = As
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     {ogImage && <meta property="og:image" content={ogImage} />}
-    <link rel="icon" type="image/png" href="https://www.slatin.pro/wp-content/uploads/2023/01/Recurso-21.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    {locales.map((l) => (
+      <link rel="alternate" hreflang={l} href={getAlternateUrl(Astro.url, l)} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={getAlternateUrl(Astro.url, 'en')} />
     <title>{title}</title>
   </head>
   <body>
-    <Nav />
+    <Nav lang={lang} />
     <main>
       <slot />
     </main>
-    <Footer />
+    <Footer lang={lang} />
 
     <script>
       // Force scroll to top on page load — prevents mobile browsers from
@@ -57,6 +65,54 @@ const { title, description = 'Premium music education by SLATIN', ogImage } = As
         { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
       );
       document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+      // Squiggle scribble underlines — inject inline SVGs (matching WP Salient nectar-scribble)
+      const svgNS = 'http://www.w3.org/2000/svg';
+      const scribbleTypes = {
+        squiggle: {
+          viewBox: '-347 -30.1947 694 96.19',
+          d: 'M-335,54 C-335,54 -171,-58 -194,-3 C-217,52 -224.12,73.55 -127,11 C-68,-27 -137,50 -33,42 C31.44,37.04 147.15,-29.31 335,2',
+          stroke: '#dd3333',
+          strokeWidth: '8',
+        },
+        'squiggle-basic': {
+          viewBox: '-400 -55 730 60',
+          d: 'm -383.25 -6 c 55.25 -22 130.75 -33.5 293.25 -38 c 54.5 -0.5 195 -2.5 401 15',
+          stroke: '#ba1616',
+          strokeWidth: '14',
+        },
+      };
+
+      Object.entries(scribbleTypes).forEach(([cls, cfg]) => {
+        document.querySelectorAll('.' + cls).forEach((el) => {
+          const svg = document.createElementNS(svgNS, 'svg');
+          svg.setAttribute('class', 'squiggle-svg');
+          svg.setAttribute('viewBox', cfg.viewBox);
+          svg.setAttribute('preserveAspectRatio', 'none');
+          const path = document.createElementNS(svgNS, 'path');
+          path.setAttribute('d', cfg.d);
+          path.setAttribute('pathLength', '1');
+          path.setAttribute('stroke', cfg.stroke);
+          path.setAttribute('stroke-width', cfg.strokeWidth);
+          path.setAttribute('fill', 'none');
+          svg.appendChild(path);
+          el.appendChild(svg);
+        });
+      });
+
+      // Squiggle draw-on animation triggered by scroll
+      const squiggleObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('drawn');
+              squiggleObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+      document.querySelectorAll('.squiggle, .squiggle-basic').forEach((el) => squiggleObserver.observe(el));
     </script>
   </body>
 </html>

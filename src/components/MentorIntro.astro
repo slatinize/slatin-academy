@@ -1,0 +1,281 @@
+---
+import AnimatedGradient from './AnimatedGradient.astro';
+
+interface Stat {
+  value: string;
+  label: string;
+  highlight?: boolean;
+}
+
+interface Props {
+  tagline: string;
+  name: string;
+  nameAccent: string;
+  bio: string;
+  imageSrc: string;
+  logosSrc: string;
+  stats: Stat[];
+}
+
+const { tagline, name, nameAccent, bio, imageSrc, logosSrc, stats } = Astro.props;
+---
+
+<section class="mentor-section section-dark overflow-hidden">
+  <!-- Ambient gradient bg -->
+  <div class="mentor-bg" aria-hidden="true">
+    <AnimatedGradient color1="#DD3333" color2="#1a0000" speed={1500} blendingMode="organic" />
+  </div>
+
+  <div class="mentor-content relative z-10">
+    <div class="mentor-grid">
+      <!-- Text side -->
+      <div class="mentor-text reveal">
+        <p class="mentor-tagline">{tagline}</p>
+        <h2 class="mentor-name">
+          {name} <span class="mentor-name-accent">{nameAccent}</span>
+        </h2>
+        <p class="mentor-bio" set:html={bio} />
+        <div class="mentor-stats">
+          {stats.map((stat) => (
+            <div class="mentor-stat">
+              <div class={`mentor-stat-value ${stat.highlight ? 'stat-highlight' : ''}`}>{stat.value}</div>
+              <div class="mentor-stat-label">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Photo side -->
+      <div class="mentor-photo-wrap reveal">
+        <div class="mentor-photo">
+          <img src={imageSrc} alt={`${name} ${nameAccent}`} loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logos full width -->
+  <div class="mentor-logos reveal">
+    <img src={logosSrc} alt="Client logos" loading="lazy" />
+  </div>
+</section>
+
+<style>
+  .mentor-section {
+    position: relative;
+  }
+
+  .mentor-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0.3;
+    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 70% 40%, black 0%, transparent 65%);
+    mask-image: radial-gradient(ellipse 80% 80% at 70% 40%, black 0%, transparent 65%);
+  }
+
+  /* ── Layout ── */
+  .mentor-content {
+    padding: 48px 8% 40px;
+  }
+
+  .mentor-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  /* ── Text ── */
+  .mentor-tagline {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #DD3333;
+    margin-bottom: 14px;
+  }
+
+  .mentor-name {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  .mentor-name-accent {
+    background: linear-gradient(90deg, #FF4444, #DD3333, #aa1111);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .mentor-bio {
+    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+
+  /* ── Stats ── */
+  .mentor-stats {
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+  }
+
+  .mentor-stat-value {
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  .stat-highlight {
+    color: #DD3333;
+  }
+
+  .mentor-stat-label {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+  }
+
+  /* ── Photo ── */
+  .mentor-photo-wrap {
+    display: flex;
+    justify-content: center;
+    order: -1;
+  }
+
+  .mentor-photo {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .mentor-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ── Logos ── */
+  .mentor-logos {
+    padding: 32px 8% 36px;
+  }
+
+  .mentor-logos img {
+    width: 100%;
+    display: block;
+    object-fit: contain;
+    opacity: 0.45;
+  }
+
+  /* ── Tablet ── */
+  @media (min-width: 768px) {
+    .mentor-content {
+      padding: 72px 7% 48px;
+    }
+
+    .mentor-grid {
+      flex-direction: row;
+      align-items: center;
+      gap: 5%;
+    }
+
+    .mentor-text {
+      flex: 1;
+    }
+
+    .mentor-bio {
+      max-width: 560px;
+    }
+
+    .mentor-photo-wrap {
+      flex: 0 0 auto;
+      order: 0;
+    }
+
+    .mentor-photo {
+      width: 320px;
+      height: 320px;
+    }
+
+    .mentor-logos {
+      padding: 32px 7% 36px;
+    }
+  }
+
+  /* ── Desktop ── */
+  @media (min-width: 1280px) {
+    .mentor-content {
+      padding: 88px 8% 56px;
+    }
+
+    .mentor-grid {
+      gap: 6%;
+    }
+
+    .mentor-tagline {
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+
+    .mentor-name {
+      margin-bottom: 28px;
+    }
+
+    .mentor-bio {
+      font-size: 1.15rem;
+      margin-bottom: 40px;
+      max-width: 620px;
+    }
+
+    .mentor-stats {
+      gap: 56px;
+    }
+
+    .mentor-stat-value {
+      font-size: 2.4rem;
+    }
+
+    .mentor-stat-label {
+      font-size: 0.75rem;
+      margin-top: 6px;
+    }
+
+    .mentor-photo {
+      width: 400px;
+      height: 400px;
+    }
+
+    .mentor-logos {
+      padding: 36px 8% 40px;
+    }
+  }
+
+  /* ── Wide screens ── */
+  @media (min-width: 1600px) {
+    .mentor-content {
+      padding: 96px 10% 64px;
+    }
+
+    .mentor-photo {
+      width: 440px;
+      height: 440px;
+    }
+
+    .mentor-bio {
+      max-width: 680px;
+    }
+
+    .mentor-logos {
+      padding: 40px 10% 44px;
+    }
+  }
+</style>
