@@ -34,7 +34,7 @@ export const pageData = {
       ],
       accent: "Sidechain is not enough... 🫣",
       afterAccent: [
-        "...when you're chasing that tight, punchy Kick & Bass relationship that pros obsess over.",
+        "When you're chasing that tight, punchy Kick & Bass relationship that pros obsess over?",
       ],
       bold: "I'll walk you through the exact process I use on every project.",
     },
@@ -121,7 +121,7 @@ export const pageData = {
   },
 
   idealFor: {
-    title: "This course is ideal if you",
+    title: "This course is ideal if you...",
     items: [
       {
         number: "01",

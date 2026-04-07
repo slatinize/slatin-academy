@@ -91,7 +91,7 @@ export const pageData = {
   },
 
   idealFor: {
-    title: "This course is ideal if you",
+    title: "This course is ideal if you...",
     items: [
       {
         number: "01",

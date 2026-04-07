@@ -22,7 +22,7 @@ const isEs = lang === 'es';
   <div class="module-header">
     <p class="module-pre">{isEs ? 'CONTENIDO DEL CURSO' : 'COURSE CURRICULUM'}</p>
     <h2 class="module-heading">{isEs ? 'Lo Que ' : "What You'll "}<span>{isEs ? 'Dominarás' : 'Master'}</span></h2>
-    {subtitle && <p class="module-sub">{subtitle}</p>}
+    {subtitle && <p class="module-sub" set:html={subtitle} />}
   </div>
 
   <div class="carousel-wrap">
@@ -40,12 +40,12 @@ const isEs = lang === 'es';
             </div>
             <div class="mc-body">
               <span class="mc-label">{mod.moduleNumber}</span>
-              <h3 class="mc-title">{mod.title}</h3>
+              <h3 class="mc-title" set:html={mod.title} />
               {mod.topics && mod.topics.length > 0 && (
                 <div class="mc-topics-wrap">
                   <ul class="mc-topics">
                     {mod.topics.map((topic) => (
-                      <li>{topic}</li>
+                      <li set:html={topic} />
                     ))}
                   </ul>
                   <button class="mc-toggle" aria-label="Show lessons">
@@ -71,12 +71,12 @@ const isEs = lang === 'es';
             </div>
             <div class="mc-body">
               <span class="mc-label">{mod.moduleNumber}</span>
-              <h3 class="mc-title">{mod.title}</h3>
+              <h3 class="mc-title" set:html={mod.title} />
               {mod.topics && mod.topics.length > 0 && (
                 <div class="mc-topics-wrap">
                   <ul class="mc-topics">
                     {mod.topics.map((topic) => (
-                      <li>{topic}</li>
+                      <li set:html={topic} />
                     ))}
                   </ul>
                   <button class="mc-toggle" aria-label="Show lessons">
@@ -132,7 +132,8 @@ const isEs = lang === 'es';
     font-size: 1rem;
     color: rgba(26, 26, 26, 0.5);
     margin: 0 auto;
-    max-width: 600px;
+    max-width: none;
+    white-space: nowrap;
   }
 
   /* Carousel track */

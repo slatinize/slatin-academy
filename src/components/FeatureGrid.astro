@@ -37,8 +37,8 @@ const cardBg = variant === 'dark' ? 'border border-white/10 bg-dark-card' : 'bg-
       {features.map((feature) => (
         <div class={`${cardBg} rounded-xl p-8 md:p-10 reveal feature-card`}>
           {feature.iconSrc && (
-            <div class="feature-img-wrap mb-5 overflow-hidden" style={feature.iconStyle || ''}>
-              <img src={feature.iconSrc} alt="" class={`${feature.iconClass || 'w-14 h-14'} object-cover feature-img`} loading="lazy" />
+            <div class={`${feature.iconClass || 'w-14 h-14'} mb-5 rounded-full overflow-hidden`}>
+              <img src={feature.iconSrc} alt="" class="w-full h-full object-cover feature-img" style={feature.iconStyle || ''} loading="lazy" />
             </div>
           )}
           {feature.icon && !feature.iconSrc && (
@@ -47,9 +47,7 @@ const cardBg = variant === 'dark' ? 'border border-white/10 bg-dark-card' : 'bg-
             </div>
           )}
           <h3 class="text-xl md:text-2xl font-bold mb-3" set:html={feature.title} />
-          <p class={`text-base leading-relaxed ${variant === 'dark' ? 'text-white/60' : 'text-text-dark/70'}`}>
-            {feature.description}
-          </p>
+          <p class={`text-base leading-relaxed ${variant === 'dark' ? 'text-white/60' : 'text-text-dark/70'}`} set:html={feature.description} />
         </div>
       ))}
     </div>

@@ -28,7 +28,7 @@ const doubled = [...testimonials, ...testimonials];
             <svg class="w-8 h-8 mb-5 text-accent-red opacity-70" viewBox="0 0 24 24" fill="currentColor">
               <path d="M11 7.05C7.28 7.56 4.5 10.59 4.5 14.25c0 2.07 1.68 3.75 3.75 3.75S12 16.32 12 14.25c0-1.81-1.29-3.32-3-3.67 0-1.86 1.37-3.44 3.18-3.7L11 7.05zm7 0C14.28 7.56 11.5 10.59 11.5 14.25c0 2.07 1.68 3.75 3.75 3.75S19 16.32 19 14.25c0-1.81-1.29-3.32-3-3.67 0-1.86 1.37-3.44 3.18-3.7L18 7.05z"/>
             </svg>
-            <p class="text-[15px] leading-relaxed text-white/80">{t.quote}</p>
+            <p class="text-[15px] leading-relaxed text-white/80" set:html={t.quote} />
           </div>
           <!-- Divider + attribution -->
           <div class="mt-6">

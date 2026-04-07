@@ -28,7 +28,7 @@ const { title, subtitle, price, features, ctaText, ctaHref } = Astro.props;
             {features.map((feature, i) => (
               <li class="pricing-feature flex items-start gap-3 text-white/80" style={`--delay: ${i * 0.08}s`}>
                 <span class="text-accent-red mt-0.5">•</span>
-                {feature}
+                <span set:html={feature} />
               </li>
             ))}
           </ul>
