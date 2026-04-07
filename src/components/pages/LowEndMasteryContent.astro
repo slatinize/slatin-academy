@@ -51,6 +51,7 @@ const {
   <div class="relative section-dark overflow-hidden" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-bottom: 6vh;">
     <div class="absolute inset-0 z-0">
       <AnimatedGradient color1="#ff6363" color2="#ff0008" speed={1300} />
+      <div class="absolute inset-0" style="background: rgba(0, 0, 0, 0.25);"></div>
     </div>
     <div class="relative z-10">
       <HeroTwoColumn
@@ -79,7 +80,7 @@ const {
 
   <!-- 4. "Nail Your Kick & Bass" -->
   <div style="margin-top: -1.5rem;"></div>
-  <SplitSection variant="dark" imagePosition="left" imageSrc="/images/nail-kick-bass.png" imageAlt="Sidechain compression and kick bass mixing">
+  <SplitSection variant="dark" imagePosition="right" imageSrc="/images/nail-kick-bass.png" imageAlt="Sidechain compression and kick bass mixing">
     <h2 class="text-heading mb-8" set:html={splitSections.kickBass.heading} />
     {splitSections.kickBass.paragraphs.map((p) => (
       <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4" set:html={p} />
@@ -102,7 +103,7 @@ const {
 
   <!-- 6. "Mono and Wide" -->
   <div style="margin-top: -1.5rem;"></div>
-  <SplitSection variant="dark" imagePosition="left" imageSrc="/images/mono-wide.png" imageAlt="Mono-compatible wide bass techniques" imageObjectPosition="calc(50% + 32px) center">
+  <SplitSection variant="dark" imagePosition="right" imageSrc="/images/mono-wide.png" imageAlt="Mono-compatible wide bass techniques" imageObjectPosition="calc(50% + 32px) center">
     <h2 class="text-heading mb-8" set:html={splitSections.monoWide.heading} />
     {splitSections.monoWide.paragraphs.map((p, i) => (
       <p class={`text-base md:text-lg text-white/70 leading-relaxed ${i < splitSections.monoWide.paragraphs.length - 1 ? 'mb-4' : ''}`} set:html={p} />
@@ -176,7 +177,7 @@ const {
     {splitSections.saveTime.paragraphs.map((p) => (
       <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4" set:html={p} />
     ))}
-    <p class="text-base md:text-lg text-accent-red leading-relaxed mb-4" set:html={splitSections.saveTime.accent} />
+    <p class="text-base md:text-lg font-bold text-white leading-relaxed mb-4" set:html={splitSections.saveTime.accent} />
     {splitSections.saveTime.afterAccent.map((p) => (
       <p class="text-base md:text-lg text-white/70 leading-relaxed" set:html={p} />
     ))}
@@ -199,7 +200,7 @@ const {
     {splitSections.community.paragraphs.map((p) => (
       <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4" set:html={p} />
     ))}
-    <p class="text-base md:text-lg text-accent-red leading-relaxed mb-4" set:html={splitSections.community.accent} />
+    <p class="text-base md:text-lg font-bold text-white leading-relaxed mb-4" set:html={splitSections.community.accent} />
     {splitSections.community.afterAccent.map((p) => (
       <p class="text-base md:text-lg text-white/70 leading-relaxed" set:html={p} />
     ))}

@@ -57,18 +57,18 @@ export const pageData = {
     saveTime: {
       heading: 'Save Your <span class="squiggle-basic">Time</span>',
       paragraphs: [
-        'Sound Selection is <strong class="text-white">KEY</strong> 🎯',
+        'Sound Selection is <strong class="text-white">KEY.</strong>',
       ],
       accent: "...and it's 80% of your final sound.",
       afterAccent: [
-        'Whether you use Splice or have an extensive sample library, I\'ll show you how to pick the right samples and <strong class="text-white">stop second-guessing</strong> ❌',
+        'Whether you use Splice or have an extensive sample library, I\'ll show you how to pick the right samples and <strong class="text-white">stop second-guessing.</strong>',
       ],
     },
     genres: {
       heading: '<span class="squiggle-basic">Multiple Genres</span>',
       paragraphs: [
         "Each genre has its unique way of addressing low-end frequencies.",
-        'This course is tailored for <strong class="text-accent-red">creators of modern and loud music</strong>.',
+        'This course is tailored for <strong class="text-white">creators of modern and loud music</strong>.',
         'You\'ll see exactly how to handle kick and bass in <strong class="text-white">EDM, Pop/Funk, Trap and Reggaeton</strong>.',
       ],
     },
@@ -77,7 +77,7 @@ export const pageData = {
       paragraphs: [
         "This is not your average video course...",
       ],
-      accent: "If you have any questions left, join the chat! 📱",
+      accent: "If you have any questions left, join the chat!",
       afterAccent: [
         'Share your work, <strong class="text-white">get feedback</strong> and answers to your questions and find like-minded people.',
       ],
@@ -85,7 +85,7 @@ export const pageData = {
   },
 
   painPoints: {
-    badge: "+ 400 Happy Students ⭐️⭐️⭐️⭐️⭐️",
+    badge: "+ 400 Happy Students",
     headline: 'Your low end is the foundation, <span class="text-accent-red">everything else follows.</span>',
     items: [
       'Mixes sound <strong>muddy or thin</strong> and the low end never sits right, no matter what you try.',

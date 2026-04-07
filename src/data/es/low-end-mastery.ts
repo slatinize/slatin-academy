@@ -57,18 +57,18 @@ export const pageData = {
     saveTime: {
       heading: 'Ahorra Tu <span class="squiggle-basic">Tiempo</span>',
       paragraphs: [
-        'La Selección de Sonido es <strong class="text-white">CLAVE</strong> 🎯',
+        'La Selección de Sonido es <strong class="text-white">CLAVE.</strong>',
       ],
       accent: "...y supone el 80% de tu sonido final.",
       afterAccent: [
-        'Ya sea que uses Splice o tengas una librería de samples extensa, te enseñaré a elegir los samples correctos y a <strong class="text-white">dejar de dudar</strong> ❌',
+        'Ya sea que uses Splice o tengas una librería de samples extensa, te enseñaré a elegir los samples correctos y a <strong class="text-white">dejar de dudar.</strong>',
       ],
     },
     genres: {
       heading: '<span class="squiggle-basic">Múltiples Géneros</span>',
       paragraphs: [
         "Cada género tiene su forma única de tratar las frecuencias graves.",
-        'Este curso está diseñado para <strong class="text-accent-red">creadores de música moderna y potente</strong>.',
+        'Este curso está diseñado para <strong class="text-white">creadores de música moderna y potente</strong>.',
         'Verás exactamente cómo manejar kick y bass en <strong class="text-white">EDM, Pop/Funk, Trap y Reggaeton</strong>.',
       ],
     },
@@ -77,7 +77,7 @@ export const pageData = {
       paragraphs: [
         "Esto no es un curso de vídeo cualquiera...",
       ],
-      accent: "Si te quedan dudas, únete al chat! 📱",
+      accent: "Si te quedan dudas, únete al chat!",
       afterAccent: [
         'Comparte tu trabajo, <strong class="text-white">recibe feedback</strong> y respuestas a tus preguntas y encuentra personas con tus mismos intereses.',
       ],
@@ -85,7 +85,7 @@ export const pageData = {
   },
 
   painPoints: {
-    badge: "+ 400 Alumnos Satisfechos ⭐️⭐️⭐️⭐️⭐️",
+    badge: "+ 400 Alumnos Satisfechos",
     headline: 'Tu low end es la base, <span class="text-accent-red">todo lo demás viene después.</span>',
     items: [
       'Las mezclas suenan <strong>turbias o delgadas</strong> y los graves nunca encajan, hagas lo que hagas.',
