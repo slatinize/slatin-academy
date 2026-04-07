@@ -2,13 +2,13 @@ import type { Testimonial, FaqItem, FeatureCard, OutcomeCard, PricingPlan, Alumn
 
 export const pageData = {
   meta: {
-    title: "Mentoría - SLATIN Academy",
-    description: "Construye una Carrera Musical Rentable en Tus Propios Términos. Mejora tus Habilidades de Mezcla y Mastering en Tiempo Récord con el Programa de Mentoría de SLATIN.",
+    title: "Mentoring - SLATIN Academy",
+    description: "Build a Profitable Music Career on Your Own Terms. Revamp your Mixing and Mastering Skills in Record Time with SLATIN's Mentoring Program.",
   },
 
   hero: {
     tagline: "Programa de Mentoría",
-    title: 'Construye una Carrera Musical Rentable Bajo <span class="gradient-text-red">Tus Propios Términos</span>',
+    title: 'Construye una Carrera Musical Rentable en <span class="gradient-text-red">Tus Propios Términos</span>',
     subtitle: "Todo lo que necesitas para mezclar como un profesional y construir una carrera que pague.",
     ctaText: "EMPIEZA HOY",
     ctaHref: "#getaccess",
@@ -27,20 +27,53 @@ export const pageData = {
     ],
   },
 
-  backgroundQuote: 'Desbloquea tu <strong>máximo potencial</strong> y acelera tu crecimiento uniéndote a mi <strong>Programa de Mentoría.</strong>',
+  backgroundQuote: 'Unlock your <strong>full potential</strong> and accelerate your growth by joining my <strong>Mentoring Program.</strong>',
 
-  whatsIncluded: '<em><strong><span class="squiggle-basic">¿Qué Incluye?</span></strong></em>',
-
-  extras: {
-    title: "+++",
-    lines: [
-      "Acceso exclusivo a información privilegiada.",
-      "Invitados especiales de la industria musical.",
-      "Networking y comunidad con personas con los mismos intereses.",
-      "Una amplia selección de los mejores Samples, Presets y Libros.",
-      "Plantillas de email para contactar Sellos, Managers y Promotores.",
-      '<a href="https://www.slatin.pro/fusion" class="text-accent-red hover:underline">FUSION</a> &ndash; Valhalla Reverb Pack &ndash; gratis.',
-      "Y mucho más&hellip;",
+  whatsIncluded: {
+    sectionTitle: 'Cómo <em><span class="squiggle-basic">Cambiarás</span></em>',
+    sectionSubtitle: "Cambios reales en cómo trabajas, suenas y creces — no solo una lista de herramientas.",
+    cards: [
+      {
+        icon: "fix",
+        image: "/images/mentoring/feedback.gif",
+        beforeAfter: { before: "adivinar a solas", after: "saber exactamente qué arreglar" },
+        title: "Dejarás de Dudar de Tus Mezclas",
+        description: "Cada semana recibirás reseñas detalladas en vídeo de tus tracks — no consejos genéricos, sino feedback específico y accionable para que finalmente entiendas el porqué detrás de cada decisión.",
+        valueTag: "Ahorra +100 horas de prueba y error",
+      },
+      {
+        icon: "guide",
+        image: "/images/mentoring/group-calls.gif",
+        beforeAfter: { before: "atascado y aislado", after: "guiado cada semana" },
+        title: "Nunca Te Sentirás Perdido Otra Vez",
+        description: "Llamadas grupales en directo de 70 minutos, guía en tiempo real de un ingeniero multi-platino, y una comunidad privada de productores serios — siempre tendrás a quien preguntar cuando te encuentres con un muro.",
+        valueTag: "Respuesta en 24h, soporte siempre activo",
+      },
+      {
+        icon: "star",
+        image: "/images/mentoring/mentor-photo.jpg",
+        beforeAfter: { before: "sonido amateur", after: "mezclas profesionales listas para sello" },
+        title: "Tu Sonido Traducirá en Cualquier Sistema",
+        description: "Aprenderás las técnicas exactas usadas en discos de Sony, Warner, Def Jam y Netflix — y las aplicarás a tu propio trabajo con guía directa semanal de alguien que ya lo ha hecho.",
+        valueTag: "Técnicas reales de releases reales",
+      },
+      {
+        icon: "money",
+        image: "/images/mentoring/chat.gif",
+        beforeAfter: { before: "trabajar gratis", after: "cobrar con confianza" },
+        title: "Construirás una Carrera Que Realmente Paga",
+        description: "Más allá de lo técnico: cobrar tu trabajo, encontrar clientes, negociar con sellos y construir un negocio musical sostenible — respaldado por más de 15 años en la industria.",
+        valueTag: "Negocio real, no dinero de hobby",
+      },
+    ],
+    extrasTitle: "Todo Lo Demás Que Desbloqueas",
+    extras: [
+      { highlight: "Corta el ruido de la industria", text: "conocimiento interno de lo que realmente mueve la aguja, para que dejes de perder años descubriéndolo solo" },
+      { highlight: "Entra en la sala con quienes deciden", text: "A&Rs, ejecutivos de sellos e ingenieros top que pueden cambiar la trayectoria de tu carrera" },
+      { highlight: "Construye relaciones que abren puertas", text: "una comunidad privada de productores serios que te empujan, apoyan y colaboran contigo durante años" },
+      { highlight: "Sáltate la búsqueda interminable", text: "los samples, presets y libros exactos que yo uso, para que construyas con herramientas probadas desde el día uno" },
+      { highlight: "Deja de ser ignorado por los sellos", text: "plantillas de email probadas que realmente reciben respuesta de sellos, managers y promotores" },
+      { highlight: "Suena enorme desde el día uno", text: "FUSION (pack Valhalla VintageVerb) gratis, para que tus reverbs suenen como las de un estudio profesional" },
     ],
   },
 
@@ -86,41 +119,41 @@ export const pageData = {
   },
 
   marquee: {
-    text: "Empieza Hoy",
-    subtitle: "Inscripción Pública - ¡Abierta! 🧨",
+    text: "Start Today",
+    subtitle: "Public Registration - Open Now! 🧨",
   },
 
-  alumniTitle: 'Opiniones de <em><span class="squiggle-basic">Alumni</span></em>',
+  alumniTitle: 'Alumni <em><span class="squiggle-basic">Feedback</span></em>',
 
   testimonials: [
     {
-      quote: "Las clases con SLATIN han elevado el nivel de mis producciones, tanto en sonido como en creatividad. Aparte de conocimientos técnicos, tiene una gran capacidad para enseñar, haciendo que todo parezca fácil y que incluso los procesos más complicados sean accesibles para todos. Sin duda, he crecido como artista con él y mi motivación y confianza al producir música han aumentado.",
+      quote: "The classes with SLATIN have raised the level of my productions, both in sound and creativity. Apart from technical knowledge, he has a great ability to teach, making everything seem easy and making even the most complicated processes accessible to everyone. Without a doubt, I have grown as an artist with him and my motivation and confidence in producing music have increased.",
       name: "Auriga",
-      role: "DJ & Productor",
+      role: "DJ & Producer",
       avatar: "/images/mentoring/avatar-auriga.jpg",
     },
     {
-      quote: "SLATIN fue el cambio radical en mi vida. Hoy estoy alcanzando las metas que una vez soñé, gracias a los tres años que pasé aprendiendo con él. Es un profesor increíble y cercano, y su profesionalidad destaca. Siempre estaré agradecido a SLATIN porque fue una parte fundamental en convertirme en quien soy hoy.",
+      quote: "SLATIN was the game changer in my life. Today, I am achieving the goals I once dreamed of, thanks to the three years I spent learning from him. He is an incredible and approachable teacher, and his professionalism stands out. I will always be grateful to SLATIN because he played a major part in making me who I am today.",
       name: "Krumel",
-      role: "DJ & Productor",
+      role: "DJ & Producer",
       avatar: "/images/mentoring/avatar-krumel.jpg",
     },
     {
-      quote: "Rus realmente me ha ayudado a llevar mis tracks al siguiente nivel. Ya sea mezcla, mastering, producción o negocio musical. Rus se esfuerza al máximo para responder cualquier pregunta que tengas y asegurarse de que salgas de la sesión realmente satisfecho. ¡Siempre hay algo nuevo que aprender de él!",
+      quote: "Rus has truly helped me take my tracks to the next level. Whether it's mixing, mastering, production, or music business. Rus will go out of his way to answer whatever questions you may have and make sure you leave a session genuinely content. There will always be something new to learn from him!",
       name: "Nicolas K",
-      role: "DJ & Productor",
+      role: "DJ & Producer",
       avatar: "/images/mentoring/avatar-nicolas.jpg",
     },
     {
-      quote: "Slatin transformó mis habilidades y conocimientos de producción. Empezamos a trabajar juntos en 2020 y ha sido mi profesor, mentor e ingeniero desde entonces. No solo me enseñó cómo se hacen las cosas en el proceso de mezcla, sino también el razonamiento detrás. Trabajando con Slatin he recibido apoyo internacional de Tiesto, Gate21, DJs From Mars ¡y muchos más!",
+      quote: "Slatin transformed my production skills and knowledge. We started working together in 2020, and he has been my teacher, mentor, and engineer ever since. He not only taught me how things are done in the mixing process but also the reasoning behind it. While working with Slatin, I have received international support from Tiesto, Gate21, DJs From Mars and many many others!",
       name: "RICO",
-      role: "DJ & Productor",
+      role: "DJ & Producer",
       avatar: "/images/mentoring/avatar-rico.jpg",
     },
     {
-      quote: "Las excepcionales cualidades humanas y la naturaleza empática de Ruslan hacen que sea muy fácil alcanzar cualquier meta que uno se proponga. Gracias a su guía y consejos, ahora trabajo como ingeniero y productor profesional a tiempo completo.",
+      quote: "Ruslan's exceptional human qualities and empathetic nature make it effortless to achieve any goal that one chooses. Thanks to his guidance and advice, I am now working as a professional paid engineer and producer full time.",
       name: "Marco S.",
-      role: "Productor & Ingeniero",
+      role: "Producer & Engineer",
       avatar: "/images/mentoring/avatar-marco-s.jpg",
     },
   ] as Testimonial[],
@@ -130,78 +163,78 @@ export const pageData = {
       iconSrc: "/images/mentoring/mentor-photo.jpg",
       iconClass: "w-full h-48 md:h-56",
       iconStyle: "border-radius: 12px",
-      title: '<span class="gradient-text-red">Mentor Top y Líder de la Industria</span>',
-      description: "Aprende de primera mano de un Mentor Top con un Estudio Musical de Seis Cifras.",
+      title: '<span class="gradient-text-red">Top-Rated Mentor & Industry Leader</span>',
+      description: "Learn firsthand from a Top-Rated Mentor with a Six-Figure Music Studio.",
     },
     {
       iconSrc: "/images/mentoring/group-calls.gif",
       iconClass: "w-full h-48 md:h-56",
       iconStyle: "border-radius: 12px",
-      title: '<span class="gradient-text-red">Llamadas Grupales Semanales</span>',
-      description: "Una llamada grupal semanal para orientarte y resolver cualquier reto.",
+      title: '<span class="gradient-text-red">Weekly Group Calls</span>',
+      description: "A weekly group call to provide guidance and address any challenges.",
     },
     {
       iconSrc: "/images/mentoring/feedback.gif",
       iconClass: "w-full h-48 md:h-56",
       iconStyle: "border-radius: 12px",
-      title: '<span class="gradient-text-red">Feedback Personalizado</span>',
-      description: "Evaluaciones semanales de tus trabajos con feedback constructivo y tareas. (Hasta 2 revisiones en vídeo por semana)",
+      title: '<span class="gradient-text-red">Tailored Feedback</span>',
+      description: "Weekly evaluations of your works with constructive feedback and tasks. (Up to 2 video reviews per week)",
     },
     {
       iconSrc: "/images/mentoring/chat.gif",
       iconClass: "w-full h-48 md:h-56",
       iconStyle: "border-radius: 12px",
-      title: '<span class="gradient-text-red">Chat Ilimitado y Q&A</span>',
-      description: "Acceso directo a chat privado con respuesta en 24 horas + Comunidad Privada.",
+      title: '<span class="gradient-text-red">Unlimited Chat & QA</span>',
+      description: "Direct access to private chat with response within 24 hours + Private Community.",
     },
   ] as FeatureCard[],
 
   outcomeCards: [
-    { title: "Acelera Tu Crecimiento", icon: "wrench", bgColor: "#444444", textColor: "#ffffff" },
-    { title: "Desarrolla Tu Propio Sonido", icon: "volume", bgColor: "#DD3333", textColor: "#ffffff" },
-    { title: "Que Te Noten los Sellos", icon: "crosshairs", bgColor: "#ffffff", textColor: "#020202" },
-    { title: "Cobra Lo Que Vales", icon: "money", bgColor: "#DD5D32", textColor: "#ffffff" },
+    { title: "Accelerate Your Growth", icon: "wrench", bgColor: "#444444", textColor: "#ffffff" },
+    { title: "Develop Your Own Sound", icon: "volume", bgColor: "#DD3333", textColor: "#ffffff" },
+    { title: "Get Noticed by Record Labels", icon: "crosshairs", bgColor: "#ffffff", textColor: "#020202" },
+    { title: "Get Paid What You're Worth", icon: "money", bgColor: "#DD5D32", textColor: "#ffffff" },
   ] as OutcomeCard[],
 
   pricingPlans: [
     {
-      title: "Mentoría Grupal",
-      subtitle: "Pagos Mensuales",
+      title: "Group Mentoring",
+      subtitle: "Monthly Payments",
       features: [
-        "Coaching y Mentoría Top",
-        "Una Llamada Grupal Semanal (70 min)",
-        "Chat Ilimitado y Preguntas",
-        "Evaluaciones Personales y Feedback Semanal",
-        "Tareas y Ejercicios",
-        "Seguimiento de Responsabilidad",
-        "Samples, Presets y Libros Seleccionados",
-        "Precio fijo, sin costes ocultos",
-        "Compromiso de Tres Meses",
+        "Top Rated Coaching and Mentorship",
+        "One Weekly Group Call (70 min)",
+        "Unlimited Chat & Questions",
+        "Personal Evaluations and Weekly Feedback",
+        "Tasks & Exercises",
+        "Accountability Check-ins",
+        "Curated Samples, Presets and Books",
+        "Flat fee, no hidden costs",
+        "Three Month Commitment",
       ],
-      ctaText: "ÚNETE HOY",
+      ctaText: "JOIN TODAY",
       ctaHref: "https://subscribepage.io/accelerator",
       variant: "dark" as const,
     },
     {
-      title: "Mentoría 1 a 1",
-      subtitle: "Pagos Mensuales",
+      title: "1-On-1 Mentoring",
+      subtitle: "Monthly Payments",
       features: [
-        "Coaching y Mentoría Top",
-        "Una Llamada Grupal Semanal (70 min)",
-        "Chat Ilimitado y Q&A",
-        "Evaluaciones Personales y Feedback Semanal",
-        "Tareas y Ejercicios",
-        "Seguimiento de Responsabilidad",
-        "Samples, Presets y Libros Seleccionados",
-        "Precio fijo, sin costes ocultos",
-        "Compromiso de Tres Meses",
+        "Top Rated Coaching and Mentorship",
+        "One Weekly Group Call (70 min)",
+        "Unlimited Chat & QA",
+        "Personal Evaluations and Weekly Feedback",
+        "Tasks & Exercises",
+        "Accountability Check-ins",
+        "Curated Samples, Presets and Books",
+        "Flat fee, no hidden costs",
+        "Three Month Commitment",
       ],
       highlightFeatures: [
-        "Plan / Hoja de Ruta Personalizada",
-        "+ Llamada Semanal 1 a 1",
-        "Acceso Exclusivo (Privado) a SLATIN",
+        "Custom Roadmap / Plan",
+        "+ 1-on-1 Weekly Call",
+        "Exclusive (Private) Access to SLATIN",
       ],
-      ctaText: "ÚNETE HOY",
+      ctaText: "JOIN TODAY",
       ctaHref: "https://subscribepage.io/accelerator",
       variant: "light" as const,
     },
@@ -211,117 +244,117 @@ export const pageData = {
     {
       name: "Pere Bacardit",
       avatar: "/images/mentoring/alumni-pere.jpg",
-      review: `<p>Tener la oportunidad de asistir a las mentorías de Slatin fue un gran paso adelante para mejorar mis habilidades en producción, mezcla y mastering. Gracias a estas sesiones, he adquirido más herramientas para conseguir el sonido que quiero y comunicarme de forma más efectiva con las personas con las que colaboro y trabajo.</p>
-<p>Además, estas mentorías me enseñaron mejor organización, conocimientos sobre la industria musical y cómo orientar mi carrera dentro de ella. A diferencia de otros formatos de aprendizaje, estas mentorías, al ser clases grupales en vivo, generaban constantemente aprendizaje a partir de las experiencias y consultas de todos, mejorando sustancialmente los resultados. Cada nuevo concepto tenía aplicabilidad inmediata.</p>
-<p>Slatin nos abrió acceso a excelentes recursos y materiales. Cada pregunta no solo era respondida sino desglosada en información comprensible o abordada con vídeos específicos. Si buscas subir de nivel de verdad, esta experiencia es 100% recomendable.</p>`,
+      review: `<p>Having the opportunity to attend Slatin's mentorships was a big step forward in enhancing my skills in production, mixing, and mastering. Thanks to these sessions, I've gained more tools to achieve the sound I want and communicate more effectively with the people with whom I collaborate and work.</p>
+<p>Additionally, these mentorships taught me better organization skills, insights about the music industry, and how to shape my career within it. Unlike other learning formats, these mentorships, being live group classes, constantly triggered learning from everyone's experiences and queries, substantially enhancing learning outcomes. Every new concept had immediate applicability.</p>
+<p>Slatin opened up access to excellent resources and materials. Every question was not just answered but broken down to digestible information or addressed with specific videos. If you're looking to seriously level up, this experience is 100% recommended.</p>`,
     },
     {
       name: "Pablo Iglesias",
       avatar: "/images/mentoring/alumni-pablo.jpg",
-      review: `<p>Merece totalmente la pena, sin ninguna duda. El compromiso de Ruslan con nuestro grupo ha sido de primer nivel, adaptándose a las particularidades y necesidades individuales como si cada sesión fuera una clase particular. El crecimiento del grupo ha sido impresionante. El feedback diario y los chats grupales revelaron mucho, además de que todo el contenido quedaba documentado para referencia futura.</p>
-<p>Personalmente, esta mentoría ha sido un punto de inflexión en mi crecimiento profesional. Estaba en un punto donde me sentía estancado, como si mi carrera no avanzara como yo quería. Pero estas clases me han ayudado no solo técnicamente, sino también en la relación y el trato con mis clientes.</p>
-<p>La mentoría sirvió como un chequeo de realidad, ayudándonos a ver dónde estamos como profesionales, establecer metas claras y trazar un plan para alcanzarlas. Recomendaría este curso a cualquiera que esté considerando seriamente esta línea de trabajo y esté dispuesto a invertir tiempo para sacar el máximo de los recursos proporcionados.</p>`,
+      review: `<p>It's totally worth it, no doubts there. Ruslan's commitment to our group has been top-notch - adapting to our individual quirks and needs as if each session was a one-on-one. The growth of the group has been nothing short of remarkable. Daily feedback and group chats revealed so much plus all the content has been well documented for future reference.</p>
+<p>Personally, this mentorship has been a game-changer for my professional growth. I was at a point where I felt stuck, like my career wasn't moving as I wanted it to. But these classes have helped me not only technically but also in terms of the relationship and dealing with my clients.</p>
+<p>The mentorship served as a reality-check, helping us see where we stand as professionals, set clear goals, and map out a plan to achieve them. I'd recommend this course to anyone who is seriously considering this line of work and is willing to put in the time to get the max out of the resources provided.</p>`,
     },
     {
       name: "Sergio Hernae",
       avatar: "/images/mentoring/alumni-sergio-h.jpg",
-      review: `<p>La mentoría con Ruslan ha sido increíble, un camino positivo, constructivo y profesional de principio a fin. He mejorado mis mezclas de sonido enormemente. Antes evitaba mezclar para otros artistas, pero ahora estoy preparado cualquier día.</p>
-<p>El feedback de Ruslan sobre mi trabajo siempre ha sido acertado, práctico y muy útil. Y no es el típico feedback genérico de 'suena bien'. Son indicaciones detalladas como 'prueba a hacer compresión paralela con un 1176 para los transientes', que marcan una gran diferencia.</p>
-<p>Las clases de Ruslan son muy prácticas e incluso profundizamos en la industria musical, más allá de la mezcla y el mastering. He hecho otros cursos supuestamente de expertos que, sinceramente, no tenían nada que ver con esto. Con Ruslan se trata de un compromiso real con tu trabajo y tu crecimiento profesional.</p>`,
+      review: `<p>The mentorship with Ruslan has been nothing short of fantastic - it's been a positive, constructive, and professional journey all the way. I've improved my sound mixing big time. I used to shy away from mixing for other artists but now, I'm up for it any day.</p>
+<p>Ruslan's feedback on my work has always been spot-on, practical, and super helpful. And it's not the generic 'sounds good' kind of feedback. It's detailed pointers like 'try doing parallel compression with a 1176 for the transients' - makes a world of difference.</p>
+<p>Ruslan's classes are highly practical and we even dive into the music industry, beyond just mixing and mastering. Now, I've taken other supposedly expert-led courses in the past which, honestly, were nothing like this. With Ruslan, it's about real engagement with your work and growth in your career.</p>`,
     },
     {
       name: "Ignacio Fernandez",
       avatar: "/images/mentoring/alumni-ignacio.jpg",
-      review: `<p>La mentoría de Slatin ha sido sin duda el curso más revelador que he tomado sobre Mezcla y Mastering, superando incluso cursos de un año completo a los que he asistido. Pero lo único es que, además de conocimientos técnicos, también profundizó en los matices de la industria musical y en cómo orientar mi carrera como mezclador.</p>
-<p>Al estar completamente dedicado a la mezcla y el mastering, ver a Slatin trabajar en proyectos para artistas de primer nivel ha cambiado completamente mi enfoque y mentalidad. Aprendí a valorar y optimizar mi tiempo, lo que llevó a un aumento significativo de mis ingresos.</p>
-<p>Sin embargo, lo que realmente marca la diferencia es el feedback continuo que ofrece Slatin. Tener el espacio para preguntar cualquier cosa y recibir feedback ilimitado sobre mis mezclas no tiene precio. En esencia, la cantidad y profundidad del aprendizaje están completamente en mis manos. En resumen, describiría la mentoría como un verdadero punto de inflexión.</p>`,
+      review: `<p>Slatin's mentorship has unequivocally been the most enlightening course I've taken on Mixing and Mastering, even outshining year-long courses I've attended. But what's unique is, in addition to technical insights, it also delved into the music industry's nuances and how to shape my career as a mixer.</p>
+<p>Being completely devoted to mixing and mastering, watching Slatin work on projects for top-tier artists has completely changed my overall approach and mindset. I've learned to value and optimize my time, leading to a significant uptick in my earnings.</p>
+<p>However, the real game-changer is the continuous feedback Slatin offers. Having the space to ask anything and get limitless feedback on my mixes is invaluable. In essence, the amount and depth of learning are completely in my hands. In summary, I'd describe the mentorship as a real game-changer.</p>`,
     },
     {
       name: "Sergio Perez",
       avatar: "/images/mentoring/alumni-sergio-p.jpg",
-      review: `<p>¡200% recomendado! Además de ser un profesional absoluto como productor e ingeniero de mezcla/mastering, Slatin se preocupa mucho por la evolución de todos los alumnos y cubre todas las dudas que surgen día a día, haciendo un seguimiento muy personalizado de cada caso.</p>
-<p>También merece la pena mencionar la suerte de poder conocer a tan buenos compañeros de clase, colegas muy interesantes con quienes compartir experiencias en cada clase e incluso la posibilidad de trabajar con algunos en el futuro.</p>
-<p>Personalmente, y después de muchos años dedicados a la producción, puedo decir que siempre hay mucho que aprender y esta experiencia me lo ha demostrado. ¡Muchas gracias!</p>`,
+      review: `<p>200% recommended! In addition to being an absolute professional as a producer and mixing/mastering engineer, Slatin cares a lot about the evolution of all students and covers all the doubts that are raised day by day, making a very personalized follow-up of each case.</p>
+<p>It is also worth mentioning the luck of being able to meet such good tutorial colleagues, very interesting colleagues with whom to share experiences in each class and even the possibility of working with some in the future.</p>
+<p>Personally and after many years dedicated to production, I can say that there is always a lot to learn and this experience has shown me that. Thank you very much!</p>`,
     },
     {
       name: "Marco Bernal",
       avatar: "/images/mentoring/alumni-marco-b.jpg",
-      review: `<p>Formar parte de este grupo de mentoría ha sido muy enriquecedor. Ruslan respondió muchas de mis preguntas, especialmente sobre esos pequeños detalles con matices que hacen que las mezclas de mis canciones suenen mejor. También me ha ayudado a establecer un workflow específico para mezclar sin perder el enfoque.</p>
-<p>En cuanto a lo que diferencia estas mentorías, valoro la cercanía al explicar conceptos complejos de forma sencilla y comprensible. Transforma algo complejo en algo simple y aplicable.</p>
-<p>En general, esta mentoría es muy recomendable, especialmente si ya tienes conocimientos básicos de producción musical y quieres llevarlo al siguiente nivel para conseguir un sonido profesional.</p>`,
+      review: `<p>Being a part of this mentorship group has been quite insightful. Ruslan answered many of my questions, especially those about small, nuanced details that make my song mixes sound better. It's also helped me establish a specific workflow for mixing without losing focus.</p>
+<p>In terms of what sets these mentorships apart, I appreciate the approachability in explaining complex concepts in a simple, digestible way. It translates something complex into something simple and applicable.</p>
+<p>Overall, this mentorship is highly recommended, especially if you already have basic music production knowledge and you want to take it to the next level to achieve a professional sound.</p>`,
     },
   ] as AlumniTestimonial[],
 
   faqItems: [
     {
-      question: "¿Para quién es esta Mentoría, específicamente?",
-      answer: `<strong>Este Programa está Diseñado para Productores e Ingenieros de Mezcla que:</strong><ul class="list-disc pl-5 mt-2 space-y-1"><li>Quieren acelerar su crecimiento y desbloquear su máximo potencial en tiempo récord.</li><li>Quieren cortar con el ruido del contenido engañoso infinito y aprender los "POR QUÉs" detrás de cada técnica.</li><li>Quieren mejorar sus habilidades técnicas y conocimientos de producción musical, mezcla y mastering.</li><li>Necesitan feedback personalizado sobre su trabajo y acceso directo a un mentor con experiencia.</li><li>Quieren aprender a promocionar su música de forma efectiva, construir su marca y hacer crecer su audiencia.</li><li>Están dispuestos a invertir en su educación y desarrollo.</li><li>Están motivados para mejorar y comprometidos con alcanzar sus metas.</li></ul>`,
-      category: "Acerca de",
+      question: "Who, specifically, is this Mentoring for?",
+      answer: `<strong>This Program is Tailored for Producers and Mixing Engineers that:</strong><ul class="list-disc pl-5 mt-2 space-y-1"><li>Want to accelerate their growth, and unlock their full potential in record time.</li><li>Want to cut through the noise of infinite misleading content & learn the "WHYs" behind each technique.</li><li>Want to improve their technical skills and knowledge of music production, mixing, and mastering.</li><li>Need tailored feedback on their work and direct access to an experienced mentor for guidance.</li><li>Want to learn how to promote their music effectively, build their brand, and grow their fanbase.</li><li>Are willing to invest in their education and development.</li><li>Are motivated to improve themselves and committed to achieving their goals.</li></ul>`,
+      category: "About",
     },
     {
-      question: "¿Quién NO debería inscribirse en esta Mentoría?",
-      answer: `<strong>Este Programa NO es para:</strong><ul class="list-disc pl-5 mt-2 space-y-1"><li>Principiantes absolutos sin conocimientos previos de producción musical o ingeniería de sonido.</li><li>Personas que no estén dispuestas a invertir tiempo y esfuerzo en su propio crecimiento y desarrollo.</li><li>Personas que buscan una solución rápida o un atajo al éxito sin poner el esfuerzo necesario.</li><li>Aquellos que no estén abiertos a aprender nuevas técnicas o enfoques.</li><li>Personas que no estén dispuestas a invertir en su propia educación y crecimiento.</li></ul>`,
-      category: "Acerca de",
+      question: "Who should NOT enroll in this Mentoring?",
+      answer: `<strong>This Program is NOT for:</strong><ul class="list-disc pl-5 mt-2 space-y-1"><li>Complete beginners who have no prior knowledge of music production or engineering.</li><li>Individuals who are not willing to invest time and effort in their own growth and development.</li><li>People who are looking for a quick fix or shortcut to success without putting in the necessary work.</li><li>Those who are not open to learning new techniques or approaches.</li><li>Individuals who are not willing to invest in their own education and growth.</li></ul>`,
+      category: "About",
     },
     {
-      question: "¿Tienes experiencia enseñando y como mentor?",
-      answer: "¡Por supuesto! Con más de 8 años de experiencia enseñando en diversas escuelas de música internacionales, incluyendo Anonymous Studios (Los Ángeles), SAE Institute (Madrid), Millenia (Valencia) y DJP Music School (Madrid). También he trabajado con numerosos estudiantes de forma individual, muchos de los cuales han logrado un gran éxito en la industria musical.",
-      category: "Acerca de",
+      question: "Do you have experience in teaching and mentoring?",
+      answer: "Absolutely! With over 8 years of experience teaching at various international music institutes, including Anonymous Studios (Los Angeles), SAE Institute (Madrid), Millenia (Valencia), and DJP Music School (Madrid). I have also worked with numerous students one-on-one, many of whom have gone on to achieve great success in the music industry.",
+      category: "About",
     },
     {
-      question: "¿En qué se diferencia de una Escuela o Instituto de Producción Musical?",
-      answer: `El Programa de Mentoría ofrece <strong>orientación personalizada</strong> y apoyo <strong>adaptado a las necesidades y metas de cada individuo</strong>. A diferencia de las escuelas tradicionales que siguen un plan de estudios predeterminado, el Programa de Mentoría se personaliza para un <strong>GRUPO REDUCIDO</strong>. Además, aprenderás de primera mano y tendrás acceso diario a un <strong>profesional</strong> con más de 15 años de experiencia en la industria.`,
-      category: "Acerca de",
+      question: "How is this different from a Music Production School or Institute?",
+      answer: `The Mentoring Program provides <strong>personalized guidance</strong> and support <strong>tailored to each individual's needs</strong> and goals. Unlike traditional schools that follow a predetermined curriculum, the Mentoring Program will be customized to a <strong>SMALL GROUP</strong>. Additionally, you will learn firsthand and have daily access to a <strong>professional</strong> with over 15 years of experience in the industry.`,
+      category: "About",
     },
     {
-      question: "¿En qué se diferencia de comprar Cursos o Tutoriales online?",
-      answer: `A diferencia del contenido pregrabado, nuestro programa se adapta a las necesidades y aspiraciones de cada individuo del grupo, y trabajaremos juntos para crear un <strong>plan personalizado</strong> que aborde tus fortalezas, debilidades y retos únicos. Además, el programa ofrece una comunidad de apoyo, feedback semanal y <strong>seguimiento regular de responsabilidad</strong>.`,
-      category: "Acerca de",
+      question: "How is this different from buying Courses or Tutorials online?",
+      answer: `Unlike pre-recorded content, our program is tailored to the needs and aspirations of each individual in the group, and we'll work together to create a <strong>customized plan</strong> that addresses your strengths, weaknesses, and unique challenges. Additionally, the program offers a supportive community, weekly feedback, and <strong>regular accountability check-ins</strong>.`,
+      category: "About",
     },
     {
-      question: "¿Podrías darme un esquema del Programa de Mentoría?",
-      answer: "Como las necesidades de cada uno son únicas, crearemos un plan personalizado. Los temas destacados incluyen: Entender y Aplicar EQ, Dominar la Compresión, Compresión Avanzada / Curvas Complejas, Procesamiento Mid/Side, Negocio 101, Crecimiento en Redes Sociales, Cómo Conseguir Clientes, Diseño de Sonido, Compresión Sidechain, Micro-Dinámica, Mezcla de Vocales, La Magia de las Cintas, Todos los Secretos del Mastering, Compresión Avanzada / Control Tonal, Automatización de tu Estudio, Uso de IA para Producción y Mezcla en Dolby Atmos.",
-      category: "Programa",
+      question: "Could you provide me with an outline of the Mentoring Program?",
+      answer: "As everyone's needs are unique, we will create a customized plan. Highlights include: Understanding and Applying EQ, Mastering Compression, Advanced Compression / Complex Curves, Mid/Side Processing, Business 101, Social Media Growth, How To Get Clients, Sound Design, Sidechain Compression, Micro-Dynamics, Vocal Mixing, The Magic of Tapes, All Mastering Secrets, Advanced Compression / Tonal Control, Automating your Studio, Using AI for Production, and Dolby Atmos Mixing.",
+      category: "Program",
     },
     {
-      question: "¿En qué idioma se imparte el programa de mentoría?",
-      answer: "La mentoría grupal se imparte en inglés, pero las llamadas individuales pueden ser en español y ruso.",
-      category: "Programa",
+      question: "What language will the mentoring program be conducted in?",
+      answer: "Group mentoring is conducted in English, but one-on-one calls can be held in Spanish and Russian.",
+      category: "Program",
     },
     {
-      question: "¿Cuánto dura la Llamada Semanal 1 a 1?",
-      answer: "La llamada semanal individual dura 60 minutos, durante los cuales haremos seguimiento de responsabilidad, te ayudaremos a ejecutar tu hoja de ruta/plan personalizado, revisaremos tus proyectos, terminaremos canciones, resolveremos cualquier duda que tengas y daremos orientación de negocio personalizada.",
-      category: "Programa",
+      question: "How long is the 1-on-1 Weekly Call?",
+      answer: "The weekly one-on-one call will last for 60 minutes, during which we will provide accountability check-ins, help you execute your custom roadmap/plan, review your projects, finish songs, address any doubts you may have and provide personalized business guidance.",
+      category: "Program",
     },
     {
-      question: "¿Qué tamaño tiene el grupo?",
-      answer: "El número mínimo de participantes para la Mentoría Grupal es de cuatro y el máximo es de quince. Esto asegura que el grupo sea lo suficientemente grande para fomentar un entorno colaborativo y de apoyo, a la vez que permite atención individual y feedback.",
-      category: "Programa",
+      question: "How big is the group?",
+      answer: "The minimum number of participants for the Group Mentoring program is four, and the maximum is fifteen. This ensures the group is large enough to foster a collaborative and supportive environment while allowing individual attention and feedback.",
+      category: "Program",
     },
     {
-      question: "¿A qué hora son las clases?",
-      answer: `Las clases se programan generalmente los lunes a las 20:00 CEST (Hora Central Europea). Los días y horarios pueden ajustarse según la preferencia del grupo. Si no puedes asistir en persona, <strong>todas las sesiones se graban y se comparten</strong> con el grupo el mismo día.`,
-      category: "Programa",
+      question: "At what time do the classes take place?",
+      answer: `The classes are generally scheduled for Mondays at 20:00 CEST (Central European Time). The days and times can be adjusted based on the group's preference. If you cannot assist in person, <strong>all sessions are recorded and shared</strong> with the group on the same day.`,
+      category: "Program",
     },
     {
-      question: "¿Qué Equipamiento (Hardware) necesito?",
-      answer: "Para participar en el Programa de Mentoría, necesitarás un ordenador o portátil con conexión a internet fiable, y unos auriculares o monitores de estudio de tu elección.",
-      category: "Configuración y Pago",
+      question: "What Equipment (Hardware) do I need?",
+      answer: "To participate in the Mentoring Program, you will need a computer or laptop with a reliable internet connection, and a pair of headphones or studio monitors of your choice.",
+      category: "Setup & Payment",
     },
     {
-      question: "¿Qué DAW y Software necesito?",
-      answer: "Usaremos Ableton Live 12 y Reaper para las lecciones y sesiones de feedback. Pero todas las técnicas y conceptos son 100% compatibles con cualquier otro DAW. Si no tienes un plugin específico, siempre te mostraré una alternativa gratuita o nativa.",
-      category: "Configuración y Pago",
+      question: "What DAW & Software do I need?",
+      answer: "We will be using Ableton Live 12 and Reaper for the lessons and feedback sessions. But all the techniques and concepts are 100% compatible with any other DAW. If you don't own a specific plugin, I will always show you a Free or Native alternative.",
+      category: "Setup & Payment",
     },
     {
-      question: "¿Cómo funciona el sistema de pago?",
-      answer: `Este programa de mentoría es de <strong>suscripción</strong>, con un compromiso de <strong>Tres Meses</strong>.`,
-      category: "Configuración y Pago",
+      question: "How does the payment system work?",
+      answer: `This mentoring program is <strong>Subscription based</strong>, and it has a commitment of <strong>Three Months</strong>.`,
+      category: "Setup & Payment",
     },
     {
-      question: "¿Y si tengo más preguntas?",
-      answer: `Para cualquier pregunta, puedes enviar un email a nuestro Studio Manager a: <a href="mailto:admin@slatin.pro" class="text-accent-red hover:underline">admin@slatin.pro</a>.`,
-      category: "Configuración y Pago",
+      question: "What If I have more questions?",
+      answer: `For any questions, you can email our Studio Manager at: <a href="mailto:admin@slatin.pro" class="text-accent-red hover:underline">admin@slatin.pro</a>.`,
+      category: "Setup & Payment",
     },
   ] as FaqItem[],
 };

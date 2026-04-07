@@ -29,18 +29,51 @@ export const pageData = {
 
   backgroundQuote: 'Unlock your <strong>full potential</strong> and accelerate your growth by joining my <strong>Mentoring Program.</strong>',
 
-  whatsIncluded: '<em><strong><span class="squiggle-basic">What\'s Included?</span></strong></em>',
-
-  extras: {
-    title: "+++",
-    lines: [
-      "Exclusive access to insider information.",
-      "Special Music Industry Guests.",
-      "Networking and building community with like-minded individuals.",
-      "An extensive selection of the best Samples, Presets, and Books.",
-      "Email Templates for reaching out to Labels, Managers, and Promoters.",
-      '<a href="https://www.slatin.pro/fusion" class="text-accent-red hover:underline">FUSION</a> &ndash; Valhalla Reverb Pack &ndash; for free.',
-      "And much more&hellip;",
+  whatsIncluded: {
+    sectionTitle: 'How You\'ll <em><span class="squiggle-basic">Change</span></em>',
+    sectionSubtitle: "Real shifts in how you work, sound, and grow — not just a list of tools.",
+    cards: [
+      {
+        icon: "fix",
+        image: "/images/mentoring/feedback.gif",
+        beforeAfter: { before: "guessing alone", after: "knowing exactly what to fix" },
+        title: "You'll Stop Second-Guessing Your Mixes",
+        description: "Every week, you'll get detailed video reviews of your tracks — not generic advice, but specific, actionable feedback so you finally understand the why behind every decision.",
+        valueTag: "Save 100+ hours of trial & error",
+      },
+      {
+        icon: "guide",
+        image: "/images/mentoring/group-calls.gif",
+        beforeAfter: { before: "stuck and isolated", after: "guided every week" },
+        title: "You'll Never Feel Lost Again",
+        description: "Live 70-minute group calls, real-time guidance from a multi-platinum engineer, and a private community of serious producers — so you always have someone to ask when you hit a wall.",
+        valueTag: "24h response, always-on support",
+      },
+      {
+        icon: "star",
+        image: "/images/mentoring/mentor-photo.jpg",
+        beforeAfter: { before: "amateur sound", after: "professional, label-ready mixes" },
+        title: "Your Sound Will Translate Everywhere",
+        description: "You'll learn the exact techniques used on records for Sony, Warner, Def Jam, and Netflix — and apply them to your own work with weekly direct guidance from someone who's done it.",
+        valueTag: "Real techniques from real releases",
+      },
+      {
+        icon: "money",
+        image: "/images/mentoring/chat.gif",
+        beforeAfter: { before: "working for free", after: "pricing with confidence" },
+        title: "You'll Build a Career That Actually Pays",
+        description: "Beyond the technical side: pricing your work, finding clients, negotiating with labels, and building a sustainable music business — backed by 15+ years in the industry.",
+        valueTag: "Real business, not just hobby money",
+      },
+    ],
+    extrasTitle: "Everything Else You Unlock",
+    extras: [
+      { highlight: "Cut through the industry noise", text: "insider knowledge of what actually moves the needle, so you stop wasting years figuring it out alone" },
+      { highlight: "Get in the room with decision makers", text: "A&Rs, label execs, and top engineers who can change the trajectory of your career" },
+      { highlight: "Build relationships that open doors", text: "a private community of serious producers who push, support, and collaborate with you for years" },
+      { highlight: "Skip the endless searching", text: "the exact samples, presets, and books I personally use, so you build with proven tools from day one" },
+      { highlight: "Stop being ignored by labels", text: "battle-tested email templates that actually get replies from labels, managers, and promoters" },
+      { highlight: "Sound bigger from day one", text: "FUSION (Valhalla VintageVerb pack) free, so your reverbs hit like a pro studio's" },
     ],
   },
 
