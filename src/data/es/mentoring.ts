@@ -9,7 +9,7 @@ export const pageData = {
   hero: {
     tagline: "Programa de Mentoría",
     title: 'Construye una Carrera Musical Rentable en <span class="gradient-text-red">Tus Propios Términos</span>',
-    subtitle: "Todo lo que necesitas para mezclar como un profesional y construir una carrera que pague.",
+    subtitle: "Todo lo que necesitas saber para Mezclar y Masterizar como un profesional y construir una carrera que pague.",
     ctaText: "EMPIEZA HOY",
     ctaHref: "#getaccess",
     subCtaText: "",
@@ -21,8 +21,8 @@ export const pageData = {
     nameAccent: "SLATIN",
     bio: "He mezclado y masterizado más de 1.000 canciones para Sony, Warner, Def Jam, Netflix y más — obteniendo certificaciones multi-platino y un puesto en el top 1% de ingenieros de mezcla. Ahora, todo lo que he aprendido es tuyo.",
     stats: [
-      { value: "Top 1%", label: "Ingenieros de Mezcla", highlight: true },
-      { value: "1.000+", label: "Canciones Producidas" },
+      { value: "Top 0.1%", label: "Ingenieros de Mastering", highlight: true },
+      { value: "1.000+", label: "Canciones al Año" },
       { value: "Multi-Platino", label: "Certificado" },
     ],
   },
@@ -123,7 +123,46 @@ export const pageData = {
     subtitle: "Public Registration - Open Now! 🧨",
   },
 
-  alumniTitle: 'Alumni <em><span class="squiggle-basic">Feedback</span></em>',
+  alumniTitle: 'Resultados <em><span class="squiggle-basic">Reales</span></em>',
+
+  featuredTestimonials: [
+    {
+      quote: "La mentoría de Slatin ha sido inequívocamente el curso más esclarecedor que he tomado sobre Mezcla y Mastering — incluso superando cursos de un año entero que he hecho. El feedback continuo no tiene precio. Un verdadero cambio de juego.",
+      name: "Ignacio Fernandez",
+      role: "Ingeniero de Mezcla",
+      avatar: "/images/mentoring/alumni-ignacio.jpg",
+    },
+    {
+      quote: "Vale totalmente la pena, sin dudas. El compromiso de Ruslan con nuestro grupo ha sido excepcional — adaptándose a nuestras particularidades como si cada sesión fuera 1-a-1. Un cambio radical para mi crecimiento profesional.",
+      name: "Pablo Iglesias",
+      role: "Productor",
+      avatar: "/images/mentoring/alumni-pablo.jpg",
+    },
+    {
+      quote: "La mentoría con Ruslan ha sido fantástica — positiva, constructiva, profesional. He mejorado muchísimo mi mezcla de sonido. Ahora estoy listo para cualquier proyecto.",
+      name: "Sergio Hernae",
+      role: "Productor",
+      avatar: "/images/mentoring/alumni-sergio-h.jpg",
+    },
+    {
+      quote: "Tener la oportunidad de asistir a las mentorías de Slatin fue un gran paso adelante para mejorar mis habilidades en producción, mezcla y mastering. Si quieres subir de nivel en serio, 100% recomendado.",
+      name: "Pere Bacardit",
+      role: "Productor",
+      avatar: "/images/mentoring/alumni-pere.jpg",
+    },
+    {
+      quote: "200% recomendado. Slatin se preocupa mucho por la evolución de todos los alumnos y cubre todas las dudas que surgen día a día, haciendo un seguimiento muy personalizado de cada caso.",
+      name: "Sergio Perez",
+      role: "Productor",
+      avatar: "/images/mentoring/alumni-sergio-p.jpg",
+    },
+    {
+      quote: "Ser parte de este grupo de mentoría ha sido muy revelador. Ruslan respondió muchas de mis preguntas, especialmente las relativas a detalles pequeños y matizados que hacen que mis mezclas suenen mejor. Altamente recomendado.",
+      name: "Marco Bernal",
+      role: "Productor",
+      avatar: "/images/mentoring/alumni-marco-b.jpg",
+    },
+  ],
 
   testimonials: [
     {
