@@ -4,17 +4,17 @@ import AnimatedGradient from '../AnimatedGradient.astro';
 import HeroCentered from '../HeroCentered.astro';
 import SplitSection from '../SplitSection.astro';
 import MentorIntro from '../MentorIntro.astro';
+import IntroStatement from '../IntroStatement.astro';
 import FullWidthImage from '../FullWidthImage.astro';
 import BackgroundQuote from '../BackgroundQuote.astro';
-import TestimonialCarousel from '../TestimonialCarousel.astro';
+import TestimonialSlider from '../TestimonialSlider.astro';
 import CenteredHeadline from '../CenteredHeadline.astro';
 import TransformationTimeline from '../TransformationTimeline.astro';
+import WhatsIncluded from '../WhatsIncluded.astro';
 import MarqueeBanner from '../MarqueeBanner.astro';
-import PricingDuo from '../PricingDuo.astro';
-import TabbedTestimonials from '../TabbedTestimonials.astro';
 import FAQ from '../FAQ.astro';
 import type { Locale } from '../../utils/i18n';
-import type { Testimonial, FaqItem, FeatureCard, PricingPlan, AlumniTestimonial } from '../../data/types';
+import type { Testimonial, FaqItem } from '../../data/types';
 
 interface Props {
   lang: Locale;
@@ -22,22 +22,24 @@ interface Props {
   hero: { tagline?: string; title: string; subtitle: string; ctaText: string; ctaHref: string; subCtaText: string };
   intro: { tagline: string; name: string; nameAccent: string; bio: string; stats: { value: string; label: string; highlight?: boolean }[] };
   backgroundQuote: string;
-  whatsIncluded: string;
-  extras: { title: string; lines: string[] };
+  whatsIncluded: {
+    sectionTitle: string;
+    sectionSubtitle: string;
+    cards: { icon: string; image?: string; beforeAfter: { before: string; after: string }; title: string; description: string; valueTag: string }[];
+    extrasTitle: string;
+    extras: { highlight: string; text: string }[];
+  };
   outcomes: { sectionTitle: string; phases: { label: string; title: string; icon: string; color: string; items: string[] }[] };
   marquee: { text: string; subtitle: string };
   alumniTitle: string;
   testimonials: Testimonial[];
-  featureCards: FeatureCard[];
-  pricingPlans: PricingPlan[];
-  alumniTestimonials: AlumniTestimonial[];
+  featuredTestimonials: { quote: string; name: string; role: string; avatar: string }[];
   faqItems: FaqItem[];
 }
 
 const {
-  lang, meta, hero, intro, backgroundQuote, whatsIncluded, extras,
-  outcomes, marquee, alumniTitle, testimonials, featureCards,
-  pricingPlans, alumniTestimonials, faqItems,
+  lang, meta, hero, intro, backgroundQuote, whatsIncluded,
+  outcomes, marquee, alumniTitle, featuredTestimonials, faqItems,
 } = Astro.props;
 ---
 
@@ -68,95 +70,76 @@ const {
     stats={intro.stats}
   />
 
-  <!-- 4. Testimonial carousel -->
-  <TestimonialCarousel testimonials={testimonials} />
+  <!-- 3. Intro Statement (animated) -->
+  <IntroStatement imageSrc="/images/mentoring/studio-bg.jpg" imageAlt="SLATIN Studio" />
 
-  <!-- 5. Background quote -->
-  <BackgroundQuote
-    backgroundImage="/images/mentoring/studio-bg.jpg"
-    quote={backgroundQuote}
-  />
-
-  <!-- 6. "What's Included?" title -->
-  <section class="section-dark px-6 pt-4 pb-4 md:px-[5%] md:pt-20 md:pb-10 lg:px-[10%]">
-    <div class="container-content text-center max-w-5xl mx-auto reveal">
-      <h2 class="text-5xl md:text-heading" set:html={whatsIncluded} />
-    </div>
-  </section>
-
-  <!-- 7. Feature cards -->
-  <section class="section-dark px-[2%] pt-4 pb-4 md:pt-6 md:pb-8">
-    <div class="max-w-5xl mx-auto">
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {featureCards.map((card) => (
-          <div class="included-card rounded-2xl p-[2%] text-center reveal">
-            <img
-              src={card.iconSrc}
-              alt=""
-              class="w-full aspect-video object-cover rounded-xl mb-4"
-              loading="lazy"
-            />
-            <h3 class="included-title" set:html={card.title} />
-            <p class="text-white/50 text-xs md:text-sm mt-1" style="max-width: 550px; margin: 0 auto;">
-              {card.description}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <style>
-    .included-card {
-      transition: background-color 0.35s ease;
-    }
-    .included-card:hover {
-      background-color: #1e0000;
-    }
-    .included-title {
-      font-size: clamp(1.2rem, 1.8vw, 1.5rem);
-      font-weight: 700;
-      margin-bottom: 0.25rem;
-    }
-  </style>
-
-  <!-- 8. "+++ Extras" list -->
-  <section class="section-dark px-6 py-2 md:px-[5%] md:py-3 lg:px-[10%] text-center">
-    <div class="container-content max-w-3xl mx-auto reveal">
-      <h2 class="text-4xl md:text-5xl font-bold gradient-text-red mb-5">{extras.title}</h2>
-      <p class="text-white/60 text-base leading-loose">
-        {extras.lines.map((line, i) => (
-          <Fragment>
-            <Fragment set:html={line} />
-            {i < extras.lines.length - 1 && <br />}
-          </Fragment>
-        ))}
-      </p>
-    </div>
-  </section>
-
-  <!-- 9. Transformation Timeline -->
+  <!-- 4. Transformation Timeline (right after bio) -->
   <TransformationTimeline
     sectionTitle={outcomes.sectionTitle}
     phases={outcomes.phases}
   />
 
-  <!-- 10. "Start Today" marquee -->
-  <MarqueeBanner
-    text={marquee.text}
-    subtitle={marquee.subtitle}
-    id="getaccess"
+  <!-- 4. Background quote -->
+  <BackgroundQuote
+    backgroundImage="/images/mentoring/studio-bg.jpg"
+    quote={backgroundQuote}
   />
 
-  <!-- 11. Pricing cards -->
-  <PricingDuo plans={pricingPlans} />
+  <!-- 5. What's Included (cards → "Start Today" marquee → extras vault) -->
+  <WhatsIncluded
+    sectionTitle={whatsIncluded.sectionTitle}
+    sectionSubtitle={whatsIncluded.sectionSubtitle}
+    cards={whatsIncluded.cards}
+    extrasTitle={whatsIncluded.extrasTitle}
+    extras={whatsIncluded.extras}
+  >
+    <MarqueeBanner
+      slot="between"
+      text={marquee.text}
+      id="getaccess"
+    />
+  </WhatsIncluded>
 
-  <!-- 12. Alumni feedback (tabbed) -->
-  <TabbedTestimonials
-    title={alumniTitle}
-    alumni={alumniTestimonials}
+  <!-- 7a. Start Today CTA button -->
+  <section class="section-dark text-center px-6 pt-10 pb-2 md:pt-14 md:pb-4 reveal">
+    <a href={hero.ctaHref} class="cta-start-today">{hero.ctaText}</a>
+  </section>
+
+  <!-- 7b. "Public Registration Open" line (static, above feedback) -->
+  <section class="section-dark text-center px-6 pt-6 pb-6 md:pt-8 md:pb-8 reveal">
+    <h2 class="text-2xl md:text-4xl lg:text-[46px] font-medium gradient-text-red leading-normal tracking-tight" set:html={marquee.subtitle} />
+  </section>
+
+  <style>
+    .cta-start-today {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 3rem;
+      background: #DD3333;
+      color: white;
+      font-weight: 700;
+      font-size: clamp(0.9rem, 1.2vw, 1rem);
+      letter-spacing: 0.06em;
+      border-radius: 0.5rem;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .cta-start-today:hover {
+      background: #FB4141;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(221, 51, 51, 0.35);
+    }
+  </style>
+
+  <!-- 8. Real Results — slidable testimonials -->
+  <TestimonialSlider
+    sectionTitle={alumniTitle}
+    slides={featuredTestimonials}
+    autoplayInterval={1500}
   />
 
-  <!-- 13. FAQ -->
+  <!-- 9. FAQ -->
   <FAQ items={faqItems} lang={lang} />
 </BaseLayout>

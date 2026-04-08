@@ -1,0 +1,310 @@
+---
+interface Slide {
+  quote: string;
+  name: string;
+  role: string;
+  avatar: string;
+}
+
+interface Props {
+  sectionTitle: string;
+  slides: Slide[];
+  autoplayInterval?: number;
+}
+
+const { sectionTitle, slides, autoplayInterval = 1500 } = Astro.props;
+---
+
+<section class="ts-section section-dark">
+  <div class="reveal text-center">
+    <h2 class="ts-title" set:html={sectionTitle} />
+  </div>
+
+  <div class="ts-wrap reveal" data-autoplay={autoplayInterval}>
+    <button class="ts-arrow ts-arrow-left" type="button" aria-label="Previous">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="ts-arrow ts-arrow-right" type="button" aria-label="Next">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+
+    <div class="ts-stage">
+      <div class="ts-track">
+        {slides.map((slide) => (
+          <div class="ts-slide">
+            <p class="ts-quote">{slide.quote}</p>
+            <div class="ts-author">
+              <img src={slide.avatar} alt={slide.name} loading="lazy" />
+              <div class="ts-author-text">
+                <div class="ts-author-name">{slide.name}</div>
+                <div class="ts-author-role">{slide.role}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="ts-dots">
+      {slides.map((_, i) => (
+        <button class={`ts-dot ${i === 0 ? 'active' : ''}`} type="button" data-index={i} aria-label={`Go to slide ${i + 1}`}></button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .ts-section {
+    padding: 60px 0 80px;
+    position: relative;
+  }
+
+  .ts-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 56px;
+    padding: 0 8%;
+  }
+
+  .ts-wrap {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 80px;
+  }
+
+  .ts-stage {
+    overflow: hidden;
+    border-radius: 24px;
+  }
+
+  .ts-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  .ts-slide {
+    flex: 0 0 100%;
+    padding: 56px 64px;
+    text-align: center;
+  }
+
+  .ts-quote-mark {
+    font-size: 5rem;
+    line-height: 0.5;
+    color: #DD3333;
+    opacity: 0.4;
+    font-family: Georgia, serif;
+    margin-bottom: 16px;
+  }
+
+  .ts-quote {
+    font-size: clamp(1.15rem, 1.7vw, 1.55rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.92);
+    margin: 24px auto 40px;
+    max-width: 800px;
+  }
+
+  .ts-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .ts-author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .ts-author-text {
+    text-align: left;
+  }
+
+  .ts-author-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .ts-author-role {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* Arrows */
+  .ts-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.25s ease;
+    z-index: 2;
+  }
+
+  .ts-arrow:hover {
+    background: rgba(221, 51, 51, 0.15);
+    border-color: rgba(221, 51, 51, 0.4);
+    color: #fff;
+  }
+
+  .ts-arrow-left { left: 0; }
+  .ts-arrow-right { right: 0; }
+  .ts-arrow svg { width: 22px; height: 22px; }
+
+  /* Dots */
+  .ts-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 36px;
+  }
+
+  .ts-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+  }
+
+  .ts-dot.active {
+    background: #DD3333;
+    width: 32px;
+    border-radius: 4px;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .ts-section { padding: 40px 0 60px; }
+    .ts-title { margin-bottom: 32px; }
+    .ts-wrap { padding: 0 16px; }
+    .ts-slide { padding: 32px 20px; }
+    .ts-arrow {
+      width: 44px;
+      height: 44px;
+      top: auto;
+      bottom: -68px;
+      transform: none;
+    }
+    .ts-arrow-left { left: calc(50% - 60px); }
+    .ts-arrow-right { right: calc(50% - 60px); }
+    .ts-dots { margin-top: 80px; }
+  }
+</style>
+
+<script>
+  function initTestimonialSlider(wrap: HTMLElement) {
+    const track = wrap.querySelector<HTMLElement>('.ts-track');
+    const slides = wrap.querySelectorAll<HTMLElement>('.ts-slide');
+    const dots = wrap.querySelectorAll<HTMLButtonElement>('.ts-dot');
+    const prevBtn = wrap.querySelector<HTMLButtonElement>('.ts-arrow-left');
+    const nextBtn = wrap.querySelector<HTMLButtonElement>('.ts-arrow-right');
+    const interval = parseInt(wrap.dataset.autoplay || '1500', 10);
+
+    if (!track || slides.length === 0) return;
+
+    let current = 0;
+    const total = slides.length;
+    let timer: ReturnType<typeof setInterval> | null = null;
+    let paused = false;
+
+    function update() {
+      if (track) track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    function next() {
+      current = (current + 1) % total;
+      update();
+    }
+
+    function prev() {
+      current = (current - 1 + total) % total;
+      update();
+    }
+
+    function goTo(i: number) {
+      current = i;
+      update();
+    }
+
+    function startAutoplay() {
+      if (timer) return;
+      timer = setInterval(() => {
+        if (!paused) next();
+      }, interval);
+    }
+
+    function stopAutoplay() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    prevBtn?.addEventListener('click', () => {
+      prev();
+      stopAutoplay();
+      startAutoplay();
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      next();
+      stopAutoplay();
+      startAutoplay();
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        goTo(i);
+        stopAutoplay();
+        startAutoplay();
+      });
+    });
+
+    // Pause on hover
+    wrap.addEventListener('mouseenter', () => { paused = true; });
+    wrap.addEventListener('mouseleave', () => { paused = false; });
+
+    // Pause when off-screen
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          startAutoplay();
+        } else {
+          stopAutoplay();
+        }
+      });
+    }, { threshold: 0.1 });
+
+    io.observe(wrap);
+
+    // Cleanup on Astro page transitions
+    document.addEventListener('astro:before-swap', function cleanup() {
+      document.removeEventListener('astro:before-swap', cleanup);
+      stopAutoplay();
+      io.disconnect();
+    }, { once: true });
+  }
+
+  document.querySelectorAll<HTMLElement>('.ts-wrap').forEach(initTestimonialSlider);
+</script>

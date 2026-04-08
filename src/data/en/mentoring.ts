@@ -9,7 +9,7 @@ export const pageData = {
   hero: {
     tagline: "Mentoring Program",
     title: 'Build a Profitable Music Career on <span class="gradient-text-red">Your Own Terms</span>',
-    subtitle: "Everything you need to mix like a pro and build a career that pays.",
+    subtitle: "Everything you need to know to Mix & Master like a pro and build a career that pays.",
     ctaText: "START TODAY",
     ctaHref: "#getaccess",
     subCtaText: "",
@@ -21,26 +21,59 @@ export const pageData = {
     nameAccent: "SLATIN",
     bio: "I've mixed and mastered over 1,000 songs for Sony, Warner, Def Jam, Netflix, and more — earning multi-platinum certifications and a spot in the top 1% of mixing engineers. Now, everything I've learned is yours.",
     stats: [
-      { value: "Top 1%", label: "Mixing Engineers", highlight: true },
-      { value: "1,000+", label: "Songs Engineered" },
+      { value: "Top 0.1%", label: "Mastering Engineers", highlight: true },
+      { value: "1,000+", label: "Songs a Year" },
       { value: "Multi-Platinum", label: "Certified" },
     ],
   },
 
   backgroundQuote: 'Unlock your <strong>full potential</strong> and accelerate your growth by joining my <strong>Mentoring Program.</strong>',
 
-  whatsIncluded: '<em><strong><span class="squiggle-basic">What\'s Included?</span></strong></em>',
-
-  extras: {
-    title: "+++",
-    lines: [
-      "Exclusive access to insider information.",
-      "Special Music Industry Guests.",
-      "Networking and building community with like-minded individuals.",
-      "An extensive selection of the best Samples, Presets, and Books.",
-      "Email Templates for reaching out to Labels, Managers, and Promoters.",
-      '<a href="https://www.slatin.pro/fusion" class="text-accent-red hover:underline">FUSION</a> &ndash; Valhalla Reverb Pack &ndash; for free.',
-      "And much more&hellip;",
+  whatsIncluded: {
+    sectionTitle: 'How You\'ll <em><span class="squiggle-basic">Change</span></em>',
+    sectionSubtitle: "Real shifts in how you work, sound, and grow — not just a list of tools.",
+    cards: [
+      {
+        icon: "fix",
+        image: "/images/mentoring/feedback.gif",
+        beforeAfter: { before: "guessing alone", after: "knowing exactly what to fix" },
+        title: "You'll Stop Second-Guessing Your Mixes",
+        description: "Every week, you'll get detailed video reviews of your tracks — not generic advice, but specific, actionable feedback so you finally understand the why behind every decision.",
+        valueTag: "Save 100+ hours of trial & error",
+      },
+      {
+        icon: "guide",
+        image: "/images/mentoring/group-calls.gif",
+        beforeAfter: { before: "stuck and isolated", after: "guided every week" },
+        title: "You'll Never Feel Lost Again",
+        description: "Live 70-minute group calls, real-time guidance from a multi-platinum engineer, and a private community of serious producers — so you always have someone to ask when you hit a wall.",
+        valueTag: "24h response, always-on support",
+      },
+      {
+        icon: "star",
+        image: "/images/mentoring/mentor-photo.jpg",
+        beforeAfter: { before: "amateur sound", after: "professional, label-ready mixes" },
+        title: "Your Sound Will Translate Everywhere",
+        description: "You'll learn the exact techniques used on records for Sony, Warner, Def Jam, and Netflix — and apply them to your own work with weekly direct guidance from someone who's done it.",
+        valueTag: "Real techniques from real releases",
+      },
+      {
+        icon: "money",
+        image: "/images/mentoring/chat.gif",
+        beforeAfter: { before: "working for free", after: "pricing with confidence" },
+        title: "You'll Build a Career That Actually Pays",
+        description: "Beyond the technical side: pricing your work, finding clients, negotiating with labels, and building a sustainable music business — backed by 15+ years in the industry.",
+        valueTag: "Real business, not just hobby money",
+      },
+    ],
+    extrasTitle: "Everything Else You Unlock",
+    extras: [
+      { highlight: "Cut through the industry noise", text: "insider knowledge of what actually moves the needle, so you stop wasting years figuring it out alone" },
+      { highlight: "Get in the room with decision makers", text: "A&Rs, label execs, and top engineers who can change the trajectory of your career" },
+      { highlight: "Build relationships that open doors", text: "a private community of serious producers who push, support, and collaborate with you for years" },
+      { highlight: "Skip the endless searching", text: "the exact samples, presets, and books I personally use, so you build with proven tools from day one" },
+      { highlight: "Stop being ignored by labels", text: "battle-tested email templates that actually get replies from labels, managers, and promoters" },
+      { highlight: "Sound bigger from day one", text: "FUSION (Valhalla VintageVerb pack) free, so your reverbs hit like a pro studio's" },
     ],
   },
 
@@ -90,7 +123,46 @@ export const pageData = {
     subtitle: "Public Registration - Open Now! 🧨",
   },
 
-  alumniTitle: 'Alumni <em><span class="squiggle-basic">Feedback</span></em>',
+  alumniTitle: 'Real <em><span class="squiggle-basic">Results</span></em>',
+
+  featuredTestimonials: [
+    {
+      quote: "Slatin's mentorship has unequivocally been the most enlightening course I've taken on Mixing and Mastering — even outshining year-long courses I've attended. The continuous feedback is invaluable. A real game-changer.",
+      name: "Ignacio Fernandez",
+      role: "Mixing Engineer",
+      avatar: "/images/mentoring/alumni-ignacio.jpg",
+    },
+    {
+      quote: "It's totally worth it, no doubts there. Ruslan's commitment to our group has been top-notch — adapting to our individual quirks and needs as if each session was 1-on-1. A game-changer for my professional growth.",
+      name: "Pablo Iglesias",
+      role: "Producer",
+      avatar: "/images/mentoring/alumni-pablo.jpg",
+    },
+    {
+      quote: "The mentorship with Ruslan has been nothing short of fantastic — positive, constructive, professional. I've improved my sound mixing big time. Now I'm up for any project.",
+      name: "Sergio Hernae",
+      role: "Producer",
+      avatar: "/images/mentoring/alumni-sergio-h.jpg",
+    },
+    {
+      quote: "Having the opportunity to attend Slatin's mentorships was a big step forward in enhancing my skills in production, mixing, and mastering. If you're looking to seriously level up, 100% recommended.",
+      name: "Pere Bacardit",
+      role: "Producer",
+      avatar: "/images/mentoring/alumni-pere.jpg",
+    },
+    {
+      quote: "200% recommended. Slatin cares a lot about the evolution of all students and covers all the doubts that come up day by day, making a very personalized follow-up of each case.",
+      name: "Sergio Perez",
+      role: "Producer",
+      avatar: "/images/mentoring/alumni-sergio-p.jpg",
+    },
+    {
+      quote: "Being a part of this mentorship group has been quite insightful. Ruslan answered many of my questions, especially those about small, nuanced details that make my mixes sound better. Highly recommended.",
+      name: "Marco Bernal",
+      role: "Producer",
+      avatar: "/images/mentoring/alumni-marco-b.jpg",
+    },
+  ],
 
   testimonials: [
     {
