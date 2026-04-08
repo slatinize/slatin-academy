@@ -37,7 +37,7 @@ const { sectionTitle, phases } = Astro.props;
             {phase.items.map((item) => (
               <li>
                 <span class="tl-icon" style={`color: ${phase.color}`}>{phase.icon}</span>
-                {item}
+                <span set:html={item} />
               </li>
             ))}
           </ul>

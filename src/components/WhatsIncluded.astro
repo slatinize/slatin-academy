@@ -19,9 +19,12 @@ interface Props {
   cards: ChangeCard[];
   extrasTitle: string;
   extras: ExtraItem[];
+  lang?: 'en' | 'es';
 }
 
-const { sectionTitle, sectionSubtitle, cards, extrasTitle, extras } = Astro.props;
+const { sectionTitle, sectionSubtitle, cards, extrasTitle, extras, lang = 'en' } = Astro.props;
+const fromLabel = lang === 'es' ? 'De' : 'From';
+const toLabel = lang === 'es' ? 'a' : 'to';
 
 // Inline icon library
 const icons: Record<string, string> = {
@@ -49,13 +52,13 @@ const icons: Record<string, string> = {
             </div>
           )}
           <div class="wi-before-after">
-            From <span class="ba-bad">{card.beforeAfter.before}</span> to <span class="ba-good">{card.beforeAfter.after}</span>
+            {fromLabel} <span class="ba-bad" set:html={card.beforeAfter.before} /> {toLabel} <span class="ba-good" set:html={card.beforeAfter.after} />
           </div>
-          <h3 class="wi-card-title">{card.title}</h3>
-          <p class="wi-card-desc">{card.description}</p>
+          <h3 class="wi-card-title" set:html={card.title} />
+          <p class="wi-card-desc" set:html={card.description} />
           <div class="wi-value-tag">
             <span class="dot"></span>
-            {card.valueTag}
+            <span set:html={card.valueTag} />
           </div>
         </div>
       ))}
@@ -73,7 +76,7 @@ const icons: Record<string, string> = {
         {extras.map((extra) => (
           <div class="wi-extra-row">
             <div class="wi-check">✓</div>
-            <div class="wi-extra-text"><strong>{extra.highlight}:</strong> {extra.text}</div>
+            <div class="wi-extra-text"><strong set:html={extra.highlight + ':'} /> <span set:html={extra.text} /></div>
           </div>
         ))}
       </div>

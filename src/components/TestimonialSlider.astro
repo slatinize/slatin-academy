@@ -32,7 +32,7 @@ const { sectionTitle, slides, autoplayInterval = 1500 } = Astro.props;
       <div class="ts-track">
         {slides.map((slide) => (
           <div class="ts-slide">
-            <p class="ts-quote">{slide.quote}</p>
+            <p class="ts-quote" set:html={slide.quote} />
             <div class="ts-author">
               <img src={slide.avatar} alt={slide.name} loading="lazy" />
               <div class="ts-author-text">

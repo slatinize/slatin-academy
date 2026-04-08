@@ -25,7 +25,7 @@ const { plans } = Astro.props;
 
         return (
           <div class={`pricing-card ${isDark ? 'pricing-dark' : 'pricing-light'} rounded-2xl p-8 md:p-10 flex flex-col reveal`}>
-            <h2 class="text-2xl md:text-3xl font-extrabold mb-1">{plan.title}</h2>
+            <h2 class="text-2xl md:text-3xl font-extrabold mb-1" set:html={plan.title} />
             <p class={`text-sm font-semibold mb-6 ${isDark ? 'opacity-50' : 'opacity-40'}`}>
               {plan.subtitle}
             </p>
@@ -38,7 +38,7 @@ const { plans } = Astro.props;
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                     </svg>
                   </span>
-                  <span class="opacity-80">{feature}</span>
+                  <span class="opacity-80" set:html={feature} />
                 </li>
               ))}
               {hasHighlights && (
@@ -51,7 +51,7 @@ const { plans } = Astro.props;
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                     </svg>
                   </span>
-                  <span>{feature}</span>
+                  <span set:html={feature} />
                 </li>
               ))}
             </ul>

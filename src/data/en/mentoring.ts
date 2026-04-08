@@ -38,7 +38,7 @@ export const pageData = {
         image: "/images/mentoring/feedback.gif",
         beforeAfter: { before: "guessing alone", after: "knowing exactly what to fix" },
         title: "You'll Stop Second-Guessing Your Mixes",
-        description: "Every week, you'll get detailed video reviews of your tracks, not generic advice, but specific, actionable feedback so you finally understand the why behind every decision.",
+        description: "Every week, you'll get detailed video reviews of your tracks, not generic advice, but specific, actionable notes so you finally understand the why behind every decision.",
         valueTag: "Save 100+ hours of trial & error",
       },
       {
@@ -62,18 +62,18 @@ export const pageData = {
         image: "/images/mentoring/chat.gif",
         beforeAfter: { before: "working for free", after: "pricing with confidence" },
         title: "You'll Build a Career That Actually Pays",
-        description: "Beyond the technical side: pricing your work, finding clients, negotiating with labels and building a sustainable music business, backed by 15+ years in the industry.",
+        description: "Beyond the technical side: you'll price your work, find clients, negotiate with labels and build a sustainable music business, backed by 15+ years in the industry.",
         valueTag: "Real business, not just hobby money",
       },
     ],
     extrasTitle: "Everything Else You Unlock",
     extras: [
-      { highlight: "Cut through the industry noise", text: "insider knowledge of what actually moves the needle, so you stop wasting years figuring it out alone" },
-      { highlight: "Get in the room with decision makers", text: "A&Rs, label execs and top engineers who can change the trajectory of your career" },
-      { highlight: "Build relationships that open doors", text: "a private community of serious producers who push, support and collaborate with you for years" },
-      { highlight: "Skip the endless searching", text: "the exact samples, presets and books I personally use, so you build with proven tools from day one" },
-      { highlight: "Stop being ignored by labels", text: "battle-tested email templates that actually get replies from labels, managers and promoters" },
-      { highlight: "Sound bigger from day one", text: "FUSION (Valhalla VintageVerb pack) free, so your reverbs hit like a pro studio's" },
+      { highlight: "Cut through the industry noise", text: "insider knowledge of what actually moves the needle, so you stop wasting years figuring it out alone." },
+      { highlight: "Get in the room with decision makers", text: "A&Rs, label execs and top engineers who can change the trajectory of your career." },
+      { highlight: "Build relationships that open doors", text: "a private community of serious producers who push, support and collaborate with you for years." },
+      { highlight: "Skip the endless searching", text: "the exact samples, presets and books I personally use, so you build with proven tools from day one." },
+      { highlight: "Stop being ignored by labels", text: "battle-tested email templates that actually get replies from labels, managers and promoters." },
+      { highlight: "Sound bigger from day one", text: "FUSION (Valhalla VintageVerb pack) free, so your reverbs hit like a pro studio's." },
     ],
   },
 
@@ -86,10 +86,10 @@ export const pageData = {
         icon: "✕",
         color: "rgba(255,255,255,0.3)",
         items: [
-          "Guessing what sounds \"right\"",
-          "Mixes that don't translate",
-          "No feedback loop or accountability",
-          "Undercharging or working for free",
+          'Guessing what sounds "right".',
+          "Mixes that don't translate.",
+          "No feedback loop or accountability.",
+          "Undercharging or working for free.",
         ],
       },
       {
@@ -98,10 +98,10 @@ export const pageData = {
         icon: "→",
         color: "#ed8e00",
         items: [
-          "Understand the why of your decisions",
-          "Loud sound that translates across every system",
-          "Price your work with confidence",
-          "Weekly feedback + clear growth plan",
+          "You'll understand the why of every decision.",
+          "Your sound will translate across every system.",
+          "You'll price your work with confidence.",
+          "You'll get weekly reviews and a clear growth plan.",
         ],
       },
       {
@@ -110,9 +110,9 @@ export const pageData = {
         icon: "★",
         color: "#DD3333",
         items: [
-          "Full confidence and freedom while working",
-          "Business growth and expansion",
-          "Dominate all your tools and knowledge",
+          "You'll work with full confidence and freedom.",
+          "You'll grow and expand your business.",
+          "You'll master every tool and all the knowledge.",
         ],
       },
     ],
@@ -217,7 +217,7 @@ export const pageData = {
       iconClass: "w-full h-48 md:h-56",
       iconStyle: "border-radius: 12px",
       title: '<span class="gradient-text-red">Tailored Feedback</span>',
-      description: "Weekly evaluations of your works with constructive feedback and tasks. (Up to 2 video reviews per week)",
+      description: "Weekly evaluations of your works with constructive notes and tasks. (Up to 2 video reviews per week)",
     },
     {
       iconSrc: "/images/mentoring/chat.gif",
@@ -327,7 +327,7 @@ export const pageData = {
   faqItems: [
     {
       question: "Who, specifically, is this Mentoring for?",
-      answer: `<strong>This Program is Tailored for Producers and Mixing Engineers that:</strong><ul class="list-disc pl-5 mt-2 space-y-1"><li>Want to accelerate their growth and unlock their full potential in record time.</li><li>Want to cut through the noise of infinite misleading content & learn the "WHYs" behind each technique.</li><li>Want to improve their technical skills and knowledge of music production, mixing and mastering.</li><li>Need tailored feedback on their work and direct access to an experienced mentor for guidance.</li><li>Want to learn how to promote their music effectively, build their brand and grow their fanbase.</li><li>Are willing to invest in their education and development.</li><li>Are motivated to improve themselves and committed to achieving their goals.</li></ul>`,
+      answer: `<strong>This Program is Tailored for Producers and Mixing Engineers that:</strong><ul class="list-disc pl-5 mt-2 space-y-1"><li>Want to accelerate their growth and unlock their full potential in record time.</li><li>Want to cut through the noise of infinite misleading content & learn the "WHYs" behind each technique.</li><li>Want to improve their technical skills and knowledge of music production, mixing and mastering.</li><li>Need tailored reviews of their work and direct access to an experienced mentor for guidance.</li><li>Want to learn how to promote their music effectively, build their brand and grow their fanbase.</li><li>Are willing to invest in their education and development.</li><li>Are motivated to improve themselves and committed to achieving their goals.</li></ul>`,
       category: "About",
     },
     {
@@ -347,7 +347,7 @@ export const pageData = {
     },
     {
       question: "How is this different from buying Courses or Tutorials online?",
-      answer: `Unlike pre-recorded content, our program is tailored to the needs and aspirations of each individual in the group and we'll work together to create a <strong>customized plan</strong> that addresses your strengths, weaknesses and unique challenges. Additionally, the program offers a supportive community, weekly feedback and <strong>regular accountability check-ins</strong>.`,
+      answer: `Unlike pre-recorded content, our program is tailored to the needs and aspirations of each individual in the group and we'll work together to create a <strong>customized plan</strong> that addresses your strengths, weaknesses and unique challenges. Additionally, the program offers a supportive community, weekly reviews and <strong>regular accountability check-ins</strong>.`,
       category: "About",
     },
     {
@@ -362,7 +362,7 @@ export const pageData = {
     },
     {
       question: "How long is the 1-on-1 Weekly Call?",
-      answer: "The weekly one-on-one call will last for 60 minutes, during which we will provide accountability check-ins, help you execute your custom roadmap/plan, review your projects, finish songs, address any doubts you may have and provide personalized business guidance.",
+      answer: "The weekly one-on-one call will last for 60 minutes, during which we will provide accountability check-ins; help you execute your custom roadmap/plan, review your projects, finish songs, address any doubts you may have and provide personalized business guidance.",
       category: "Program",
     },
     {
@@ -382,7 +382,7 @@ export const pageData = {
     },
     {
       question: "What DAW & Software do I need?",
-      answer: "We will be using Ableton Live 12 and Reaper for the lessons and feedback sessions. But all the techniques and concepts are 100% compatible with any other DAW. If you don't own a specific plugin, I will always show you a Free or Native alternative.",
+      answer: "We will be using Ableton Live 12 and Reaper for the lessons and review sessions. But all the techniques and concepts are 100% compatible with any other DAW. If you don't own a specific plugin, I will always show you a Free or Native alternative.",
       category: "Setup & Payment",
     },
     {

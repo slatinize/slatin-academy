@@ -3,24 +3,44 @@ interface Props {
   imageSrc?: string;
   imageAlt?: string;
   hideImage?: boolean;
+  lang?: 'en' | 'es';
 }
 
-const { imageSrc = "/images/mentoring/studio-bg.jpg", imageAlt = "", hideImage = false } = Astro.props;
+const { imageSrc = "/images/mentoring/studio-bg.jpg", imageAlt = "", hideImage = false, lang = 'en' } = Astro.props;
+
+const copy = {
+  en: {
+    line1Prefix: "You won't need",
+    strike: 'more tutorials',
+    line2Prefix: "You'll have a",
+    accent: 'real path forward.',
+    sub: "YouTube taught you the basics. Now you'll have someone to push you, review your work and show you what's really standing in your way.",
+    subBold: "That's exactly what you'll get here.",
+  },
+  es: {
+    line1Prefix: 'No necesitarás',
+    strike: 'más tutoriales',
+    line2Prefix: 'Tendrás un',
+    accent: 'camino real.',
+    sub: "YouTube te enseñó lo básico. Ahora tendrás a alguien que te empujará, revisará tu trabajo y te mostrará qué te está frenando de verdad.",
+    subBold: "Exactamente eso es lo que tendrás aquí.",
+  },
+}[lang];
 ---
 
 <section class="intro-statement section-dark">
   <div class="intro-content">
     <h2 class="intro-headline">
       <span class="line line-1">
-        You need <span class="strike">more tutorials</span><span class="dim-dot">.</span>
+        {copy.line1Prefix} <span class="strike">{copy.strike}</span><span class="dim-dot">.</span>
       </span>
       <span class="line line-2">
-        You need a <span class="accent">real path forward.</span>
+        {copy.line2Prefix} <span class="accent">{copy.accent}</span>
       </span>
     </h2>
     <p class="intro-sub">
-      YouTube taught you the basics. Now you need someone to push you, review your work, and show you what's really standing in your way.
-      <strong>That's exactly what this is.</strong>
+      {copy.sub}
+      <strong>{copy.subBold}</strong>
     </p>
   </div>
 

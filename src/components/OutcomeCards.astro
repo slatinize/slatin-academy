@@ -36,7 +36,7 @@ const icons: Record<string, string> = {
           style={`background-color: ${card.bgColor}; color: ${card.textColor || '#ffffff'}`}
         >
           <div class="flex justify-center mb-4 opacity-90" set:html={icons[card.icon] || ''} />
-          <p class="outcome-title">{card.title}</p>
+          <p class="outcome-title" set:html={card.title} />
         </div>
       ))}
     </div>

@@ -8,8 +8,8 @@ export const pageData = {
 
   hero: {
     tagline: "Programa de Mentoría",
-    title: '<span class="hero-line">Construye una <strong>Carrera Musical Rentable</strong></span><span class="hero-line">bajo <span class="gradient-text-red">Tus Propios Términos</span></span>',
-    subtitle: "Todo lo que necesitas saber para <strong>Mezclar y Masterizar</strong> como un profesional y construir una carrera que pague.",
+    title: '<span class="hero-line">Una <strong>Carrera Musical Rentable</strong></span><span class="hero-line">bajo <span class="gradient-text-red">Tus Propios Términos</span></span>',
+    subtitle: "Todo lo que necesitas saber para <strong>Mezclar y Masterizar</strong> como un profesional y construir una carrera próspera.",
     ctaText: "EMPIEZA HOY",
     ctaHref: "#getaccess",
     subCtaText: "",
@@ -27,18 +27,18 @@ export const pageData = {
     ],
   },
 
-  backgroundQuote: 'Unlock your <strong>full potential</strong> and accelerate your growth by joining my <strong>Mentoring Program.</strong>',
+  backgroundQuote: 'Desbloquea tu <strong>máximo potencial</strong> y acelera tu crecimiento uniéndote a mi <strong>Programa de Mentoría.</strong>',
 
   whatsIncluded: {
     sectionTitle: 'Cómo <em><span class="squiggle-basic">Cambiarás</span></em>',
-    sectionSubtitle: "Cambios reales en cómo trabajas, suenas y creces, no solo una lista de herramientas.",
+    sectionSubtitle: "Transformaciones reales en cómo trabajas, suenas y creces, no solo una lista de herramientas.",
     cards: [
       {
         icon: "fix",
         image: "/images/mentoring/feedback.gif",
         beforeAfter: { before: "adivinar a solas", after: "saber exactamente qué arreglar" },
         title: "Dejarás de Dudar de Tus Mezclas",
-        description: 'Cada semana recibirás reseñas detalladas en vídeo de tus <em>tracks</em>, no consejos genéricos, sino <em>feedback</em> específico y accionable para que finalmente entiendas el porqué detrás de cada decisión.',
+        description: 'Cada semana recibirás reseñas detalladas en vídeo de tus <em>tracks</em>, no consejos genéricos, sino comentarios específicos y accionables para que finalmente entiendas el porqué detrás de cada decisión.',
         valueTag: "Ahorra +100 horas de prueba y error",
       },
       {
@@ -55,25 +55,25 @@ export const pageData = {
         beforeAfter: { before: "sonido amateur", after: "mezclas profesionales listas para sello" },
         title: "Tu Sonido Traducirá en Cualquier Sistema",
         description: "Aprenderás las técnicas exactas usadas en discos de los principales sellos y las aplicarás a tu propio trabajo con guía directa semanal de alguien que ya lo ha hecho.",
-        valueTag: "Técnicas reales de releases reales",
+        valueTag: 'Técnicas reales de <em>releases</em> reales',
       },
       {
         icon: "money",
         image: "/images/mentoring/chat.gif",
         beforeAfter: { before: "trabajar gratis", after: "cobrar con confianza" },
-        title: "Construirás una Carrera Que Realmente Paga",
-        description: "Más allá de lo técnico: cobrar tu trabajo, encontrar clientes, negociar con sellos y construir un negocio musical sostenible, respaldado por más de 15 años en la industria.",
+        title: "Construirás una Carrera Rentable",
+        description: "Más allá de lo técnico: cobrarás tu trabajo, encontrarás clientes, negociarás con discográficas y construirás un negocio musical sostenible, respaldado por más de 15 años en la industria.",
         valueTag: "Negocio real, no dinero de hobby",
       },
     ],
     extrasTitle: "Todo Lo Demás Que Desbloqueas",
     extras: [
-      { highlight: "Corta el ruido de la industria", text: "conocimiento interno de lo que realmente mueve la aguja, para que dejes de perder años descubriéndolo solo" },
-      { highlight: "Entra en la sala con quienes deciden", text: "A&Rs, ejecutivos de sellos e ingenieros top que pueden cambiar la trayectoria de tu carrera" },
-      { highlight: "Construye relaciones que abren puertas", text: "una comunidad privada de productores serios que te empujan, apoyan y colaboran contigo durante años" },
-      { highlight: "Sáltate la búsqueda interminable", text: 'los <em>samples</em>, <em>presets</em> y libros exactos que yo uso, para que construyas con herramientas probadas desde el día uno' },
-      { highlight: "Deja de ser ignorado por los sellos", text: "plantillas de email probadas que realmente reciben respuesta de sellos, managers y promotores" },
-      { highlight: "Suena enorme desde el día uno", text: "FUSION (pack Valhalla VintageVerb) gratis, para que tus reverbs suenen como las de un estudio profesional" },
+      { highlight: "Corta el ruido de la industria", text: "conocimiento interno de lo que realmente mueve la aguja, para que dejes de perder años descubriéndolo solo." },
+      { highlight: "Entra en la sala con quienes deciden", text: "A&Rs, ejecutivos de discográficas e ingenieros top que pueden cambiar la trayectoria de tu carrera." },
+      { highlight: "Construye relaciones que abren puertas", text: "una comunidad privada de productores serios que te empujan, apoyan y colaboran contigo durante años." },
+      { highlight: "Sáltate la búsqueda interminable", text: 'los <em>samples</em>, <em>presets</em> y libros exactos que yo uso, para que construyas con herramientas probadas desde el día uno.' },
+      { highlight: "Deja de ser ignorado por las discográficas", text: 'plantillas de <em>email</em> probadas que realmente reciben respuesta de discográficas, <em>mánagers</em> y promotores.' },
+      { highlight: "Suena enorme desde el día uno", text: 'FUSION (pack Valhalla VintageVerb) gratis, para que tus <em>reverbs</em> suenen como las de un estudio profesional.' },
     ],
   },
 
@@ -86,10 +86,10 @@ export const pageData = {
         icon: "✕",
         color: "rgba(255,255,255,0.3)",
         items: [
-          "Adivinando qué suena \"bien\"",
-          "Mezclas que no traducen",
-          'Sin <em>feedback</em> ni responsabilidad',
-          "Cobrando poco o trabajando gratis",
+          'Adivinando qué suena "bien".',
+          "Mezclas que no traducen.",
+          'Sin <em>feedback</em> ni seguimiento.',
+          "Cobrando poco o trabajando gratis.",
         ],
       },
       {
@@ -98,10 +98,10 @@ export const pageData = {
         icon: "→",
         color: "#ed8e00",
         items: [
-          "Entender el porqué de tus decisiones",
-          "Sonido potente que traduce en cualquier sistema",
-          "Cobrar tu trabajo con confianza",
-          '<em>Feedback</em> semanal + plan de crecimiento claro',
+          "Entenderás el porqué de tus decisiones.",
+          "Tu sonido traducirá en cualquier sistema.",
+          "Cobrarás tu trabajo con confianza.",
+          'Tendrás revisiones semanales y un plan de crecimiento claro.',
         ],
       },
       {
@@ -110,17 +110,17 @@ export const pageData = {
         icon: "★",
         color: "#DD3333",
         items: [
-          "Confianza total y libertad al trabajar",
-          "Crecimiento y expansión del negocio",
-          "Dominar todas tus herramientas y conocimientos",
+          "Trabajarás con confianza y libertad totales.",
+          "Harás crecer y expandir tu negocio.",
+          "Dominarás todas tus herramientas y conocimientos.",
         ],
       },
     ],
   },
 
   marquee: {
-    text: "Start Today",
-    subtitle: "Public Registration - Open Now! 🧨",
+    text: "Empieza Hoy",
+    subtitle: "¡Inscripción Pública Abierta! 🧨",
   },
 
   alumniTitle: 'Resultados <em><span class="squiggle-basic">Reales</span></em>',
@@ -216,8 +216,8 @@ export const pageData = {
       iconSrc: "/images/mentoring/feedback.gif",
       iconClass: "w-full h-48 md:h-56",
       iconStyle: "border-radius: 12px",
-      title: '<span class="gradient-text-red"><em>Feedback</em> Personalizado</span>',
-      description: 'Evaluaciones semanales de tus trabajos con <em>feedback</em> constructivo y tareas. (Hasta 2 reviews en vídeo por semana)',
+      title: '<span class="gradient-text-red">Revisiones Personalizadas</span>',
+      description: 'Evaluaciones semanales de tus trabajos con comentarios constructivos y tareas. (Hasta 2 <em>reviews</em> en vídeo por semana)',
     },
     {
       iconSrc: "/images/mentoring/chat.gif",
@@ -327,7 +327,7 @@ export const pageData = {
   faqItems: [
     {
       question: "¿Para quién es esta Mentoría, específicamente?",
-      answer: `<strong>Este Programa está Diseñado para Productores e Ingenieros de Mezcla que:</strong><ul class="list-disc pl-5 mt-2 space-y-1"><li>Quieren acelerar su crecimiento y desbloquear todo su potencial en tiempo récord.</li><li>Quieren cortar el ruido del contenido engañoso infinito y aprender los "PORQUÉS" detrás de cada técnica.</li><li>Quieren mejorar sus habilidades técnicas y conocimientos de producción, mezcla y <em>mastering</em>.</li><li>Necesitan <em>feedback</em> personalizado sobre su trabajo y acceso directo a un mentor experimentado.</li><li>Quieren aprender a promocionar su música eficazmente, construir su marca y hacer crecer su base de seguidores.</li><li>Están dispuestos a invertir en su educación y desarrollo.</li><li>Están motivados para mejorar y comprometidos con alcanzar sus metas.</li></ul>`,
+      answer: `<strong>Este Programa está Diseñado para Productores e Ingenieros de Mezcla que:</strong><ul class="list-disc pl-5 mt-2 space-y-1"><li>Quieren acelerar su crecimiento y desbloquear todo su potencial en tiempo récord.</li><li>Quieren cortar el ruido del contenido engañoso infinito y aprender los "PORQUÉS" detrás de cada técnica.</li><li>Quieren mejorar sus habilidades técnicas y conocimientos de producción, mezcla y <em>mastering</em>.</li><li>Necesitan revisiones personalizadas de su trabajo y acceso directo a un mentor experimentado.</li><li>Quieren aprender a promocionar su música eficazmente, construir su marca y hacer crecer su base de seguidores.</li><li>Están dispuestos a invertir en su educación y desarrollo.</li><li>Están motivados para mejorar y comprometidos con alcanzar sus metas.</li></ul>`,
       category: "Sobre el Programa",
     },
     {
@@ -347,12 +347,12 @@ export const pageData = {
     },
     {
       question: "¿En qué se diferencia de comprar Cursos o Tutoriales online?",
-      answer: `A diferencia del contenido pregrabado, nuestro programa se adapta a las necesidades y aspiraciones de cada persona del grupo y trabajaremos juntos para crear un <strong>plan personalizado</strong> que aborde tus fortalezas, debilidades y retos únicos. Además, el programa ofrece una comunidad de apoyo, <em>feedback</em> semanal y <strong>seguimientos regulares de compromiso</strong>.`,
+      answer: `A diferencia del contenido pregrabado, nuestro programa se adapta a las necesidades y aspiraciones de cada persona del grupo y trabajaremos juntos para crear un <strong>plan personalizado</strong> que aborde tus fortalezas, debilidades y retos únicos. Además, el programa ofrece una comunidad de apoyo, revisiones semanales y <strong>seguimientos regulares de compromiso</strong>.`,
       category: "Sobre el Programa",
     },
     {
       question: "¿Puedes darme un resumen del Programa de Mentoría?",
-      answer: 'Como las necesidades de cada persona son únicas, crearemos un plan personalizado. Los puntos destacados incluyen: Entender y Aplicar <em>EQ</em>, Dominar la Compresión, Compresión Avanzada / Curvas Complejas, Procesamiento Mid/Side, Negocio 101, Crecimiento en Redes Sociales, Cómo Conseguir Clientes, Diseño de Sonido, Compresión <em>Sidechain</em>, Microdinámica, Mezcla de Voces, La Magia de las Cintas, Todos los Secretos del <em>Mastering</em>, Compresión Avanzada / Control Tonal, Automatizar tu Estudio, Usar IA para Producción y Mezcla en Dolby Atmos.',
+      answer: 'Como las necesidades de cada persona son únicas, crearemos un plan personalizado. Los puntos destacados incluyen: Entender y Aplicar EQ, Dominar la Compresión, Compresión Avanzada / Curvas Complejas, Procesamiento Mid/Side, Negocio 101, Crecimiento en Redes Sociales, Cómo Conseguir Clientes, Diseño de Sonido, Compresión <em>Sidechain</em>, Microdinámica, Mezcla de Voces, La Magia de las Cintas, Todos los Secretos del <em>Mastering</em>, Compresión Avanzada / Control Tonal, Automatizar tu Estudio, Usar IA para Producción y Mezcla en Dolby Atmos.',
       category: "Programa",
     },
     {
@@ -362,7 +362,7 @@ export const pageData = {
     },
     {
       question: "¿Cuánto dura la llamada 1-a-1 semanal?",
-      answer: 'La llamada 1-a-1 semanal dura 60 minutos, durante los cuales haremos seguimientos de compromiso, te ayudaré a ejecutar tu <em>roadmap</em>/plan personalizado, revisaremos tus proyectos, terminaremos canciones, resolveremos cualquier duda y te daré guía de negocio personalizada.',
+      answer: 'La llamada 1-a-1 semanal dura 60 minutos, durante los cuales haremos seguimientos de compromiso; te ayudaré a ejecutar tu <em>roadmap</em>/plan personalizado, revisaremos tus proyectos, terminaremos canciones, resolveremos cualquier duda y te daré guía de negocio personalizada.',
       category: "Programa",
     },
     {
@@ -382,7 +382,7 @@ export const pageData = {
     },
     {
       question: "¿Qué <em>DAW</em> y <em>Software</em> necesito?",
-      answer: 'Usaremos Ableton Live 12 y Reaper para las lecciones y las sesiones de <em>feedback</em>. Pero todas las técnicas y conceptos son 100% compatibles con cualquier otro <em>DAW</em>. Si no tienes un <em>plugin</em> específico, siempre te mostraré una alternativa gratuita o nativa.',
+      answer: 'Usaremos Ableton Live 12 y Reaper para las lecciones y las sesiones de revisión. Pero todas las técnicas y conceptos son 100% compatibles con cualquier otro <em>DAW</em>. Si no tienes un <em>plugin</em> específico, siempre te mostraré una alternativa gratuita o nativa.',
       category: "Configuración y Pago",
     },
     {

@@ -71,7 +71,7 @@ const {
   />
 
   <!-- 3. Intro Statement (animated) -->
-  <IntroStatement hideImage={true} />
+  <IntroStatement hideImage={true} lang={lang} />
 
   <!-- 4. Background quote (moved up, acts as image band with text) -->
   <BackgroundQuote
@@ -92,6 +92,7 @@ const {
     cards={whatsIncluded.cards}
     extrasTitle={whatsIncluded.extrasTitle}
     extras={whatsIncluded.extras}
+    lang={lang}
   >
     <MarqueeBanner
       slot="between"
