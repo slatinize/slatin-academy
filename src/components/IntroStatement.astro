@@ -1,0 +1,197 @@
+---
+interface Props {
+  imageSrc?: string;
+  imageAlt?: string;
+}
+
+const { imageSrc = "/images/mentoring/studio-bg.jpg", imageAlt = "" } = Astro.props;
+---
+
+<section class="intro-statement section-dark">
+  <div class="intro-content">
+    <h2 class="intro-headline">
+      <span class="line line-1">
+        You need <span class="strike">more tutorials.</span>
+      </span>
+      <span class="line line-2">
+        You need a <span class="accent">real path forward.</span>
+      </span>
+    </h2>
+    <p class="intro-sub">
+      YouTube taught you the basics. Now you need someone to push you, review your work, and show you what's really standing in your way.
+      <strong>That's exactly what this is.</strong>
+    </p>
+  </div>
+
+  <div class="intro-image-wrap">
+    <img src={imageSrc} alt={imageAlt} loading="lazy" />
+    <div class="intro-image-overlay"></div>
+  </div>
+</section>
+
+<style>
+  .intro-statement {
+    padding: 60px 8% 0;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: -40px;
+  }
+
+  .intro-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .intro-headline {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+
+  .intro-headline .line {
+    display: block;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .intro-headline .line-1 {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .intro-headline .line-2 {
+    margin-top: 4px;
+  }
+
+  .intro-headline .strike {
+    position: relative;
+    color: rgba(255, 255, 255, 0.45);
+    display: inline-block;
+  }
+
+  .intro-headline .strike::after {
+    content: '';
+    position: absolute;
+    left: -2%;
+    right: -2%;
+    top: 52%;
+    height: 4px;
+    background: linear-gradient(90deg, rgba(221, 51, 51, 0) 0%, #DD3333 15%, #DD3333 85%, rgba(221, 51, 51, 0) 100%);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+
+  .intro-headline .accent {
+    background: linear-gradient(90deg, #ed8e00, #dd3333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .intro-sub {
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.65;
+    max-width: 640px;
+    margin: 0 auto 36px;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .intro-sub strong {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  /* Image block — fades into top and bottom blocks */
+  .intro-image-wrap {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-8% - 1px);
+    aspect-ratio: 48 / 9;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  .intro-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.55) contrast(1.05);
+  }
+
+  .intro-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #020202 0%, rgba(2, 2, 2, 0.6) 18%, rgba(2, 2, 2, 0.2) 50%, rgba(2, 2, 2, 0.7) 82%, #020202 100%);
+    pointer-events: none;
+  }
+
+  /* ── Animations triggered when section is in view ── */
+  .intro-statement.is-visible .line-1 {
+    animation: fade-up 0.7s cubic-bezier(0.65, 0, 0.35, 1) 0.1s forwards;
+  }
+
+  .intro-statement.is-visible .strike::after {
+    animation: strike-draw 0.6s cubic-bezier(0.65, 0, 0.35, 1) 0.7s forwards;
+  }
+
+  .intro-statement.is-visible .line-2 {
+    animation: fade-up 0.7s cubic-bezier(0.65, 0, 0.35, 1) 1.0s forwards;
+  }
+
+  .intro-statement.is-visible .intro-sub {
+    animation: fade-up 0.7s cubic-bezier(0.65, 0, 0.35, 1) 1.5s forwards;
+  }
+
+  .intro-statement.is-visible .intro-image-wrap {
+    animation: fade-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) 1.8s forwards;
+  }
+
+  @keyframes fade-up {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes strike-draw {
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .intro-statement { padding: 30px 6% 0; }
+    .intro-sub { margin-bottom: 24px; }
+    .intro-image-wrap {
+      aspect-ratio: 16 / 9;
+      margin-left: -6%;
+    }
+  }
+</style>
+
+<script>
+  function initIntroStatement() {
+    document.querySelectorAll<HTMLElement>('.intro-statement').forEach((section) => {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            section.classList.add('is-visible');
+            io.unobserve(section);
+          }
+        });
+      }, { threshold: 0.25 });
+      io.observe(section);
+    });
+  }
+
+  initIntroStatement();
+
+  document.addEventListener('astro:page-load', initIntroStatement);
+</script>

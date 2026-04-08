@@ -4,6 +4,7 @@ import AnimatedGradient from '../AnimatedGradient.astro';
 import HeroCentered from '../HeroCentered.astro';
 import SplitSection from '../SplitSection.astro';
 import MentorIntro from '../MentorIntro.astro';
+import IntroStatement from '../IntroStatement.astro';
 import FullWidthImage from '../FullWidthImage.astro';
 import BackgroundQuote from '../BackgroundQuote.astro';
 import TestimonialSlider from '../TestimonialSlider.astro';
@@ -69,7 +70,10 @@ const {
     stats={intro.stats}
   />
 
-  <!-- 3. Transformation Timeline (right after bio) -->
+  <!-- 3. Intro Statement (animated) -->
+  <IntroStatement imageSrc="/images/mentoring/studio-bg.jpg" imageAlt="SLATIN Studio" />
+
+  <!-- 4. Transformation Timeline (right after bio) -->
   <TransformationTimeline
     sectionTitle={outcomes.sectionTitle}
     phases={outcomes.phases}
