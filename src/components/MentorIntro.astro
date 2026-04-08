@@ -43,6 +43,9 @@ const { tagline, name, nameAccent, bio, imageSrc, logosSrc, stats } = Astro.prop
             </div>
           ))}
         </div>
+        <div class="mentor-logos reveal">
+          <img src={logosSrc} alt="Client logos" loading="lazy" />
+        </div>
       </div>
 
       <!-- Photo side -->
@@ -52,11 +55,6 @@ const { tagline, name, nameAccent, bio, imageSrc, logosSrc, stats } = Astro.prop
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Logos full width -->
-  <div class="mentor-logos reveal">
-    <img src={logosSrc} alt="Client logos" loading="lazy" />
   </div>
 </section>
 
@@ -76,7 +74,7 @@ const { tagline, name, nameAccent, bio, imageSrc, logosSrc, stats } = Astro.prop
 
   /* ── Layout ── */
   .mentor-content {
-    padding: 48px 8% 40px;
+    padding: 48px 8% 80px;
   }
 
   .mentor-grid {
@@ -166,11 +164,13 @@ const { tagline, name, nameAccent, bio, imageSrc, logosSrc, stats } = Astro.prop
 
   /* ── Logos ── */
   .mentor-logos {
-    padding: 32px 8% 36px;
+    padding-top: 28px;
+    width: 100%;
   }
 
   .mentor-logos img {
     width: 100%;
+    max-width: 100%;
     display: block;
     object-fit: contain;
     opacity: 0.45;
@@ -179,7 +179,7 @@ const { tagline, name, nameAccent, bio, imageSrc, logosSrc, stats } = Astro.prop
   /* ── Tablet ── */
   @media (min-width: 768px) {
     .mentor-content {
-      padding: 72px 7% 48px;
+      padding: 72px 7% 96px;
     }
 
     .mentor-grid {
@@ -207,14 +207,16 @@ const { tagline, name, nameAccent, bio, imageSrc, logosSrc, stats } = Astro.prop
     }
 
     .mentor-logos {
-      padding: 32px 7% 36px;
+      padding-top: 28px;
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 
   /* ── Desktop ── */
   @media (min-width: 1280px) {
     .mentor-content {
-      padding: 88px 8% 56px;
+      padding: 88px 8% 112px;
     }
 
     .mentor-grid {
@@ -255,14 +257,14 @@ const { tagline, name, nameAccent, bio, imageSrc, logosSrc, stats } = Astro.prop
     }
 
     .mentor-logos {
-      padding: 36px 8% 40px;
+      padding-top: 32px;
     }
   }
 
   /* ── Wide screens ── */
   @media (min-width: 1600px) {
     .mentor-content {
-      padding: 96px 10% 64px;
+      padding: 96px 10% 128px;
     }
 
     .mentor-photo {
@@ -275,7 +277,7 @@ const { tagline, name, nameAccent, bio, imageSrc, logosSrc, stats } = Astro.prop
     }
 
     .mentor-logos {
-      padding: 40px 10% 44px;
+      padding-top: 36px;
     }
   }
 </style>

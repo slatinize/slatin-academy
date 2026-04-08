@@ -2,16 +2,17 @@
 interface Props {
   imageSrc?: string;
   imageAlt?: string;
+  hideImage?: boolean;
 }
 
-const { imageSrc = "/images/mentoring/studio-bg.jpg", imageAlt = "" } = Astro.props;
+const { imageSrc = "/images/mentoring/studio-bg.jpg", imageAlt = "", hideImage = false } = Astro.props;
 ---
 
 <section class="intro-statement section-dark">
   <div class="intro-content">
     <h2 class="intro-headline">
       <span class="line line-1">
-        You need <span class="strike">more tutorials.</span>
+        You need <span class="strike">more tutorials</span><span class="dim-dot">.</span>
       </span>
       <span class="line line-2">
         You need a <span class="accent">real path forward.</span>
@@ -23,10 +24,12 @@ const { imageSrc = "/images/mentoring/studio-bg.jpg", imageAlt = "" } = Astro.pr
     </p>
   </div>
 
-  <div class="intro-image-wrap">
-    <img src={imageSrc} alt={imageAlt} loading="lazy" />
-    <div class="intro-image-overlay"></div>
-  </div>
+  {!hideImage && (
+    <div class="intro-image-wrap">
+      <img src={imageSrc} alt={imageAlt} loading="lazy" />
+      <div class="intro-image-overlay"></div>
+    </div>
+  )}
 </section>
 
 <style>
@@ -48,7 +51,7 @@ const { imageSrc = "/images/mentoring/studio-bg.jpg", imageAlt = "" } = Astro.pr
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.02em;
-    margin-bottom: 24px;
+    margin-bottom: 44px;
   }
 
   .intro-headline .line {
@@ -58,7 +61,11 @@ const { imageSrc = "/images/mentoring/studio-bg.jpg", imageAlt = "" } = Astro.pr
   }
 
   .intro-headline .line-1 {
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.80);
+  }
+
+  .intro-headline .dim-dot {
+    opacity: 0.6;
   }
 
   .intro-headline .line-2 {
@@ -111,7 +118,7 @@ const { imageSrc = "/images/mentoring/studio-bg.jpg", imageAlt = "" } = Astro.pr
     position: relative;
     width: 100vw;
     margin-left: calc(-8% - 1px);
-    aspect-ratio: 48 / 9;
+    aspect-ratio: 64 / 9;
     overflow: hidden;
     opacity: 0;
     transform: translateY(40px);
@@ -170,7 +177,7 @@ const { imageSrc = "/images/mentoring/studio-bg.jpg", imageAlt = "" } = Astro.pr
     .intro-statement { padding: 30px 6% 0; }
     .intro-sub { margin-bottom: 24px; }
     .intro-image-wrap {
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 20 / 9;
       margin-left: -6%;
     }
   }

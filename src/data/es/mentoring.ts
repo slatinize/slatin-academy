@@ -8,8 +8,8 @@ export const pageData = {
 
   hero: {
     tagline: "Programa de Mentoría",
-    title: 'Construye una Carrera Musical Rentable en <span class="gradient-text-red">Tus Propios Términos</span>',
-    subtitle: "Todo lo que necesitas saber para Mezclar y Masterizar como un profesional y construir una carrera que pague.",
+    title: '<span class="hero-line">Construye una <strong>Carrera Musical Rentable</strong></span><span class="hero-line">bajo <span class="gradient-text-red">Tus Propios Términos</span></span>',
+    subtitle: "Todo lo que necesitas saber para <strong>Mezclar y Masterizar</strong> como un profesional y construir una carrera que pague.",
     ctaText: "EMPIEZA HOY",
     ctaHref: "#getaccess",
     subCtaText: "",
@@ -19,7 +19,7 @@ export const pageData = {
     tagline: "Tu Mentor",
     name: "Ruslan",
     nameAccent: "SLATIN",
-    bio: "He mezclado y masterizado más de 1.000 canciones para Sony, Warner, Def Jam, Netflix y más — obteniendo certificaciones multi-platino y un puesto en el top 1% de ingenieros de mezcla. Ahora, todo lo que he aprendido es tuyo.",
+    bio: "He mezclado y masterizado más de 1.000 canciones para Sony, Warner, Def Jam, Netflix y más, obteniendo certificaciones multi-platino y un puesto en el top 1% de ingenieros de mezcla. Ahora, todo lo que he aprendido es tuyo.",
     stats: [
       { value: "Top 0.1%", label: "Ingenieros de Mastering", highlight: true },
       { value: "1.000+", label: "Canciones al Año" },
@@ -31,14 +31,14 @@ export const pageData = {
 
   whatsIncluded: {
     sectionTitle: 'Cómo <em><span class="squiggle-basic">Cambiarás</span></em>',
-    sectionSubtitle: "Cambios reales en cómo trabajas, suenas y creces — no solo una lista de herramientas.",
+    sectionSubtitle: "Cambios reales en cómo trabajas, suenas y creces, no solo una lista de herramientas.",
     cards: [
       {
         icon: "fix",
         image: "/images/mentoring/feedback.gif",
         beforeAfter: { before: "adivinar a solas", after: "saber exactamente qué arreglar" },
         title: "Dejarás de Dudar de Tus Mezclas",
-        description: "Cada semana recibirás reseñas detalladas en vídeo de tus tracks — no consejos genéricos, sino feedback específico y accionable para que finalmente entiendas el porqué detrás de cada decisión.",
+        description: "Cada semana recibirás reseñas detalladas en vídeo de tus tracks, no consejos genéricos, sino feedback específico y accionable para que finalmente entiendas el porqué detrás de cada decisión.",
         valueTag: "Ahorra +100 horas de prueba y error",
       },
       {
@@ -46,7 +46,7 @@ export const pageData = {
         image: "/images/mentoring/group-calls.gif",
         beforeAfter: { before: "atascado y aislado", after: "guiado cada semana" },
         title: "Nunca Te Sentirás Perdido Otra Vez",
-        description: "Llamadas grupales en directo de 70 minutos, guía en tiempo real de un ingeniero multi-platino, y una comunidad privada de productores serios — siempre tendrás a quien preguntar cuando te encuentres con un muro.",
+        description: "Llamadas grupales en directo de 70 minutos, guía en tiempo real de un ingeniero multi-platino y una comunidad privada de productores serios, siempre tendrás a quien preguntar cuando te encuentres con un muro.",
         valueTag: "Respuesta en 24h, soporte siempre activo",
       },
       {
@@ -54,7 +54,7 @@ export const pageData = {
         image: "/images/mentoring/mentor-photo.jpg",
         beforeAfter: { before: "sonido amateur", after: "mezclas profesionales listas para sello" },
         title: "Tu Sonido Traducirá en Cualquier Sistema",
-        description: "Aprenderás las técnicas exactas usadas en discos de Sony, Warner, Def Jam y Netflix — y las aplicarás a tu propio trabajo con guía directa semanal de alguien que ya lo ha hecho.",
+        description: "Aprenderás las técnicas exactas usadas en discos de los principales sellos y las aplicarás a tu propio trabajo con guía directa semanal de alguien que ya lo ha hecho.",
         valueTag: "Técnicas reales de releases reales",
       },
       {
@@ -62,7 +62,7 @@ export const pageData = {
         image: "/images/mentoring/chat.gif",
         beforeAfter: { before: "trabajar gratis", after: "cobrar con confianza" },
         title: "Construirás una Carrera Que Realmente Paga",
-        description: "Más allá de lo técnico: cobrar tu trabajo, encontrar clientes, negociar con sellos y construir un negocio musical sostenible — respaldado por más de 15 años en la industria.",
+        description: "Más allá de lo técnico: cobrar tu trabajo, encontrar clientes, negociar con sellos y construir un negocio musical sostenible, respaldado por más de 15 años en la industria.",
         valueTag: "Negocio real, no dinero de hobby",
       },
     ],
@@ -127,19 +127,19 @@ export const pageData = {
 
   featuredTestimonials: [
     {
-      quote: "La mentoría de Slatin ha sido inequívocamente el curso más esclarecedor que he tomado sobre Mezcla y Mastering — incluso superando cursos de un año entero que he hecho. El feedback continuo no tiene precio. Un verdadero cambio de juego.",
+      quote: "La mentoría de Slatin ha sido inequívocamente el curso más esclarecedor que he tomado sobre Mezcla y Mastering, incluso superando cursos de un año entero que he hecho. El feedback continuo no tiene precio. Un verdadero cambio de juego.",
       name: "Ignacio Fernandez",
       role: "Ingeniero de Mezcla",
       avatar: "/images/mentoring/alumni-ignacio.jpg",
     },
     {
-      quote: "Vale totalmente la pena, sin dudas. El compromiso de Ruslan con nuestro grupo ha sido excepcional — adaptándose a nuestras particularidades como si cada sesión fuera 1-a-1. Un cambio radical para mi crecimiento profesional.",
+      quote: "Vale totalmente la pena, sin dudas. El compromiso de Ruslan con nuestro grupo ha sido excepcional, adaptándose a nuestras particularidades como si cada sesión fuera 1-a-1. Un cambio radical para mi crecimiento profesional.",
       name: "Pablo Iglesias",
       role: "Productor",
       avatar: "/images/mentoring/alumni-pablo.jpg",
     },
     {
-      quote: "La mentoría con Ruslan ha sido fantástica — positiva, constructiva, profesional. He mejorado muchísimo mi mezcla de sonido. Ahora estoy listo para cualquier proyecto.",
+      quote: "La mentoría con Ruslan ha sido fantástica, positiva, constructiva y profesional. He mejorado muchísimo mi mezcla de sonido. Ahora estoy listo para cualquier proyecto.",
       name: "Sergio Hernae",
       role: "Productor",
       avatar: "/images/mentoring/alumni-sergio-h.jpg",

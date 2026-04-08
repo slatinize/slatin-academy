@@ -12,7 +12,7 @@ interface Props {
 const { title, subtitle, ctaText, ctaHref, subCtaText, tagline, avatars = [] } = Astro.props;
 ---
 
-<section class="relative min-h-screen flex items-center justify-center text-center px-6 py-20 overflow-hidden">
+<section class="relative min-h-screen flex items-center justify-center text-center px-6 pt-40 pb-20 overflow-hidden">
   <div class="relative z-10 max-w-[900px] mx-auto">
     {tagline && (
       <p class="hero-tagline reveal">{tagline}</p>
@@ -58,23 +58,33 @@ const { title, subtitle, ctaText, ctaHref, subCtaText, tagline, avatars = [] } =
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #DD3333;
-    margin-bottom: 24px;
+    margin-bottom: 38px;
   }
 
   .hero-title {
-    font-size: clamp(2.7rem, 5.4vw, 4.8rem);
+    font-size: clamp(2.2rem, 4.6vw, 4.2rem);
     font-weight: 500;
-    line-height: 1.1;
+    line-height: 1.18;
     letter-spacing: -0.03em;
-    margin-bottom: 1.2rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .hero-title :global(.hero-line) {
+    display: block;
+    white-space: nowrap;
+    margin-top: 0.4rem;
+  }
+
+  .hero-title :global(.hero-line:first-child) {
+    margin-top: 0;
   }
 
   .hero-subtitle {
     font-size: clamp(1rem, 1.3vw, 1.2rem);
     font-weight: 400;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 2.2rem;
-    max-width: 520px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 3rem;
+    max-width: 560px;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.6;

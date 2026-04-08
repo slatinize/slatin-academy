@@ -9,7 +9,7 @@ const { backgroundImage, quote } = Astro.props;
 
 <section class="bg-quote-section relative overflow-hidden" style={`background-image: url('${backgroundImage}')`}>
   <div class="bg-quote-overlay"></div>
-  <div class="relative z-10 max-w-6xl mx-auto px-6 py-4 pb-10 md:py-6 md:pb-16 text-center reveal">
+  <div class="relative z-10 max-w-4xl mx-auto px-6 py-10 md:py-16 text-center reveal">
     <p class="bg-quote-text" set:html={quote} />
   </div>
 </section>
@@ -19,7 +19,9 @@ const { backgroundImage, quote } = Astro.props;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 20vh;
+    min-height: 28vh;
+    margin-top: 24px;
+    margin-bottom: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,9 +35,11 @@ const { backgroundImage, quote } = Astro.props;
   }
 
   .bg-quote-text {
-    font-size: clamp(1.4rem, 3vw, 3rem);
+    font-size: clamp(1rem, 1.6vw, 1.6rem);
+    font-weight: 400;
     font-style: italic;
-    line-height: 1.5;
-    color: white;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+    font-family: inherit;
   }
 </style>

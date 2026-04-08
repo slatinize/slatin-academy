@@ -73,7 +73,7 @@ const icons: Record<string, string> = {
         {extras.map((extra) => (
           <div class="wi-extra-row">
             <div class="wi-check">✓</div>
-            <div class="wi-extra-text"><strong>{extra.highlight}</strong> — {extra.text}</div>
+            <div class="wi-extra-text"><strong>{extra.highlight}:</strong> {extra.text}</div>
           </div>
         ))}
       </div>
@@ -227,6 +227,7 @@ const icons: Record<string, string> = {
     font-size: 2.4rem;
     font-weight: 800;
     line-height: 1;
+    margin-top: calc(-0.22em - 1px);
     background: linear-gradient(90deg, #ed8e00, #dd3333);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

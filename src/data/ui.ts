@@ -64,7 +64,7 @@ export const ui: Record<Locale, UIStrings> = {
       links: [
         { label: 'Mentoría', href: '/es/mentoring' },
         { label: 'Low End', href: '/es/low-end-mastery' },
-        { label: 'Microdinámica', href: '/es/microdynamics' },
+        { label: 'Microdinámicas', href: '/es/microdynamics' },
         { label: 'Mastering', href: '/es/mastering-challenge' },
       ],
       submitSong: 'Envía Tu Canción',

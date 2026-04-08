@@ -2,13 +2,13 @@ import type { Testimonial, Module, FaqItem, Feature, NumberedItem } from '../typ
 
 export const pageData = {
   meta: {
-    title: "Curso Avanzado de Microdinámica - Mezcla y Mastering",
+    title: "Advanced Microdynamics - Curso de Mezcla y Mastering",
     description: "Aprende técnicas avanzadas de procesamiento microdinámico para mezcla y mastering. +4 horas de lecciones prácticas en vídeo por SLATIN.",
   },
 
   hero: {
-    badgeText: "Avanzado",
-    title: 'Curso de <span class="squiggle">Microdinámica</span>',
+    badgeText: "Curso",
+    title: 'Advanced<br><span class="squiggle">Microdynamics</span>',
     subtitle: `<strong>Como productor o ingeniero de mezcla con experiencia, probablemente ya dominas EQ, compresión y efectos espaciales...</strong><br><br><span style='font-size: 0.85em; opacity: 0.75;'>Sin embargo, hay un aspecto crucial que muchos profesionales talentosos pasan por alto: las Microdinámicas.</span>`,
     ctaText: "Acceso Completo",
     ctaHref: "#pricing",

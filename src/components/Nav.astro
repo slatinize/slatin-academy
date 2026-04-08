@@ -11,9 +11,9 @@ const links = t.nav.links;
 ---
 
 <header id="site-header" class="fixed top-0 left-0 right-0 z-50" data-scrolled="false">
-  <nav class="w-full flex items-center justify-between h-16 md:h-20 px-6 md:px-[1%] lg:px-[6%]">
+  <nav class="relative w-full flex items-center justify-between h-16 md:h-20 px-6 md:px-[1%] lg:px-[6%]">
     <!-- Logo -->
-    <a href="https://www.slatin.pro" class="flex-shrink-0">
+    <a href="https://www.slatin.pro" class="flex-shrink-0" style="margin-left: calc(-2.2% - 2px);">
       <img
         src="https://www.slatin.pro/wp-content/uploads/2023/01/Recurso-21.png"
         alt="SLATIN"
@@ -22,7 +22,7 @@ const links = t.nav.links;
     </a>
 
     <!-- Desktop Links -->
-    <div class="hidden md:flex items-center gap-8">
+    <div class="hidden md:flex items-center gap-8 md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
       {links.map((link) => (
         <a
           href={link.href}

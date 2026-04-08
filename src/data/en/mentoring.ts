@@ -8,8 +8,8 @@ export const pageData = {
 
   hero: {
     tagline: "Mentoring Program",
-    title: 'Build a Profitable Music Career on <span class="gradient-text-red">Your Own Terms</span>',
-    subtitle: "Everything you need to know to Mix & Master like a pro and build a career that pays.",
+    title: '<span class="hero-line">Build a <strong>Profitable Music Career</strong></span><span class="hero-line">on <span class="gradient-text-red">Your Own Terms</span></span>',
+    subtitle: "Everything you need to know to <strong>Mix & Master</strong> like a pro and build a career that pays.",
     ctaText: "START TODAY",
     ctaHref: "#getaccess",
     subCtaText: "",
@@ -19,7 +19,7 @@ export const pageData = {
     tagline: "Your Mentor",
     name: "Ruslan",
     nameAccent: "SLATIN",
-    bio: "I've mixed and mastered over 1,000 songs for Sony, Warner, Def Jam, Netflix, and more — earning multi-platinum certifications and a spot in the top 1% of mixing engineers. Now, everything I've learned is yours.",
+    bio: "I've mixed and mastered over 1,000 songs for Sony, Warner, Def Jam, Netflix and more, earning multi-platinum certifications and a spot in the top 1% of mixing engineers. Now, everything I've learned is yours.",
     stats: [
       { value: "Top 0.1%", label: "Mastering Engineers", highlight: true },
       { value: "1,000+", label: "Songs a Year" },
@@ -31,14 +31,14 @@ export const pageData = {
 
   whatsIncluded: {
     sectionTitle: 'How You\'ll <em><span class="squiggle-basic">Change</span></em>',
-    sectionSubtitle: "Real shifts in how you work, sound, and grow — not just a list of tools.",
+    sectionSubtitle: "Real shifts in how you work, sound and grow, not just a list of tools.",
     cards: [
       {
         icon: "fix",
         image: "/images/mentoring/feedback.gif",
         beforeAfter: { before: "guessing alone", after: "knowing exactly what to fix" },
         title: "You'll Stop Second-Guessing Your Mixes",
-        description: "Every week, you'll get detailed video reviews of your tracks — not generic advice, but specific, actionable feedback so you finally understand the why behind every decision.",
+        description: "Every week, you'll get detailed video reviews of your tracks, not generic advice, but specific, actionable feedback so you finally understand the why behind every decision.",
         valueTag: "Save 100+ hours of trial & error",
       },
       {
@@ -46,7 +46,7 @@ export const pageData = {
         image: "/images/mentoring/group-calls.gif",
         beforeAfter: { before: "stuck and isolated", after: "guided every week" },
         title: "You'll Never Feel Lost Again",
-        description: "Live 70-minute group calls, real-time guidance from a multi-platinum engineer, and a private community of serious producers — so you always have someone to ask when you hit a wall.",
+        description: "Live 70-minute group calls, real-time guidance from a multi-platinum engineer and a private community of serious producers, so you always have someone to ask when you hit a wall.",
         valueTag: "24h response, always-on support",
       },
       {
@@ -54,7 +54,7 @@ export const pageData = {
         image: "/images/mentoring/mentor-photo.jpg",
         beforeAfter: { before: "amateur sound", after: "professional, label-ready mixes" },
         title: "Your Sound Will Translate Everywhere",
-        description: "You'll learn the exact techniques used on records for Sony, Warner, Def Jam, and Netflix — and apply them to your own work with weekly direct guidance from someone who's done it.",
+        description: "You'll learn the exact techniques used on records for major labels and apply them to your own work with weekly direct guidance from someone who's done it.",
         valueTag: "Real techniques from real releases",
       },
       {
@@ -62,17 +62,17 @@ export const pageData = {
         image: "/images/mentoring/chat.gif",
         beforeAfter: { before: "working for free", after: "pricing with confidence" },
         title: "You'll Build a Career That Actually Pays",
-        description: "Beyond the technical side: pricing your work, finding clients, negotiating with labels, and building a sustainable music business — backed by 15+ years in the industry.",
+        description: "Beyond the technical side: pricing your work, finding clients, negotiating with labels and building a sustainable music business, backed by 15+ years in the industry.",
         valueTag: "Real business, not just hobby money",
       },
     ],
     extrasTitle: "Everything Else You Unlock",
     extras: [
       { highlight: "Cut through the industry noise", text: "insider knowledge of what actually moves the needle, so you stop wasting years figuring it out alone" },
-      { highlight: "Get in the room with decision makers", text: "A&Rs, label execs, and top engineers who can change the trajectory of your career" },
-      { highlight: "Build relationships that open doors", text: "a private community of serious producers who push, support, and collaborate with you for years" },
-      { highlight: "Skip the endless searching", text: "the exact samples, presets, and books I personally use, so you build with proven tools from day one" },
-      { highlight: "Stop being ignored by labels", text: "battle-tested email templates that actually get replies from labels, managers, and promoters" },
+      { highlight: "Get in the room with decision makers", text: "A&Rs, label execs and top engineers who can change the trajectory of your career" },
+      { highlight: "Build relationships that open doors", text: "a private community of serious producers who push, support and collaborate with you for years" },
+      { highlight: "Skip the endless searching", text: "the exact samples, presets and books I personally use, so you build with proven tools from day one" },
+      { highlight: "Stop being ignored by labels", text: "battle-tested email templates that actually get replies from labels, managers and promoters" },
       { highlight: "Sound bigger from day one", text: "FUSION (Valhalla VintageVerb pack) free, so your reverbs hit like a pro studio's" },
     ],
   },
@@ -127,25 +127,25 @@ export const pageData = {
 
   featuredTestimonials: [
     {
-      quote: "Slatin's mentorship has unequivocally been the most enlightening course I've taken on Mixing and Mastering — even outshining year-long courses I've attended. The continuous feedback is invaluable. A real game-changer.",
+      quote: "Slatin's mentorship has unequivocally been the most enlightening course I've taken on Mixing and Mastering, even outshining year-long courses I've attended. The continuous feedback is invaluable. A real game-changer.",
       name: "Ignacio Fernandez",
       role: "Mixing Engineer",
       avatar: "/images/mentoring/alumni-ignacio.jpg",
     },
     {
-      quote: "It's totally worth it, no doubts there. Ruslan's commitment to our group has been top-notch — adapting to our individual quirks and needs as if each session was 1-on-1. A game-changer for my professional growth.",
+      quote: "It's totally worth it, no doubts there. Ruslan's commitment to our group has been top-notch, adapting to our individual quirks and needs as if each session was 1-on-1. A game-changer for my professional growth.",
       name: "Pablo Iglesias",
       role: "Producer",
       avatar: "/images/mentoring/alumni-pablo.jpg",
     },
     {
-      quote: "The mentorship with Ruslan has been nothing short of fantastic — positive, constructive, professional. I've improved my sound mixing big time. Now I'm up for any project.",
+      quote: "The mentorship with Ruslan has been nothing short of fantastic, positive, constructive and professional. I've improved my sound mixing big time. Now I'm up for any project.",
       name: "Sergio Hernae",
       role: "Producer",
       avatar: "/images/mentoring/alumni-sergio-h.jpg",
     },
     {
-      quote: "Having the opportunity to attend Slatin's mentorships was a big step forward in enhancing my skills in production, mixing, and mastering. If you're looking to seriously level up, 100% recommended.",
+      quote: "Having the opportunity to attend Slatin's mentorships was a big step forward in enhancing my skills in production, mixing and mastering. If you're looking to seriously level up, 100% recommended.",
       name: "Pere Bacardit",
       role: "Producer",
       avatar: "/images/mentoring/alumni-pere.jpg",
@@ -172,19 +172,19 @@ export const pageData = {
       avatar: "/images/mentoring/avatar-auriga.jpg",
     },
     {
-      quote: "SLATIN was the game changer in my life. Today, I am achieving the goals I once dreamed of, thanks to the three years I spent learning from him. He is an incredible and approachable teacher, and his professionalism stands out. I will always be grateful to SLATIN because he played a major part in making me who I am today.",
+      quote: "SLATIN was the game changer in my life. Today, I am achieving the goals I once dreamed of, thanks to the three years I spent learning from him. He is an incredible and approachable teacher and his professionalism stands out. I will always be grateful to SLATIN because he played a major part in making me who I am today.",
       name: "Krumel",
       role: "DJ & Producer",
       avatar: "/images/mentoring/avatar-krumel.jpg",
     },
     {
-      quote: "Rus has truly helped me take my tracks to the next level. Whether it's mixing, mastering, production, or music business. Rus will go out of his way to answer whatever questions you may have and make sure you leave a session genuinely content. There will always be something new to learn from him!",
+      quote: "Rus has truly helped me take my tracks to the next level. Whether it's mixing, mastering, production or music business. Rus will go out of his way to answer whatever questions you may have and make sure you leave a session genuinely content. There will always be something new to learn from him!",
       name: "Nicolas K",
       role: "DJ & Producer",
       avatar: "/images/mentoring/avatar-nicolas.jpg",
     },
     {
-      quote: "Slatin transformed my production skills and knowledge. We started working together in 2020, and he has been my teacher, mentor, and engineer ever since. He not only taught me how things are done in the mixing process but also the reasoning behind it. While working with Slatin, I have received international support from Tiesto, Gate21, DJs From Mars and many many others!",
+      quote: "Slatin transformed my production skills and knowledge. We started working together in 2020 and he has been my teacher, mentor and engineer ever since. He not only taught me how things are done in the mixing process but also the reasoning behind it. While working with Slatin, I have received international support from Tiesto, Gate21, DJs From Mars and many many others!",
       name: "RICO",
       role: "DJ & Producer",
       avatar: "/images/mentoring/avatar-rico.jpg",
@@ -283,8 +283,8 @@ export const pageData = {
     {
       name: "Pere Bacardit",
       avatar: "/images/mentoring/alumni-pere.jpg",
-      review: `<p>Having the opportunity to attend Slatin's mentorships was a big step forward in enhancing my skills in production, mixing, and mastering. Thanks to these sessions, I've gained more tools to achieve the sound I want and communicate more effectively with the people with whom I collaborate and work.</p>
-<p>Additionally, these mentorships taught me better organization skills, insights about the music industry, and how to shape my career within it. Unlike other learning formats, these mentorships, being live group classes, constantly triggered learning from everyone's experiences and queries, substantially enhancing learning outcomes. Every new concept had immediate applicability.</p>
+      review: `<p>Having the opportunity to attend Slatin's mentorships was a big step forward in enhancing my skills in production, mixing and mastering. Thanks to these sessions, I've gained more tools to achieve the sound I want and communicate more effectively with the people with whom I collaborate and work.</p>
+<p>Additionally, these mentorships taught me better organization skills, insights about the music industry and how to shape my career within it. Unlike other learning formats, these mentorships, being live group classes, constantly triggered learning from everyone's experiences and queries, substantially enhancing learning outcomes. Every new concept had immediate applicability.</p>
 <p>Slatin opened up access to excellent resources and materials. Every question was not just answered but broken down to digestible information or addressed with specific videos. If you're looking to seriously level up, this experience is 100% recommended.</p>`,
     },
     {
@@ -292,13 +292,13 @@ export const pageData = {
       avatar: "/images/mentoring/alumni-pablo.jpg",
       review: `<p>It's totally worth it, no doubts there. Ruslan's commitment to our group has been top-notch - adapting to our individual quirks and needs as if each session was a one-on-one. The growth of the group has been nothing short of remarkable. Daily feedback and group chats revealed so much plus all the content has been well documented for future reference.</p>
 <p>Personally, this mentorship has been a game-changer for my professional growth. I was at a point where I felt stuck, like my career wasn't moving as I wanted it to. But these classes have helped me not only technically but also in terms of the relationship and dealing with my clients.</p>
-<p>The mentorship served as a reality-check, helping us see where we stand as professionals, set clear goals, and map out a plan to achieve them. I'd recommend this course to anyone who is seriously considering this line of work and is willing to put in the time to get the max out of the resources provided.</p>`,
+<p>The mentorship served as a reality-check, helping us see where we stand as professionals, set clear goals and map out a plan to achieve them. I'd recommend this course to anyone who is seriously considering this line of work and is willing to put in the time to get the max out of the resources provided.</p>`,
     },
     {
       name: "Sergio Hernae",
       avatar: "/images/mentoring/alumni-sergio-h.jpg",
-      review: `<p>The mentorship with Ruslan has been nothing short of fantastic - it's been a positive, constructive, and professional journey all the way. I've improved my sound mixing big time. I used to shy away from mixing for other artists but now, I'm up for it any day.</p>
-<p>Ruslan's feedback on my work has always been spot-on, practical, and super helpful. And it's not the generic 'sounds good' kind of feedback. It's detailed pointers like 'try doing parallel compression with a 1176 for the transients' - makes a world of difference.</p>
+      review: `<p>The mentorship with Ruslan has been nothing short of fantastic, it's been a positive, constructive and professional journey all the way. I've improved my sound mixing big time. I used to shy away from mixing for other artists but now, I'm up for it any day.</p>
+<p>Ruslan's feedback on my work has always been spot-on, practical and super helpful. And it's not the generic 'sounds good' kind of feedback. It's detailed pointers like 'try doing parallel compression with a 1176 for the transients', makes a world of difference.</p>
 <p>Ruslan's classes are highly practical and we even dive into the music industry, beyond just mixing and mastering. Now, I've taken other supposedly expert-led courses in the past which, honestly, were nothing like this. With Ruslan, it's about real engagement with your work and growth in your career.</p>`,
     },
     {
@@ -327,7 +327,7 @@ export const pageData = {
   faqItems: [
     {
       question: "Who, specifically, is this Mentoring for?",
-      answer: `<strong>This Program is Tailored for Producers and Mixing Engineers that:</strong><ul class="list-disc pl-5 mt-2 space-y-1"><li>Want to accelerate their growth, and unlock their full potential in record time.</li><li>Want to cut through the noise of infinite misleading content & learn the "WHYs" behind each technique.</li><li>Want to improve their technical skills and knowledge of music production, mixing, and mastering.</li><li>Need tailored feedback on their work and direct access to an experienced mentor for guidance.</li><li>Want to learn how to promote their music effectively, build their brand, and grow their fanbase.</li><li>Are willing to invest in their education and development.</li><li>Are motivated to improve themselves and committed to achieving their goals.</li></ul>`,
+      answer: `<strong>This Program is Tailored for Producers and Mixing Engineers that:</strong><ul class="list-disc pl-5 mt-2 space-y-1"><li>Want to accelerate their growth and unlock their full potential in record time.</li><li>Want to cut through the noise of infinite misleading content & learn the "WHYs" behind each technique.</li><li>Want to improve their technical skills and knowledge of music production, mixing and mastering.</li><li>Need tailored feedback on their work and direct access to an experienced mentor for guidance.</li><li>Want to learn how to promote their music effectively, build their brand and grow their fanbase.</li><li>Are willing to invest in their education and development.</li><li>Are motivated to improve themselves and committed to achieving their goals.</li></ul>`,
       category: "About",
     },
     {
@@ -337,7 +337,7 @@ export const pageData = {
     },
     {
       question: "Do you have experience in teaching and mentoring?",
-      answer: "Absolutely! With over 8 years of experience teaching at various international music institutes, including Anonymous Studios (Los Angeles), SAE Institute (Madrid), Millenia (Valencia), and DJP Music School (Madrid). I have also worked with numerous students one-on-one, many of whom have gone on to achieve great success in the music industry.",
+      answer: "Absolutely! With over 8 years of experience teaching at various international music institutes, including Anonymous Studios (Los Angeles), SAE Institute (Madrid), Millenia (Valencia) and DJP Music School (Madrid). I have also worked with numerous students one-on-one, many of whom have gone on to achieve great success in the music industry.",
       category: "About",
     },
     {
@@ -347,12 +347,12 @@ export const pageData = {
     },
     {
       question: "How is this different from buying Courses or Tutorials online?",
-      answer: `Unlike pre-recorded content, our program is tailored to the needs and aspirations of each individual in the group, and we'll work together to create a <strong>customized plan</strong> that addresses your strengths, weaknesses, and unique challenges. Additionally, the program offers a supportive community, weekly feedback, and <strong>regular accountability check-ins</strong>.`,
+      answer: `Unlike pre-recorded content, our program is tailored to the needs and aspirations of each individual in the group and we'll work together to create a <strong>customized plan</strong> that addresses your strengths, weaknesses and unique challenges. Additionally, the program offers a supportive community, weekly feedback and <strong>regular accountability check-ins</strong>.`,
       category: "About",
     },
     {
       question: "Could you provide me with an outline of the Mentoring Program?",
-      answer: "As everyone's needs are unique, we will create a customized plan. Highlights include: Understanding and Applying EQ, Mastering Compression, Advanced Compression / Complex Curves, Mid/Side Processing, Business 101, Social Media Growth, How To Get Clients, Sound Design, Sidechain Compression, Micro-Dynamics, Vocal Mixing, The Magic of Tapes, All Mastering Secrets, Advanced Compression / Tonal Control, Automating your Studio, Using AI for Production, and Dolby Atmos Mixing.",
+      answer: "As everyone's needs are unique, we will create a customized plan. Highlights include: Understanding and Applying EQ, Mastering Compression, Advanced Compression / Complex Curves, Mid/Side Processing, Business 101, Social Media Growth, How To Get Clients, Sound Design, Sidechain Compression, Micro-Dynamics, Vocal Mixing, The Magic of Tapes, All Mastering Secrets, Advanced Compression / Tonal Control, Automating your Studio, Using AI for Production and Dolby Atmos Mixing.",
       category: "Program",
     },
     {
@@ -367,7 +367,7 @@ export const pageData = {
     },
     {
       question: "How big is the group?",
-      answer: "The minimum number of participants for the Group Mentoring program is four, and the maximum is fifteen. This ensures the group is large enough to foster a collaborative and supportive environment while allowing individual attention and feedback.",
+      answer: "The minimum number of participants for the Group Mentoring program is four and the maximum is fifteen. This ensures the group is large enough to foster a collaborative and supportive environment while allowing individual attention and feedback.",
       category: "Program",
     },
     {
@@ -377,7 +377,7 @@ export const pageData = {
     },
     {
       question: "What Equipment (Hardware) do I need?",
-      answer: "To participate in the Mentoring Program, you will need a computer or laptop with a reliable internet connection, and a pair of headphones or studio monitors of your choice.",
+      answer: "To participate in the Mentoring Program, you will need a computer or laptop with a reliable internet connection and a pair of headphones or studio monitors of your choice.",
       category: "Setup & Payment",
     },
     {
@@ -387,7 +387,7 @@ export const pageData = {
     },
     {
       question: "How does the payment system work?",
-      answer: `This mentoring program is <strong>Subscription based</strong>, and it has a commitment of <strong>Three Months</strong>.`,
+      answer: `This mentoring program is <strong>Subscription based</strong> and it has a commitment of <strong>Three Months</strong>.`,
       category: "Setup & Payment",
     },
     {
