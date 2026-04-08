@@ -57,9 +57,9 @@ export const pageData = {
     saveTime: {
       heading: 'Ahorra Tu <span class="squiggle-basic">Tiempo</span>',
       paragraphs: [
-        'La Selección de Sonido es <strong class="text-white">CLAVE.</strong>',
+        'La Selección de Sonido es <strong class="text-white">CLAVE...</strong>',
       ],
-      accent: "...y supone el 80% de tu sonido final.",
+      accent: "Y supone el 80% de tu sonido final.",
       afterAccent: [
         'Ya sea que uses Splice o tengas una librería de <em>samples</em> extensa, te enseñaré a elegir los <em>samples</em> correctos y a <strong class="text-white">dejar de dudar.</strong>',
       ],

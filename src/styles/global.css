@@ -12,6 +12,12 @@
   body {
     @apply bg-dark text-white font-sans;
     overflow-x: hidden;
+    font-variant-ligatures: no-common-ligatures;
+    font-feature-settings: "liga" 0, "clig" 0;
+  }
+
+  em {
+    padding-right: 0.08em;
   }
 
   /* Prevent iOS double-tap zoom on interactive elements */
