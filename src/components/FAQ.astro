@@ -63,9 +63,7 @@ const categoryCounts = hasCategories
             class="w-full flex items-center justify-between py-6 text-left group"
             data-faq-toggle={index}
           >
-            <span class="text-base md:text-lg font-medium pr-8 group-hover:text-accent-red transition-colors">
-              {item.question}
-            </span>
+            <span class="text-base md:text-lg font-medium pr-8 group-hover:text-accent-red transition-colors" set:html={item.question} />
             <span class="flex-shrink-0 w-8 h-8 rounded-full border border-white/30 flex items-center justify-center transition-transform" data-faq-icon={index}>
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="12" y1="5" x2="12" y2="19" class="faq-vertical" />

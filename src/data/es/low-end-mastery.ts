@@ -90,7 +90,7 @@ export const pageData = {
     items: [
       'Las mezclas suenan <strong>turbias o delgadas</strong> y los graves nunca encajan, hagas lo que hagas.',
       'Los <em>tracks</em> suenan genial en el estudio pero se <strong>desmoronan</strong> en otros sistemas: coche, discoteca o teléfono móvil.',
-      'No consigues <em>másters</em> con <strong>suficiente volumen</strong> sin que los graves distorsionen o pierdan <em>punch</em>.',
+      'No consigues másters con <strong>suficiente volumen</strong> sin que los graves distorsionen o pierdan <em>punch</em>.',
     ],
   },
 
@@ -105,17 +105,17 @@ export const pageData = {
       {
         iconSrc: "/images/low-end-translation.png",
         title: "Traducción de Graves Perfecta",
-        description: 'Descubre las 3 claves para una traducción de graves impecable que haga que tus canciones suenen potentes en cualquier sistema de reproducción.',
+        description: 'Domina el arte de trasladar los graves a cualquier entorno con un método pensado para <strong>el mundo real</strong>.',
       },
       {
         iconSrc: "/images/loudness-icon.png",
         title: "Volumen Sin Compromiso",
-        description: 'Alcanza tus niveles objetivos de LUFS con mezclas potentes y listas para el club. Es mucho más que solo <em>clipping</em> y <em>limiting</em>.',
+        description: 'Lleva el volumen a niveles comerciales sin perder impacto ni dinámica, más allá de <em>presets</em>, más allá de limitadores, <strong>volumen de verdad</strong>.',
       },
       {
         iconSrc: "/images/sound-selection-icon.png",
         title: "Selección y Modelado de Sonido",
-        description: 'Domina el arte de seleccionar los <em>samples</em> correctos y moldear <em>kicks</em> para cualquier género, que son la base del 80% de tu sonido final.',
+        description: 'Entrena el oído para elegir los sonidos correctos desde el principio y moldear <em>kicks</em> que ya encajan en la mezcla, <strong>la mitad del trabajo se gana antes del EQ</strong>.',
       },
     ] as Feature[],
   },
@@ -129,11 +129,11 @@ export const pageData = {
       },
       {
         number: "02",
-        text: 'Quieres entender la <strong>relación entre <em>kick</em> y <em>bass</em></strong> a un nivel profundo y profesional.',
+        text: 'Quieres entender la <strong>base rítmica de la música actual</strong> a un nivel detallado y profesional.',
       },
       {
         number: "03",
-        text: 'Necesitas lograr <strong>másters potentes y con <em>punch</em></strong> sin sacrificar claridad ni traducción de graves.',
+        text: 'Sientes que tus <strong>másters tocan techo</strong> y que, cuando son suficientemente potentes, pierden limpieza y, cuando son limpios, pierden pegada.',
       },
     ] as NumberedItem[],
   },

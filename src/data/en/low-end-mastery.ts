@@ -105,17 +105,17 @@ export const pageData = {
       {
         iconSrc: "/images/low-end-translation.png",
         title: "Perfect Low-End Translation",
-        description: "Discover the 3 keys to flawless low-end translation that makes your songs bang on every playback system.",
+        description: "Master the craft of translating low-end anywhere, with a framework built for <strong>the real world</strong>.",
       },
       {
         iconSrc: "/images/loudness-icon.png",
         title: "Loudness Without Compromise",
-        description: "Hit your target LUFS levels with punchy, club-ready mixes. It's much more than just clipping and limiting.",
+        description: "Push loudness to commercial levels without losing impact or dynamics, beyond presets, beyond limiters, <strong>real loudness</strong>.",
       },
       {
         iconSrc: "/images/sound-selection-icon.png",
         title: "Sound Selection & Shaping",
-        description: "Master the art of selecting the right samples and shaping kicks for any genre, the foundation of 80% of your final sound.",
+        description: "Train your ear to pick the right sounds from the start and shape kicks that already sit in the mix, <strong>half the battle is won before EQ</strong>.",
       },
     ] as Feature[],
   },
@@ -129,11 +129,11 @@ export const pageData = {
       },
       {
         number: "02",
-        text: "Want to understand the <strong>kick and bass relationship</strong> at a deep, professional level.",
+        text: "Want to understand the <strong>rhythmic foundation of modern music</strong> at a detailed, professional level.",
       },
       {
         number: "03",
-        text: "Need to achieve <strong>loud, punchy masters</strong> without sacrificing low-end clarity and translation.",
+        text: "Feel your <strong>masters hit a ceiling</strong>: when they're loud enough they lose clarity, and when they're clean they lose punch.",
       },
     ] as NumberedItem[],
   },

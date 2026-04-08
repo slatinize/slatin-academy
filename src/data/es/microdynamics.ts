@@ -9,7 +9,7 @@ export const pageData = {
   hero: {
     badgeText: "Avanzado",
     title: 'Curso de <span class="squiggle">Microdinámica</span>',
-    subtitle: `<strong>Como productor o ingeniero de mezcla con experiencia, probablemente ya dominas <em>EQ</em>, compresión y efectos espaciales...</strong><br><br><span style='font-size: 0.85em; opacity: 0.75;'>Sin embargo, hay un aspecto crucial que muchos profesionales talentosos pasan por alto: las Microdinámicas.</span>`,
+    subtitle: `<strong>Como productor o ingeniero de mezcla con experiencia, probablemente ya dominas EQ, compresión y efectos espaciales...</strong><br><br><span style='font-size: 0.85em; opacity: 0.75;'>Sin embargo, hay un aspecto crucial que muchos profesionales talentosos pasan por alto: las Microdinámicas.</span>`,
     ctaText: "Acceso Completo",
     ctaHref: "#pricing",
     secondaryCtaText: "Ver Contenido",
@@ -139,7 +139,7 @@ export const pageData = {
     genres: {
       heading: '<span class="squiggle-basic">Múltiples Géneros</span>',
       paragraphs: [
-        'Desde Pop y Rock hasta House, Techno y Urbano, todo lo que enseñamos se aplica a <strong class="text-white">proyectos reales</strong> 🎵',
+        'Desde Pop y Rock hasta House, Tecno y Urbano, todo lo que enseñamos se aplica a <strong class="text-white">proyectos reales</strong> 🎵',
         'Solo las técnicas y <em>plugins</em> más actuales, siempre basados en ejemplos prácticos.',
       ],
     },
