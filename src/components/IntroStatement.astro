@@ -16,6 +16,7 @@ const copy = {
     accent: 'real path forward.',
     sub: "YouTube taught you the basics. Now you'll have someone to push you, review your work and show you what's really standing in your way.",
     subBold: "That's exactly what you'll get here.",
+    cta: 'Unlock your <strong>full potential</strong> and accelerate your growth by joining my <strong>Mentoring Program.</strong>',
   },
   es: {
     line1Prefix: 'No necesitarás',
@@ -24,6 +25,7 @@ const copy = {
     accent: 'camino real.',
     sub: "YouTube te enseñó lo básico. Ahora tendrás a alguien que te empujará, revisará tu trabajo y te mostrará qué te está frenando de verdad.",
     subBold: "Exactamente eso es lo que tendrás aquí.",
+    cta: 'Desbloquea tu <strong>máximo potencial</strong> y acelera tu crecimiento uniéndote a mi <strong>Programa de Mentoría.</strong>',
   },
 }[lang];
 ---
@@ -42,6 +44,7 @@ const copy = {
       {copy.sub}
       <strong>{copy.subBold}</strong>
     </p>
+    <p class="intro-cta reveal" set:html={copy.cta} />
   </div>
 
   {!hideImage && (
@@ -57,7 +60,7 @@ const copy = {
     padding: 60px 8% 0;
     position: relative;
     overflow: hidden;
-    margin-bottom: -40px;
+    margin-bottom: -20px;
   }
 
   .intro-content {
@@ -133,6 +136,22 @@ const copy = {
     font-weight: 600;
   }
 
+  .intro-cta {
+    font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .intro-cta :global(strong) {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 600;
+  }
+
   /* Image block — fades into top and bottom blocks */
   .intro-image-wrap {
     position: relative;
@@ -174,6 +193,10 @@ const copy = {
 
   .intro-statement.is-visible .intro-sub {
     animation: fade-up 0.7s cubic-bezier(0.65, 0, 0.35, 1) 1.5s forwards;
+  }
+
+  .intro-statement.is-visible .intro-cta {
+    animation: fade-up 0.7s cubic-bezier(0.65, 0, 0.35, 1) 2.0s forwards;
   }
 
   .intro-statement.is-visible .intro-image-wrap {
