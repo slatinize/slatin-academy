@@ -30,7 +30,7 @@ export const pageData = {
   backgroundQuote: 'Unlock your <strong>full potential</strong> and accelerate your growth by joining my <strong>Mentoring Program.</strong>',
 
   whatsIncluded: {
-    sectionTitle: 'How You\'ll <em><span class="squiggle-basic">Change</span></em>',
+    sectionTitle: 'Your Engineer <em><span class="squiggle-basic">Glow-Up</span></em>',
     sectionSubtitle: "Four shifts in how you work, sound, and earn.",
     cards: [
       {
