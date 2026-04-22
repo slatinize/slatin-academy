@@ -18,25 +18,31 @@ export interface Props {
   alumni?: AlumniFace[];
   showProof?: boolean;
   showVideoLink?: boolean;
+  lang?: 'en' | 'es';
 }
+
+const { lang = 'en' } = Astro.props;
+const isEs = lang === 'es';
 
 const {
   eyebrow = "Mix & Master Accelerator",
   headlineHtml = 'Build a <strong>Profitable Music Career</strong> on <span class="grad">Your Own Terms</span>',
-  subCopyHtml = 'Everything you need to <strong>Mix &amp; Master</strong> like a pro — and build a career that pays.',
-  ctaLabel = "Start Today",
+  subCopyHtml = 'Everything you need to <strong>Mix &amp; Master</strong> like a pro and build a career that pays.',
+  ctaLabel = isEs ? "Empieza Hoy" : "Start Today",
   ctaHref = "#getaccess",
-  videoLabel = "Watch 2-min intro",
+  videoLabel = isEs ? "Ver intro de 2 min" : "Watch 2-min intro",
   videoHref = "#intro-video",
   backgroundImage = "/images/mentoring/studio-bg.jpg",
   rating = "5.0",
-  proofTextHtml = 'Trusted by <strong>200+ engineers</strong>',
+  proofTextHtml = isEs
+    ? 'Avalado por <strong>+200 ingenieros</strong>'
+    : 'Trusted by <strong>200+ engineers</strong>',
   alumni = [
-    { src: "/images/mentoring/alumni-ignacio.jpg", alt: "" },
-    { src: "/images/mentoring/alumni-marco-b.jpg", alt: "" },
-    { src: "/images/mentoring/alumni-pablo.jpg", alt: "" },
-    { src: "/images/mentoring/alumni-pere.jpg", alt: "" },
-    { src: "/images/mentoring/alumni-sergio-h.jpg", alt: "" },
+    { src: "/images/mentoring/review-eurofighterzz.jpg", alt: "" },
+    { src: "/images/mentoring/review-alex-granero.jpg", alt: "" },
+    { src: "/images/mentoring/review-jorge-zuloaga.jpg", alt: "" },
+    { src: "/images/mentoring/review-carlos-chacon.jpg", alt: "" },
+    { src: "/images/mentoring/review-marc-cano.jpg", alt: "" },
   ],
   showProof = true,
   showVideoLink = false,
@@ -154,15 +160,18 @@ const {
 
   .hero__heading {
     margin: 0;
-    max-width: 980px;
-    font-size: clamp(42px, 5.8vw, 80px);
+    max-width: 1200px;
+    font-size: clamp(36px, 5.2vw, 72px);
     font-weight: 500;
-    line-height: 1.05;
+    line-height: 1.08;
     letter-spacing: -0.035em;
     color: #fff;
-    text-wrap: balance;
   }
   .hero__heading :global(strong) { font-weight: 800; }
+  .hero__heading :global(.hero-line) {
+    display: block;
+    white-space: nowrap;
+  }
   .hero__heading :global(.grad) {
     position: relative;
     display: inline-block;

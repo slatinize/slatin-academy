@@ -1,26 +1,39 @@
 ---
 interface Props {
   googleUrl?: string;
+  lang?: 'en' | 'es';
 }
-const { googleUrl = 'https://share.google/s1OerdqIhmgp05KOr' } = Astro.props;
+const { googleUrl = 'https://share.google/s1OerdqIhmgp05KOr', lang = 'en' } = Astro.props;
+const isEs = lang === 'es';
 
-const reviews = [
-  { name: 'James Symington',              role: 'Producer',              avatar: '/images/mentoring/alumni-marco-b.jpg',  date: '8 months ago',  quote: "By far the most enjoyable and effective audio mentoring out there. Slatin is an amazing educator who actually knows how to teach — every session leaves you with something you can use tomorrow." },
-  { name: 'dani',                         role: 'Producer',              avatar: '/images/mentoring/avatar-nicolas.jpg',  date: '7 months ago',  quote: "You can tell right away he is a true professional who totally masters his field. The best mentor I've had — no fluff, just real, actionable guidance on every call." },
-  { name: 'Luis J. Montoro',              role: 'Producer',              avatar: '/images/mentoring/alumni-pablo.jpg',    date: '2 months ago',  quote: "Slatin is a genius. Not only is he technically flawless, but he also has the musical sensitivity to explain the 'why' behind every move. That's what makes him a great teacher, not just a great engineer." },
-  { name: 'Juan Viera Lopez',             role: 'Professional Musician', avatar: '/images/mentoring/avatar-rico.jpg',     date: '7 months ago',  quote: "An experience worthy of the very best! I just finished the mixing and mastering program and I came out with a real, working system — not just theory." },
-  { name: 'Alex Granero',                 role: 'Producer',              avatar: '/images/mentoring/alumni-sergio-p.jpg', date: '9 months ago',  quote: "One of the best I've ever seen. Besides having a top-notch team that takes care of every detail, Slatin teaches in a way that finally makes the hard stuff click." },
-  { name: 'Eurofighterzz',               role: 'Engineer',              avatar: '/images/mentoring/alumni-ignacio.jpg',  date: '9 months ago',  quote: "One of the best mastering engineers in Spain, if not the best. He's also an excellent trainer if you want to really level up — his feedback is worth its weight in gold." },
-  { name: 'jorge zuloaga gonzalez',       role: 'Producer',              avatar: '/images/mentoring/alumni-pere.jpg',     date: '9 months ago',  quote: "Since I started working with him, my mixes have taken a huge leap forward. Having someone like Slatin in your corner who actually reviews your work honestly is a game-changer." },
-  { name: 'David Dare',                   role: 'Aspiring Producer',     avatar: '/images/mentoring/avatar-krumel.jpg',   date: '9 months ago',  quote: "As an aspiring producer, having the opportunity to enjoy a masterclass with Slatin and his team was unforgettable — I walked away understanding things I'd been guessing at for years." },
-  { name: 'Carlos Chacon',               role: 'Producer',              avatar: '/images/mentoring/alumni-sergio-h.jpg', date: '9 months ago',  quote: "Slatin is a true professional; his experience is evident. He excels not only at mastering and mixing, but at teaching — he knows exactly how to unblock you." },
-  { name: 'Immortal Music',              role: 'Artist',                avatar: '/images/mentoring/avatar-auriga.jpg',   date: '2 months ago',  quote: "This man has an endless amount of knowledge! He truly makes what sometimes seems very complicated look easy — the mark of a real teacher." },
-  { name: 'Juata · Grabaciones Nómada',  role: 'Engineer',              avatar: '/images/mentoring/avatar-marco-s.jpg', date: '9 months ago',  quote: "A wonderful experience learning from this great professional. He's not only excellent in his skills and knowledge, but what I appreciated most was the personal touch in how he teaches." },
-  { name: 'Pablo Mateo Pillajo Montero', role: 'Producer',              avatar: '/images/mentoring/alumni-marco-b.jpg',  date: '8 months ago',  quote: "My experience at the Mix and Master Accelerator has been incredible. The classes and private tutoring are a different level — you actually leave knowing what to do." },
-  { name: 'Gus Barraca',                 role: 'Producer',              avatar: '/images/mentoring/alumni-pablo.jpg',    date: '9 months ago',  quote: "Slatin and his team are on another level. Very professional. Slatin is an exceptional teacher and gives you much more than you pay for. I recommend him 100%." },
-  { name: 'Borya Producer',              role: 'Producer',              avatar: '/images/mentoring/avatar-rico.jpg',     date: '10 months ago', quote: "I highly recommend Slatin's consultations and courses; he's one of the best in the country, both technically and as a mentor who actually makes you better." },
-  { name: 'Esperanza Nogales',           role: 'Engineer',              avatar: '/images/mentoring/alumni-pere.jpg',     date: '9 months ago',  quote: "One of the best places in Spain to improve your sound. I went to a workshop and learned things you won't find on YouTube — real working knowledge from someone at the top." },
-  { name: 'Marc Cano Sánchez',           role: 'Producer',              avatar: '/images/mentoring/alumni-ignacio.jpg',  date: '1 month ago',   quote: "I went to Slatin's studio for a course and I couldn't have been happier. The way he explains things, you finally understand what's going on under the hood." },
+const translateDate = (d: string) => {
+  if (!isEs) return d;
+  return d
+    .replace(/(\d+)\s+months?\s+ago/i, (_, n) => `hace ${n} ${Number(n) === 1 ? 'mes' : 'meses'}`)
+    .replace(/(\d+)\s+years?\s+ago/i, (_, n) => `hace ${n} ${Number(n) === 1 ? 'año' : 'años'}`)
+    .replace(/(\d+)\s+weeks?\s+ago/i, (_, n) => `hace ${n} ${Number(n) === 1 ? 'semana' : 'semanas'}`)
+    .replace(/(\d+)\s+days?\s+ago/i, (_, n) => `hace ${n} ${Number(n) === 1 ? 'día' : 'días'}`);
+};
+
+type Review = { name: string; role: string; roleEs?: string; avatar: string; hasBadge?: boolean; date: string; quote: string; quoteEs?: string };
+
+const reviews: Review[] = [
+  { name: 'James Symington',              role: 'Producer',              roleEs: 'Productor',              avatar: '/images/mentoring/alumni-marco-b.jpg',  date: '8 months ago',  quote: "By far the most enjoyable and effective audio mentoring out there. Slatin is an amazing educator who actually knows how to teach, every session leaves you with something you can use tomorrow", quoteEs: "Sin duda la mentoría de audio más disfrutable y efectiva que hay. Slatin es un educador increíble que realmente sabe enseñar, cada sesión te deja algo que puedes aplicar al día siguiente" },
+  { name: 'dani',                         role: 'Producer',              roleEs: 'Productor',              avatar: '/images/mentoring/avatar-nicolas.jpg',  date: '7 months ago',  quote: "You can tell right away he is a true professional who totally masters his field. The best mentor I've had, no fluff, just real, actionable guidance on every call", quoteEs: "Se nota desde el primer momento que es un verdadero profesional que domina totalmente su campo. El mejor mentor que he tenido, sin paja, solo guía real y aplicable en cada llamada" },
+  { name: 'Luis J. Montoro',              role: 'Producer',              roleEs: 'Productor',              avatar: '/images/mentoring/review-luis-montoro.jpg', hasBadge: true, date: '2 months ago',  quote: "Slatin is a genius. Not only is he technically flawless, he also has the musical sensitivity to know exactly what an artist wants to express and bring it to life. On top of that, he's an amazing mentor! Human and professional quality that's hard to find", quoteEs: "Slatin es un genio. No solo es impecable técnicamente, sino que también tiene la sensibilidad musical necesaria para saber qué es lo que quiere transmitir un artista y conseguirlo. ¡Además, es un mentor brutal! Calidad humana y profesional difícil de encontrar" },
+  { name: 'Juan Viera Lopez',             role: 'Professional Musician', roleEs: 'Músico Profesional',     avatar: '/images/mentoring/review-juan-viera.jpg',     date: '7 months ago',  quote: "An experience on par with the very best! I'm a professional musician and I just finished their mix/master course, it's incredible. The amount of knowledge and the way they explain things… it was amazing! The customer care and personal treatment also make you feel great. Without a doubt, now I understand why they're number 1 in Spain", quoteEs: "¡Una experiencia a la altura de los mejores! Soy músico profesional y acabo de terminar su curso de <em>mix/master</em> y es increíble. La cantidad de conocimientos y forma de explicar… ¡fue genial! Así como la atención al cliente y el trato personalizado… Te hacen sentir muy bien. Sin duda alguna ahora entiendo por qué son los números 1 en España" },
+  { name: 'Alex Granero',                 role: 'Producer',              roleEs: 'Productor',              avatar: '/images/mentoring/review-alex-granero.jpg', date: '9 months ago',  quote: "Some of the best work I've ever seen. Besides having a top-notch team that looks after every detail, Slatin has an exceptional sensibility and ear. He always takes my sound to the next level, understanding exactly what I'm going for and adding a final touch that makes everything sound bigger, more defined and full of personality. If you're looking for someone who treats your music as if it were their own, I can't recommend him enough. A privilege to work with him!", quoteEs: "De lo mejor que he visto. Aparte de tener un equipo de 10 cuidando cada detalle, Slatin tiene una sensibilidad y un oído excepcionales. Siempre consigue llevar mi sonido al siguiente nivel entendiendo perfectamente lo que busco y aportando un toque final que hace que todo suene más grande, más definido y con mucha personalidad. Si buscas a alguien que cuide tu música como si fuera suya, no puedo recomendarlo lo suficiente. ¡Un lujo poder contar con él!" },
+  { name: 'Eurofighterzz',               role: 'Engineer',              roleEs: 'Ingeniero',              avatar: '/images/mentoring/review-eurofighterzz.jpg',  date: '9 months ago',  quote: "One of the best mastering engineers in Spain, if not the best. On top of that, an excellent teacher if what you want is to learn about mix and mastering, or about the business side itself. Personally, he has taught and inspired me a lot over the past few years. If you ask me? Slatin and his team are the 🐐", quoteEs: "Uno de los mejores ingenieros de <em>mastering</em> de España, si no el mejor. Además, un excelente formador si lo que te interesa es aprender sobre <em>mix</em> y <em>mastering</em>, o sobre el negocio en sí. A mí personalmente me ha enseñado e inspirado muchísimo desde hace ya unos cuantos años. ¿Si me preguntan? Slatin y su equipo son la 🐐" },
+  { name: 'jorge zuloaga gonzalez',       role: 'Producer',              roleEs: 'Productor',              avatar: '/images/mentoring/review-jorge-zuloaga.jpg',     date: '9 months ago',  quote: "Since I started working with him, my mixes have taken a huge leap forward. Having someone like Slatin, who's not only a great teacher but also a mastering engineer with real industry experience, makes all the difference. His ear, his judgement and the way he guides you take your sound to another level. Slatin is the professional you need. Highly recommended", quoteEs: "Desde que empecé con él, mis mezclas han pegado un salto enorme. Tener a alguien como Slatin, que no solo es un gran profesor, sino también un ingeniero de <em>mastering</em> con experiencia real en la industria, marca la diferencia. Su oído, su criterio y la forma en que te guía elevan tu sonido a otro nivel. Slatin es el profesional que necesitas. Recomendadísimo" },
+  { name: 'David Dare',                   role: 'Aspiring Producer',     roleEs: 'Productor Aspirante',    avatar: '/images/mentoring/review-david-dare.jpg',   date: '9 months ago',  quote: "As an aspiring producer, getting to enjoy a masterclass with Slatin and his team, right in their own studio, has been an incredible experience. Beyond being didactic, the closeness and professional inspiration they give off while you watch them work live is priceless", quoteEs: "Como aspirante a productor, el poder haber podido disfrutar de una <em>masterclass</em> con Slatin y su equipo, en su propio estudio, ha sido una experiencia increíble. Aparte de didáctica, la cercanía e inspiración profesional que transmiten al verlos trabajar en directo, no tiene precio" },
+  { name: 'Carlos Chacon',               role: 'Producer',              roleEs: 'Productor',              avatar: '/images/mentoring/review-carlos-chacon.jpg', date: '9 months ago',  quote: "Slatin is a true professional at what he does, you can tell the experience he has. Not only for mastering and mixing, he also has an incredible vocation for teaching, he makes it so simple and easy that in the end you really get it. I recommend his courses and masterclasses 100%, you won't regret it", quoteEs: "Slatin es un profesional en lo que hace, se nota la experiencia que tiene. No solo para masterizar y mezclar, también tiene una vocación increíble para enseñar, lo hace tan simple y sencillo que al final terminas comprendiendo. Recomiendo al 100% sus cursos o <em>masterclasses</em>, no se van a arrepentir" },
+  { name: 'Immortal Music',              role: 'Artist',                roleEs: 'Artista',                avatar: '/images/mentoring/review-immortal-music.jpg',   date: '2 months ago',  quote: "Endless knowledge, this guy! Honestly, in his trainings he makes what sometimes seems very complicated look easy. Super happy with everything I've learned. Highly recommended", quoteEs: "¡Conocimiento infinito lo de este hombre! La verdad que en sus formaciones hace ver fácil lo que a veces parece muy complicado, muy contento con el aprendizaje. Súper recomendado" },
+  { name: 'Juata · Grabaciones Nómada',  role: 'Engineer',              roleEs: 'Ingeniero',              avatar: '/images/mentoring/review-juata.jpg', date: '9 months ago',  quote: "A wonderful experience learning from this great professional. He's not only great because of his skills, knowledge and team, what I liked the most was the human treatment from the people working there. Everything taken care of down to the detail and a kindness that not every professional at this level has. I hope to repeat the experience with one of their services at some point", quoteEs: "Maravillosa experiencia aprendiendo de este gran profesional. No solamente es bueno por sus habilidades, conocimientos y equipo, lo que más me gustó fue el trato humano de las personas que trabajan ahí. Todo cuidado al detalle y una amabilidad que no todos los profesionales de ese nivel tienen. Espero repetir experiencia en algún momento con alguno de sus servicios" },
+  { name: 'Pablo Mateo Pillajo Montero', role: 'Producer',              roleEs: 'Productor',              avatar: '/images/mentoring/review-pablo-mateo.jpg',  date: '8 months ago',  quote: "My experience at the Mix and Master Accelerator has been incredible, with the classes and the private tutoring. I've learned a ton, especially in mastering. Highly recommended. Slatin, the best", quoteEs: "Mi experiencia en el Mix and Master Accelerator ha sido increíble, con las clases y las tutorías privadas. He aprendido muchísimo, sobre todo en <em>mastering</em>. Recomendadísimo, Slatin el mejor" },
+  { name: 'Gus Barraca',                 role: 'Producer',              roleEs: 'Productor',              avatar: '/images/mentoring/review-gus-barraca.jpg',    date: '9 months ago',  quote: "Slatin and his team are on another level. Very professional. Slatin is an exceptional teacher and gives you much more than you pay for. I recommend him 100%", quoteEs: "Slatin y su equipo son de otro nivel. Muy profesionales. Slatin es un profesor excepcional y te da mucho más de lo que pagas. Lo recomiendo 100%" },
+  { name: 'Borya Producer',              role: 'Producer',              roleEs: 'Productor',              avatar: '/images/mentoring/review-borya.jpg',     date: '10 months ago', quote: "I recommend consultations and courses with Slatin, he's among the best in the Spanish scene, both technically and in terms of his human side. If you're looking to level up, you'll be in the best hands", quoteEs: "Recomiendo las consultas y los cursos con Slatin, es de lo mejor en el panorama nacional, tanto técnicamente como su calidad humana. Si buscas hacer un <em>level up</em> estarás en las mejores manos" },
+  { name: 'Esperanza Nogales',           role: 'Engineer',              roleEs: 'Ingeniera',              avatar: '/images/mentoring/review-esperanza.jpg',     date: '9 months ago',  quote: "Some of the best you can find in Spain to improve your sound. I went to one of their sessions and learned things you won't find just anywhere. On top of that, he and his team are super friendly", quoteEs: "De lo mejor que hay en España para mejorar tu sonido. Fui a una jornada y aprendí cosas que no encuentras en cualquier lado. Además él y su equipo son súper agradables" },
+  { name: 'Marc Cano Sánchez',           role: 'Producer',              roleEs: 'Productor',              avatar: '/images/mentoring/review-marc-cano.jpg',  date: '1 month ago',   quote: "I went to do a course with Slatin at his studio and I couldn't have left happier. Great way of explaining and great treatment, both from him and his whole team! 🫡", quoteEs: "Fui con Slatin a hacer un curso en su estudio y no pude haber salido más contento. ¡Gran manera de explicar y gran trato, tanto de su parte como de todo su equipo! 🫡" },
 ];
 
 const rowA = reviews.slice(0, 8);
@@ -34,13 +47,16 @@ const rowB = reviews.slice(8, 16);
     <!-- Aggregate header -->
     <div class="gr-agg">
       <div class="gr-agg-left">
-        <div class="gr-eyebrow">In Their Words</div>
+        <div class="gr-eyebrow">{isEs ? 'En Sus Palabras' : 'In Their Words'}</div>
         <h2 class="gr-h2">
-          <span class="gr-grad">5.0</span> from Producers<br>
-          and Engineers <span class="gr-italic">Like You</span>
+          {isEs ? (
+            <><span class="gr-grad">5.0</span> de Productores<br />e Ingenieros <span class="gr-italic">Como Tú</span></>
+          ) : (
+            <><span class="gr-grad">5.0</span> from Producers<br />and Engineers <span class="gr-italic">Like You</span></>
+          )}
         </h2>
         <p class="gr-lead">
-          When it finally clicks. Nothing sounds the same again.
+          {isEs ? 'Cuando por fin encaja. Nada vuelve a sonar igual.' : 'When it finally clicks. Nothing sounds the same again.'}
         </p>
       </div>
       <div class="gr-agg-right">
@@ -62,7 +78,7 @@ const rowB = reviews.slice(8, 16);
             <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
             <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
           </svg>
-          Read all on Google
+          {isEs ? 'Ver todas en Google' : 'Read all on Google'}
           <span class="gr-arrow" aria-hidden="true">→</span>
         </a>
       </div>
@@ -78,12 +94,12 @@ const rowB = reviews.slice(8, 16);
             <div class="gr-card">
               <div class="gr-card-head">
                 <div class="gr-card-user">
-                  <div class="gr-avatar">
+                  <div class={`gr-avatar ${r.hasBadge ? 'has-badge' : ''}`}>
                     <img src={r.avatar} alt={r.name} width="44" height="44" loading="lazy" />
                   </div>
                   <div>
                     <div class="gr-name">{r.name}</div>
-                    <div class="gr-role">{r.role}</div>
+                    <div class="gr-role">{isEs && r.roleEs ? r.roleEs : r.role}</div>
                   </div>
                 </div>
                 <div class="gr-gmark" title="Google review" aria-label="Google review">
@@ -102,8 +118,7 @@ const rowB = reviews.slice(8, 16);
                   </svg>
                 ))}
               </div>
-              <p class="gr-body">"{r.quote}"</p>
-              <div class="gr-foot">{r.date}</div>
+              <p class="gr-body" set:html={`"${isEs && r.quoteEs ? r.quoteEs : r.quote}".`} />
             </div>
           ))}
         </div>
@@ -116,12 +131,12 @@ const rowB = reviews.slice(8, 16);
             <div class="gr-card">
               <div class="gr-card-head">
                 <div class="gr-card-user">
-                  <div class="gr-avatar">
+                  <div class={`gr-avatar ${r.hasBadge ? 'has-badge' : ''}`}>
                     <img src={r.avatar} alt={r.name} width="44" height="44" loading="lazy" />
                   </div>
                   <div>
                     <div class="gr-name">{r.name}</div>
-                    <div class="gr-role">{r.role}</div>
+                    <div class="gr-role">{isEs && r.roleEs ? r.roleEs : r.role}</div>
                   </div>
                 </div>
                 <div class="gr-gmark" title="Google review" aria-label="Google review">
@@ -140,8 +155,7 @@ const rowB = reviews.slice(8, 16);
                   </svg>
                 ))}
               </div>
-              <p class="gr-body">"{r.quote}"</p>
-              <div class="gr-foot">{r.date}</div>
+              <p class="gr-body" set:html={`"${isEs && r.quoteEs ? r.quoteEs : r.quote}".`} />
             </div>
           ))}
         </div>
@@ -199,20 +213,26 @@ const rowB = reviews.slice(8, 16);
   .gr-agg {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end;
-    gap: 48px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
     padding-bottom: 56px;
     border-bottom: 1px solid rgba(255,255,255,.08);
     margin-bottom: 56px;
   }
 
-  .gr-agg-left { flex: 1 1 460px; }
+  .gr-agg-left {
+    flex: 1 1 460px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .gr-agg-right {
     flex: 0 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
+    align-items: center;
+    gap: 14px;
   }
 
   .gr-eyebrow {
@@ -222,16 +242,16 @@ const rowB = reviews.slice(8, 16);
     letter-spacing: .2em;
     text-transform: uppercase;
     color: #DD3333;
-    margin-bottom: 18px;
+    margin-bottom: 28px;
   }
 
   .gr-h2 {
     font-size: clamp(2rem, 4vw, 3.4rem);
-    font-weight: 700;
-    line-height: 1.1;
+    font-weight: 500;
+    line-height: 1.18;
     letter-spacing: -.02em;
     color: #fff;
-    margin: 0 0 20px;
+    margin: 0 0 32px;
   }
 
   .gr-grad {
@@ -241,7 +261,7 @@ const rowB = reviews.slice(8, 16);
     -webkit-text-fill-color: transparent;
   }
 
-  .gr-italic { font-style: italic; }
+  .gr-italic { font-weight: 900; }
 
   .gr-lead {
     font-size: 1.05rem;
@@ -277,7 +297,7 @@ const rowB = reviews.slice(8, 16);
   .gr-big-stars {
     display: flex;
     gap: 6px;
-    margin-top: 14px;
+    justify-content: center;
   }
   .gr-big-stars svg {
     width: 34px;
@@ -333,6 +353,14 @@ const rowB = reviews.slice(8, 16);
     height: 100%;
     object-fit: cover;
     display: block;
+  }
+  .gr-avatar.has-badge {
+    border-radius: 0;
+    overflow: visible;
+    background: transparent;
+  }
+  .gr-avatar.has-badge img {
+    object-fit: contain;
   }
 
   .gr-name {

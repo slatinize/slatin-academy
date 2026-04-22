@@ -48,11 +48,14 @@ const {
   <!-- 1. Hero -->
   <HeroCinematic
     eyebrow={hero.tagline}
-    headlineHtml={`Build a <strong>Profitable Music Career</strong> on <span class="grad">Your Own Terms</span>`}
+    headlineHtml={lang === 'es'
+      ? `<span class="hero-line">Una <strong>Carrera Musical Rentable</strong></span><span class="hero-line">bajo <span class="grad">Tus Propios Términos</span></span>`
+      : `<span class="hero-line">Build a <strong>Profitable Music Career</strong></span><span class="hero-line">on <span class="grad">Your Own Terms</span></span>`}
     subCopyHtml={hero.subtitle}
     ctaLabel={hero.ctaText}
     ctaHref="#decision"
     showVideoLink={true}
+    lang={lang}
   />
 
   <!-- 2. Mentor Intro + Logos -->
@@ -70,7 +73,7 @@ const {
   <IntroStatement imageSrc="/images/mentoring/studio-bg.jpg" imageAlt="SLATIN Studio" lang={lang} hideImage={true} />
 
   <!-- 4. Google Reviews -->
-  <GoogleReviews />
+  <GoogleReviews lang={lang} />
 
   <!-- 5. Transformation Timeline -->
   <TransformationTimeline
@@ -100,6 +103,7 @@ const {
     href={hero.ctaHref}
     eyebrow={marquee.subtitle}
     ctaLabel={hero.ctaText}
+    lang={lang}
   />
 
   <!-- 8. Real Results — slidable testimonials -->

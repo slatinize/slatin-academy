@@ -196,7 +196,11 @@ const links = t.nav.links;
   const header = document.getElementById('site-header');
   function updateHeader() {
     if (!header) return;
-    header.setAttribute('data-scrolled', window.scrollY > 50 ? 'true' : 'false');
+    const scrolled = header.getAttribute('data-scrolled') === 'true';
+    const y = window.scrollY;
+    // Hysteresis to avoid flicker at threshold
+    if (!scrolled && y > 60) header.setAttribute('data-scrolled', 'true');
+    else if (scrolled && y < 30) header.setAttribute('data-scrolled', 'false');
   }
   window.addEventListener('scroll', updateHeader, { passive: true });
   updateHeader();
