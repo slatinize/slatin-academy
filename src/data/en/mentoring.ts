@@ -19,7 +19,7 @@ export const pageData = {
     tagline: "Your Mentor",
     name: "Ruslan",
     nameAccent: "SLATIN",
-    bio: "I've mixed and mastered over 1,000 songs for Sony, Warner, Def Jam, Netflix and more, earning multi-platinum certifications and a spot in the top 1% of mixing engineers. Now, everything I've learned is yours.",
+    bio: "I've mixed and mastered over 1,000 songs for Sony, Warner, Def Jam, Netflix and more, earning multi-platinum certifications and a spot in the top 1% of mixing engineers. Now, it can be yours.",
     stats: [
       { value: "Top 0.1%", label: "Mastering Engineers", highlight: true },
       { value: "1,000+", label: "Songs a Year" },
@@ -31,7 +31,7 @@ export const pageData = {
 
   whatsIncluded: {
     sectionTitle: 'How You\'ll <em><span class="squiggle-basic">Change</span></em>',
-    sectionSubtitle: "Real shifts in how you work, sound and grow, not just a list of tools.",
+    sectionSubtitle: "Four shifts in how you work, sound, and earn.",
     cards: [
       {
         icon: "fix",
@@ -86,33 +86,33 @@ export const pageData = {
         icon: "✕",
         color: "rgba(255,255,255,0.3)",
         items: [
-          'Guessing what sounds "right".',
-          "Mixes that don't translate.",
+          'No system. Just guesses.',
+          "Stuck at 'good enough.'",
           "No feedback loop or accountability.",
           "Undercharging or working for free.",
         ],
       },
       {
         label: "After 90 Days",
-        title: "Confident Decisions",
+        title: "The Shift",
         icon: "→",
         color: "#ed8e00",
         items: [
-          "You'll understand the why of every decision.",
-          "Your sound will translate across every system.",
-          "You'll price your work with confidence.",
-          "You'll get weekly reviews and a clear growth plan.",
+          "Knowing the <em>why</em> behind every move.",
+          "Mixes and masters that hold up anywhere.",
+          "Pro-backed work your clients will love.",
+          "Pricing your work like a pro.",
         ],
       },
       {
         label: "After +5 Months",
-        title: "Professional Work",
+        title: "Your New Normal",
         icon: "★",
         color: "#DD3333",
         items: [
-          "You'll work with full confidence and freedom.",
-          "You'll grow and expand your business.",
-          "You'll master every tool and all the knowledge.",
+          "Confidence in every session.",
+          "A client base that pays pro rates.",
+          "Work you're proud to put your name on.",
         ],
       },
     ],

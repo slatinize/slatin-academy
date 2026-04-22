@@ -12,10 +12,10 @@ const copy = {
   en: {
     line1Prefix: "You won't need",
     strike: 'more tutorials',
-    line2Prefix: "You'll have a",
-    accent: 'real path forward.',
-    sub: "YouTube taught you the basics. Now you'll have someone to push you, review your work and show you what's really standing in your way.",
-    subBold: "That's exactly what you'll get here.",
+    line2Prefix: "",
+    accent: "You'll hear like a pro.",
+    sub: "You know the basics. Now you need a team of award-winning engineers who'll listen, diagnose, and teach you to hear what YouTube and courses can't.",
+    subBold: "",
     cta: 'Unlock your <strong>full potential</strong> and accelerate your growth by joining my <strong>Mentoring Program.</strong>',
   },
   es: {
@@ -44,7 +44,6 @@ const copy = {
       {copy.sub}
       <strong>{copy.subBold}</strong>
     </p>
-    <p class="intro-cta reveal" set:html={copy.cta} />
   </div>
 
   {!hideImage && (
@@ -137,19 +136,30 @@ const copy = {
   }
 
   .intro-cta {
-    font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30px);
+    width: 90%;
+    max-width: 800px;
+    font-size: clamp(1.15rem, 1.8vw, 1.5rem);
     font-style: italic;
-    color: rgba(255, 255, 255, 0.65);
-    line-height: 1.6;
-    max-width: 600px;
-    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.55;
+    text-align: center;
+    margin: 0;
     opacity: 0;
-    transform: translateY(20px);
+    z-index: 2;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.6);
   }
 
   .intro-cta :global(strong) {
-    color: rgba(255, 255, 255, 0.85);
-    font-weight: 600;
+    font-weight: 700;
+    font-style: italic;
+    background: linear-gradient(90deg, #ed8e00, #dd3333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   /* Image block — fades into top and bottom blocks */
@@ -196,7 +206,14 @@ const copy = {
   }
 
   .intro-statement.is-visible .intro-cta {
-    animation: fade-up 0.7s cubic-bezier(0.65, 0, 0.35, 1) 2.0s forwards;
+    animation: cta-fade-up 0.7s cubic-bezier(0.65, 0, 0.35, 1) 2.0s forwards;
+  }
+
+  @keyframes cta-fade-up {
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
   }
 
   .intro-statement.is-visible .intro-image-wrap {
