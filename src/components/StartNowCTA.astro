@@ -1,6 +1,7 @@
 ---
 export interface Props {
   href?: string;
+  id?: string;
   eyebrow?: string;
   headlineHtml?: string;
   ctaLabel?: string;
@@ -11,6 +12,7 @@ export interface Props {
 
 const {
   href = "#register",
+  id,
   eyebrow = "Public Registration Open",
   headlineHtml = 'Your breakthrough is one <span class="cta-underline">decision</span> away.',
   ctaLabel = "Start Today",
@@ -22,7 +24,7 @@ const {
 const marqueeItems = Array.from({ length: 10 });
 ---
 
-<section class="start-now" aria-labelledby="start-now-heading">
+<section class="start-now" id={id} aria-labelledby="start-now-heading">
   <div class="start-now__halo" aria-hidden="true"></div>
 
   <div class="start-now__marquees" aria-hidden="true">
