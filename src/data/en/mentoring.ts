@@ -66,7 +66,7 @@ export const pageData = {
         valueTag: "Real business, not just hobby money",
       },
     ],
-    extrasTitle: "Everything Else You Unlock",
+    extrasTitle: "What Else You Get",
     extras: [
       { highlight: "Cut through the industry noise", text: "insider knowledge of what actually moves the needle, so you stop wasting years figuring it out alone." },
       { highlight: "Get in the room with decision makers", text: "A&Rs, label execs and top engineers who can change the trajectory of your career." },
