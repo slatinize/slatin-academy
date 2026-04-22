@@ -7,7 +7,7 @@ export const pageData = {
   },
 
   hero: {
-    tagline: "Mentoring Program",
+    tagline: "Mix & Master Accelerator",
     title: '<span class="hero-line">Build a <strong>Profitable Music Career</strong></span><span class="hero-line">on <span class="gradient-text-red">Your Own Terms</span></span>',
     subtitle: "Everything you need to know to <strong>Mix & Master</strong> like a pro and build a career that pays.",
     ctaText: "START TODAY",
@@ -119,11 +119,11 @@ export const pageData = {
   },
 
   marquee: {
-    text: "Start Today",
-    subtitle: "Public Registration - Open Now! 🧨",
+    text: "Your Pro Era",
+    subtitle: "Public Registration - Open Now",
   },
 
-  alumniTitle: 'Real <em><span class="squiggle-basic">Results</span></em>',
+  alumniTitle: 'Voices From <em><span class="squiggle-basic">the Program</span></em>',
 
   featuredTestimonials: [
     {

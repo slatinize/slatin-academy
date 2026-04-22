@@ -1,0 +1,264 @@
+---
+export interface Props {
+  href?: string;
+  eyebrow?: string;
+  headlineHtml?: string;
+  ctaLabel?: string;
+  rating?: string;
+  alumniCount?: string;
+  marqueeText?: string;
+}
+
+const {
+  href = "#register",
+  eyebrow = "Public Registration Open",
+  headlineHtml = 'Your breakthrough is one <span class="cta-underline">decision</span> away.',
+  ctaLabel = "Start Today",
+  rating = "5.0",
+  alumniCount = "180+",
+  marqueeText = "START NOW ·",
+} = Astro.props;
+
+const marqueeItems = Array.from({ length: 10 });
+---
+
+<section class="start-now" aria-labelledby="start-now-heading">
+  <div class="start-now__halo" aria-hidden="true"></div>
+
+  <div class="start-now__marquees" aria-hidden="true">
+    <div class="start-now__marquee start-now__marquee--outline start-now__marquee--left">
+      {marqueeItems.map(() => <span>{marqueeText}</span>)}
+      {marqueeItems.map(() => <span>{marqueeText}</span>)}
+    </div>
+    <div class="start-now__marquee start-now__marquee--fill start-now__marquee--right">
+      {marqueeItems.map(() => <span>{marqueeText}</span>)}
+      {marqueeItems.map(() => <span>{marqueeText}</span>)}
+    </div>
+    <div class="start-now__marquee start-now__marquee--outline start-now__marquee--left start-now__marquee--slow">
+      {marqueeItems.map(() => <span>{marqueeText}</span>)}
+      {marqueeItems.map(() => <span>{marqueeText}</span>)}
+    </div>
+  </div>
+
+  <div class="start-now__card">
+    <div class="start-now__eyebrow">
+      <span class="start-now__dot" aria-hidden="true"></span>
+      {eyebrow}
+    </div>
+
+    <h2 id="start-now-heading" class="start-now__heading" set:html={headlineHtml} />
+
+    <a class="start-now__cta" href={href}>
+      <span>{ctaLabel}</span>
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+        <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    <div class="start-now__proof">
+      <div class="start-now__stars" aria-label={`Rated ${rating} out of 5`}>
+        {Array.from({ length: 5 }).map(() => (
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+            <path d="M12 2l2.9 6.9 7.4.6-5.6 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.7 9.5l7.4-.6L12 2z"/>
+          </svg>
+        ))}
+      </div>
+      <span><strong>{rating}</strong></span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .start-now {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--dark, #020202);
+    color: #fff;
+    padding: clamp(80px, 12vw, 160px) 0;
+    font-family: var(--font-sans, "Plus Jakarta Sans", system-ui, sans-serif);
+  }
+
+  .start-now__halo {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: min(1200px, 90vw);
+    height: min(900px, 70vh);
+    background: radial-gradient(
+      circle,
+      rgba(221, 51, 51, 0.30) 0%,
+      rgba(186, 22, 22, 0.12) 35%,
+      transparent 70%
+    );
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .start-now__marquees {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+    z-index: 1;
+    pointer-events: none;
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+
+  .start-now__marquee {
+    display: flex;
+    white-space: nowrap;
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    font-size: clamp(56px, 10vw, 120px);
+    will-change: transform;
+    animation: start-now-scroll 40s linear infinite;
+  }
+  .start-now__marquee span { padding-right: 0.4em; }
+
+  .start-now__marquee--outline {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.12);
+  }
+  .start-now__marquee--fill {
+    color: #DD3333;
+  }
+  .start-now__marquee--right  { animation-direction: reverse; animation-duration: 35s; }
+  .start-now__marquee--slow   { animation-duration: 50s; opacity: 0.85; }
+
+  @keyframes start-now-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .start-now__marquee { animation: none; }
+  }
+
+  .start-now__card {
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+    max-width: 560px;
+    padding: clamp(28px, 4vw, 40px) clamp(28px, 4vw, 48px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    text-align: center;
+    background: rgba(2, 2, 2, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 20px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
+  }
+
+  .start-now__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #DD3333;
+  }
+  .start-now__dot {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #DD3333;
+    box-shadow: 0 0 12px #DD3333;
+    flex-shrink: 0;
+  }
+  .start-now__dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: #DD3333;
+    animation: start-now-pulse 1.8s ease-out infinite;
+  }
+  @keyframes start-now-pulse {
+    0%   { transform: scale(1);   opacity: 0.7; }
+    100% { transform: scale(3.2); opacity: 0;   }
+  }
+
+  .start-now__heading {
+    margin: 0;
+    font-size: clamp(1.5rem, 2.4vw, 1.75rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #fff;
+    text-wrap: pretty;
+  }
+
+  .start-now__heading :global(.cta-underline) {
+    position: relative;
+    white-space: nowrap;
+  }
+  .start-now__heading :global(.cta-underline)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.25em;
+    height: 0.55em;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 18' preserveAspectRatio='none'><path d='M4 10 C 40 2, 80 16, 120 8 S 200 2, 240 12 S 290 6, 296 10' fill='none' stroke='%23BA1616' stroke-width='3' stroke-linecap='round'/></svg>");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    pointer-events: none;
+  }
+
+  .start-now__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 22px 36px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #DD3333, #BA1616);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.0625rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow:
+      0 10px 30px rgba(221, 51, 51, 0.35),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .start-now__cta:hover,
+  .start-now__cta:focus-visible {
+    background: linear-gradient(180deg, #FB4141, #DD3333);
+    box-shadow:
+      0 16px 50px rgba(221, 51, 51, 0.55),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.10);
+    transform: translateY(-2px);
+    outline: none;
+  }
+  .start-now__cta:active { transform: translateY(0); }
+
+  .start-now__proof {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.55);
+  }
+  .start-now__proof strong { color: #fff; font-weight: 700; }
+  .start-now__stars {
+    display: inline-flex;
+    gap: 2px;
+    color: #ED8E00;
+  }
+</style>
