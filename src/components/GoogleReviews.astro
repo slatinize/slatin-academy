@@ -1,0 +1,505 @@
+---
+interface Props {
+  googleUrl?: string;
+}
+const { googleUrl = 'https://www.google.com/search?sa=X&sca_esv=4120b7f1f0b03a83&rlz=1C5CHFA_enES1045ES1046&sxsrf=ANbL-n5AXhb6adEd4b_5oMWb5jlAJDWSBA:1776839048528&q=slatin.pro+-+Music+Mastering+Studio+Reviews&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDc0MDczNjEyMTEwtDA0MjYyNdzAyPiKUbs4J7EkM0-voChfQVfBt7Q4M1nBN7G4JLUoMy9dIbikNCUzXyEotSwztbx4ESspqgHukXgvdwAAAA&rldimm=17107634244018123251&tbm=lcl&hl=en-ES&ved=2ahUKEwiy3r2i6YCUAxUcVaQEHcLPFAAQ9fQKegQISxAG&cshid=1776839058381888&biw=1382&bih=797&dpr=2.5#lkt=LocalPoiReviews' } = Astro.props;
+
+const reviews = [
+  { name: 'James Symington',              role: 'Producer',              avatar: '/images/mentoring/alumni-marco-b.jpg',  date: '8 months ago',  quote: "By far the most enjoyable and effective audio mentoring out there. Slatin is an amazing educator who actually knows how to teach — every session leaves you with something you can use tomorrow." },
+  { name: 'dani',                         role: 'Producer',              avatar: '/images/mentoring/avatar-nicolas.jpg',  date: '7 months ago',  quote: "You can tell right away he is a true professional who totally masters his field. The best mentor I've had — no fluff, just real, actionable guidance on every call." },
+  { name: 'Luis J. Montoro',              role: 'Producer',              avatar: '/images/mentoring/alumni-pablo.jpg',    date: '2 months ago',  quote: "Slatin is a genius. Not only is he technically flawless, but he also has the musical sensitivity to explain the 'why' behind every move. That's what makes him a great teacher, not just a great engineer." },
+  { name: 'Juan Viera Lopez',             role: 'Professional Musician', avatar: '/images/mentoring/avatar-rico.jpg',     date: '7 months ago',  quote: "An experience worthy of the very best! I just finished the mixing and mastering program and I came out with a real, working system — not just theory." },
+  { name: 'Alex Granero',                 role: 'Producer',              avatar: '/images/mentoring/alumni-sergio-p.jpg', date: '9 months ago',  quote: "One of the best I've ever seen. Besides having a top-notch team that takes care of every detail, Slatin teaches in a way that finally makes the hard stuff click." },
+  { name: 'Eurofighterzz',               role: 'Engineer',              avatar: '/images/mentoring/alumni-ignacio.jpg',  date: '9 months ago',  quote: "One of the best mastering engineers in Spain, if not the best. He's also an excellent trainer if you want to really level up — his feedback is worth its weight in gold." },
+  { name: 'jorge zuloaga gonzalez',       role: 'Producer',              avatar: '/images/mentoring/alumni-pere.jpg',     date: '9 months ago',  quote: "Since I started working with him, my mixes have taken a huge leap forward. Having someone like Slatin in your corner who actually reviews your work honestly is a game-changer." },
+  { name: 'David Dare',                   role: 'Aspiring Producer',     avatar: '/images/mentoring/avatar-krumel.jpg',   date: '9 months ago',  quote: "As an aspiring producer, having the opportunity to enjoy a masterclass with Slatin and his team was unforgettable — I walked away understanding things I'd been guessing at for years." },
+  { name: 'Carlos Chacon',               role: 'Producer',              avatar: '/images/mentoring/alumni-sergio-h.jpg', date: '9 months ago',  quote: "Slatin is a true professional; his experience is evident. He excels not only at mastering and mixing, but at teaching — he knows exactly how to unblock you." },
+  { name: 'Immortal Music',              role: 'Artist',                avatar: '/images/mentoring/avatar-auriga.jpg',   date: '2 months ago',  quote: "This man has an endless amount of knowledge! He truly makes what sometimes seems very complicated look easy — the mark of a real teacher." },
+  { name: 'Juata · Grabaciones Nómada',  role: 'Engineer',              avatar: '/images/mentoring/avatar-marco-s.jpg', date: '9 months ago',  quote: "A wonderful experience learning from this great professional. He's not only excellent in his skills and knowledge, but what I appreciated most was the personal touch in how he teaches." },
+  { name: 'Pablo Mateo Pillajo Montero', role: 'Producer',              avatar: '/images/mentoring/alumni-marco-b.jpg',  date: '8 months ago',  quote: "My experience at the Mix and Master Accelerator has been incredible. The classes and private tutoring are a different level — you actually leave knowing what to do." },
+  { name: 'Gus Barraca',                 role: 'Producer',              avatar: '/images/mentoring/alumni-pablo.jpg',    date: '9 months ago',  quote: "Slatin and his team are on another level. Very professional. Slatin is an exceptional teacher and gives you much more than you pay for. I recommend him 100%." },
+  { name: 'Borya Producer',              role: 'Producer',              avatar: '/images/mentoring/avatar-rico.jpg',     date: '10 months ago', quote: "I highly recommend Slatin's consultations and courses; he's one of the best in the country, both technically and as a mentor who actually makes you better." },
+  { name: 'Esperanza Nogales',           role: 'Engineer',              avatar: '/images/mentoring/alumni-pere.jpg',     date: '9 months ago',  quote: "One of the best places in Spain to improve your sound. I went to a workshop and learned things you won't find on YouTube — real working knowledge from someone at the top." },
+  { name: 'Marc Cano Sánchez',           role: 'Producer',              avatar: '/images/mentoring/alumni-ignacio.jpg',  date: '1 month ago',   quote: "I went to Slatin's studio for a course and I couldn't have been happier. The way he explains things, you finally understand what's going on under the hood." },
+];
+
+const rowA = reviews.slice(0, 8);
+const rowB = reviews.slice(8, 16);
+---
+
+<section class="gr-section section-dark">
+  <div class="gr-halo" aria-hidden="true"></div>
+  <div class="gr-inner">
+
+    <!-- Aggregate header -->
+    <div class="gr-agg">
+      <div class="gr-agg-left">
+        <div class="gr-eyebrow">In Their Words</div>
+        <h2 class="gr-h2">
+          <span class="gr-grad">5.0</span> from Producers<br>
+          and Engineers <span class="gr-italic">Like You</span>
+        </h2>
+        <p class="gr-lead">
+          When it finally clicks. Nothing sounds the same again.
+        </p>
+      </div>
+      <div class="gr-agg-right">
+        <div class="gr-score-row">
+          <span class="gr-score">5.0</span>
+          <span class="gr-score-out">/ 5</span>
+        </div>
+        <div class="gr-big-stars" aria-label="5 out of 5 stars">
+          {[0,1,2,3,4].map(() => (
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          ))}
+        </div>
+        <a class="gr-cta-link gr-cta-inline" href={googleUrl} target="_blank" rel="noreferrer noopener">
+          <svg viewBox="0 0 48 48" width="16" height="16" aria-hidden="true" style="flex-shrink:0">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          </svg>
+          Read all on Google
+          <span class="gr-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Dual marquee carousel -->
+    <div class="gr-carousel">
+
+      <!-- Row A — forward -->
+      <div class="gr-track-wrap">
+        <div class="gr-track gr-track-fwd">
+          {[...rowA, ...rowA].map((r) => (
+            <div class="gr-card">
+              <div class="gr-card-head">
+                <div class="gr-card-user">
+                  <div class="gr-avatar">
+                    <img src={r.avatar} alt={r.name} width="44" height="44" loading="lazy" />
+                  </div>
+                  <div>
+                    <div class="gr-name">{r.name}</div>
+                    <div class="gr-role">{r.role}</div>
+                  </div>
+                </div>
+                <div class="gr-gmark" title="Google review" aria-label="Google review">
+                  <svg viewBox="0 0 48 48" width="14" height="14" aria-hidden="true">
+                    <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                    <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                    <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                    <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="gr-stars" aria-label="5 stars">
+                {[0,1,2,3,4].map(() => (
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                ))}
+              </div>
+              <p class="gr-body">"{r.quote}"</p>
+              <div class="gr-foot">{r.date}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Row B — reverse -->
+      <div class="gr-track-wrap">
+        <div class="gr-track gr-track-rev">
+          {[...rowB, ...rowB].map((r) => (
+            <div class="gr-card">
+              <div class="gr-card-head">
+                <div class="gr-card-user">
+                  <div class="gr-avatar">
+                    <img src={r.avatar} alt={r.name} width="44" height="44" loading="lazy" />
+                  </div>
+                  <div>
+                    <div class="gr-name">{r.name}</div>
+                    <div class="gr-role">{r.role}</div>
+                  </div>
+                </div>
+                <div class="gr-gmark" title="Google review" aria-label="Google review">
+                  <svg viewBox="0 0 48 48" width="14" height="14" aria-hidden="true">
+                    <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                    <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                    <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                    <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="gr-stars" aria-label="5 stars">
+                {[0,1,2,3,4].map(() => (
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                ))}
+              </div>
+              <p class="gr-body">"{r.quote}"</p>
+              <div class="gr-foot">{r.date}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="gr-cta-row">
+      <a class="gr-cta-link" href={googleUrl} target="_blank" rel="noreferrer noopener">
+        <svg viewBox="0 0 48 48" width="18" height="18" aria-hidden="true" style="flex-shrink:0">
+          <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+          <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+          <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+          <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+        </svg>
+        Read all reviews on Google
+        <span class="gr-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .gr-section {
+    position: relative;
+    padding: 96px 64px;
+    overflow: hidden;
+    background: #020202;
+    color: #fff;
+  }
+
+  .gr-halo {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 900px;
+    aspect-ratio: 2 / 1;
+    background: radial-gradient(ellipse at center, rgba(221,51,51,.18) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .gr-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* --- Aggregate header --- */
+  .gr-agg {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 48px;
+    padding-bottom: 56px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    margin-bottom: 56px;
+  }
+
+  .gr-agg-left { flex: 1 1 460px; }
+  .gr-agg-right {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .gr-eyebrow {
+    display: inline-block;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #DD3333;
+    margin-bottom: 18px;
+  }
+
+  .gr-h2 {
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -.02em;
+    color: #fff;
+    margin: 0 0 20px;
+  }
+
+  .gr-grad {
+    background: linear-gradient(90deg, #ED8E00, #DD3333);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gr-italic { font-style: italic; }
+
+  .gr-lead {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,.6);
+    max-width: 560px;
+  }
+
+  .gr-score-row {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+
+  .gr-score {
+    font-size: clamp(5rem, 10vw, 8.5rem);
+    font-weight: 500;
+    line-height: .9;
+    letter-spacing: -.04em;
+    background: linear-gradient(180deg, #fff 40%, rgba(255,255,255,.5));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gr-score-out {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: rgba(255,255,255,.4);
+    letter-spacing: -.02em;
+  }
+
+  .gr-big-stars {
+    display: flex;
+    gap: 6px;
+    margin-top: 14px;
+  }
+  .gr-big-stars svg {
+    width: 34px;
+    height: 34px;
+    color: #ED8E00;
+    filter: drop-shadow(0 0 10px rgba(237,142,0,.35));
+  }
+
+  /* --- Cards --- */
+  .gr-card {
+    width: 380px;
+    flex-shrink: 0;
+    background: linear-gradient(145deg, rgba(20,0,0,.35), rgba(10,10,10,.55));
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 20px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    color: #fff;
+    transition: border-color .3s ease, box-shadow .3s ease;
+  }
+
+  .gr-track:not(:is(.gr-track-fwd, .gr-track-rev)) .gr-card:hover,
+  .gr-card:hover {
+    border-color: rgba(221,51,51,.35);
+    box-shadow: 0 16px 50px rgba(0,0,0,.4);
+  }
+
+  .gr-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .gr-card-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .gr-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #1f1f1f;
+    flex-shrink: 0;
+  }
+  .gr-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gr-name {
+    font-size: .92rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  .gr-role {
+    font-size: .7rem;
+    color: rgba(255,255,255,.35);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-weight: 600;
+    margin-top: 3px;
+  }
+
+  .gr-gmark {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,.25);
+  }
+
+  .gr-stars {
+    display: flex;
+    gap: 3px;
+    color: #DD3333;
+    filter: drop-shadow(0 0 5px rgba(221,51,51,.4));
+  }
+
+  .gr-body {
+    font-size: .92rem;
+    line-height: 1.65;
+    color: rgba(255,255,255,.78);
+    flex: 1;
+    margin: 0;
+  }
+
+  .gr-foot {
+    font-size: .7rem;
+    color: rgba(255,255,255,.3);
+    letter-spacing: .04em;
+  }
+
+  /* --- Carousel --- */
+  .gr-carousel { display: flex; flex-direction: column; gap: 20px; }
+
+  .gr-track-wrap {
+    overflow: hidden;
+    margin: 0 -64px;
+    padding: 10px 0;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%);
+  }
+
+  .gr-track {
+    display: flex;
+    gap: 20px;
+    padding: 10px 64px;
+    width: max-content;
+  }
+
+  .gr-track-fwd {
+    animation: gr-slide-fwd 80s linear infinite;
+  }
+  .gr-track-rev {
+    animation: gr-slide-rev 95s linear infinite;
+  }
+  .gr-track-fwd:hover,
+  .gr-track-rev:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes gr-slide-fwd {
+    to { transform: translateX(calc(-50% - 10px)); }
+  }
+  @keyframes gr-slide-rev {
+    from { transform: translateX(calc(-50% - 10px)); }
+    to   { transform: translateX(0); }
+  }
+
+  /* --- Bottom CTA --- */
+  .gr-cta-row {
+    margin-top: 56px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .gr-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 32px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.12);
+    color: #fff;
+    font-weight: 700;
+    font-size: .95rem;
+    letter-spacing: -.005em;
+    text-decoration: none;
+    transition: background .25s ease, border-color .25s ease, transform .25s ease;
+  }
+  .gr-cta-link:hover {
+    background: rgba(255,255,255,.08);
+    border-color: rgba(255,255,255,.25);
+    transform: translateY(-2px);
+  }
+
+  .gr-arrow {
+    transition: transform .25s ease;
+  }
+  .gr-cta-link:hover .gr-arrow {
+    transform: translateX(4px);
+  }
+
+  /* --- Mobile --- */
+  @media (max-width: 768px) {
+    .gr-section {
+      padding: 56px 22px;
+    }
+
+    .gr-agg {
+      gap: 28px;
+      padding-bottom: 36px;
+      margin-bottom: 36px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .gr-agg-left { flex: 1 1 auto; width: 100%; }
+    .gr-agg-right { width: 100%; }
+
+    .gr-h2 { font-size: 1.75rem; }
+    .gr-lead { font-size: .95rem; }
+
+    .gr-score { font-size: 5rem; }
+    .gr-big-stars svg { width: 26px; height: 26px; }
+
+    .gr-track-wrap {
+      margin: 0 -22px;
+    }
+    .gr-track {
+      gap: 12px;
+      padding: 8px 22px;
+    }
+    .gr-track-fwd { animation-duration: 55s; }
+    .gr-track-rev { animation-duration: 65s; }
+    .gr-card {
+      width: 280px;
+      padding: 20px;
+    }
+    .gr-body { font-size: .88rem; }
+
+    .gr-cta-row { margin-top: 36px; }
+    .gr-cta-link {
+      padding: 14px 22px;
+      font-size: .88rem;
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
