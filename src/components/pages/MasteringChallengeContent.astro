@@ -6,6 +6,7 @@ import ProblemStatement from '../ProblemStatement.astro';
 import HowItWorks from '../HowItWorks.astro';
 import WeekSchedule from '../WeekSchedule.astro';
 import FeatureGrid from '../FeatureGrid.astro';
+import LearnSplit from '../LearnSplit.astro';
 import MentorIntro from '../MentorIntro.astro';
 import LogoBar from '../LogoBar.astro';
 import PricingDuo from '../PricingDuo.astro';
@@ -133,7 +134,18 @@ const {
   <!-- 2. Marquee divider -->
   <MarqueeBanner text={marquee.text} />
 
-  <!-- 3. Problem statement -->
+  <!-- 3. Slatin bio -->
+  <MentorIntro
+    tagline={about.tagline}
+    name={about.name}
+    nameAccent={about.nameAccent}
+    bio={about.bio}
+    imageSrc="/images/slatin-sofa.jpg"
+    logosSrc="/images/mentoring/logos-white.png"
+    stats={about.stats}
+  />
+
+  <!-- 4. Problem statement -->
   <ProblemStatement
     eyebrow={problems.eyebrow}
     headline={problems.headline}
@@ -155,26 +167,10 @@ const {
   />
 
   <!-- 6. What you'll learn -->
-  <FeatureGrid
+  <LearnSplit
     sectionTitle={learn.sectionTitle}
     features={learn.features}
-    columns={2}
-    variant="dark"
   />
-
-  <!-- 7. About Ruslan -->
-  <MentorIntro
-    tagline={about.tagline}
-    name={about.name}
-    nameAccent={about.nameAccent}
-    bio={about.bio}
-    imageSrc="/images/slatin-sofa.jpg"
-    logosSrc="/images/mentoring/logos-white.png"
-    stats={about.stats}
-  />
-
-  <!-- 8. Client logos -->
-  <LogoBar logoSrc="/images/mentoring/logos-white.png" variant="dark" />
 
   <!-- 9. Pricing -->
   <section class="section-dark section-padding" id="pricing">
@@ -238,7 +234,7 @@ const {
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: #DD3333;
-    padding: 48px 0 20px;
+    padding: 66px 0 2px;
     background: #020202;
   }
 

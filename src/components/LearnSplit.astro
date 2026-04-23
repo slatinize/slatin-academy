@@ -1,0 +1,262 @@
+---
+interface Feature {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  sectionTitle: string;
+  impactLine?: string;
+  lead?: string;
+  features: Feature[];
+}
+
+const {
+  sectionTitle,
+  impactLine = 'Sal con criterio. No con teoría.',
+  lead = '6 habilidades concretas que transforman cómo abordas un mastering para siempre.',
+  features,
+} = Astro.props;
+---
+
+<section class="ls section-dark section-padding">
+  <!-- Grid texture -->
+  <div class="section-grid" aria-hidden="true"></div>
+  <!-- Ambient halos -->
+  <div class="ls__halo ls__halo--a" aria-hidden="true"></div>
+  <div class="ls__halo ls__halo--b" aria-hidden="true"></div>
+
+  <div class="container-content" style="position:relative;z-index:1;">
+
+    <!-- Header row -->
+    <div class="ls__header">
+      <div class="ls__header-left">
+        <p class="ls__eyebrow">{sectionTitle}</p>
+        <h2 class="ls__big-title" set:html={impactLine.replace('criterio', '<span class="grad">criterio</span>')} />
+      </div>
+      <p class="ls__lead">{lead}</p>
+    </div>
+
+    <!-- Full-width numbered rows -->
+    <div class="ls__rows">
+      {features.map((f, i) => {
+        const num = String(i + 1).padStart(2, '0');
+        return (
+          <div class="ls__row reveal">
+            <div class="ls__row-bg-num" aria-hidden="true">{num}</div>
+            <div class="ls__row-num">{num}</div>
+            <div class="ls__row-title">{f.title}</div>
+            <p class="ls__row-desc">{f.description}</p>
+          </div>
+        );
+      })}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .ls {
+    background: #030303;
+    position: relative;
+    overflow: hidden;
+    padding-top: 2.5rem !important;
+    padding-bottom: 4rem !important;
+  }
+  @media (min-width: 768px) {
+    .ls {
+      padding-top: 4rem !important;
+      padding-bottom: 5rem !important;
+    }
+  }
+
+  /* Ambient halos */
+  .ls__halo {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .ls__halo--a {
+    width: 600px; height: 600px;
+    top: -100px; left: -200px;
+    background: radial-gradient(circle, rgba(221,51,51,0.07), transparent 70%);
+  }
+  .ls__halo--b {
+    width: 500px; height: 500px;
+    bottom: -80px; right: -100px;
+    background: radial-gradient(circle, rgba(237,142,0,0.07), transparent 70%);
+  }
+
+  /* ── Header ── */
+  .ls__header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: end;
+    margin-bottom: 56px;
+  }
+
+  .ls__eyebrow {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #DD3333;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .ls__eyebrow::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: linear-gradient(90deg, #ED8E00, #DD3333);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .ls__big-title {
+    font-size: clamp(2.8rem, 4.5vw, 4.5rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    color: #fff;
+    margin: 0;
+  }
+  .ls__big-title :global(.grad) {
+    background: linear-gradient(135deg, #ED8E00, #DD3333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .ls__lead {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.38);
+    line-height: 1.7;
+    align-self: end;
+    padding-bottom: 4px;
+  }
+
+  /* ── Rows ── */
+  .ls__rows {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .ls__row {
+    display: grid;
+    grid-template-columns: 72px 1fr 1.2fr;
+    gap: 32px;
+    align-items: center;
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .ls__row::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 0;
+    background: linear-gradient(90deg, rgba(237,142,0,0.06), transparent);
+    transition: width 0.4s ease;
+    pointer-events: none;
+  }
+  .ls__row:hover::before {
+    width: 100%;
+  }
+
+  .ls__row:hover {
+    border-bottom-color: rgba(221,51,51,0.2);
+  }
+
+  /* Giant ghost number in the background */
+  .ls__row-bg-num {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: clamp(6rem, 10vw, 9rem);
+    font-weight: 900;
+    letter-spacing: -0.06em;
+    line-height: 1;
+    color: rgba(255,255,255,0.035);
+    user-select: none;
+    pointer-events: none;
+    transition: color 0.3s;
+  }
+  .ls__row:hover .ls__row-bg-num {
+    color: rgba(237,142,0,0.055);
+  }
+
+  .ls__row-num {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: rgba(221,51,51,0.65);
+    transition: color 0.25s;
+    position: relative;
+    z-index: 1;
+  }
+  .ls__row:hover .ls__row-num {
+    color: #DD3333;
+  }
+
+  .ls__row-title {
+    font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    transition: color 0.25s;
+  }
+
+  .ls__row-desc {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.38);
+    line-height: 1.65;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Tablet ── */
+  @media (max-width: 900px) {
+    .ls__header {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .ls__row {
+      grid-template-columns: 48px 1fr;
+      gap: 20px;
+    }
+    .ls__row-desc {
+      grid-column: 2;
+      margin-top: -8px;
+    }
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 520px) {
+    .ls__big-title {
+      font-size: clamp(2.2rem, 8vw, 3rem);
+    }
+    .ls__row {
+      grid-template-columns: 36px 1fr;
+      padding: 24px 0;
+    }
+    .ls__row-bg-num {
+      font-size: 5rem;
+    }
+  }
+</style>

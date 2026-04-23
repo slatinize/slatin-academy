@@ -45,16 +45,6 @@ const {
       <span>{ctaText}</span>
     </a>
 
-    {alumni.length > 0 && (
-      <div class="hc__proof">
-        <div class="hc__stack" aria-hidden="true">
-          {alumni.map((a) => (
-            <img src={a.src} alt={a.alt ?? ""} width="40" height="40" loading="eager" />
-          ))}
-        </div>
-        {proofText && <span class="hc__proof-text">{proofText}</span>}
-      </div>
-    )}
 
     <!-- Scroll indicator -->
     <div class="hc__scroll" aria-hidden="true">
@@ -122,9 +112,9 @@ const {
   .hc__grid-overlay {
     position: absolute; inset: 0; z-index: 2;
     background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
+      linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 80px 80px;
     -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%);
     mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%);
     pointer-events: none;

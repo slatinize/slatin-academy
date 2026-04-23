@@ -16,15 +16,23 @@ const { sectionTitle, eyebrow = 'El proceso', steps } = Astro.props;
 ---
 
 <section class="hiw__section section-padding">
-  <div class="container-content">
+  <!-- Ambient halos -->
+  <div class="hiw__halo hiw__halo--left" aria-hidden="true"></div>
+  <div class="hiw__halo hiw__halo--right" aria-hidden="true"></div>
+
+  <div class="section-grid" aria-hidden="true"></div>
+  <div class="container-content" style="position:relative;z-index:1;">
     <div class="text-center mb-16 reveal">
       <p class="hiw__eyebrow">{eyebrow}</p>
       <h2 class="hiw__title">{sectionTitle}</h2>
     </div>
 
-    <div class="timeline">
-      {steps.map((step) => (
-        <div class="tl-step reveal">
+    <div class="timeline" id="hiw-timeline">
+      <!-- Animated connector line overlay -->
+      <div class="tl-line-fill" id="hiw-line-fill"></div>
+
+      {steps.map((step, i) => (
+        <div class="tl-step hiw-step" style={`--step-i:${i}`}>
           <div class="tl-node">{step.number}</div>
           <h3 class="tl-title">{step.title}</h3>
           <p class="tl-desc">{step.description}</p>
@@ -40,6 +48,33 @@ const { sectionTitle, eyebrow = 'El proceso', steps } = Astro.props;
   .hiw__section {
     background: linear-gradient(180deg, #1a1a1a 0%, #020202 120px);
     color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Ambient halos */
+  .hiw__halo {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hiw__halo--left {
+    width: 480px; height: 480px;
+    top: -60px; left: -120px;
+    background: radial-gradient(circle, rgba(221,51,51,0.12), transparent 70%);
+    animation: hiw-halo-drift 14s ease-in-out infinite alternate;
+  }
+  .hiw__halo--right {
+    width: 400px; height: 400px;
+    bottom: -40px; right: -80px;
+    background: radial-gradient(circle, rgba(237,142,0,0.1), transparent 70%);
+    animation: hiw-halo-drift 11s ease-in-out infinite alternate-reverse;
+  }
+  @keyframes hiw-halo-drift {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, -20px) scale(1.12); }
   }
 
   /* Eyebrow — same treatment as EL PROBLEMA */
@@ -82,7 +117,7 @@ const { sectionTitle, eyebrow = 'El proceso', steps } = Astro.props;
     position: relative;
   }
 
-  /* Connector line between nodes */
+  /* Connector line — static base (dimmed) */
   .timeline::before {
     content: '';
     position: absolute;
@@ -90,8 +125,25 @@ const { sectionTitle, eyebrow = 'El proceso', steps } = Astro.props;
     left: calc(12.5%);
     right: calc(12.5%);
     height: 2px;
+    background: rgba(255,255,255,0.06);
+    z-index: 0;
+  }
+
+  /* Animated fill line */
+  .tl-line-fill {
+    position: absolute;
+    top: 27px;
+    left: calc(12.5%);
+    height: 2px;
+    width: 0%;
     background: linear-gradient(90deg, #ED8E00, #DD3333);
     z-index: 0;
+    transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(237,142,0,0.4);
+  }
+  .tl-line-fill.animated {
+    width: 75%; /* matches right: calc(12.5%) */
   }
 
   .tl-step {
@@ -102,6 +154,18 @@ const { sectionTitle, eyebrow = 'El proceso', steps } = Astro.props;
     padding: 0 20px;
     position: relative;
     z-index: 1;
+  }
+
+  /* Staggered entrance */
+  .hiw-step {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition-delay: calc(var(--step-i) * 0.15s);
+  }
+  .hiw-step.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   @keyframes node-pulse {
@@ -205,5 +269,33 @@ const { sectionTitle, eyebrow = 'El proceso', steps } = Astro.props;
     .tl-step > div:last-child {
       flex: 1;
     }
+
+    .tl-line-fill { display: none; }
   }
 </style>
+
+<script>
+  function initHIW() {
+    const steps = document.querySelectorAll<HTMLElement>('.hiw-step');
+    const lineFill = document.getElementById('hiw-line-fill');
+
+    if (!steps.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Animate steps in
+          steps.forEach((s) => s.classList.add('visible'));
+          // Animate the line fill after a short delay
+          if (lineFill) setTimeout(() => lineFill.classList.add('animated'), 200);
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(steps[0]);
+  }
+
+  initHIW();
+  document.addEventListener('astro:page-load', initHIW);
+</script>

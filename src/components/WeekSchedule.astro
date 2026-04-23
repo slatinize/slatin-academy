@@ -25,10 +25,14 @@ const genreColors: Record<string, string> = {
 const bentoSizes = ["big", "med", "sm", "sm", "big", "med"];
 ---
 
-<section class="ws section-dark section-padding" id="semana">
-  <div class="container-content">
-    <div class="text-center mb-12 md:mb-16 reveal">
-      <h2 class="text-heading">{sectionTitle}</h2>
+<section class="ws section-dark section-padding" id="semana" style="position:relative;">
+  <div class="section-grid" aria-hidden="true"></div>
+  <div class="container-content" style="position:relative;z-index:1;">
+    <div class="ws__header reveal">
+      <h2 class="ws__title">
+        <span class="ws__title-la">La</span>
+        <span class="ws__title-semana">{sectionTitle.replace('La ', '')}</span>
+      </h2>
     </div>
 
     <div class="bento">
@@ -50,10 +54,9 @@ const bentoSizes = ["big", "med", "sm", "sm", "big", "med"];
 
       <!-- Días 6 & 7 — Feedback card -->
       <div class="bento-card med feedback-card reveal">
-        <div class="bento-bg-num feedback-nums">06 07</div>
+        <div class="bento-bg-num feedback-nums"><span class="fn-num">6</span><span class="fn-amp">&amp;</span><span class="fn-num">7</span></div>
         <div class="bento-content">
           <div class="bento-day">Días 6 &amp; 7</div>
-          <div class="feedback-emoji">🎧</div>
           <div class="bento-genre">Feedback en vivo</div>
           <p class="bento-desc">Revisión de masters y cierre de la semana con la comunidad.</p>
         </div>
@@ -63,9 +66,53 @@ const bentoSizes = ["big", "med", "sm", "sm", "big", "med"];
 </section>
 
 <style>
+  /* Reduce padding — tighten gap from sections above/below */
+  .ws {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  @media (min-width: 768px) {
+    .ws {
+      padding-top: 3.5rem !important;
+      padding-bottom: 2rem !important;
+    }
+  }
+
+  /* Header */
+  .ws__header {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .ws__title {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.25em;
+    line-height: 1;
+  }
+
+  .ws__title-la {
+    font-size: clamp(3.5rem, 7vw, 7rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, #ED8E00, #DD3333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .ws__title-semana {
+    font-size: clamp(3.5rem, 7vw, 7rem);
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    color: #fff;
+  }
+
   .bento {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 260px;
     gap: 12px;
   }
 
@@ -75,7 +122,6 @@ const bentoSizes = ["big", "med", "sm", "sm", "big", "med"];
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    min-height: 220px;
     position: relative;
     overflow: hidden;
     cursor: default;
@@ -89,9 +135,9 @@ const bentoSizes = ["big", "med", "sm", "sm", "big", "med"];
     box-shadow: 0 24px 60px color-mix(in srgb, var(--bc) 20%, transparent);
   }
 
-  .bento-card.big  { grid-column: span 5; min-height: 280px; }
-  .bento-card.med  { grid-column: span 4; }
-  .bento-card.sm   { grid-column: span 3; }
+  .bento-card.big { grid-column: span 5; }
+  .bento-card.med { grid-column: span 4; }
+  .bento-card.sm  { grid-column: span 3; }
 
   .feedback-card {
     --bc: #DD3333;
@@ -113,9 +159,26 @@ const bentoSizes = ["big", "med", "sm", "sm", "big", "med"];
   }
 
   .feedback-nums {
-    font-size: 6rem;
-    letter-spacing: -0.04em;
+    display: flex;
+    align-items: flex-end;
+    gap: 0.05em;
     white-space: nowrap;
+    line-height: 1;
+  }
+  .fn-num {
+    font-size: 8rem;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 1;
+  }
+  .fn-amp {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1;
+    opacity: 0.55;
+    margin-bottom: 0.6rem;
+    margin-right: -0.18em;
   }
 
   .bento-content {
@@ -165,23 +228,25 @@ const bentoSizes = ["big", "med", "sm", "sm", "big", "med"];
     margin-bottom: 10px;
   }
 
-  /* Tablet: simplify to 2 cols */
+  /* Tablet: 2 equal cols */
   @media (max-width: 900px) {
     .bento {
       grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 200px;
     }
     .bento-card.big,
     .bento-card.med,
-    .bento-card.sm { grid-column: span 1; min-height: 180px; }
+    .bento-card.sm { grid-column: span 1; }
   }
 
   /* Mobile: single col */
   @media (max-width: 520px) {
-    .bento { grid-template-columns: 1fr; gap: 10px; }
+    .bento { grid-template-columns: 1fr; grid-auto-rows: 180px; gap: 10px; }
     .bento-card.big,
     .bento-card.med,
-    .bento-card.sm { grid-column: span 1; min-height: 160px; }
+    .bento-card.sm { grid-column: span 1; }
     .bento-bg-num { font-size: 6rem; }
-    .feedback-nums { font-size: 4rem; }
+    .fn-num { font-size: 5rem; }
+    .fn-amp { font-size: 2rem; }
   }
 </style>
