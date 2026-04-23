@@ -1,20 +1,6 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import AnimatedGradient from '../../components/AnimatedGradient.astro';
+import MasteringChallengeContent from '../../components/pages/MasteringChallengeContent.astro';
+import { pageData } from '../../data/es/mastering-challenge';
 ---
 
-<BaseLayout
-  title="Mastering Challenge - SLATIN Academy"
-  description="Take the Mastering Challenge and level up your skills. Coming soon from SLATIN Academy."
-  lang="es"
->
-  <div class="section-dark relative min-h-screen flex items-center justify-center text-center px-6">
-    <div class="absolute inset-0 z-0" style="width: 100%; height: 100%; -webkit-mask-image: linear-gradient(to bottom, black 0%, black 40%, transparent 65%); mask-image: linear-gradient(to bottom, black 0%, black 40%, transparent 65%);">
-      <AnimatedGradient color1="#DD3333" color2="#1a0000" speed={1300} blendingMode="linear" />
-    </div>
-    <div class="relative z-10 max-w-3xl mx-auto">
-      <h1 class="text-display font-extrabold mb-6 reveal">Mastering Challenge</h1>
-      <p class="text-xl md:text-2xl text-white/60 mb-10 reveal">Próximamente</p>
-    </div>
-  </div>
-</BaseLayout>
+<MasteringChallengeContent lang="es" {...pageData} />

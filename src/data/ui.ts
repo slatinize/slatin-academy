@@ -14,7 +14,7 @@ interface FooterData {
 
 interface NavData {
   links: NavLink[];
-  submitSong: string;
+  cta: { label: string; href: string };
 }
 
 interface LangSwitcher {
@@ -35,9 +35,8 @@ export const ui: Record<Locale, UIStrings> = {
         { label: 'Mentoring', href: '/mentoring' },
         { label: 'Low End', href: '/low-end-mastery' },
         { label: 'Microdynamics', href: '/microdynamics' },
-        { label: 'Mastering', href: '/mastering-challenge' },
       ],
-      submitSong: 'Submit Your Song',
+      cta: { label: 'Mastering Challenge', href: '/mastering-challenge' },
     },
     footer: {
       headline: 'Get full confidence in your sound',
@@ -65,9 +64,8 @@ export const ui: Record<Locale, UIStrings> = {
         { label: 'Mentoría', href: '/es/mentoring' },
         { label: 'Low End', href: '/es/low-end-mastery' },
         { label: 'Microdinámicas', href: '/es/microdynamics' },
-        { label: 'Mastering', href: '/es/mastering-challenge' },
       ],
-      submitSong: 'Envía Tu Canción',
+      cta: { label: 'Mastering Challenge', href: '/es/mastering-challenge' },
     },
     footer: {
       headline: 'Consigue plena confianza en tu sonido',

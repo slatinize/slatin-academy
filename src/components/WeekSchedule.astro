@@ -1,0 +1,116 @@
+---
+interface DayItem {
+  day: number;
+  genre: string;
+  description: string;
+}
+
+interface Props {
+  sectionTitle: string;
+  days: DayItem[];
+  note?: string;
+}
+
+const { sectionTitle, days, note } = Astro.props;
+
+const genreColors: Record<string, string> = {
+  "Techno Melódico": "#DD3333",
+  "EDM": "#E8734A",
+  "Urbano": "#ED8E00",
+  "Rock": "#FB4141",
+  "Pop": "#D4882B",
+};
+---
+
+<section class="ws section-dark section-padding" id="semana">
+  <div class="container-content">
+    <div class="text-center mb-12 md:mb-16 reveal">
+      <h2 class="text-heading">{sectionTitle}</h2>
+    </div>
+
+    <div class="ws__grid">
+      {days.map((d) => {
+        const color = genreColors[d.genre] || "#DD3333";
+        return (
+          <div class="ws__card reveal" style={`--accent: ${color}`}>
+            <span class="ws__day">Día {d.day}</span>
+            <h3 class="ws__genre">{d.genre}</h3>
+            <p class="ws__desc">{d.description}</p>
+          </div>
+        );
+      })}
+    </div>
+
+    {note && (
+      <div class="text-center mt-10 reveal">
+        <p class="ws__note">{note}</p>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .ws__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .ws__card {
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+    border-radius: 16px;
+    padding: 28px 24px;
+    border-top: 3px solid var(--accent);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+
+  .ws__card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    border-top-color: var(--accent);
+  }
+
+  .ws__day {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .ws__genre {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #fff;
+  }
+
+  .ws__desc {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+  }
+
+  .ws__note {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    font-style: italic;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 640px) {
+    .ws__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .ws__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

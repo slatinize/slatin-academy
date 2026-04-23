@@ -1,0 +1,388 @@
+---
+interface Alumni {
+  src: string;
+  alt?: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  headline: string;
+  subtitle: string;
+  ctaText: string;
+  ctaHref: string;
+  backgroundImage: string;
+  countdownTarget: string;
+  alumni?: Alumni[];
+  proofText?: string;
+}
+
+const {
+  eyebrow,
+  headline,
+  subtitle,
+  ctaText,
+  ctaHref,
+  backgroundImage,
+  countdownTarget,
+  alumni = [],
+  proofText,
+} = Astro.props;
+---
+
+<section class="hc" aria-labelledby="hc-heading" data-countdown-target={countdownTarget}>
+  <div class="hc__bg" style={`background-image: url('${backgroundImage}')`} aria-hidden="true"></div>
+  <div class="hc__vignette" aria-hidden="true"></div>
+  <div class="hc__halo hc__halo--red" aria-hidden="true"></div>
+  <div class="hc__halo hc__halo--orange" aria-hidden="true"></div>
+  <div class="hc__grid-overlay" aria-hidden="true"></div>
+
+  <div class="hc__inner">
+    {eyebrow && (
+      <div class="hc__eyebrow">
+        <span class="hc__pulse" aria-hidden="true"></span>
+        {eyebrow}
+      </div>
+    )}
+
+    <h1 id="hc-heading" class="hc__heading" set:html={headline} />
+
+    <p class="hc__sub" set:html={subtitle} />
+
+    <!-- Countdown -->
+    <div class="hc__countdown" aria-label="Cuenta atrás">
+      <div class="hc__unit">
+        <span class="hc__num" data-cd="days">--</span>
+        <span class="hc__label">Días</span>
+      </div>
+      <div class="hc__unit">
+        <span class="hc__num" data-cd="hours">--</span>
+        <span class="hc__label">Horas</span>
+      </div>
+      <div class="hc__unit">
+        <span class="hc__num" data-cd="minutes">--</span>
+        <span class="hc__label">Min</span>
+      </div>
+      <div class="hc__unit">
+        <span class="hc__num" data-cd="seconds">--</span>
+        <span class="hc__label">Seg</span>
+      </div>
+    </div>
+
+    <a class="hc__cta" href={ctaHref} data-open-modal>
+      <span>{ctaText}</span>
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+        <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    {alumni.length > 0 && (
+      <div class="hc__proof">
+        <div class="hc__stack" aria-hidden="true">
+          {alumni.map((a) => (
+            <img src={a.src} alt={a.alt ?? ""} width="40" height="40" loading="eager" />
+          ))}
+        </div>
+        {proofText && <span class="hc__proof-text">{proofText}</span>}
+      </div>
+    )}
+
+    <!-- Scroll indicator -->
+    <div class="hc__scroll" aria-hidden="true">
+      <div class="hc__scroll-line"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hc {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    isolation: isolate;
+    background: #020202;
+    color: #fff;
+  }
+
+  .hc__bg {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.35) contrast(1.1) saturate(0.85);
+    z-index: 0;
+  }
+
+  .hc__vignette {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(
+      180deg,
+      rgba(2,2,2,0.70) 0%,
+      rgba(2,2,2,0.25) 40%,
+      rgba(2,2,2,0.95) 100%
+    );
+  }
+
+  .hc__halo {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hc__halo--red {
+    width: 600px; height: 600px;
+    top: -10%; right: -5%;
+    background: radial-gradient(circle, rgba(221,51,51,0.25), transparent 70%);
+    animation: halo-drift 12s ease-in-out infinite alternate;
+  }
+
+  .hc__halo--orange {
+    width: 500px; height: 500px;
+    bottom: -5%; left: -5%;
+    background: radial-gradient(circle, rgba(232,115,74,0.2), transparent 70%);
+    animation: halo-drift 14s ease-in-out infinite alternate-reverse;
+  }
+
+  @keyframes halo-drift {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(40px, -30px) scale(1.15); }
+  }
+
+  .hc__grid-overlay {
+    position: absolute; inset: 0; z-index: 2;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .hc__inner {
+    position: relative; z-index: 10;
+    min-height: 100vh;
+    padding: clamp(120px, 14vh, 160px) clamp(24px, 8vw, 120px) clamp(80px, 10vh, 120px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 28px;
+  }
+
+  /* Eyebrow */
+  .hc__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #DD3333;
+    padding: 8px 20px;
+    border: 1px solid rgba(221,51,51,0.3);
+    border-radius: 999px;
+    background: rgba(221,51,51,0.08);
+  }
+
+  .hc__pulse {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #DD3333;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  /* Heading */
+  .hc__heading {
+    margin: 0;
+    max-width: 900px;
+    font-size: clamp(36px, 5.5vw, 72px);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    color: #fff;
+  }
+  .hc__heading :global(strong) { font-weight: 800; }
+  .hc__heading :global(.grad) {
+    position: relative;
+    display: inline-block;
+    font-weight: 800;
+    background: linear-gradient(90deg, #ED8E00, #DD3333);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .hc__heading :global(.grad)::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    bottom: -6px;
+    height: 18px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 18' preserveAspectRatio='none'><path d='M4 10 C 40 2, 80 16, 120 8 S 200 2, 240 12 S 290 6, 296 10' fill='none' stroke='%23BA1616' stroke-width='3' stroke-linecap='round'/></svg>");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    pointer-events: none;
+  }
+
+  .hc__sub {
+    margin: 0;
+    max-width: 680px;
+    font-size: 1.125rem;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.6);
+    text-wrap: balance;
+  }
+  .hc__sub :global(strong) { color: #fff; font-weight: 700; }
+
+  /* Countdown */
+  .hc__countdown {
+    display: flex;
+    gap: 20px;
+  }
+
+  .hc__unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    min-width: 68px;
+    padding: 14px 16px 10px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+  }
+
+  .hc__num {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    color: #fff;
+  }
+
+  .hc__label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* CTA */
+  .hc__cta {
+    display: inline-flex; align-items: center; gap: 14px;
+    padding: 24px 44px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, #DD3333, #BA1616);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.0625rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 10px 30px rgba(221,51,51,0.35), inset 0 0 0 1px rgba(255,255,255,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .hc__cta:hover, .hc__cta:focus-visible {
+    background: linear-gradient(180deg, #FB4141, #DD3333);
+    box-shadow: 0 16px 50px rgba(221,51,51,0.55), inset 0 0 0 1px rgba(255,255,255,0.10);
+    transform: translateY(-2px);
+    outline: none;
+  }
+  .hc__cta:active { transform: translateY(0); }
+
+  /* Proof */
+  .hc__proof {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 8px;
+  }
+
+  .hc__stack { display: flex; }
+  .hc__stack img {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #020202;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
+    margin-left: -12px;
+    position: relative;
+  }
+  .hc__stack img:first-child { margin-left: 0; }
+
+  .hc__proof-text {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* Scroll indicator */
+  .hc__scroll {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hc__scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+    animation: scroll-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scroll-pulse {
+    0%, 100% { opacity: 1; transform: scaleY(1); }
+    50% { opacity: 0.3; transform: scaleY(0.6); }
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    .hc__cta { padding: 20px 28px; font-size: 0.9375rem; width: 100%; justify-content: center; }
+    .hc__countdown { gap: 10px; }
+    .hc__unit { min-width: 56px; padding: 10px 10px 8px; }
+    .hc__heading :global(.grad)::after { display: none; }
+    .hc__proof { flex-direction: column; gap: 8px; }
+  }
+</style>
+
+<script>
+  function initCountdowns() {
+    document.querySelectorAll<HTMLElement>('[data-countdown-target]').forEach((section) => {
+      const target = new Date(section.dataset.countdownTarget!).getTime();
+      const days = section.querySelector('[data-cd="days"]');
+      const hours = section.querySelector('[data-cd="hours"]');
+      const minutes = section.querySelector('[data-cd="minutes"]');
+      const seconds = section.querySelector('[data-cd="seconds"]');
+
+      function tick() {
+        const now = Date.now();
+        const diff = Math.max(0, target - now);
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        if (days) days.textContent = String(d).padStart(2, '0');
+        if (hours) hours.textContent = String(h).padStart(2, '0');
+        if (minutes) minutes.textContent = String(m).padStart(2, '0');
+        if (seconds) seconds.textContent = String(s).padStart(2, '0');
+      }
+
+      tick();
+      setInterval(tick, 1000);
+    });
+  }
+
+  initCountdowns();
+</script>

@@ -1,0 +1,136 @@
+---
+interface Props {
+  kicker?: string;
+  headline: string;
+  ctaText: string;
+  ctaHref: string;
+  countdownTarget: string;
+}
+
+const { kicker, headline, ctaText, ctaHref, countdownTarget } = Astro.props;
+---
+
+<section class="cc" data-countdown-target={countdownTarget}>
+  <div class="cc__inner reveal">
+    {kicker && <p class="cc__kicker">{kicker}</p>}
+    <h2 class="cc__headline" set:html={headline} />
+
+    <div class="cc__countdown" aria-label="Cuenta atrás">
+      <div class="cc__unit">
+        <span class="cc__num" data-cd="days">--</span>
+        <span class="cc__label">Días</span>
+      </div>
+      <div class="cc__unit">
+        <span class="cc__num" data-cd="hours">--</span>
+        <span class="cc__label">Horas</span>
+      </div>
+      <div class="cc__unit">
+        <span class="cc__num" data-cd="minutes">--</span>
+        <span class="cc__label">Min</span>
+      </div>
+      <div class="cc__unit">
+        <span class="cc__num" data-cd="seconds">--</span>
+        <span class="cc__label">Seg</span>
+      </div>
+    </div>
+
+    <a class="cc__cta" href={ctaHref} data-open-modal>
+      {ctaText}
+    </a>
+  </div>
+</section>
+
+<style>
+  .cc {
+    background: linear-gradient(135deg, #FFF200 0%, #E8734A 40%, #DD3333 70%, #8B0000 100%);
+    padding: clamp(64px, 10vh, 120px) clamp(24px, 8vw, 120px);
+  }
+
+  .cc__inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .cc__kicker {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(2,2,2,0.6);
+  }
+
+  .cc__headline {
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #020202;
+  }
+
+  .cc__headline :global(strong) {
+    color: #E5E5C7;
+  }
+
+  .cc__countdown {
+    display: flex;
+    gap: 16px;
+  }
+
+  .cc__unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 60px;
+    padding: 12px 14px 8px;
+    background: rgba(2,2,2,0.15);
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+  }
+
+  .cc__num {
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    color: #020202;
+  }
+
+  .cc__label {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(2,2,2,0.5);
+  }
+
+  .cc__cta {
+    display: inline-block;
+    padding: 22px 48px;
+    background: #020202;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .cc__cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+
+  @media (max-width: 640px) {
+    .cc__countdown { gap: 8px; }
+    .cc__unit { min-width: 50px; padding: 8px 8px 6px; }
+    .cc__cta { width: 100%; text-align: center; }
+  }
+</style>

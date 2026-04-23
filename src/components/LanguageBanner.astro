@@ -1,0 +1,128 @@
+---
+interface Props {
+  message: string;
+  dismissLabel?: string;
+}
+
+const { message, dismissLabel = "Got it" } = Astro.props;
+---
+
+<div class="lang-banner" id="lang-banner" style="display:none" role="alert">
+  <div class="lang-banner__inner">
+    <span class="lang-banner__flag" aria-hidden="true">&#x1F1EA;&#x1F1F8;</span>
+    <p class="lang-banner__text">{message}</p>
+    <button class="lang-banner__dismiss" type="button" id="lang-banner-dismiss">{dismissLabel}</button>
+  </div>
+</div>
+
+<style>
+  .lang-banner {
+    position: fixed;
+    bottom: 24px;
+    left: 0;
+    right: 0;
+    z-index: 45;
+    padding: 0 24px;
+    animation: banner-slide-in 0.3s ease-out;
+  }
+
+  @keyframes banner-slide-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .lang-banner__inner {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+  }
+
+  .lang-banner__flag {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: rgba(221, 51, 51, 0.15);
+    border: 1px solid rgba(221, 51, 51, 0.3);
+    border-radius: 8px;
+    color: #DD3333;
+    font-size: 18px;
+  }
+
+  .lang-banner__text {
+    flex: 1;
+    font-size: 0.8125rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+  }
+
+  .lang-banner__dismiss {
+    flex-shrink: 0;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+
+  .lang-banner__dismiss:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  @media (max-width: 640px) {
+    .lang-banner {
+      bottom: 16px;
+      padding: 0 12px;
+    }
+
+    .lang-banner__inner {
+      padding: 10px 12px;
+      gap: 10px;
+    }
+
+    .lang-banner__text {
+      font-size: 0.75rem;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const banner = document.getElementById('lang-banner');
+    const dismiss = document.getElementById('lang-banner-dismiss');
+    if (!banner || !dismiss) return;
+
+    // Already dismissed this session
+    if (sessionStorage.getItem('lang-banner-dismissed')) return;
+
+    // Check if user's browser languages include Spanish
+    const langs = navigator.languages || [navigator.language];
+    const speaksSpanish = langs.some(l => l.toLowerCase().startsWith('es'));
+
+    if (!speaksSpanish) {
+      banner.style.display = '';
+    }
+
+    dismiss.addEventListener('click', () => {
+      banner.style.display = 'none';
+      sessionStorage.setItem('lang-banner-dismissed', '1');
+    });
+  })();
+</script>

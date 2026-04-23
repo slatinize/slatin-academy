@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroChallenge from '../HeroChallenge.astro';
+import MarqueeBanner from '../MarqueeBanner.astro';
+import ProblemStatement from '../ProblemStatement.astro';
+import HowItWorks from '../HowItWorks.astro';
+import WeekSchedule from '../WeekSchedule.astro';
+import FeatureGrid from '../FeatureGrid.astro';
+import MentorIntro from '../MentorIntro.astro';
+import LogoBar from '../LogoBar.astro';
+import PricingDuo from '../PricingDuo.astro';
+import Sorteos from '../Sorteos.astro';
+import TestimonialSlider from '../TestimonialSlider.astro';
+import FAQ from '../FAQ.astro';
+import ClosingCTA from '../ClosingCTA.astro';
+import ReserveModal from '../ReserveModal.astro';
+import LanguageBanner from '../LanguageBanner.astro';
+import type { Locale } from '../../utils/i18n';
+import type { Feature, FaqItem, PricingPlan } from '../../data/types';
+
+interface Props {
+  lang: Locale;
+  meta: { title: string; description: string };
+  hero: {
+    eyebrow?: string;
+    headline: string;
+    subtitle: string;
+    ctaText: string;
+    ctaHref: string;
+    backgroundImage: string;
+    countdownTarget: string;
+    alumni: { src: string; alt?: string }[];
+    proofText?: string;
+  };
+  marquee: { text: string };
+  problems: {
+    eyebrow?: string;
+    headline: string;
+    items: { icon: string; title: string; description: string }[];
+    closing?: string;
+  };
+  howItWorks: {
+    sectionTitle: string;
+    steps: { number: string; title: string; description: string; tag?: string }[];
+  };
+  weekSchedule: {
+    sectionTitle: string;
+    days: { day: number; genre: string; description: string }[];
+    note?: string;
+  };
+  learn: {
+    sectionTitle: string;
+    features: Feature[];
+  };
+  about: {
+    tagline: string;
+    name: string;
+    nameAccent: string;
+    bio: string;
+    stats: { value: string; label: string; highlight?: boolean }[];
+  };
+  pricing: {
+    headline: string;
+    subtitle: string;
+    plans: PricingPlan[];
+  };
+  whyDifferent: {
+    sectionTitle: string;
+    features: Feature[];
+  };
+  sorteos: {
+    sectionTitle: string;
+    items: { icon: string; title: string; description: string }[];
+  };
+  testimonials: {
+    sectionTitle: string;
+    slides: { quote: string; name: string; role: string; avatar: string }[];
+  };
+  faqItems: FaqItem[];
+  closing: {
+    kicker?: string;
+    headline: string;
+    ctaText: string;
+    ctaHref: string;
+  };
+  modal: {
+    tiers: { label: string; price: string }[];
+    fields: {
+      name: string;
+      email: string;
+      experience: string;
+      experienceOptions: string[];
+    };
+    submitText: string;
+    successMessage: string;
+  };
+}
+
+const {
+  lang, meta, hero, marquee, problems, howItWorks, weekSchedule,
+  learn, about, pricing, whyDifferent, sorteos, testimonials,
+  faqItems, closing, modal,
+} = Astro.props;
+---
+
+<BaseLayout title={meta.title} description={meta.description} lang={lang}>
+  <!-- Language notice for non-Spanish speakers -->
+  <LanguageBanner
+    message="This event is in Spanish only — all sessions, materials, and community interactions."
+    dismissLabel="Got it"
+  />
+
+  <!-- 1. Hero with countdown -->
+  <HeroChallenge
+    eyebrow={hero.eyebrow}
+    headline={hero.headline}
+    subtitle={hero.subtitle}
+    ctaText={hero.ctaText}
+    ctaHref={hero.ctaHref}
+    backgroundImage={hero.backgroundImage}
+    countdownTarget={hero.countdownTarget}
+    alumni={hero.alumni}
+    proofText={hero.proofText}
+  />
+
+  <!-- 2. Marquee divider -->
+  <MarqueeBanner text={marquee.text} />
+
+  <!-- 3. Problem statement -->
+  <ProblemStatement
+    eyebrow={problems.eyebrow}
+    headline={problems.headline}
+    items={problems.items}
+    closing={problems.closing}
+  />
+
+  <!-- 4. How it works -->
+  <HowItWorks
+    sectionTitle={howItWorks.sectionTitle}
+    steps={howItWorks.steps}
+  />
+
+  <!-- 5. Week schedule -->
+  <WeekSchedule
+    sectionTitle={weekSchedule.sectionTitle}
+    days={weekSchedule.days}
+    note={weekSchedule.note}
+  />
+
+  <!-- 6. What you'll learn -->
+  <FeatureGrid
+    sectionTitle={learn.sectionTitle}
+    features={learn.features}
+    columns={2}
+    variant="dark"
+  />
+
+  <!-- 7. About Ruslan -->
+  <MentorIntro
+    tagline={about.tagline}
+    name={about.name}
+    nameAccent={about.nameAccent}
+    bio={about.bio}
+    imageSrc="/images/slatin-sofa.jpg"
+    logosSrc="/images/mentoring/logos-white.png"
+    stats={about.stats}
+  />
+
+  <!-- 8. Client logos -->
+  <LogoBar logoSrc="/images/mentoring/logos-white.png" variant="dark" />
+
+  <!-- 9. Pricing -->
+  <section class="section-dark section-padding" id="pricing">
+    <div class="container-content text-center mb-12 md:mb-16 reveal">
+      <h2 class="text-heading" set:html={pricing.headline} />
+      <p class="text-base text-white/55 mt-4 max-w-xl mx-auto">{pricing.subtitle}</p>
+    </div>
+  </section>
+  <PricingDuo plans={pricing.plans} />
+
+  <!-- 10. Why different -->
+  <FeatureGrid
+    sectionTitle={whyDifferent.sectionTitle}
+    features={whyDifferent.features}
+    variant="cream"
+    columns={3}
+  />
+
+  <!-- 11. Giveaways -->
+  <Sorteos
+    sectionTitle={sorteos.sectionTitle}
+    items={sorteos.items}
+  />
+
+  <!-- 12. Testimonials -->
+  <TestimonialSlider
+    sectionTitle={testimonials.sectionTitle}
+    slides={testimonials.slides}
+    autoplayInterval={4000}
+  />
+
+  <!-- 13. FAQ -->
+  <FAQ items={faqItems} lang={lang} />
+
+  <!-- 14. Closing CTA -->
+  <ClosingCTA
+    kicker={closing.kicker}
+    headline={closing.headline}
+    ctaText={closing.ctaText}
+    ctaHref={closing.ctaHref}
+    countdownTarget={hero.countdownTarget}
+  />
+
+  <!-- Reserve Modal -->
+  <ReserveModal
+    tiers={modal.tiers}
+    fields={modal.fields}
+    submitText={modal.submitText}
+    successMessage={modal.successMessage}
+  />
+</BaseLayout>
