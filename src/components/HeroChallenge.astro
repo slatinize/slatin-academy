@@ -37,42 +37,12 @@ const {
   <div class="hc__grid-overlay" aria-hidden="true"></div>
 
   <div class="hc__inner">
-    {eyebrow && (
-      <div class="hc__eyebrow">
-        <span class="hc__pulse" aria-hidden="true"></span>
-        {eyebrow}
-      </div>
-    )}
-
     <h1 id="hc-heading" class="hc__heading" set:html={headline} />
 
     <p class="hc__sub" set:html={subtitle} />
 
-    <!-- Countdown -->
-    <div class="hc__countdown" aria-label="Cuenta atrás">
-      <div class="hc__unit">
-        <span class="hc__num" data-cd="days">--</span>
-        <span class="hc__label">Días</span>
-      </div>
-      <div class="hc__unit">
-        <span class="hc__num" data-cd="hours">--</span>
-        <span class="hc__label">Horas</span>
-      </div>
-      <div class="hc__unit">
-        <span class="hc__num" data-cd="minutes">--</span>
-        <span class="hc__label">Min</span>
-      </div>
-      <div class="hc__unit">
-        <span class="hc__num" data-cd="seconds">--</span>
-        <span class="hc__label">Seg</span>
-      </div>
-    </div>
-
     <a class="hc__cta" href={ctaHref} data-open-modal>
       <span>{ctaText}</span>
-      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
-        <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
     </a>
 
     {alumni.length > 0 && (
@@ -243,41 +213,6 @@ const {
   }
   .hc__sub :global(strong) { color: #fff; font-weight: 700; }
 
-  /* Countdown */
-  .hc__countdown {
-    display: flex;
-    gap: 20px;
-  }
-
-  .hc__unit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    min-width: 68px;
-    padding: 14px 16px 10px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    backdrop-filter: blur(8px);
-  }
-
-  .hc__num {
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    font-weight: 800;
-    font-variant-numeric: tabular-nums;
-    line-height: 1;
-    color: #fff;
-  }
-
-  .hc__label {
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
-  }
-
   /* CTA */
   .hc__cta {
     display: inline-flex; align-items: center; gap: 14px;
@@ -345,6 +280,41 @@ const {
   @keyframes scroll-pulse {
     0%, 100% { opacity: 1; transform: scaleY(1); }
     50% { opacity: 0.3; transform: scaleY(0.6); }
+  }
+
+  /* Countdown */
+  .hc__countdown {
+    display: flex;
+    gap: 20px;
+  }
+
+  .hc__unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    min-width: 68px;
+    padding: 14px 16px 10px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+  }
+
+  .hc__num {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    color: #fff;
+  }
+
+  .hc__label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
   }
 
   /* Mobile */

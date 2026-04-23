@@ -123,6 +123,13 @@ const {
     proofText={hero.proofText}
   />
 
+  {hero.eyebrow && (
+    <div class="eyebrow-badge">
+      <span class="eyebrow-badge__pulse" aria-hidden="true"></span>
+      {hero.eyebrow}
+    </div>
+  )}
+
   <!-- 2. Marquee divider -->
   <MarqueeBanner text={marquee.text} />
 
@@ -219,3 +226,33 @@ const {
     successMessage={modal.successMessage}
   />
 </BaseLayout>
+
+<style>
+  .eyebrow-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #DD3333;
+    padding: 48px 0 20px;
+    background: #020202;
+  }
+
+  .eyebrow-badge__pulse {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #DD3333;
+    animation: pulse-dot 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+</style>
+

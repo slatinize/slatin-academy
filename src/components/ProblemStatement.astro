@@ -15,7 +15,7 @@ interface Props {
 const { eyebrow, headline, items, closing } = Astro.props;
 ---
 
-<section class="section-dark section-padding">
+<section class="ps__section section-padding" style="background:#1a1a1a; color:#fff;">
   <div class="container-content">
     <div class="text-center mb-12 md:mb-16 reveal">
       {eyebrow && <p class="ps__eyebrow">{eyebrow}</p>}
@@ -27,7 +27,7 @@ const { eyebrow, headline, items, closing } = Astro.props;
         <div class="ps__card reveal">
           <span class="ps__icon" set:html={item.icon} />
           <h3 class="text-xl font-bold mb-2">{item.title}</h3>
-          <p class="text-base text-white/60 leading-relaxed">{item.description}</p>
+          <p class="text-base leading-relaxed ps__desc">{item.description}</p>
         </div>
       ))}
     </div>
@@ -41,18 +41,50 @@ const { eyebrow, headline, items, closing } = Astro.props;
 </section>
 
 <style>
+  .ps__section {
+    padding-top: 1.875rem !important;
+    padding-bottom: 1.7rem !important;
+  }
+
+  @media (min-width: 768px) {
+    .ps__section {
+      padding-top: 4.5rem !important;
+      padding-bottom: 4rem !important;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .ps__section {
+      padding-top: 6rem !important;
+      padding-bottom: 5.4rem !important;
+    }
+  }
+
   .ps__eyebrow {
     font-size: 0.8rem;
-    font-weight: 700;
+    font-weight: 900;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #DD3333;
+    color: #B52020;
     margin-bottom: 16px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .ps__eyebrow::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    bottom: -4px;
+    height: 2px;
+    background: #DD3333;
+    border-radius: 2px;
+    opacity: 0.6;
   }
 
   .ps__card {
     border: 1px solid rgba(255,255,255,0.08);
-    background: rgba(255,255,255,0.03);
+    background: rgba(255,255,255,0.04);
     border-radius: 16px;
     padding: 32px 28px;
     transition: transform 0.3s ease, border-color 0.3s ease;
@@ -61,6 +93,10 @@ const { eyebrow, headline, items, closing } = Astro.props;
   .ps__card:hover {
     transform: translateY(-3px);
     border-color: rgba(221,51,51,0.3);
+  }
+
+  .ps__desc {
+    color: rgba(255,255,255,0.55);
   }
 
   .ps__icon {
@@ -79,7 +115,7 @@ const { eyebrow, headline, items, closing } = Astro.props;
 
   .ps__closing {
     font-size: clamp(1rem, 1.3vw, 1.2rem);
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.65);
     max-width: 640px;
     margin: 0 auto;
     line-height: 1.6;

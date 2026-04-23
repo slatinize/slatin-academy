@@ -8,9 +8,9 @@ interface Props {
 const { text, subtitle, id } = Astro.props;
 ---
 
-<section class="section-dark py-8 md:py-12" id={id}>
+<section class="section-dark pt-[9rem] pb-[12rem] md:pt-[11rem] md:pb-[16rem]" id={id}>
   <!-- Scrolling text marquee -->
-  <div class="overflow-hidden">
+  <div class="marquee-clip">
     <div class="flex whitespace-nowrap animate-marquee-banner">
       {[...Array(6)].map(() => (
         <span class="marquee-text text-6xl md:text-8xl lg:text-9xl mx-6">
@@ -36,6 +36,11 @@ const { text, subtitle, id } = Astro.props;
   .animate-marquee-banner {
     animation: marquee-banner 25s linear infinite;
     width: max-content;
+  }
+
+  .marquee-clip {
+    overflow-x: clip;
+    padding-bottom: 0.3em;
   }
 
   .marquee-text {
