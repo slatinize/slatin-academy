@@ -167,7 +167,7 @@ export const pageData = {
   },
 
   pricing: {
-    headline: 'Dos formas de hacer el <strong>challenge</strong>.',
+    headline: 'Elige tu reto',
     subtitle: "Las dos te dan acceso a todo. La diferencia está en cuánto feedback personal recibes.",
     plans: [
       {
