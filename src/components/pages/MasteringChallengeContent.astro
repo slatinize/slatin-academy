@@ -16,6 +16,7 @@ import FAQ from '../FAQ.astro';
 import ClosingCTA from '../ClosingCTA.astro';
 import ReserveModal from '../ReserveModal.astro';
 import LanguageBanner from '../LanguageBanner.astro';
+import GoogleReviews from '../GoogleReviews.astro';
 import type { Locale } from '../../utils/i18n';
 import type { Feature, FaqItem, PricingPlan } from '../../data/types';
 
@@ -174,7 +175,10 @@ const {
     features={learn.features}
   />
 
-  <!-- 7. Analog gear photo -->
+  <!-- 7. Google Reviews -->
+  <GoogleReviews lang="es" />
+
+  <!-- 8. Analog gear photo -->
   <div class="gear-shot">
     <div class="gear-shot__inner">
       <img src="/images/analog-gear.jpg" alt="Analog mastering equipment" loading="lazy" />
