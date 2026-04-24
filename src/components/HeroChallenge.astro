@@ -4,6 +4,11 @@ interface Alumni {
   alt?: string;
 }
 
+interface Pill {
+  number: string;
+  label: string;
+}
+
 interface Props {
   eyebrow?: string;
   headline: string;
@@ -14,6 +19,7 @@ interface Props {
   countdownTarget: string;
   alumni?: Alumni[];
   proofText?: string;
+  pills?: Pill[];
 }
 
 const {
@@ -26,6 +32,7 @@ const {
   countdownTarget,
   alumni = [],
   proofText,
+  pills = [],
 } = Astro.props;
 ---
 
@@ -38,6 +45,20 @@ const {
 
   <div class="hc__inner">
     <h1 id="hc-heading" class="hc__heading" set:html={headline} />
+
+    {pills.length > 0 && (
+      <div class="hc__pills">
+        {pills.map((p, i) => (
+          <>
+            <div class="hc__pill">
+              <span class="hc__pill-num">{p.number}</span>
+              <span class="hc__pill-label">{p.label}</span>
+            </div>
+            {i < pills.length - 1 && <span class="hc__pill-sep" aria-hidden="true">·</span>}
+          </>
+        ))}
+      </div>
+    )}
 
     <p class="hc__sub" set:html={subtitle} />
 
@@ -68,7 +89,7 @@ const {
     position: absolute; inset: 0;
     background-size: cover;
     background-position: center;
-    filter: brightness(0.35) contrast(1.1) saturate(0.85);
+    filter: brightness(0.6) contrast(1.05) saturate(0.9);
     z-index: 0;
   }
 
@@ -191,6 +212,47 @@ const {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     pointer-events: none;
+  }
+
+  /* Stat pills */
+  .hc__pills {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .hc__pill {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .hc__pill-num {
+    font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    background: linear-gradient(135deg, #ED8E00, #DD3333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hc__pill-label {
+    font-size: clamp(0.7rem, 1vw, 0.85rem);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1;
+  }
+
+  .hc__pill-sep {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.15);
+    line-height: 1;
+    margin: 0 -4px;
   }
 
   .hc__sub {
