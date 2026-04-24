@@ -17,7 +17,7 @@ export const pageData = {
     pills: [
       { number: "07", label: "días" },
       { number: "05", label: "géneros" },
-      { number: "01", label: "semana" },
+      { number: "100%", label: "en directo" },
     ],
     alumni: [
       { src: "/images/mentoring/alumni-ignacio.jpg", alt: "Ignacio" },
