@@ -8,7 +8,7 @@ export const pageData = {
 
   hero: {
     eyebrow: "Plazas abiertas · Edición Mayo 2026",
-    headline: 'Masteriza como un <strong>profesional</strong> en <span class="grad">7 días</span>',
+    headline: 'Mastering <span class="grad">challenge</span>',
     subtitle: '<strong>5 sesiones en directo</strong>, 5 géneros, compara tu trabajo con la comunidad.',
     ctaText: "Reservar mi plaza",
     ctaHref: "#pricing",
