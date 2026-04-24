@@ -21,13 +21,12 @@ const { sectionTitle, items } = Astro.props;
       <h2 class="sr__heading" set:html={sectionTitle} />
     </div>
 
-    <div class="sr__grid">
-      {items.map((item) => (
-        <div class="sr__card reveal">
+    <div class="sr__list">
+      {items.map((item, i) => (
+        <div class={`sr__row reveal ${i % 2 === 1 ? 'sr__row--reverse' : ''}`}>
           {item.image && (
             <div class="sr__img-wrap">
               <img src={item.image} alt={item.title} loading="lazy" class="sr__img" />
-              <div class="sr__img-vignette" aria-hidden="true"></div>
             </div>
           )}
           <div class="sr__body">
@@ -44,17 +43,17 @@ const { sectionTitle, items } = Astro.props;
 
 <style>
   .sr {
-    padding: 80px 7% 96px;
+    padding: 56px 7% 56px;
     position: relative;
   }
 
   .sr__inner {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
   }
 
   .sr__header {
-    margin-bottom: 52px;
+    margin-bottom: 24px;
   }
 
   .sr__heading {
@@ -66,41 +65,40 @@ const { sectionTitle, items } = Astro.props;
     margin: 0;
   }
 
-  .sr__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-
-  @media (max-width: 900px) {
-    .sr__grid {
-      grid-template-columns: 1fr;
-      max-width: 480px;
-      margin: 0 auto;
-    }
-  }
-
-  .sr__card {
-    border-radius: 20px;
-    overflow: hidden;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+  /* List */
+  .sr__list {
     display: flex;
     flex-direction: column;
+    gap: 0;
   }
 
-  .sr__card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(221,51,51,0.35);
+  /* Row */
+  .sr__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: none;
+  }
+
+  .sr__row:last-child {
+    border-bottom: none;
+  }
+
+  .sr__row--reverse {
+    direction: rtl;
+  }
+
+  .sr__row--reverse > * {
+    direction: ltr;
   }
 
   /* Image */
   .sr__img-wrap {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 7;
     overflow: hidden;
+    border-radius: 10px;
   }
 
   .sr__img {
@@ -109,31 +107,18 @@ const { sectionTitle, items } = Astro.props;
     object-fit: cover;
     object-position: center;
     display: block;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
   }
 
-  .sr__card:hover .sr__img {
+  .sr__row:hover .sr__img {
     transform: scale(1.04);
-  }
-
-  .sr__img-vignette {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      transparent 40%,
-      rgba(2,2,2,0.6) 100%
-    );
-    pointer-events: none;
   }
 
   /* Body */
   .sr__body {
-    padding: 24px 28px 28px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    flex: 1;
+    gap: 10px;
   }
 
   .sr__badge {
@@ -143,22 +128,34 @@ const { sectionTitle, items } = Astro.props;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: #DD3333;
-    margin-bottom: 2px;
   }
 
   .sr__title {
-    font-size: 1.25rem;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
     font-weight: 800;
     color: #fff;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
     margin: 0;
   }
 
   .sr__desc {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: rgba(255,255,255,0.5);
-    line-height: 1.55;
+    line-height: 1.6;
     margin: 0;
+    max-width: 380px;
+  }
+
+  @media (max-width: 768px) {
+    .sr__row {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      padding: 40px 0;
+    }
+
+    .sr__row--reverse {
+      direction: ltr;
+    }
   }
 </style>
