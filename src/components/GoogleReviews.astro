@@ -41,6 +41,15 @@ const rowB = reviews.slice(8, 16);
 ---
 
 <section class="gr-section section-dark">
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+    <defs>
+      <linearGradient id="star-gradient" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#ED8E00" />
+        <stop offset="60%" stop-color="#f5a623" />
+        <stop offset="100%" stop-color="#fcd891" />
+      </linearGradient>
+    </defs>
+  </svg>
   <div class="gr-halo" aria-hidden="true"></div>
   <div class="gr-inner">
 
@@ -78,8 +87,8 @@ const rowB = reviews.slice(8, 16);
             <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
             <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
           </svg>
-          {isEs ? 'Ver todas en Google' : 'Read all on Google'}
-          <span class="gr-arrow" aria-hidden="true">→</span>
+          {isEs ? 'Leer todo en Google' : 'Read all on Google'}
+          <span class="gr-arrow gr-arrow-inline" aria-hidden="true">→</span>
         </a>
       </div>
     </div>
@@ -172,8 +181,8 @@ const rowB = reviews.slice(8, 16);
           <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
           <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
         </svg>
-        Read all reviews on Google
-        <span class="gr-arrow" aria-hidden="true">→</span>
+        {isEs ? 'Leer todas las reseñas en Google' : 'Read all reviews on Google'}
+        <span class="gr-arrow gr-arrow-inline" aria-hidden="true">→</span>
       </a>
     </div>
 
@@ -183,7 +192,7 @@ const rowB = reviews.slice(8, 16);
 <style>
   .gr-section {
     position: relative;
-    padding: 96px 64px;
+    padding: 96px 64px 56px;
     overflow: hidden;
     background: #020202;
     color: #fff;
@@ -207,6 +216,7 @@ const rowB = reviews.slice(8, 16);
     margin: 0 auto;
     position: relative;
     z-index: 1;
+    transform: translateY(0);
   }
 
   /* --- Aggregate header --- */
@@ -214,15 +224,15 @@ const rowB = reviews.slice(8, 16);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
-    gap: 32px;
-    padding-bottom: 56px;
+    justify-content: center;
+    gap: 300px;
+    padding-bottom: 78px;
     border-bottom: 1px solid rgba(255,255,255,.08);
-    margin-bottom: 56px;
+    margin-bottom: 72px;
   }
 
   .gr-agg-left {
-    flex: 1 1 460px;
+    flex: 0 1 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -232,7 +242,7 @@ const rowB = reviews.slice(8, 16);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 14px;
+    gap: 6px;
   }
 
   .gr-eyebrow {
@@ -242,7 +252,7 @@ const rowB = reviews.slice(8, 16);
     letter-spacing: .2em;
     text-transform: uppercase;
     color: #DD3333;
-    margin-bottom: 28px;
+    margin-bottom: 18px;
   }
 
   .gr-h2 {
@@ -251,7 +261,7 @@ const rowB = reviews.slice(8, 16);
     line-height: 1.18;
     letter-spacing: -.02em;
     color: #fff;
-    margin: 0 0 32px;
+    margin: 0 0 20px;
   }
 
   .gr-grad {
@@ -273,7 +283,8 @@ const rowB = reviews.slice(8, 16);
   .gr-score-row {
     display: flex;
     align-items: baseline;
-    gap: 14px;
+    gap: 8px;
+    margin-bottom: 10px;
   }
 
   .gr-score {
@@ -296,14 +307,17 @@ const rowB = reviews.slice(8, 16);
 
   .gr-big-stars {
     display: flex;
-    gap: 6px;
+    gap: 5px;
     justify-content: center;
+    margin-bottom: 12px;
   }
   .gr-big-stars svg {
-    width: 34px;
-    height: 34px;
-    color: #ED8E00;
+    width: 28px;
+    height: 28px;
     filter: drop-shadow(0 0 10px rgba(237,142,0,.35));
+  }
+  .gr-big-stars svg path {
+    fill: url(#star-gradient);
   }
 
   /* --- Cards --- */
@@ -455,18 +469,23 @@ const rowB = reviews.slice(8, 16);
     display: flex;
     justify-content: center;
   }
+  .gr-cta-row .gr-cta-link {
+    padding: 20px 36px;
+    font-size: 1rem;
+    gap: 10px;
+  }
 
   .gr-cta-link {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    padding: 18px 32px;
+    gap: 8px;
+    padding: 14px 26px;
     border-radius: 999px;
     background: rgba(255,255,255,.04);
     border: 1px solid rgba(255,255,255,.12);
     color: #fff;
     font-weight: 700;
-    font-size: .95rem;
+    font-size: .88rem;
     letter-spacing: -.005em;
     text-decoration: none;
     transition: background .25s ease, border-color .25s ease, transform .25s ease;
@@ -479,6 +498,9 @@ const rowB = reviews.slice(8, 16);
 
   .gr-arrow {
     transition: transform .25s ease;
+  }
+  .gr-arrow-inline {
+    margin-left: -4px;
   }
   .gr-cta-link:hover .gr-arrow {
     transform: translateX(4px);

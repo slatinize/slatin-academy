@@ -78,7 +78,7 @@ export const pageData = {
   },
 
   outcomes: {
-    sectionTitle: 'A Dónde Te <em><span class="squiggle-basic">Lleva Esto</span></em>',
+    sectionTitle: 'Hacia Dónde Te <em><span class="squiggle-basic">Lleva Esto</span></em>',
     phases: [
       {
         label: "Día 0",
@@ -86,33 +86,33 @@ export const pageData = {
         icon: "✕",
         color: "rgba(255,255,255,0.3)",
         items: [
-          'Adivinando qué suena "bien".',
-          "Mezclas que no traducen.",
-          'Sin <em>feedback</em> ni seguimiento.',
+          "Sin método. Solo intuición.",
+          'Atascado en el "suena bien".',
+          "Sin <em>feedback</em> ni seguimiento real.",
           "Cobrando poco o trabajando gratis.",
         ],
       },
       {
-        label: "Después de 90 Días",
-        title: "Decisiones Seguras",
+        label: "Tras 90 Días",
+        title: "El Cambio",
         icon: "→",
         color: "#ed8e00",
         items: [
-          "Entenderás el porqué de tus decisiones.",
-          "Tu sonido traducirá en cualquier sistema.",
-          "Cobrarás tu trabajo con confianza.",
-          'Tendrás revisiones semanales y un plan de crecimiento claro.',
+          "Sabrás el porqué detrás de cada decisión.",
+          "Mezclas y másters que suenan en cualquier sistema.",
+          "Trabajo respaldado por profesionales que tus clientes valorarán.",
+          "Pondrás precio a tu trabajo como un profesional.",
         ],
       },
       {
-        label: "Después de +5 Meses",
-        title: "Trabajo Profesional",
+        label: "Tras +5 Meses",
+        title: "Tu Nueva Normalidad",
         icon: "★",
         color: "#DD3333",
         items: [
-          "Trabajarás con confianza y libertad totales.",
-          "Harás crecer y expandir tu negocio.",
-          "Dominarás todas tus herramientas y conocimientos.",
+          "Confianza en cada sesión.",
+          "Una cartera de clientes que paga tarifas profesionales.",
+          "Trabajo del que te enorgulleces.",
         ],
       },
     ],

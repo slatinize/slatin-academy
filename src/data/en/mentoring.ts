@@ -87,7 +87,7 @@ export const pageData = {
         color: "rgba(255,255,255,0.3)",
         items: [
           'No system. Just guesses.',
-          "Stuck at 'good enough.'",
+          'Stuck at "good enough."',
           "No feedback loop or accountability.",
           "Undercharging or working for free.",
         ],
@@ -98,7 +98,7 @@ export const pageData = {
         icon: "→",
         color: "#ed8e00",
         items: [
-          "Knowing the <em>why</em> behind every move.",
+          "Knowing the why behind every move.",
           "Mixes and masters that hold up anywhere.",
           "Pro-backed work your clients will love.",
           "Pricing your work like a pro.",
