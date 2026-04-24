@@ -9,7 +9,7 @@ export const pageData = {
   hero: {
     eyebrow: "Plazas abiertas · Edición Mayo 2026",
     headline: 'Mastering <span class="grad">challenge</span>',
-    subtitle: '<strong>5 sesiones en directo</strong>, 5 géneros, compara tu trabajo con la comunidad.',
+    subtitle: '',
     ctaText: "Reservar mi plaza",
     ctaHref: "#pricing",
     backgroundImage: "/images/hero-gear.jpg",
