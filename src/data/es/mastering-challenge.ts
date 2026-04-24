@@ -158,7 +158,7 @@ export const pageData = {
     tagline: "Tu instructor",
     name: "Ruslan",
     nameAccent: "SLATIN",
-    bio: '1.000+ canciones al año para Sony, Warner, Def Jam, Netflix. No vas a necesitar <s>otro tutorial</s> ni <s>otro plugin</s>.',
+    bio: '1.000+ canciones al año para Sony, Warner, Def Jam, Netflix. No vas a necesitar otro tutorial ni otro plugin.',
     stats: [
       { value: "Top 0,1%", label: "Ingenieros de Mastering", highlight: true },
       { value: "1.000+", label: "Canciones al Año" },
