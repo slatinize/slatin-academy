@@ -29,6 +29,14 @@ const bentoSizes = ["big", "med", "sm", "sm", "big", "med"];
   <div class="section-grid" aria-hidden="true"></div>
   <div class="container-content" style="position:relative;z-index:1;">
     <div class="ws__header reveal">
+      <!-- Animated connector from HowItWorks -->
+      <div class="ws__connector" aria-hidden="true">
+        <div class="ws__connector-line">
+          <div class="ws__connector-dot"></div>
+        </div>
+        <span class="ws__connector-label">05 días</span>
+      </div>
+
       <h2 class="ws__title">
         <span class="ws__title-la">La</span>
         <span class="ws__title-semana">{sectionTitle.replace('La ', '')}</span>
@@ -83,6 +91,50 @@ const bentoSizes = ["big", "med", "sm", "sm", "big", "med"];
     margin-bottom: 3rem;
     margin-top: 10%;
     text-align: center;
+  }
+
+  /* ── Connector ── */
+  .ws__connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 2.5rem;
+  }
+
+  .ws__connector-line {
+    width: 1px;
+    height: 72px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.08), rgba(221,51,51,0.5), rgba(237,142,0,0.3));
+    position: relative;
+  }
+
+  .ws__connector-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ED8E00, #DD3333);
+    box-shadow: 0 0 10px rgba(237,142,0,0.7), 0 0 24px rgba(221,51,51,0.35);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    animation: flow-down 2.2s ease-in-out infinite;
+  }
+
+  @keyframes flow-down {
+    0%   { top: 0;            opacity: 0;   }
+    15%  { opacity: 1;                      }
+    85%  { opacity: 1;                      }
+    100% { top: calc(100% - 7px); opacity: 0; }
+  }
+
+  .ws__connector-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.22);
   }
 
   .ws__title {
