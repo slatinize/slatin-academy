@@ -20,265 +20,235 @@ interface Props {
 const { tagline, name, nameAccent, bio, imageSrc, logosSrc, stats } = Astro.props;
 ---
 
-<section class="mentor-section section-dark overflow-hidden">
-  <!-- Ambient gradient bg -->
-  <div class="mentor-bg" aria-hidden="true">
+<section class="mi section-dark overflow-hidden">
+  <!-- Ambient gradient -->
+  <div class="mi__bg" aria-hidden="true">
     <AnimatedGradient color1="#DD3333" color2="#1a0000" speed={1500} blendingMode="organic" />
   </div>
+  <div class="section-grid" aria-hidden="true"></div>
 
-  <div class="mentor-content relative z-10">
-    <div class="mentor-grid">
-      <!-- Text side -->
-      <div class="mentor-text reveal">
-        <p class="mentor-tagline">{tagline}</p>
-        <h2 class="mentor-name">
-          {name} <span class="mentor-name-accent">{nameAccent}</span>
+  <div class="mi__content">
+
+    <!-- Top: text + photo side by side -->
+    <div class="mi__grid">
+
+      <!-- Left: text -->
+      <div class="mi__text reveal">
+        <p class="mi__tagline">{tagline}</p>
+        <h2 class="mi__name">
+          {name} <span class="mi__name-accent">{nameAccent}</span>
         </h2>
-        <p class="mentor-bio" set:html={bio} />
-        <div class="mentor-stats">
+        <p class="mi__bio" set:html={bio} />
+        <div class="mi__stats">
           {stats.map((stat) => (
-            <div class="mentor-stat">
-              <div class={`mentor-stat-value ${stat.highlight ? 'stat-highlight' : ''}`}>{stat.value}</div>
-              <div class="mentor-stat-label">{stat.label}</div>
+            <div class="mi__stat">
+              <div class={`mi__stat-value ${stat.highlight ? 'mi__stat-highlight' : ''}`}>{stat.value}</div>
+              <div class="mi__stat-label">{stat.label}</div>
             </div>
           ))}
         </div>
-        <div class="mentor-logos reveal">
-          <img src={logosSrc} alt="Client logos" loading="lazy" />
-        </div>
       </div>
 
-      <!-- Photo side -->
-      <div class="mentor-photo-wrap reveal">
-        <div class="mentor-photo">
+      <!-- Right: photo -->
+      <div class="mi__photo-wrap reveal">
+        <div class="mi__photo">
           <img src={imageSrc} alt={`${name} ${nameAccent}`} loading="lazy" />
         </div>
       </div>
+
     </div>
+
+    <!-- Bottom: logos full width -->
+    <div class="mi__logos reveal">
+      <div class="mi__logos-rule"></div>
+      <img src={logosSrc} alt="Client logos" loading="lazy" />
+    </div>
+
   </div>
 </section>
 
 <style>
-  .mentor-section {
+  .mi {
     position: relative;
+    overflow: hidden;
   }
 
-  .mentor-bg {
+  .mi__bg {
     position: absolute;
     inset: 0;
+    z-index: 0;
+    opacity: 0.28;
+    -webkit-mask-image: radial-gradient(ellipse 70% 90% at 80% 30%, black 0%, transparent 70%);
+    mask-image: radial-gradient(ellipse 70% 90% at 80% 30%, black 0%, transparent 70%);
+  }
+
+  /* ── Content ── */
+  .mi__content {
+    position: relative;
     z-index: 1;
-    opacity: 0.3;
-    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 70% 40%, black 0%, transparent 65%);
-    mask-image: radial-gradient(ellipse 80% 80% at 70% 40%, black 0%, transparent 65%);
+    padding: 56px 7% 0;
   }
 
-  /* ── Layout ── */
-  .mentor-content {
-    padding: 48px 8% 80px;
+  /* ── Top grid ── */
+  .mi__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-bottom: 56px;
   }
 
-  .mentor-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+  @media (min-width: 768px) {
+    .mi__grid {
+      grid-template-columns: 1fr auto;
+      gap: 6%;
+      margin-bottom: 64px;
+    }
+    .mi__content {
+      padding: 72px 7% 0;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .mi__content {
+      padding: 88px 7% 0;
+    }
+    .mi__grid {
+      margin-bottom: 72px;
+    }
   }
 
   /* ── Text ── */
-  .mentor-tagline {
-    font-size: 0.8rem;
+  .mi__tagline {
+    font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: #DD3333;
     margin-bottom: 14px;
-    margin-left: -0.075em;
   }
 
-  .mentor-name {
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
+  .mi__name {
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
     font-weight: 800;
-    line-height: 1.05;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
     margin-bottom: 24px;
-    letter-spacing: -0.02em;
+    color: #fff;
   }
 
-  .mentor-name-accent {
+  .mi__name-accent {
     background: linear-gradient(90deg, #FF4444, #DD3333, #aa1111);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .mentor-bio {
-    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
-    color: rgba(255,255,255,0.6);
-    line-height: 1.7;
-    margin-bottom: 36px;
+  .mi__bio {
+    font-size: clamp(0.95rem, 1.15vw, 1.1rem);
+    color: rgba(255,255,255,0.55);
+    line-height: 1.75;
+    margin-bottom: 40px;
+    max-width: 580px;
   }
 
   /* ── Stats ── */
-  .mentor-stats {
+  .mi__stats {
     display: flex;
-    gap: 36px;
+    gap: 40px;
     flex-wrap: wrap;
   }
 
-  .mentor-stat-value {
-    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  .mi__stat-value {
+    font-size: clamp(1.8rem, 2.8vw, 2.6rem);
     font-weight: 800;
     color: #fff;
-    line-height: 1.2;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
   }
 
-  .stat-highlight {
+  .mi__stat-highlight {
     color: #DD3333;
   }
 
-  .mentor-stat-label {
-    font-size: 0.7rem;
-    color: rgba(255,255,255,0.4);
+  .mi__stat-label {
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.35);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-top: 4px;
+    letter-spacing: 0.12em;
+    margin-top: 5px;
   }
 
   /* ── Photo ── */
-  .mentor-photo-wrap {
+  .mi__photo-wrap {
     display: flex;
     justify-content: center;
-    order: -1;
   }
 
-  .mentor-photo {
-    width: 280px;
-    height: 280px;
+  .mi__photo {
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
+    box-shadow:
+      0 0 0 1px rgba(221,51,51,0.15),
+      0 32px 80px rgba(0,0,0,0.6),
+      0 0 60px rgba(221,51,51,0.08);
   }
 
-  .mentor-photo img {
+  .mi__photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
   }
 
-  /* ── Logos ── */
-  .mentor-logos {
-    padding-top: 28px;
+  @media (min-width: 768px) {
+    .mi__photo {
+      width: 420px;
+      height: 420px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .mi__photo {
+      width: 520px;
+      height: 520px;
+    }
+  }
+
+  @media (min-width: 1600px) {
+    .mi__photo {
+      width: 580px;
+      height: 580px;
+    }
+  }
+
+  /* ── Logos — full width below grid ── */
+  .mi__logos {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 40px 0 64px;
     width: 100%;
   }
 
-  .mentor-logos img {
+  .mi__logos img {
     width: 100%;
     max-width: 100%;
     display: block;
     object-fit: contain;
-    opacity: 0.45;
+    opacity: 0.4;
   }
 
-  /* ── Tablet ── */
   @media (min-width: 768px) {
-    .mentor-content {
-      padding: 72px 7% 96px;
-    }
-
-    .mentor-grid {
-      flex-direction: row;
-      align-items: center;
-      gap: 5%;
-    }
-
-    .mentor-text {
-      flex: 1;
-    }
-
-    .mentor-bio {
-      max-width: 560px;
-    }
-
-    .mentor-photo-wrap {
-      flex: 0 0 auto;
-      order: 0;
-    }
-
-    .mentor-photo {
-      width: 320px;
-      height: 320px;
-    }
-
-    .mentor-logos {
-      padding-top: 28px;
-      padding-left: 0;
-      padding-right: 0;
+    .mi__logos {
+      padding: 48px 0 80px;
     }
   }
 
-  /* ── Desktop ── */
   @media (min-width: 1280px) {
-    .mentor-content {
-      padding: 88px 8% 112px;
-    }
-
-    .mentor-grid {
-      gap: 6%;
-    }
-
-    .mentor-tagline {
-      font-size: 0.9rem;
-      margin-bottom: 16px;
-    }
-
-    .mentor-name {
-      margin-bottom: 28px;
-    }
-
-    .mentor-bio {
-      font-size: 1.15rem;
-      margin-bottom: 40px;
-      max-width: 620px;
-    }
-
-    .mentor-stats {
-      gap: 56px;
-    }
-
-    .mentor-stat-value {
-      font-size: 2.4rem;
-    }
-
-    .mentor-stat-label {
-      font-size: 0.75rem;
-      margin-top: 6px;
-    }
-
-    .mentor-photo {
-      width: 400px;
-      height: 400px;
-    }
-
-    .mentor-logos {
-      padding-top: 32px;
-    }
-  }
-
-  /* ── Wide screens ── */
-  @media (min-width: 1600px) {
-    .mentor-content {
-      padding: 96px 10% 128px;
-    }
-
-    .mentor-photo {
-      width: 440px;
-      height: 440px;
-    }
-
-    .mentor-bio {
-      max-width: 680px;
-    }
-
-    .mentor-logos {
-      padding-top: 36px;
+    .mi__logos {
+      padding: 56px 0 96px;
     }
   }
 </style>
