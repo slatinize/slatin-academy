@@ -193,20 +193,22 @@ const rowB = reviews.slice(8, 16);
   .gr-section {
     position: relative;
     padding: 96px 64px 56px;
-    overflow: hidden;
-    background: #020202;
+    overflow: visible;
+    background: transparent;
     color: #fff;
+    margin-top: -160px;
+    padding-top: 256px;
   }
 
   .gr-halo {
     position: absolute;
-    top: -10%;
+    top: -25%;
     left: 50%;
     transform: translateX(-50%);
-    width: 80%;
-    max-width: 900px;
+    width: 100%;
+    max-width: 1200px;
     aspect-ratio: 2 / 1;
-    background: radial-gradient(ellipse at center, rgba(221,51,51,.18) 0%, transparent 60%);
+    background: radial-gradient(ellipse at center, rgba(221,51,51,.22) 0%, transparent 65%);
     pointer-events: none;
     z-index: 0;
   }
