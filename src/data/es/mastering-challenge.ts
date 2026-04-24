@@ -12,8 +12,13 @@ export const pageData = {
     subtitle: '<strong>5 sesiones en directo</strong>, 5 géneros, compara tu trabajo con la comunidad.',
     ctaText: "Reservar mi plaza",
     ctaHref: "#pricing",
-    backgroundImage: "/images/mentoring/mentor-photo.jpg",
+    backgroundImage: "/images/hero-gear.jpg",
     countdownTarget: "2026-05-20T19:00:00",
+    pills: [
+      { number: "07", label: "días" },
+      { number: "05", label: "géneros" },
+      { number: "01", label: "semana" },
+    ],
     alumni: [
       { src: "/images/mentoring/alumni-ignacio.jpg", alt: "Ignacio" },
       { src: "/images/mentoring/alumni-pablo.jpg", alt: "Pablo" },
