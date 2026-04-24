@@ -10,7 +10,7 @@ export const pageData = {
     eyebrow: "Plazas abiertas · Edición Mayo 2026",
     headline: 'Mastering <span class="grad">challenge</span>',
     subtitle: '',
-    ctaText: "Reservar mi plaza",
+    ctaText: "¡ACEPTO!",
     ctaHref: "#pricing",
     backgroundImage: "/images/hero-gear.jpg",
     countdownTarget: "2026-05-20T19:00:00",
