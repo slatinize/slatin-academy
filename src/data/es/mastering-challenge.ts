@@ -244,22 +244,25 @@ export const pageData = {
   },
 
   sorteos: {
-    sectionTitle: 'Durante la semana, <strong>regalamos equipo</strong>.',
+    sectionTitle: 'Llévate equipo profesional',
     items: [
       {
         icon: "&#x1F3A7;",
+        image: "/images/sorteos-headphones.jpg",
         title: "Cascos profesionales",
-        description: "Sorteo entre todos los participantes del challenge.",
+        description: "Beyerdynamic DT 770 PRO. Sorteo entre todos los participantes.",
       },
       {
         icon: "&#x1F50C;",
+        image: "/images/sorteos-plugin.png",
         title: "Plugins de mastering",
         description: "Bundles profesionales. Tier 2 tiene doble entrada.",
       },
       {
         icon: "&#x1F381;",
+        image: "/images/analog-gear.jpg",
         title: "Más sorpresas",
-        description: "Se anuncian durante la semana. Perks exclusivos.",
+        description: "Se anuncian durante la semana. Perks exclusivos para los que estén.",
       },
     ],
   },

@@ -1,6 +1,7 @@
 ---
 interface SorteoItem {
   icon: string;
+  image?: string;
   title: string;
   description: string;
 }
@@ -13,46 +14,151 @@ interface Props {
 const { sectionTitle, items } = Astro.props;
 ---
 
-<section class="section-dark section-padding">
-  <div class="container-content">
-    <div class="text-center mb-12 md:mb-16 reveal">
-      <h2 class="text-heading" set:html={sectionTitle} />
+<section class="sr section-dark">
+  <div class="sr__inner">
+
+    <div class="sr__header reveal">
+      <h2 class="sr__heading" set:html={sectionTitle} />
     </div>
 
-    <div class="grid md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+    <div class="sr__grid">
       {items.map((item) => (
         <div class="sr__card reveal">
-          <span class="sr__icon" set:html={item.icon} />
-          <h3 class="text-lg font-bold mb-2">{item.title}</h3>
-          <p class="text-sm text-white/55 leading-relaxed">{item.description}</p>
+          {item.image && (
+            <div class="sr__img-wrap">
+              <img src={item.image} alt={item.title} loading="lazy" class="sr__img" />
+              <div class="sr__img-vignette" aria-hidden="true"></div>
+            </div>
+          )}
+          <div class="sr__body">
+            <span class="sr__badge">SORTEO</span>
+            <h3 class="sr__title">{item.title}</h3>
+            <p class="sr__desc">{item.description}</p>
+          </div>
         </div>
       ))}
     </div>
+
   </div>
 </section>
 
 <style>
+  .sr {
+    padding: 80px 7% 96px;
+    position: relative;
+  }
+
+  .sr__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .sr__header {
+    margin-bottom: 52px;
+  }
+
+  .sr__heading {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: #fff;
+    margin: 0;
+  }
+
+  .sr__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 900px) {
+    .sr__grid {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+  }
+
   .sr__card {
-    border: 1px solid rgba(232,115,74,0.2);
-    background: rgba(232,115,74,0.05);
-    border-radius: 16px;
-    padding: 32px 24px;
-    text-align: center;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
     transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
   }
 
   .sr__card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(232,115,74,0.4);
+    transform: translateY(-4px);
+    border-color: rgba(221,51,51,0.35);
   }
 
-  .sr__icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    font-size: 1.5rem;
-    margin-bottom: 16px;
+  /* Image */
+  .sr__img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  .sr__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .sr__card:hover .sr__img {
+    transform: scale(1.04);
+  }
+
+  .sr__img-vignette {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 40%,
+      rgba(2,2,2,0.6) 100%
+    );
+    pointer-events: none;
+  }
+
+  /* Body */
+  .sr__body {
+    padding: 24px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .sr__badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #DD3333;
+    margin-bottom: 2px;
+  }
+
+  .sr__title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .sr__desc {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.55;
+    margin: 0;
   }
 </style>
