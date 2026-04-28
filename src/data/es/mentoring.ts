@@ -19,7 +19,7 @@ export const pageData = {
     tagline: "Tu Mentor",
     name: "Ruslan",
     nameAccent: "SLATIN",
-    bio: "He mezclado y masterizado más de 1.000 canciones para Sony, Warner, Def Jam, Netflix y más, obteniendo certificaciones multi-platino y un puesto en el top 1% de ingenieros de mezcla. Ahora, todo lo que he aprendido es tuyo.",
+    bio: "He mezclado y masterizado más de 1.000 canciones para Sony, Warner, Def Jam, Netflix y más, con certificaciones multi-platino y un lugar en el top 1% de ingenieros de mezcla. Ahora, todo eso es tuyo.",
     stats: [
       { value: "Top 0.1%", label: "Ingenieros de Mastering", highlight: true },
       { value: "1.000+", label: "Canciones al Año" },
@@ -30,50 +30,50 @@ export const pageData = {
   backgroundQuote: 'Desbloquea tu <strong>máximo potencial</strong> y acelera tu crecimiento uniéndote a mi <strong>Programa de Mentoría.</strong>',
 
   whatsIncluded: {
-    sectionTitle: 'Cómo <em><span class="squiggle-basic">Cambiarás</span></em>',
-    sectionSubtitle: "Transformaciones reales en cómo trabajas, suenas y creces, no solo una lista de herramientas.",
+    sectionTitle: 'Tu Transformación como <em><span class="squiggle-basic">Ingeniero</span></em>',
+    sectionSubtitle: "Cuatro cambios en cómo trabajas, suenas y facturas.",
     cards: [
       {
         icon: "fix",
         image: "/images/mentoring/feedback.gif",
         beforeAfter: { before: "adivinar a solas", after: "saber exactamente qué arreglar" },
-        title: "Dejarás de Dudar de Tus Mezclas",
-        description: 'Cada semana recibirás reseñas detalladas en vídeo de tus <em>tracks</em>, no consejos genéricos, sino comentarios específicos y accionables para que finalmente entiendas el porqué detrás de cada decisión.',
+        title: "Revisiones Semanales en Vídeo",
+        description: 'Envía tus <em>tracks</em> y recibe <em>feedback</em> detallado en vídeo con correcciones concretas que puedes aplicar de inmediato.',
         valueTag: "Ahorra +100 horas de prueba y error",
       },
       {
         icon: "guide",
         image: "/images/mentoring/group-calls.gif",
         beforeAfter: { before: "atascado y aislado", after: "guiado cada semana" },
-        title: "Nunca Te Sentirás Perdido Otra Vez",
-        description: "Llamadas grupales en directo de 70 minutos, guía en tiempo real de un ingeniero multi-platino y una comunidad privada de productores serios, siempre tendrás a quien preguntar cuando te encuentres con un muro.",
+        title: "Llamadas Grupales en Directo",
+        description: "Sesiones de 70 minutos con un ingeniero multi-platino. Guía en tiempo real y respuestas reales.",
         valueTag: "Respuesta en 24h, soporte siempre activo",
       },
       {
         icon: "star",
         image: "/images/mentoring/mentor-photo.jpg",
-        beforeAfter: { before: "sonido amateur", after: "mezclas profesionales listas para sello" },
-        title: "Tu Sonido Traducirá en Cualquier Sistema",
-        description: "Aprenderás las técnicas exactas usadas en discos de los principales sellos y las aplicarás a tu propio trabajo con guía directa semanal de alguien que ya lo ha hecho.",
-        valueTag: 'Técnicas reales de <em>releases</em> reales',
+        beforeAfter: { before: "sonido amateur", after: "mezclas profesionales listas para sellos" },
+        title: "Técnicas de Grandes Sellos",
+        description: "Aprende los métodos exactos usados en discos para Sony, Warner y Def Jam, y aplícalos a tu propio trabajo.",
+        valueTag: "Técnicas reales de lanzamientos reales",
       },
       {
         icon: "money",
         image: "/images/mentoring/chat.gif",
         beforeAfter: { before: "trabajar gratis", after: "cobrar con confianza" },
-        title: "Construirás una Carrera Rentable",
-        description: "Más allá de lo técnico: cobrarás tu trabajo, encontrarás clientes, negociarás con discográficas y construirás un negocio musical sostenible, respaldado por más de 15 años en la industria.",
-        valueTag: "Negocio real, no dinero de hobby",
+        title: "Negocio y Carrera Profesional",
+        description: "Tarifas, clientes y acuerdos con sellos. Todo lo que necesitas para construir una carrera musical sostenible.",
+        valueTag: 'Negocio real, no solo dinero de un <em>hobby</em>',
       },
     ],
-    extrasTitle: "Todo Lo Demás Que Desbloqueas",
+    extrasTitle: "También Incluido",
     extras: [
-      { highlight: "Corta el ruido de la industria", text: "conocimiento interno de lo que realmente mueve la aguja, para que dejes de perder años descubriéndolo solo." },
-      { highlight: "Entra en la sala con quienes deciden", text: "A&Rs, ejecutivos de discográficas e ingenieros top que pueden cambiar la trayectoria de tu carrera." },
-      { highlight: "Construye relaciones que abren puertas", text: "una comunidad privada de productores serios que te empujan, apoyan y colaboran contigo durante años." },
-      { highlight: "Sáltate la búsqueda interminable", text: 'los <em>samples</em>, <em>presets</em> y libros exactos que yo uso, para que construyas con herramientas probadas desde el día uno.' },
-      { highlight: "Deja de ser ignorado por las discográficas", text: 'plantillas de <em>email</em> probadas que realmente reciben respuesta de discográficas, <em>mánagers</em> y promotores.' },
-      { highlight: "Suena enorme desde el día uno", text: 'FUSION (pack Valhalla VintageVerb) gratis, para que tus <em>reverbs</em> suenen como las de un estudio profesional.' },
+      { highlight: "2h de llamadas grupales en directo cada semana", text: "guía en tiempo real, preguntas y revisiones de mezclas en cada sesión." },
+      { highlight: "Más de 150 horas de lecciones disponibles", text: "mezcla, <em>mastering</em> y negocio musical accesibles en cualquier momento." },
+      { highlight: "Comunidad privada de productores serios", text: "colabora, recibe <em>feedback</em> y construye relaciones que duran más allá del programa." },
+      { highlight: "Herramientas y recursos seleccionados", text: 'los <em>samples</em>, <em>presets</em> y libros exactos que yo uso, además de FUSION (pack de Valhalla VintageVerb) gratis.' },
+      { highlight: "Plantillas de email probadas", text: 'plantillas de contacto que realmente reciben respuesta de sellos, <em>mánagers</em> y promotores.' },
+      { highlight: "Conocimiento interno de la industria", text: "cómo funciona realmente el negocio, para que dejes de perder años descubriéndolo solo." },
     ],
   },
 
@@ -119,11 +119,11 @@ export const pageData = {
   },
 
   marquee: {
-    text: "Empieza Hoy",
-    subtitle: "¡Inscripción Pública Abierta! 🧨",
+    text: "Tu Era Pro",
+    subtitle: "Inscripción Pública - Abierta",
   },
 
-  alumniTitle: 'Resultados <em><span class="squiggle-basic">Reales</span></em>',
+  alumniTitle: 'Voces del <em><span class="squiggle-basic">Programa</span></em>',
 
   featuredTestimonials: [
     {
@@ -347,7 +347,7 @@ export const pageData = {
     },
     {
       question: "¿En qué se diferencia de comprar Cursos o Tutoriales online?",
-      answer: `A diferencia del contenido pregrabado, nuestro programa se adapta a las necesidades y aspiraciones de cada persona del grupo y trabajaremos juntos para crear un <strong>plan personalizado</strong> que aborde tus fortalezas, debilidades y retos únicos. Además, el programa ofrece una comunidad de apoyo, revisiones semanales y <strong>seguimientos regulares de compromiso</strong>.`,
+      answer: `A diferencia del contenido pregrabado, nuestro programa se adapta a las necesidades y aspiraciones de cada persona del grupo y trabajaremos juntos para crear un <strong>plan personalizado</strong> que aborde tus fortalezas, debilidades y retos únicos. Además, el programa ofrece una comunidad de apoyo, revisiones semanales y <strong>seguimiento regular</strong>.`,
       category: "Sobre el Programa",
     },
     {
