@@ -22,18 +22,13 @@ const {
 <section class="ls section-dark section-padding">
   <!-- Grid texture -->
   <div class="section-grid" aria-hidden="true"></div>
-  <!-- Ambient halos -->
-  <div class="ls__halo ls__halo--a" aria-hidden="true"></div>
-  <div class="ls__halo ls__halo--b" aria-hidden="true"></div>
 
   <div class="container-content" style="position:relative;z-index:1;">
 
-    <!-- Header row -->
+    <!-- Header -->
     <div class="ls__header">
-      <div class="ls__header-left">
-        <p class="ls__eyebrow">{sectionTitle}</p>
-        <h2 class="ls__big-title" set:html={impactLine.replace('criterio', '<span class="grad">criterio</span>')} />
-      </div>
+      <p class="ls__eyebrow">{sectionTitle}</p>
+      <h2 class="ls__big-title" set:html={impactLine.replace('criterio', '<span class="grad">criterio</span>')} />
       <p class="ls__lead">{lead}</p>
     </div>
 
@@ -45,42 +40,26 @@ const {
     background: #030303;
     position: relative;
     overflow: hidden;
-    padding-top: 2.5rem !important;
-    padding-bottom: 4rem !important;
+    padding-top: 7rem !important;
+    padding-bottom: 1.5rem !important;
   }
   @media (min-width: 768px) {
     .ls {
-      padding-top: 4rem !important;
-      padding-bottom: 5rem !important;
+      padding-top: 10rem !important;
+      padding-bottom: 2rem !important;
     }
   }
 
-  /* Ambient halos */
-  .ls__halo {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    pointer-events: none;
-    z-index: 0;
-  }
-  .ls__halo--a {
-    width: 600px; height: 600px;
-    top: -100px; left: -200px;
-    background: radial-gradient(circle, rgba(221,51,51,0.07), transparent 70%);
-  }
-  .ls__halo--b {
-    width: 500px; height: 500px;
-    bottom: -80px; right: -100px;
-    background: radial-gradient(circle, rgba(237,142,0,0.07), transparent 70%);
-  }
 
   /* ── Header ── */
   .ls__header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: end;
-    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    max-width: 720px;
+    margin: 0 auto;
   }
 
   .ls__eyebrow {
@@ -89,7 +68,7 @@ const {
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #DD3333;
-    margin-bottom: 20px;
+    margin: 0;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -122,17 +101,7 @@ const {
     font-size: 1.05rem;
     color: rgba(255, 255, 255, 0.38);
     line-height: 1.7;
-    align-self: end;
-    padding-bottom: 4px;
-  }
-
-  /* ── Tablet ── */
-  @media (max-width: 900px) {
-    .ls__header {
-      grid-template-columns: 1fr;
-      gap: 24px;
-      margin-bottom: 40px;
-    }
+    margin: 0;
   }
 
   /* ── Mobile ── */

@@ -59,12 +59,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .mc-en__vignette {
     position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(
-      180deg,
-      rgba(2,2,2,0.75) 0%,
-      rgba(2,2,2,0.35) 40%,
-      rgba(2,2,2,0.95) 100%
-    );
+    background:
+      linear-gradient(180deg, rgba(2,2,2,0.6) 0%, rgba(2,2,2,0.55) 50%, rgba(2,2,2,0.85) 100%),
+      radial-gradient(ellipse at 50% 40%, transparent 30%, rgba(2,2,2,0.5) 100%);
   }
 
   .mc-en__halo {

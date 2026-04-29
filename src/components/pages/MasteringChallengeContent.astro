@@ -309,5 +309,32 @@ const {
       height: 300px;
     }
   }
+
+  /* Animated wavy underline for pricing headline */
+  :global(.line-anim) {
+    position: relative;
+    display: inline-block;
+  }
+  :global(.wavy-line) {
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 100%;
+    height: 14px;
+    overflow: visible;
+    animation: wavy-float 3s ease-in-out 1.4s infinite;
+  }
+  :global(.wavy-line path) {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: wavy-draw 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+  }
+  @keyframes wavy-draw {
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes wavy-float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-3px); }
+  }
 </style>
 

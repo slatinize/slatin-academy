@@ -8,7 +8,7 @@ export const pageData = {
 
   hero: {
     eyebrow: "Plazas abiertas · Edición Mayo 2026",
-    headline: 'Mastering <span class="grad">challenge</span>',
+    headline: 'Mastering <span class="grad">Challenge</span>',
     subtitle: '',
     ctaText: "¡ACEPTO!",
     ctaHref: "#pricing",
@@ -167,7 +167,7 @@ export const pageData = {
   },
 
   pricing: {
-    headline: 'Elige tu reto',
+    headline: '<span class="line-anim">Elige tu reto<svg class="wavy-line" viewBox="0 0 320 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M0,7 Q40,2 80,7 Q120,12 160,7 Q200,2 240,7 Q280,12 320,7" stroke="#DD3333" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>',
     subtitle: "Las dos te dan acceso a todo. La diferencia está en cuánto feedback personal recibes.",
     plans: [
       {
@@ -182,7 +182,7 @@ export const pageData = {
           "Dinámicas y ejercicios diarios",
           "Participación en el sorteo de cascos profesionales",
         ],
-        ctaText: "Reservar — 121 €",
+        ctaText: "Reservar 121€",
         ctaHref: "#reserve",
         variant: "dark" as const,
       },
@@ -205,7 +205,7 @@ export const pageData = {
           "Prioridad en la interacción dentro de la comunidad",
           "Doble posibilidad en el sorteo de plugins y equipo",
         ],
-        ctaText: "Reservar — 484 €",
+        ctaText: "Reservar 389€",
         ctaHref: "#reserve",
         variant: "light" as const,
       },
