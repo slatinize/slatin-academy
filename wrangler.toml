@@ -1,0 +1,11 @@
+name = "slatin-academy"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+pages_build_output_dir = "./dist"
+
+# Add D1 binding here once the database is created in Cloudflare dashboard:
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "slatin-crm"
+# database_id = "your-real-database-uuid-here"

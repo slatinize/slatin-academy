@@ -91,11 +91,20 @@ interface Props {
     fields: {
       name: string;
       email: string;
+      phone: string;
+      instagram: string;
       experience: string;
       experienceOptions: string[];
+      invoiceLabel: string;
+      billing: {
+        name: string;
+        nif: string;
+        address: string;
+        city: string;
+        postal: string;
+      };
     };
     submitText: string;
-    successMessage: string;
   };
 }
 
@@ -233,7 +242,6 @@ const {
     tiers={modal.tiers}
     fields={modal.fields}
     submitText={modal.submitText}
-    successMessage={modal.successMessage}
   />
 </BaseLayout>
 

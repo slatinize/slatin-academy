@@ -1,4 +1,4 @@
-import type { Testimonial, FaqItem, Feature, PricingPlan } from '../types';
+import type { FaqItem, Feature, PricingPlan } from '../types';
 
 export const pageData = {
   meta: {
@@ -337,14 +337,23 @@ export const pageData = {
     fields: {
       name: "Nombre",
       email: "Email",
+      phone: "Teléfono",
+      instagram: "Instagram",
       experience: "¿Dónde estás ahora mismo?",
       experienceOptions: [
         "Masterizo mis temas de forma amateur",
         "Masterizo temas para otros, busco subir nivel",
         "Trabajo como ingeniero/a, quiero pulir criterio",
       ],
+      invoiceLabel: "Necesito factura",
+      billing: {
+        name: "Nombre o razón social",
+        nif: "NIF / CIF",
+        address: "Dirección",
+        city: "Ciudad",
+        postal: "Código postal",
+      },
     },
     submitText: "Reservar plaza",
-    successMessage: "Te hemos enviado los detalles de pago y acceso. Nos vemos el 20 de mayo.",
   },
 };

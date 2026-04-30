@@ -9,14 +9,23 @@ interface Props {
   fields: {
     name: string;
     email: string;
+    phone: string;
+    instagram: string;
     experience: string;
     experienceOptions: string[];
+    invoiceLabel: string;
+    billing: {
+      name: string;
+      nif: string;
+      address: string;
+      city: string;
+      postal: string;
+    };
   };
   submitText: string;
-  successMessage: string;
 }
 
-const { tiers, fields, submitText, successMessage } = Astro.props;
+const { tiers, fields, submitText } = Astro.props;
 ---
 
 <div class="rm" id="reserve-modal" aria-hidden="true">
@@ -45,15 +54,23 @@ const { tiers, fields, submitText, successMessage } = Astro.props;
         ))}
       </div>
 
-      <!-- Fields -->
+      <!-- Personal fields -->
       <div class="rm__fields">
         <div class="rm__field">
           <label for="rm-name">{fields.name}</label>
-          <input type="text" id="rm-name" required />
+          <input type="text" id="rm-name" autocomplete="name" required />
         </div>
         <div class="rm__field">
           <label for="rm-email">{fields.email}</label>
-          <input type="email" id="rm-email" required />
+          <input type="email" id="rm-email" autocomplete="email" required />
+        </div>
+        <div class="rm__field">
+          <label for="rm-phone">{fields.phone}</label>
+          <input type="tel" id="rm-phone" autocomplete="tel" placeholder="+34 600 000 000" required />
+        </div>
+        <div class="rm__field">
+          <label for="rm-instagram">{fields.instagram}</label>
+          <input type="text" id="rm-instagram" placeholder="@usuario" required />
         </div>
         <div class="rm__field">
           <label for="rm-experience">{fields.experience}</label>
@@ -66,17 +83,46 @@ const { tiers, fields, submitText, successMessage } = Astro.props;
         </div>
       </div>
 
-      <button class="rm__submit" type="button">{submitText}</button>
-    </div>
+      <!-- Invoice checkbox -->
+      <label class="rm__invoice-check">
+        <input type="checkbox" id="rm-invoice" />
+        <span class="rm__invoice-box" aria-hidden="true"></span>
+        <span class="rm__invoice-label">{fields.invoiceLabel}</span>
+      </label>
 
-    <!-- Success state -->
-    <div class="rm__success-state" style="display:none">
-      <div class="rm__check" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#DD3333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="20 6 9 17 4 12"/>
-        </svg>
+      <!-- Billing fields (hidden until checkbox checked) -->
+      <div class="rm__billing" id="rm-billing-section" aria-hidden="true">
+        <p class="rm__billing-title">Datos de facturación</p>
+        <div class="rm__fields">
+          <div class="rm__field">
+            <label for="rm-billing-name">{fields.billing.name}</label>
+            <input type="text" id="rm-billing-name" autocomplete="organization" />
+          </div>
+          <div class="rm__field">
+            <label for="rm-billing-nif">{fields.billing.nif}</label>
+            <input type="text" id="rm-billing-nif" placeholder="B12345678 / 12345678A" />
+          </div>
+          <div class="rm__field">
+            <label for="rm-billing-address">{fields.billing.address}</label>
+            <input type="text" id="rm-billing-address" autocomplete="street-address" />
+          </div>
+          <div class="rm__field rm__field--row">
+            <div class="rm__field">
+              <label for="rm-billing-city">{fields.billing.city}</label>
+              <input type="text" id="rm-billing-city" autocomplete="address-level2" />
+            </div>
+            <div class="rm__field">
+              <label for="rm-billing-postal">{fields.billing.postal}</label>
+              <input type="text" id="rm-billing-postal" autocomplete="postal-code" placeholder="28001" />
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="rm__success-text">{successMessage}</p>
+
+      <!-- Error message -->
+      <p class="rm__error" id="rm-error" style="display:none"></p>
+
+      <button class="rm__submit" id="rm-submit" type="button">{submitText}</button>
     </div>
   </div>
 </div>
@@ -86,10 +132,11 @@ const { tiers, fields, submitText, successMessage } = Astro.props;
     position: fixed;
     inset: 0;
     z-index: 50;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow-y: auto;
     padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.25s ease, visibility 0.25s ease;
@@ -101,7 +148,7 @@ const { tiers, fields, submitText, successMessage } = Astro.props;
   }
 
   .rm__backdrop {
-    position: absolute;
+    position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.7);
     backdrop-filter: blur(12px);
@@ -112,6 +159,7 @@ const { tiers, fields, submitText, successMessage } = Astro.props;
     position: relative;
     width: 100%;
     max-width: 480px;
+    margin: auto;
     background: #111;
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 20px;
@@ -152,13 +200,8 @@ const { tiers, fields, submitText, successMessage } = Astro.props;
     margin-bottom: 24px;
   }
 
-  .rm__tier {
-    cursor: pointer;
-  }
-
-  .rm__tier input {
-    display: none;
-  }
+  .rm__tier { cursor: pointer; }
+  .rm__tier input { display: none; }
 
   .rm__tier-inner {
     display: flex;
@@ -191,8 +234,8 @@ const { tiers, fields, submitText, successMessage } = Astro.props;
   .rm__fields {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-bottom: 24px;
+    gap: 14px;
+    margin-bottom: 20px;
   }
 
   .rm__field label {
@@ -221,10 +264,10 @@ const { tiers, fields, submitText, successMessage } = Astro.props;
     appearance: none;
   }
 
+  .rm__field input::placeholder { color: rgba(255,255,255,0.25); }
+
   .rm__field input:focus,
-  .rm__field select:focus {
-    border-color: #DD3333;
-  }
+  .rm__field select:focus { border-color: #DD3333; }
 
   .rm__field select {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='1.5' stroke-linecap='round'/></svg>");
@@ -233,9 +276,96 @@ const { tiers, fields, submitText, successMessage } = Astro.props;
     padding-right: 36px;
   }
 
-  .rm__field select option {
-    background: #111;
-    color: #fff;
+  .rm__field select option { background: #111; color: #fff; }
+
+  .rm__field--row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 0;
+  }
+
+  .rm__field--row .rm__field { margin-bottom: 0; }
+
+  /* Invoice checkbox */
+  .rm__invoice-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    margin-bottom: 0;
+    user-select: none;
+  }
+
+  .rm__invoice-check input { display: none; }
+
+  .rm__invoice-box {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+    background: transparent;
+    position: relative;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .rm__invoice-check input:checked + .rm__invoice-box {
+    border-color: #DD3333;
+    background: #DD3333;
+  }
+
+  .rm__invoice-check input:checked + .rm__invoice-box::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 6px;
+    height: 10px;
+    border: 2px solid #fff;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+  }
+
+  .rm__invoice-label {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.65);
+  }
+
+  /* Billing section */
+  .rm__billing {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.25s ease, margin 0.25s ease;
+    margin-top: 0;
+  }
+
+  .rm__billing.open {
+    max-height: 600px;
+    opacity: 1;
+    margin-top: 20px;
+  }
+
+  .rm__billing-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 14px;
+  }
+
+  .rm__billing .rm__fields { margin-bottom: 0; }
+
+  /* Error */
+  .rm__error {
+    font-size: 0.85rem;
+    color: #FB4141;
+    text-align: center;
+    margin-bottom: 12px;
+    line-height: 1.5;
   }
 
   /* Submit */
@@ -251,90 +381,153 @@ const { tiers, fields, submitText, successMessage } = Astro.props;
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s, opacity 0.2s;
+    margin-top: 20px;
   }
 
-  .rm__submit:hover {
+  .rm__submit:hover:not(:disabled) {
     background: linear-gradient(180deg, #FB4141, #DD3333);
     transform: translateY(-1px);
     box-shadow: 0 8px 24px rgba(221,51,51,0.35);
   }
 
-  /* Success */
-  .rm__success-state {
-    text-align: center;
-    padding: 24px 0;
-  }
-
-  .rm__check {
-    margin-bottom: 20px;
-  }
-
-  .rm__success-text {
-    font-size: 1rem;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.6;
-    max-width: 360px;
-    margin: 0 auto;
+  .rm__submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
   }
 
   @media (max-width: 480px) {
-    .rm__dialog {
-      padding: 32px 20px;
-    }
+    .rm__dialog { padding: 32px 20px; }
+    .rm__field--row { grid-template-columns: 1fr; }
   }
 </style>
 
-<script>
+<script define:vars={{ submitText }}>
   function initReserveModal() {
     const modal = document.getElementById('reserve-modal');
     if (!modal) return;
 
     const backdrop = modal.querySelector('.rm__backdrop');
     const closeBtn = modal.querySelector('.rm__close');
-    const submitBtn = modal.querySelector('.rm__submit');
-    const formState = modal.querySelector('.rm__form-state') as HTMLElement;
-    const successState = modal.querySelector('.rm__success-state') as HTMLElement;
+    const submitBtn = document.getElementById('rm-submit');
+    const invoiceCheckbox = document.getElementById('rm-invoice');
+    const billingSection = document.getElementById('rm-billing-section');
+    const errorEl = document.getElementById('rm-error');
 
-    function open() {
-      modal!.classList.add('open');
-      modal!.setAttribute('aria-hidden', 'false');
+    function openModal(tierNum) {
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      if (tierNum) {
+        const radio = modal.querySelector(`input[name="tier"][value="${tierNum}"]`);
+        if (radio) radio.checked = true;
+      }
     }
 
-    function close() {
-      modal!.classList.remove('open');
-      modal!.setAttribute('aria-hidden', 'true');
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
-      // Reset to form after closing
-      setTimeout(() => {
-        if (formState) formState.style.display = '';
-        if (successState) successState.style.display = 'none';
-      }, 300);
+      // Reset submit button in case it was left mid-flight
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = submitText;
+      }
     }
 
     // Open triggers
     document.querySelectorAll('[data-open-modal]').forEach((btn) => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        open();
+        const tier = btn.dataset.tier || null;
+        openModal(tier);
         if (typeof fbq === 'function') fbq('track', 'ViewContent', { content_name: 'Mastering Challenge' });
       });
     });
 
     // Close triggers
-    backdrop?.addEventListener('click', close);
-    closeBtn?.addEventListener('click', close);
+    backdrop?.addEventListener('click', closeModal);
+    closeBtn?.addEventListener('click', closeModal);
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal!.classList.contains('open')) close();
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
     });
 
-    // Submit → success
-    submitBtn?.addEventListener('click', () => {
-      if (formState) formState.style.display = 'none';
-      if (successState) successState.style.display = '';
-      if (typeof fbq === 'function') fbq('track', 'Lead');
+    // Invoice checkbox toggle
+    invoiceCheckbox?.addEventListener('change', () => {
+      const checked = invoiceCheckbox.checked;
+      billingSection?.classList.toggle('open', checked);
+      billingSection?.setAttribute('aria-hidden', String(!checked));
+
+      // Toggle required on billing inputs
+      billingSection?.querySelectorAll('input').forEach((input) => {
+        input.required = checked;
+      });
     });
+
+    // Submit
+    submitBtn?.addEventListener('click', async () => {
+      if (errorEl) errorEl.style.display = 'none';
+
+      const tier = parseInt(modal.querySelector('input[name="tier"]:checked')?.value || '1');
+      const name = document.getElementById('rm-name')?.value.trim();
+      const email = document.getElementById('rm-email')?.value.trim();
+      const phone = document.getElementById('rm-phone')?.value.trim();
+      const instagram = document.getElementById('rm-instagram')?.value.trim();
+      const experience = document.getElementById('rm-experience')?.value;
+      const needsInvoice = document.getElementById('rm-invoice')?.checked ?? false;
+
+      if (!name || !email || !phone || !instagram || !experience) {
+        showError('Por favor, completa todos los campos obligatorios.');
+        return;
+      }
+
+      let billing = undefined;
+      if (needsInvoice) {
+        billing = {
+          name: document.getElementById('rm-billing-name')?.value.trim(),
+          nif: document.getElementById('rm-billing-nif')?.value.trim(),
+          address: document.getElementById('rm-billing-address')?.value.trim(),
+          city: document.getElementById('rm-billing-city')?.value.trim(),
+          postal: document.getElementById('rm-billing-postal')?.value.trim(),
+        };
+        if (!billing.name || !billing.nif || !billing.address || !billing.city || !billing.postal) {
+          showError('Por favor, completa todos los datos de facturación.');
+          return;
+        }
+      }
+
+      // Loading state
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Procesando...';
+
+      try {
+        const res = await fetch('/api/reserve', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ tier, name, email, phone, instagram, experience, needsInvoice, billing }),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok || !data.url) {
+          throw new Error(data.error || 'Error desconocido');
+        }
+
+        if (typeof fbq === 'function') fbq('track', 'Lead');
+
+        window.location.href = data.url;
+      } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = submitText;
+        showError('Ha ocurrido un error. Por favor, inténtalo de nuevo.');
+      }
+    });
+
+    function showError(msg) {
+      if (!errorEl) return;
+      errorEl.textContent = msg;
+      errorEl.style.display = 'block';
+    }
   }
 
   initReserveModal();
