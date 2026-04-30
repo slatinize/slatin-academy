@@ -16,9 +16,10 @@ interface Props {
   description?: string;
   ogImage?: string;
   lang?: Locale;
+  noindex?: boolean;
 }
 
-const { title, description = 'Premium music education by SLATIN', ogImage, lang = 'en' } = Astro.props;
+const { title, description = 'Premium music education by SLATIN', ogImage, lang = 'en', noindex = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -37,6 +38,7 @@ const { title, description = 'Premium music education by SLATIN', ogImage, lang 
       <link rel="alternate" hreflang={l} href={getAlternateUrl(Astro.url, l)} />
     ))}
     <link rel="alternate" hreflang="x-default" href={getAlternateUrl(Astro.url, 'en')} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <title>{title}</title>
     <FacebookPixel />
   </head>
