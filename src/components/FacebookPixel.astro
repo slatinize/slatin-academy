@@ -22,6 +22,7 @@ const pixelId = import.meta.env.PUBLIC_FB_PIXEL_ID;
       document.head.appendChild(s);
       fbq('init', pixelId);
       fbq('track', 'PageView');
+      window.dispatchEvent(new CustomEvent('pixel:ready'));
     };
   </script>
 )}
