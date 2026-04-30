@@ -4,7 +4,8 @@ compatibility_flags = ["nodejs_compat"]
 
 pages_build_output_dir = "./dist"
 
-[[d1_databases]]
-binding = "DB"
-database_name = "slatin-crm"
-database_id = "PLACEHOLDER_DATABASE_ID"
+# Add D1 binding here once the database is created in Cloudflare dashboard:
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "slatin-crm"
+# database_id = "your-real-database-uuid-here"
