@@ -29,16 +29,10 @@ const pixelId = import.meta.env.PUBLIC_FB_PIXEL_ID;
     <script>
       (function () {
         var CONSENT_KEY = 'slatin_cookie_consent';
-        var isEU = Intl.DateTimeFormat().resolvedOptions().timeZone.startsWith('Europe/');
         var stored = localStorage.getItem(CONSENT_KEY);
 
         function loadPixel() {
           if (typeof window.__initPixel === 'function') window.__initPixel();
-        }
-
-        if (!isEU) {
-          loadPixel();
-          return;
         }
 
         if (stored === 'accepted') {
