@@ -188,7 +188,7 @@ export const pageData = {
       },
       {
         title: 'Revisado por <span class="gradient-text-red">slatin.pro</span>',
-        subtitle: "484 €",
+        subtitle: "389 €",
         features: [
           "Acceso completo a los 7 días del challenge",
           "5 sesiones en directo con Ruslan (grabadas, para siempre)",
@@ -332,7 +332,7 @@ export const pageData = {
   modal: {
     tiers: [
       { label: "Tier 1 — Sigue el challenge", price: "121 €" },
-      { label: "Tier 2 — Revisado por slatin.pro", price: "484 €" },
+      { label: "Tier 2 — Revisado por slatin.pro", price: "389 €" },
     ],
     fields: {
       name: "Nombre",
