@@ -1,62 +1,55 @@
----
-const pixelId = import.meta.env.PUBLIC_FB_PIXEL_ID;
----
-{pixelId && (
-  <>
-    <div
-      id="cookie-banner"
-      style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999; background:#111; border-top:1px solid #2a2a2a; padding:1rem 1.5rem; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;"
+<div
+  id="cookie-banner"
+  style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999; background:#111; border-top:1px solid #2a2a2a; padding:1rem 1.5rem; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;"
+>
+  <p style="color:#aaa; font-size:0.875rem; margin:0; flex:1; min-width:200px; line-height:1.5;">
+    We use cookies to understand how you engage with our content and to show you relevant ads.
+  </p>
+  <div style="display:flex; align-items:center; gap:1rem; flex-shrink:0;">
+    <button
+      id="cookie-decline"
+      style="background:none; border:none; color:#666; font-size:0.875rem; cursor:pointer; padding:0.5rem 0; font-family:inherit;"
     >
-      <p style="color:#aaa; font-size:0.875rem; margin:0; flex:1; min-width:200px; line-height:1.5;">
-        We use cookies to understand how you engage with our content and to show you relevant ads.
-      </p>
-      <div style="display:flex; align-items:center; gap:1rem; flex-shrink:0;">
-        <button
-          id="cookie-decline"
-          style="background:none; border:none; color:#666; font-size:0.875rem; cursor:pointer; padding:0.5rem 0; font-family:inherit;"
-        >
-          No thanks
-        </button>
-        <button
-          id="cookie-accept"
-          style="background:#DD3333; color:white; font-weight:700; font-size:0.875rem; padding:0.625rem 1.25rem; border:none; border-radius:6px; cursor:pointer; font-family:inherit; letter-spacing:0.01em;"
-        >
-          Accept
-        </button>
-      </div>
-    </div>
+      No thanks
+    </button>
+    <button
+      id="cookie-accept"
+      style="background:#DD3333; color:white; font-weight:700; font-size:0.875rem; padding:0.625rem 1.25rem; border:none; border-radius:6px; cursor:pointer; font-family:inherit; letter-spacing:0.01em;"
+    >
+      Accept
+    </button>
+  </div>
+</div>
 
-    <script>
-      (function () {
-        var CONSENT_KEY = 'slatin_cookie_consent';
-        var stored = localStorage.getItem(CONSENT_KEY);
+<script>
+  (function () {
+    var CONSENT_KEY = 'slatin_cookie_consent';
+    var stored = localStorage.getItem(CONSENT_KEY);
 
-        function loadPixel() {
-          if (typeof window.__initPixel === 'function') window.__initPixel();
-        }
+    function loadPixel() {
+      if (typeof window.__initPixel === 'function') window.__initPixel();
+    }
 
-        if (stored === 'accepted') {
-          loadPixel();
-          return;
-        }
-        if (stored === 'declined') {
-          return;
-        }
+    if (stored === 'accepted') {
+      loadPixel();
+      return;
+    }
+    if (stored === 'declined') {
+      return;
+    }
 
-        var banner = document.getElementById('cookie-banner');
-        if (banner) banner.style.display = 'flex';
+    var banner = document.getElementById('cookie-banner');
+    if (banner) banner.style.display = 'flex';
 
-        document.getElementById('cookie-accept')?.addEventListener('click', function () {
-          localStorage.setItem(CONSENT_KEY, 'accepted');
-          if (banner) banner.style.display = 'none';
-          loadPixel();
-        });
+    document.getElementById('cookie-accept')?.addEventListener('click', function () {
+      localStorage.setItem(CONSENT_KEY, 'accepted');
+      if (banner) banner.style.display = 'none';
+      loadPixel();
+    });
 
-        document.getElementById('cookie-decline')?.addEventListener('click', function () {
-          localStorage.setItem(CONSENT_KEY, 'declined');
-          if (banner) banner.style.display = 'none';
-        });
-      })();
-    </script>
-  </>
-)}
+    document.getElementById('cookie-decline')?.addEventListener('click', function () {
+      localStorage.setItem(CONSENT_KEY, 'declined');
+      if (banner) banner.style.display = 'none';
+    });
+  })();
+</script>
