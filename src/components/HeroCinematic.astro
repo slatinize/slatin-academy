@@ -161,11 +161,12 @@ const {
   .hero__heading {
     margin: 0;
     max-width: 1200px;
-    font-size: clamp(36px, 5.2vw, 72px);
+    font-size: clamp(32px, 5.2vw, 72px);
     font-weight: 500;
     line-height: 1.08;
     letter-spacing: -0.035em;
     color: #fff;
+    overflow-wrap: break-word;
   }
   .hero__heading :global(strong) { font-weight: 800; }
   .hero__heading :global(.hero-line) {
@@ -302,6 +303,9 @@ const {
   .hero__proof-text :global(strong) { color: #fff; font-weight: 700; }
 
   @media (max-width: 640px) {
+    .hero__inner { padding: clamp(96px, 12vh, 140px) 20px clamp(64px, 8vh, 96px); gap: 28px; }
+    .hero__eyebrow { font-size: 0.75rem; letter-spacing: 0.18em; white-space: normal; }
+    .hero__heading :global(.hero-line) { white-space: normal; }
     .hero__cta { padding: 20px 28px; font-size: 0.9375rem; width: 100%; justify-content: center; }
     .hero__video { padding: 14px 20px; width: auto; align-self: center; }
     .hero__proof { flex-wrap: wrap; justify-content: center; text-align: center; }
