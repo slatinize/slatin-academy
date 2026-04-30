@@ -229,3 +229,9 @@ const {
   <FAQ items={faqItems} lang={lang} />
   </div>
 </BaseLayout>
+
+<script>
+  if (typeof fbq === 'function') fbq('track', 'ViewContent', {
+    content_name: 'Low End Mastery', content_ids: ['5700498'], content_type: 'product',
+  });
+</script>

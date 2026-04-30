@@ -318,6 +318,7 @@ const { tiers, fields, submitText, successMessage } = Astro.props;
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         open();
+        if (typeof fbq === 'function') fbq('track', 'ViewContent', { content_name: 'Mastering Challenge' });
       });
     });
 
@@ -332,6 +333,7 @@ const { tiers, fields, submitText, successMessage } = Astro.props;
     submitBtn?.addEventListener('click', () => {
       if (formState) formState.style.display = 'none';
       if (successState) successState.style.display = '';
+      if (typeof fbq === 'function') fbq('track', 'Lead');
     });
   }
 
