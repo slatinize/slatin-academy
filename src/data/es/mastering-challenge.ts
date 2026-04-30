@@ -1,4 +1,4 @@
-import type { Testimonial, FaqItem, Feature, PricingPlan } from '../types';
+import type { FaqItem, Feature, PricingPlan } from '../types';
 
 export const pageData = {
   meta: {
