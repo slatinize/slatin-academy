@@ -188,7 +188,7 @@ export const pageData = {
       },
       {
         title: 'Revisado por <span class="gradient-text-red">slatin.pro</span>',
-        subtitle: "484 €",
+        subtitle: "389 €",
         features: [
           "Acceso completo a los 7 días del challenge",
           "5 sesiones en directo con Ruslan (grabadas, para siempre)",
@@ -332,19 +332,28 @@ export const pageData = {
   modal: {
     tiers: [
       { label: "Tier 1 — Sigue el challenge", price: "121 €" },
-      { label: "Tier 2 — Revisado por slatin.pro", price: "484 €" },
+      { label: "Tier 2 — Revisado por slatin.pro", price: "389 €" },
     ],
     fields: {
       name: "Nombre",
       email: "Email",
+      phone: "Teléfono",
+      instagram: "Instagram",
       experience: "¿Dónde estás ahora mismo?",
       experienceOptions: [
         "Masterizo mis temas de forma amateur",
         "Masterizo temas para otros, busco subir nivel",
         "Trabajo como ingeniero/a, quiero pulir criterio",
       ],
+      invoiceLabel: "Necesito factura",
+      billing: {
+        name: "Nombre o razón social",
+        nif: "NIF / CIF",
+        address: "Dirección",
+        city: "Ciudad",
+        postal: "Código postal",
+      },
     },
     submitText: "Reservar plaza",
-    successMessage: "Te hemos enviado los detalles de pago y acceso. Nos vemos el 20 de mayo.",
   },
 };
