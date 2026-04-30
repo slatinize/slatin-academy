@@ -2,6 +2,10 @@ import type { APIRoute } from 'astro';
 
 export const prerender = false;
 
+const SITE_URL = 'https://slatin.pro';
+const STRIPE_PRICE_TIER1 = 'price_PLACEHOLDER_TIER1';
+const STRIPE_PRICE_TIER2 = 'price_PLACEHOLDER_TIER2';
+
 interface BillingData {
   name: string;
   nif: string;
@@ -72,11 +76,10 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return json({ error: 'Error al guardar los datos' }, 500);
   }
 
-  const priceId = tier === 1 ? env.STRIPE_PRICE_TIER1 : env.STRIPE_PRICE_TIER2;
-  const siteUrl = env.SITE_URL ?? 'https://slatin.pro';
+  const priceId = tier === 1 ? STRIPE_PRICE_TIER1 : STRIPE_PRICE_TIER2;
   const successUrl = tier === 1
-    ? `${siteUrl}/es/success/mc-tier-1`
-    : `${siteUrl}/es/success/mc-tier-2`;
+    ? `${SITE_URL}/es/success/mc-tier-1`
+    : `${SITE_URL}/es/success/mc-tier-2`;
 
   const params = new URLSearchParams({
     mode: 'payment',
@@ -85,7 +88,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     customer_email: email,
     'phone_number_collection[enabled]': 'true',
     success_url: successUrl,
-    cancel_url: `${siteUrl}/es/mastering-challenge`,
+    cancel_url: `${SITE_URL}/es/mastering-challenge`,
     'metadata[lead_id]': id,
     'metadata[name]': name,
     'metadata[phone]': phone,
