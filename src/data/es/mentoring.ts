@@ -8,7 +8,7 @@ export const pageData = {
 
   hero: {
     tagline: "Mix & Master Accelerator",
-    title: '<span class="hero-line">Una <strong>Carrera Musical Rentable</strong></span><span class="hero-line">bajo <span class="grad">Tus Propios Términos</span></span>',
+    title: '<span class="hero-line">Convierte Tu <strong>Música</strong> en una</span><span class="hero-line">Carrera <span class="grad">Sólida y Rentable</span></span>',
     subtitle: "Aprende a <strong>Mezclar y Masterizar</strong> como un pro y crea una carrera próspera.",
     ctaText: "EMPIEZA HOY",
     ctaHref: "#getaccess",

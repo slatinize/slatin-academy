@@ -51,9 +51,6 @@ const icons: Record<string, string> = {
               <img src={card.image} alt={card.title} loading="lazy" />
             </div>
           )}
-          <div class="wi-before-after">
-            {fromLabel} <span class="ba-bad" set:html={card.beforeAfter.before} /> {toLabel} <span class="ba-good" set:html={card.beforeAfter.after} />
-          </div>
           <h3 class="wi-card-title" set:html={card.title} />
           <p class="wi-card-desc" set:html={card.description} />
           <div class="wi-value-tag">
