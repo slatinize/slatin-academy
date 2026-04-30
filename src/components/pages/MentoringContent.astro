@@ -116,3 +116,9 @@ const {
   <!-- 9. FAQ -->
   <FAQ items={faqItems} lang={lang} />
 </BaseLayout>
+
+<script>
+  if (typeof fbq === 'function') fbq('track', 'ViewContent', {
+    content_name: 'Mentoring', content_type: 'product',
+  });
+</script>

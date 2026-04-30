@@ -1,0 +1,27 @@
+---
+const pixelId = import.meta.env.PUBLIC_FB_PIXEL_ID;
+---
+{pixelId && (
+  <script define:vars={{ pixelId }}>
+    // fbq stub — allows fbq('track', ...) calls before the real script loads
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+
+    window.__pixelId = pixelId;
+    window.__pixelInitialized = false;
+
+    // Called by CookieBanner once consent is confirmed (or immediately for non-EU)
+    window.__initPixel = function() {
+      if (window.__pixelInitialized) return;
+      window.__pixelInitialized = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://connect.facebook.net/en_US/fbevents.js';
+      document.head.appendChild(s);
+      fbq('init', pixelId);
+      fbq('track', 'PageView');
+    };
+  </script>
+)}

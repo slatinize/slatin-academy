@@ -131,4 +131,10 @@ const { title, subtitle, price, features, ctaText, ctaHref } = Astro.props;
     }, { threshold: 0.2 });
     observer.observe(pricingEl);
   }
+
+  document.querySelectorAll('.pricing-cta').forEach((el) => {
+    el.addEventListener('click', () => {
+      if (typeof fbq === 'function') fbq('track', 'InitiateCheckout');
+    });
+  });
 </script>
