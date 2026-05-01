@@ -14,7 +14,7 @@ import Sorteos from '../Sorteos.astro';
 import TestimonialSlider from '../TestimonialSlider.astro';
 import FAQ from '../FAQ.astro';
 import ClosingCTA from '../ClosingCTA.astro';
-import ReserveModal from '../ReserveModal.astro';
+
 import LanguageBanner from '../LanguageBanner.astro';
 import GoogleReviews from '../GoogleReviews.astro';
 import type { Locale } from '../../utils/i18n';
@@ -86,23 +86,12 @@ interface Props {
     ctaText: string;
     ctaHref: string;
   };
-  modal: {
-    tiers: { label: string; price: string }[];
-    fields: {
-      name: string;
-      email: string;
-      experience: string;
-      experienceOptions: string[];
-    };
-    submitText: string;
-    successMessage: string;
-  };
 }
 
 const {
   lang, meta, hero, marquee, problems, howItWorks, weekSchedule,
   learn, about, pricing, whyDifferent, sorteos, testimonials,
-  faqItems, closing, modal,
+  faqItems, closing,
 } = Astro.props;
 ---
 
@@ -228,13 +217,6 @@ const {
     countdownTarget={hero.countdownTarget}
   />
 
-  <!-- Reserve Modal -->
-  <ReserveModal
-    tiers={modal.tiers}
-    fields={modal.fields}
-    submitText={modal.submitText}
-    successMessage={modal.successMessage}
-  />
 </BaseLayout>
 
 <style>

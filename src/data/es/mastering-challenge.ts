@@ -329,22 +329,4 @@ export const pageData = {
     ctaHref: "#pricing",
   },
 
-  modal: {
-    tiers: [
-      { label: "Tier 1 — Sigue el challenge", price: "121 €" },
-      { label: "Tier 2 — Revisado por slatin.pro", price: "389 €" },
-    ],
-    fields: {
-      name: "Nombre",
-      email: "Email",
-      experience: "¿Dónde estás ahora mismo?",
-      experienceOptions: [
-        "Masterizo mis temas de forma amateur",
-        "Masterizo temas para otros, busco subir nivel",
-        "Trabajo como ingeniero/a, quiero pulir criterio",
-      ],
-    },
-    submitText: "Reservar plaza",
-    successMessage: "Te hemos enviado los detalles de pago y acceso. Nos vemos el 20 de mayo.",
-  },
 };
