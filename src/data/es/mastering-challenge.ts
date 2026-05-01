@@ -183,7 +183,7 @@ export const pageData = {
           "Participación en el sorteo de cascos profesionales",
         ],
         ctaText: "Reservar 121€",
-        ctaHref: "#reserve",
+        ctaHref: "https://l.slatin.pro/mc-onboard.html?tier=tier_1",
         variant: "dark" as const,
       },
       {
@@ -206,7 +206,7 @@ export const pageData = {
           "Doble posibilidad en el sorteo de plugins y equipo",
         ],
         ctaText: "Reservar 389€",
-        ctaHref: "#reserve",
+        ctaHref: "https://l.slatin.pro/mc-onboard.html?tier=tier_2",
         variant: "light" as const,
       },
     ] as PricingPlan[],
@@ -326,7 +326,7 @@ export const pageData = {
     kicker: "Última llamada",
     headline: 'Una semana. Cinco masters. Un <strong>antes y un después</strong>.',
     ctaText: "Reservar mi plaza",
-    ctaHref: "#reserve",
+    ctaHref: "#pricing",
   },
 
   modal: {
