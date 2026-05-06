@@ -168,7 +168,7 @@ export const pageData = {
 
   pricing: {
     headline: '<span class="line-anim">Elige tu reto<svg class="wavy-line" viewBox="0 0 320 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M0,7 Q40,2 80,7 Q120,12 160,7 Q200,2 240,7 Q280,12 320,7" stroke="#DD3333" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>',
-    subtitle: "Las dos te dan acceso a todo. La diferencia está en cuánto feedback personal recibes.",
+    subtitle: 'Ambos <em>Tiers</em> incluyen acceso completo al Challenge. La diferencia está en el nivel de <em>feedback</em> personalizado que recibes.',
     plans: [
       {
         title: '<em>Tier 1</em> - Sigue el Challenge',
@@ -295,7 +295,7 @@ export const pageData = {
   faqItems: [
     {
       question: "¿Qué nivel necesito?",
-      answer: "Nivel intermedio en adelante. Si ya masterizas tus propios temas, aunque sientas que todavía te queda camino, este challenge es para ti.",
+      answer: "Nivel intermedio en adelante. Si ya masterizas tus propios temas, aunque sientas que todavía te queda camino, este Challenge es para ti. No está pensado para principiantes.",
     },
     {
       question: "¿Qué pasa si no puedo asistir a alguna sesión en directo?",
@@ -314,8 +314,8 @@ export const pageData = {
       answer: 'Sí, sobre todo en el <em>Tier</em> 2, donde limitamos el número de plazas para poder ofrecer un <em>feedback</em> personalizado y de calidad.',
     },
     {
-      question: "¿Puedo subir de Tier 1 a Tier 2 más tarde?",
-      answer: 'Sí, siempre que queden plazas disponibles. Si lo que buscas es <em>feedback</em> directo sobre tu trabajo, te recomendamos entrar directamente en el <em>Tier</em> 2.',
+      question: '¿Puedo subir de <em>Tier</em> 1 a <em>Tier</em> 2 más tarde?',
+      answer: 'Sí, siempre que queden plazas disponibles, aunque si quieres asegurarte el <em>feedback</em> directo de tu trabajo, te recomendamos entrar directamente en el <em>Tier</em> 2.',
     },
     {
       question: "¿Qué pasa después del Challenge?",
@@ -325,8 +325,8 @@ export const pageData = {
 
   closing: {
     kicker: "Última llamada",
-    headline: 'Una semana. Cinco masters. Un <strong>antes y un después</strong>.',
-    ctaText: "Reservar mi plaza",
+    headline: 'Una semana. Cinco másters. Un <strong>antes y un después</strong>.',
+    ctaText: "🔥 Reservar mi plaza",
     ctaHref: "#pricing",
   },
 
