@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Slidable Featured Quote</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: #020202; color: #fff; -webkit-font-smoothing: antialiased; }
+  .gradient-text { background: linear-gradient(90deg, #ed8e00, #dd3333); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .slider-section {
+    padding: 80px 0;
+    position: relative;
+  }
+  .slider-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 56px;
+    padding: 0 8%;
+  }
+
+  .slider-wrap {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 80px;
+  }
+
+  .slider-stage {
+    overflow: hidden;
+    border-radius: 24px;
+  }
+
+  .slider-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  .slide {
+    flex: 0 0 100%;
+    padding: 56px 64px;
+    text-align: center;
+  }
+
+  .slide-quote-mark {
+    font-size: 5rem;
+    line-height: 0.5;
+    color: #DD3333;
+    opacity: 0.4;
+    font-family: Georgia, serif;
+    margin-bottom: 16px;
+  }
+
+  .slide-quote {
+    font-size: clamp(1.2rem, 1.8vw, 1.55rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.92);
+    margin: 24px 0 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .slide-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  .slide-author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .slide-author-name {
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: left;
+  }
+  .slide-author-role {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    text-align: left;
+  }
+
+  /* Arrow buttons */
+  .slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: rgba(255,255,255,0.8);
+    transition: all 0.25s ease;
+    z-index: 2;
+  }
+  .slider-arrow:hover {
+    background: rgba(221,51,51,0.15);
+    border-color: rgba(221,51,51,0.4);
+    color: #fff;
+  }
+  .slider-arrow.left { left: 0; }
+  .slider-arrow.right { right: 0; }
+  .slider-arrow svg { width: 22px; height: 22px; }
+
+  /* Dot indicators */
+  .slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 36px;
+  }
+  .slider-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .slider-dot.active {
+    background: #DD3333;
+    width: 32px;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 768px) {
+    .slider-wrap { padding: 0 16px; }
+    .slide { padding: 40px 24px; }
+    .slider-arrow { width: 44px; height: 44px; top: auto; bottom: -70px; transform: none; }
+    .slider-arrow.left { left: calc(50% - 60px); }
+    .slider-arrow.right { right: calc(50% - 60px); }
+    .slider-dots { margin-top: 80px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="slider-section">
+  <h2 class="slider-title">Real <em><span class="gradient-text">Results</span></em></h2>
+
+  <div class="slider-wrap">
+    <button class="slider-arrow left" onclick="slide(-1)" aria-label="Previous">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="slider-arrow right" onclick="slide(1)" aria-label="Next">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+
+    <div class="slider-stage">
+      <div class="slider-track" id="track">
+        <div class="slide">
+          <div class="slide-quote-mark">"</div>
+          <p class="slide-quote">Slatin's mentorship has unequivocally been the most enlightening course I've taken on Mixing and Mastering — even outshining year-long courses I've attended. The continuous feedback is invaluable. A real game-changer.</p>
+          <div class="slide-author">
+            <img src="/images/mentoring/alumni-ignacio.jpg" alt="">
+            <div>
+              <div class="slide-author-name">Ignacio Fernandez</div>
+              <div class="slide-author-role">Mixing Engineer</div>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-quote-mark">"</div>
+          <p class="slide-quote">It's totally worth it, no doubts there. Ruslan's commitment to our group has been top-notch — adapting to our individual quirks and needs as if each session was 1-on-1. A game-changer for my professional growth.</p>
+          <div class="slide-author">
+            <img src="/images/mentoring/alumni-pablo.jpg" alt="">
+            <div>
+              <div class="slide-author-name">Pablo Iglesias</div>
+              <div class="slide-author-role">Producer</div>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-quote-mark">"</div>
+          <p class="slide-quote">The mentorship with Ruslan has been nothing short of fantastic — positive, constructive, professional. I've improved my sound mixing big time. Now I'm up for any project.</p>
+          <div class="slide-author">
+            <img src="/images/mentoring/alumni-sergio-h.jpg" alt="">
+            <div>
+              <div class="slide-author-name">Sergio Hernae</div>
+              <div class="slide-author-role">Producer</div>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-quote-mark">"</div>
+          <p class="slide-quote">Having the opportunity to attend Slatin's mentorships was a big step forward in enhancing my skills in production, mixing, and mastering. If you're looking to seriously level up, 100% recommended.</p>
+          <div class="slide-author">
+            <img src="/images/mentoring/alumni-pere.jpg" alt="">
+            <div>
+              <div class="slide-author-name">Pere Bacardit</div>
+              <div class="slide-author-role">Producer</div>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-quote-mark">"</div>
+          <p class="slide-quote">200% recommended. Slatin cares a lot about the evolution of all students and covers all the doubts that come up day by day, making a very personalized follow-up of each case.</p>
+          <div class="slide-author">
+            <img src="/images/mentoring/alumni-sergio-p.jpg" alt="">
+            <div>
+              <div class="slide-author-name">Sergio Perez</div>
+              <div class="slide-author-role">Producer</div>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-quote-mark">"</div>
+          <p class="slide-quote">Being a part of this mentorship group has been quite insightful. Ruslan answered many of my questions, especially those about small, nuanced details that make my song mixes sound better. Highly recommended.</p>
+          <div class="slide-author">
+            <img src="/images/mentoring/alumni-marco-b.jpg" alt="">
+            <div>
+              <div class="slide-author-name">Marco Bernal</div>
+              <div class="slide-author-role">Producer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slider-dots" id="dots">
+      <span class="slider-dot active" onclick="goTo(0)"></span>
+      <span class="slider-dot" onclick="goTo(1)"></span>
+      <span class="slider-dot" onclick="goTo(2)"></span>
+      <span class="slider-dot" onclick="goTo(3)"></span>
+      <span class="slider-dot" onclick="goTo(4)"></span>
+      <span class="slider-dot" onclick="goTo(5)"></span>
+    </div>
+  </div>
+</section>
+
+<script>
+  let current = 0;
+  const total = 6;
+  const track = document.getElementById('track');
+  const dots = document.querySelectorAll('.slider-dot');
+
+  function update() {
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+  function slide(dir) {
+    current = (current + dir + total) % total;
+    update();
+  }
+  function goTo(i) {
+    current = i;
+    update();
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Títulos — opciones</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #050505; font-family: -apple-system, 'Inter', sans-serif; color: #fff; }
+
+    .row {
+      padding: 72px 8%;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ── A: stacked, La pequeño encima ── */
+    .a-title {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      line-height: 1;
+    }
+    .a-la {
+      font-size: clamp(1.1rem, 2vw, 1.6rem);
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+    .a-semana {
+      font-size: clamp(5rem, 12vw, 10rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      background: linear-gradient(90deg, #ED8E00 0%, #DD3333 60%, #fff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 0.9;
+    }
+
+    /* ── B: outline + filled split ── */
+    .b-title {
+      display: flex;
+      align-items: baseline;
+      gap: 0.15em;
+      line-height: 1;
+    }
+    .b-la {
+      font-size: clamp(3rem, 6vw, 6rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      -webkit-text-stroke: 1.5px rgba(255,255,255,0.25);
+      color: transparent;
+    }
+    .b-semana {
+      font-size: clamp(3rem, 6vw, 6rem);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      color: #fff;
+    }
+
+    /* ── C: diagonal slash divider ── */
+    .c-title {
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+      line-height: 1;
+    }
+    .c-la {
+      font-size: clamp(2rem, 4vw, 4rem);
+      font-weight: 200;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.35);
+      font-style: italic;
+    }
+    .c-slash {
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      font-weight: 100;
+      color: #DD3333;
+      line-height: 1;
+      transform: rotate(15deg) translateY(-4px);
+      display: inline-block;
+    }
+    .c-semana {
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      font-weight: 900;
+      letter-spacing: 0.03em;
+      color: #fff;
+    }
+
+    /* ── D: oversized background word ── */
+    .d-wrap {
+      position: relative;
+      height: clamp(120px, 16vw, 180px);
+      overflow: visible;
+    }
+    .d-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: clamp(8rem, 20vw, 18rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: rgba(255,255,255,0.03);
+      white-space: nowrap;
+      user-select: none;
+      pointer-events: none;
+    }
+    .d-fg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: baseline;
+      gap: 0.18em;
+      white-space: nowrap;
+    }
+    .d-la {
+      font-size: clamp(2rem, 4vw, 3.8rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: -0.01em;
+    }
+    .d-semana {
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      color: #fff;
+    }
+
+    /* ── E: number accent left ── */
+    .e-title {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      line-height: 1;
+    }
+    .e-num {
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      font-weight: 900;
+      writing-mode: vertical-rl;
+      letter-spacing: 0.1em;
+      color: #DD3333;
+      border-left: 2px solid #DD3333;
+      padding-left: 10px;
+      line-height: 1.1;
+    }
+    .e-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .e-la {
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+    .e-semana {
+      font-size: clamp(4rem, 8vw, 8rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 0.9;
+      color: #fff;
+    }
+
+    /* ── F: split color per word ── */
+    .f-title {
+      display: flex;
+      align-items: baseline;
+      gap: 0.25em;
+      line-height: 1;
+    }
+    .f-la {
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, #ED8E00, #DD3333);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .f-semana {
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- A -->
+  <div class="row">
+    <span class="tag">A — La encima, semana en gradient rojo-naranja</span>
+    <div class="a-title">
+      <span class="a-la">La</span>
+      <span class="a-semana">semana</span>
+    </div>
+  </div>
+
+  <!-- B -->
+  <div class="row">
+    <span class="tag">B — La en outline, semana sólida</span>
+    <div class="b-title">
+      <span class="b-la">La</span>
+      <span class="b-semana">semana</span>
+    </div>
+  </div>
+
+  <!-- C -->
+  <div class="row">
+    <span class="tag">C — La en itálica fina + slash rojo + semana bold</span>
+    <div class="c-title">
+      <span class="c-la">La</span>
+      <span class="c-slash">/</span>
+      <span class="c-semana">semana</span>
+    </div>
+  </div>
+
+  <!-- D -->
+  <div class="row" style="height: 280px; position:relative;">
+    <span class="tag">D — Palabra fantasma detrás, título encima centrado</span>
+    <div class="d-wrap" style="width:100%; height:200px; position:relative;">
+      <div class="d-bg">semana</div>
+      <div class="d-fg">
+        <span class="d-la">La</span>
+        <span class="d-semana">semana</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- E -->
+  <div class="row">
+    <span class="tag">E — Número vertical rojo a la izquierda</span>
+    <div class="e-title">
+      <div class="e-num">7 días</div>
+      <div class="e-text">
+        <span class="e-la">La</span>
+        <span class="e-semana">semana</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- F -->
+  <div class="row">
+    <span class="tag">F — La en gradient naranja-rojo, semana blanca</span>
+    <div class="f-title">
+      <span class="f-la">La</span>
+      <span class="f-semana">semana</span>
+    </div>
+  </div>
+
+</body>
+</html>

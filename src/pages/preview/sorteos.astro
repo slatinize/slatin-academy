@@ -1,0 +1,256 @@
+---
+const items = [
+  {
+    image: "/images/sorteos-headphones.jpg",
+    title: "Cascos profesionales",
+    description: "Beyerdynamic DT 770 PRO. Sorteo entre todos los participantes.",
+  },
+  {
+    image: "/images/sorteos-plugin.png",
+    title: "Plugins de mastering",
+    description: "Bundles profesionales. Tier 2 tiene doble entrada.",
+  },
+  {
+    image: "/images/analog-gear.jpg",
+    title: "Más sorpresas",
+    description: "Se anuncian durante la semana. Perks exclusivos para los que estén.",
+  },
+];
+---
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preview — Sorteos (3 opciones)</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #020202; color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; }
+
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; gap: 8px; padding: 16px 40px;
+      background: rgba(2,2,2,0.9);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+    }
+    .nav a {
+      padding: 8px 20px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; color: rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.2s;
+    }
+    .nav a:hover { color: #fff; border-color: rgba(255,255,255,0.3); }
+
+    .preview-block { padding: 80px 7% 120px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .preview-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: #DD3333; display: block; margin-bottom: 28px;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800;
+      letter-spacing: -0.03em; color: #fff; margin-bottom: 64px;
+    }
+    .badge {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: #DD3333; display: block; margin-bottom: 10px;
+    }
+
+    /* ══════════════════════════════════
+       OPCIÓN A — Imágenes libres + texto
+       Fotos flotando sin caja, texto debajo
+       ══════════════════════════════════ */
+    .op-a__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 1100px;
+    }
+    .op-a__item {}
+    .op-a__img-wrap {
+      width: 100%;
+      aspect-ratio: 3/2;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .op-a__img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+    .op-a__item:hover .op-a__img { transform: scale(1.04); }
+    .op-a__title {
+      font-size: 1.2rem; font-weight: 800;
+      letter-spacing: -0.02em; color: #fff;
+      margin-bottom: 8px;
+    }
+    .op-a__desc {
+      font-size: 0.88rem; color: rgba(255,255,255,0.45); line-height: 1.55;
+    }
+
+    /* ══════════════════════════════════
+       OPCIÓN B — Horizontal abierto
+       Imagen grande a la izq, texto a la derecha
+       Sin ningún contenedor visible
+       ══════════════════════════════════ */
+    .op-b__list {
+      display: flex; flex-direction: column;
+      gap: 0; max-width: 1100px;
+    }
+    .op-b__row {
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      gap: 56px;
+      align-items: center;
+      padding: 48px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .op-b__row:last-child { border-bottom: none; }
+    .op-b__img-wrap {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .op-b__img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s ease; display: block;
+    }
+    .op-b__row:hover .op-b__img { transform: scale(1.04); }
+    .op-b__num {
+      font-size: 5rem; font-weight: 800; line-height: 1;
+      letter-spacing: -0.05em;
+      color: rgba(255,255,255,0.06);
+      display: block; margin-bottom: 12px;
+    }
+    .op-b__title {
+      font-size: 1.5rem; font-weight: 800;
+      letter-spacing: -0.025em; color: #fff;
+      margin-bottom: 10px;
+    }
+    .op-b__desc {
+      font-size: 0.92rem; color: rgba(255,255,255,0.45); line-height: 1.6;
+      max-width: 380px;
+    }
+
+    /* ══════════════════════════════════
+       OPCIÓN C — Masonry asimétrico
+       1 foto grande + 2 pequeñas en columna
+       Sin bordes, imágenes recortadas libremente
+       ══════════════════════════════════ */
+    .op-c__layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 32px 48px;
+      max-width: 1100px;
+      align-items: start;
+    }
+    .op-c__main {
+      grid-row: 1 / 3;
+    }
+    .op-c__main .op-c__img-wrap {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .op-c__side .op-c__img-wrap {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-bottom: 16px;
+    }
+    .op-c__img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block; transition: transform 0.5s ease;
+    }
+    .op-c__main:hover .op-c__img,
+    .op-c__side:hover .op-c__img { transform: scale(1.04); }
+    .op-c__title {
+      font-size: 1.25rem; font-weight: 800;
+      letter-spacing: -0.02em; color: #fff;
+      margin-bottom: 7px;
+    }
+    .op-c__main .op-c__title { font-size: 1.6rem; }
+    .op-c__desc {
+      font-size: 0.88rem; color: rgba(255,255,255,0.45); line-height: 1.55;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="#a">A — Libre + texto</a>
+    <a href="#b">B — Horizontal abierto</a>
+    <a href="#c">C — Asimétrico</a>
+  </nav>
+
+  <!-- ══ OPCIÓN A ══ -->
+  <section class="preview-block" id="a">
+    <span class="preview-label">Opción A — Imágenes libres, texto debajo</span>
+    <h2 class="section-title">Llévate equipo profesional</h2>
+    <div class="op-a__grid">
+      {items.map((item, i) => (
+        <div class="op-a__item">
+          <div class="op-a__img-wrap">
+            <img src={item.image} alt={item.title} class="op-a__img" />
+          </div>
+          <span class="badge">SORTEO</span>
+          <h3 class="op-a__title">{item.title}</h3>
+          <p class="op-a__desc">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ══ OPCIÓN B ══ -->
+  <section class="preview-block" id="b">
+    <span class="preview-label">Opción B — Horizontal abierto con separador</span>
+    <h2 class="section-title">Llévate equipo profesional</h2>
+    <div class="op-b__list">
+      {items.map((item, i) => (
+        <div class="op-b__row">
+          <div class="op-b__img-wrap">
+            <img src={item.image} alt={item.title} class="op-b__img" />
+          </div>
+          <div>
+            <span class="op-b__num">0{i + 1}</span>
+            <span class="badge">SORTEO</span>
+            <h3 class="op-b__title">{item.title}</h3>
+            <p class="op-b__desc">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ══ OPCIÓN C ══ -->
+  <section class="preview-block" id="c">
+    <span class="preview-label">Opción C — Asimétrico: grande + 2 pequeñas</span>
+    <h2 class="section-title">Llévate equipo profesional</h2>
+    <div class="op-c__layout">
+      <div class="op-c__main">
+        <div class="op-c__img-wrap">
+          <img src={items[0].image} alt={items[0].title} class="op-c__img" />
+        </div>
+        <span class="badge">SORTEO PRINCIPAL</span>
+        <h3 class="op-c__title">{items[0].title}</h3>
+        <p class="op-c__desc">{items[0].description}</p>
+      </div>
+      {items.slice(1).map(item => (
+        <div class="op-c__side">
+          <div class="op-c__img-wrap">
+            <img src={item.image} alt={item.title} class="op-c__img" />
+          </div>
+          <span class="badge">SORTEO</span>
+          <h3 class="op-c__title">{item.title}</h3>
+          <p class="op-c__desc">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's Included Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: #020202; color: #fff; -webkit-font-smoothing: antialiased; }
+  .gradient-text { background: linear-gradient(90deg, #ed8e00, #dd3333); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .container { max-width: 1300px; margin: 0 auto; padding: 60px 6%; }
+  .section-title { text-align: center; font-size: clamp(2.2rem, 4.5vw, 3.8rem); font-weight: 700; line-height: 1.15; margin-bottom: 16px; }
+  .section-subtitle { text-align: center; font-size: clamp(0.95rem, 1.2vw, 1.1rem); color: rgba(255,255,255,0.5); margin-bottom: 56px; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+
+  /* Feature cards grid */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+  .feature-card {
+    background: linear-gradient(145deg, rgba(20, 0, 0, 0.4) 0%, rgba(10, 10, 10, 0.6) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: 32px;
+    position: relative;
+    transition: all 0.3s;
+  }
+  .feature-card:hover {
+    border-color: rgba(221, 51, 51, 0.25);
+    transform: translateY(-3px);
+  }
+  .feature-icon-wrap {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(221, 51, 51, 0.15) 0%, rgba(237, 142, 0, 0.08) 100%);
+    border: 1px solid rgba(221, 51, 51, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .feature-icon-wrap svg {
+    width: 28px;
+    height: 28px;
+    color: #DD3333;
+  }
+  .before-after {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 14px;
+  }
+  .before-after .ba-bad {
+    color: rgba(255, 255, 255, 0.55);
+  }
+  .before-after .ba-good {
+    color: #ed8e00;
+  }
+  .feature-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    line-height: 1.25;
+  }
+  .feature-description {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .feature-value-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: rgba(237, 142, 0, 0.08);
+    border: 1px solid rgba(237, 142, 0, 0.25);
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #ed8e00;
+  }
+  .feature-value-tag .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ed8e00;
+    box-shadow: 0 0 8px rgba(237, 142, 0, 0.6);
+  }
+
+  /* Extras section */
+  .extras-section {
+    background: linear-gradient(145deg, rgba(20, 0, 0, 0.3) 0%, rgba(10, 10, 10, 0.5) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 24px;
+    padding: 48px;
+  }
+  .extras-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .extras-plus {
+    font-size: 2.4rem;
+    font-weight: 800;
+    line-height: 1;
+    background: linear-gradient(90deg, #ed8e00, #dd3333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .extras-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .extras-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .extra-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: all 0.25s;
+  }
+  .extra-row:hover {
+    background: rgba(221, 51, 51, 0.04);
+    border-color: rgba(221, 51, 51, 0.15);
+  }
+  .extra-check {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(221, 51, 51, 0.15);
+    border: 1px solid rgba(221, 51, 51, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #DD3333;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .extra-text {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+  }
+  .extra-text strong {
+    color: #fff;
+    font-weight: 700;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .feature-grid { grid-template-columns: 1fr; }
+    .extras-grid { grid-template-columns: 1fr; }
+    .extras-section { padding: 32px 24px; }
+    .feature-card { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="container">
+  <h2 class="section-title">How You'll <em><span class="gradient-text">Change</span></em></h2>
+  <p class="section-subtitle">Real shifts in how you work, sound, and grow — not just a list of tools.</p>
+
+  <!-- Main feature cards -->
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feature-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
+      </div>
+      <div class="before-after">From <span class="ba-bad">guessing alone</span> to <span class="ba-good">knowing exactly what to fix</span></div>
+      <h3 class="feature-title">You'll Stop Second-Guessing Your Mixes</h3>
+      <p class="feature-description">Every week, you'll get detailed video reviews of your tracks — not generic advice, but specific, actionable feedback so you finally understand the why behind every decision.</p>
+      <div class="feature-value-tag">
+        <span class="dot"></span>
+        Save 100+ hours of trial & error
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <div class="before-after">From <span class="ba-bad">stuck and isolated</span> to <span class="ba-good">guided every week</span></div>
+      <h3 class="feature-title">You'll Never Feel Lost Again</h3>
+      <p class="feature-description">Live 70-minute group calls, real-time guidance from a multi-platinum engineer, and a private community of serious producers — so you always have someone to ask when you hit a wall.</p>
+      <div class="feature-value-tag">
+        <span class="dot"></span>
+        24h response, always-on support
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="before-after">From <span class="ba-bad">amateur sound</span> to <span class="ba-good">professional, label-ready mixes</span></div>
+      <h3 class="feature-title">Your Sound Will Translate Everywhere</h3>
+      <p class="feature-description">You'll learn the exact techniques used on records for Sony, Warner, Def Jam, and Netflix — and apply them to your own work with weekly direct guidance from someone who's done it.</p>
+      <div class="feature-value-tag">
+        <span class="dot"></span>
+        Real techniques from real releases
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <div class="before-after">From <span class="ba-bad">working for free</span> to <span class="ba-good">pricing with confidence</span></div>
+      <h3 class="feature-title">You'll Build a Career That Actually Pays</h3>
+      <p class="feature-description">Beyond the technical side: pricing your work, finding clients, negotiating with labels, and building a sustainable music business — backed by 15+ years in the industry.</p>
+      <div class="feature-value-tag">
+        <span class="dot"></span>
+        Real business, not just hobby money
+      </div>
+    </div>
+  </div>
+
+  <!-- Extras vault -->
+  <div class="extras-section">
+    <div class="extras-header">
+      <div class="extras-plus">+++</div>
+      <div class="extras-title">Everything Else You Unlock</div>
+    </div>
+    <div class="extras-grid">
+      <div class="extra-row">
+        <div class="extra-check">✓</div>
+        <div class="extra-text"><strong>Cut through the industry noise</strong> — insider knowledge of what actually moves the needle, so you stop wasting years figuring it out alone</div>
+      </div>
+      <div class="extra-row">
+        <div class="extra-check">✓</div>
+        <div class="extra-text"><strong>Get in the room with decision makers</strong> — A&Rs, label execs, and top engineers who can change the trajectory of your career</div>
+      </div>
+      <div class="extra-row">
+        <div class="extra-check">✓</div>
+        <div class="extra-text"><strong>Build relationships that open doors</strong> — a private community of serious producers who push, support, and collaborate with you for years</div>
+      </div>
+      <div class="extra-row">
+        <div class="extra-check">✓</div>
+        <div class="extra-text"><strong>Skip the endless searching</strong> — the exact samples, presets, and books I personally use, so you build with proven tools from day one</div>
+      </div>
+      <div class="extra-row">
+        <div class="extra-check">✓</div>
+        <div class="extra-text"><strong>Stop being ignored by labels</strong> — battle-tested email templates that actually get replies from labels, managers, and promoters</div>
+      </div>
+      <div class="extra-row">
+        <div class="extra-check">✓</div>
+        <div class="extra-text"><strong>Sound bigger from day one</strong> — FUSION (Valhalla VintageVerb pack) free, so your reverbs hit like a pro studio's</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

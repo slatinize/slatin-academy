@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lo que vas a aprender — 3 opciones</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #050505; font-family: -apple-system, 'Inter', sans-serif; color: #fff; }
+
+    .label {
+      text-align: center;
+      padding: 60px 24px 10px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+    .option-title {
+      text-align: center;
+      padding: 0 24px 44px;
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.35);
+    }
+    .divider { height: 1px; background: rgba(255,255,255,0.04); margin: 0 5%; }
+
+    /* ── shared heading treatment ── */
+    .section { padding: 80px 7%; }
+    .eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #DD3333;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 20px; height: 2px;
+      background: linear-gradient(90deg, #ED8E00, #DD3333);
+      border-radius: 2px;
+    }
+
+    /* ════════════════════════════════
+       OPTION A — Manifesto en filas
+    ════════════════════════════════ */
+    .a-wrap { background: #050505; }
+
+    .a-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 60px;
+      gap: 40px;
+    }
+    .a-title {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .a-title span {
+      background: linear-gradient(135deg, #ED8E00, #DD3333);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .a-subtitle {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.6;
+      max-width: 280px;
+      flex-shrink: 0;
+    }
+
+    .a-list { display: flex; flex-direction: column; }
+    .a-item {
+      display: grid;
+      grid-template-columns: 80px 1fr 1fr;
+      align-items: center;
+      gap: 32px;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: background 0.2s;
+      cursor: default;
+    }
+    .a-item:first-child { border-top: 1px solid rgba(255,255,255,0.05); }
+    .a-item:hover { background: rgba(255,255,255,0.02); }
+    .a-item:hover .a-num { opacity: 0.7; }
+    .a-num {
+      font-size: 4rem;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 1;
+      background: linear-gradient(135deg, #ED8E00, #DD3333);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0.3;
+      transition: opacity 0.2s;
+      text-align: right;
+    }
+    .a-name {
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .a-desc {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.6;
+    }
+
+    /* ════════════════════════════════
+       OPTION B — Split: título izquierda, grid derecha
+    ════════════════════════════════ */
+    .b-wrap { background: #030303; }
+
+    .b-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .b-left { position: sticky; top: 80px; }
+    .b-big-title {
+      font-size: clamp(3.5rem, 6vw, 6rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      margin-bottom: 24px;
+    }
+    .b-big-title .grad {
+      background: linear-gradient(135deg, #ED8E00, #DD3333);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .b-lead {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.65;
+    }
+    .b-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .b-card {
+      padding: 28px 24px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.25s, border-color 0.25s;
+      cursor: default;
+    }
+    .b-card:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(221,51,51,0.2);
+    }
+    .b-card:nth-child(1) { border-radius: 16px 0 0 0; }
+    .b-card:nth-child(2) { border-radius: 0 16px 0 0; }
+    .b-card:nth-child(5) { border-radius: 0 0 0 16px; }
+    .b-card:nth-child(6) { border-radius: 0 0 16px 0; }
+    .b-card-num {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: #DD3333;
+      margin-bottom: 12px;
+    }
+    .b-card-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .b-card-desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.6;
+    }
+
+    /* ════════════════════════════════
+       OPTION C — Numbered checklist grande
+    ════════════════════════════════ */
+    .c-wrap { background: #050505; }
+
+    .c-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .c-title {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .c-title .lo { color: rgba(255,255,255,0.35); font-weight: 300; }
+    .c-title .que { color: rgba(255,255,255,0.35); font-weight: 300; }
+    .c-title .grad {
+      background: linear-gradient(135deg, #ED8E00, #DD3333);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .c-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .c-item {
+      background: #080808;
+      padding: 40px 36px;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      transition: background 0.25s;
+    }
+    .c-item:hover { background: #0f0f0f; }
+    .c-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, #ED8E00, #DD3333);
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .c-item:hover::before { opacity: 1; }
+    .c-bg-num {
+      position: absolute;
+      bottom: -20px; right: 16px;
+      font-size: 7rem;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      color: rgba(255,255,255,0.03);
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+    }
+    .c-check {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ED8E00, #DD3333);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 0.75rem;
+      font-weight: 900;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .c-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+    .c-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.65;
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── OPTION A ── -->
+  <p class="label">Opción A</p>
+  <p class="option-title">Manifesto en filas — número grande + nombre + descripción</p>
+  <div class="a-wrap">
+    <div class="section">
+      <div class="a-header">
+        <h2 class="a-title">Lo que vas<br>a <span>aprender</span></h2>
+        <p class="a-subtitle">Habilidades concretas que aplicas al día siguiente en tu propio trabajo.</p>
+      </div>
+      <div class="a-list">
+        <div class="a-item">
+          <div class="a-num">01</div>
+          <div class="a-name">Un sistema claro</div>
+          <div class="a-desc">Para abordar cualquier mastering desde cero.</div>
+        </div>
+        <div class="a-item">
+          <div class="a-num">02</div>
+          <div class="a-name">Escuchar como un ingeniero</div>
+          <div class="a-desc">Detectar los problemas antes de tocar un plugin.</div>
+        </div>
+        <div class="a-item">
+          <div class="a-num">03</div>
+          <div class="a-name">Decisiones rápidas y precisas</div>
+          <div class="a-desc">Tomar decisiones con seguridad, sin dar vueltas.</div>
+        </div>
+        <div class="a-item">
+          <div class="a-num">04</div>
+          <div class="a-name">Proceso real en tiempo real</div>
+          <div class="a-desc">Ver un master construirse de principio a fin.</div>
+        </div>
+        <div class="a-item">
+          <div class="a-num">05</div>
+          <div class="a-name">Técnicas concretas</div>
+          <div class="a-desc">Que aplicas al día siguiente en tu propio trabajo.</div>
+        </div>
+        <div class="a-item">
+          <div class="a-num">06</div>
+          <div class="a-name">Criterio profesional</div>
+          <div class="a-desc">Lo que separa un master amateur de uno comercialmente competitivo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── OPTION B ── -->
+  <p class="label">Opción B</p>
+  <p class="option-title">Split — título fijo izquierda, grid de cards derecha</p>
+  <div class="b-wrap">
+    <div class="section">
+      <div class="b-layout">
+        <div class="b-left">
+          <div class="eyebrow">Lo que vas a aprender</div>
+          <h2 class="b-big-title">Sal con<br><span class="grad">criterio.</span><br>No con<br>teoría.</h2>
+          <p class="b-lead">6 habilidades concretas que transforman cómo abordas un mastering para siempre.</p>
+        </div>
+        <div class="b-right">
+          <div class="b-card">
+            <div class="b-card-num">01</div>
+            <div class="b-card-title">Un sistema claro</div>
+            <p class="b-card-desc">Para abordar cualquier mastering desde cero.</p>
+          </div>
+          <div class="b-card">
+            <div class="b-card-num">02</div>
+            <div class="b-card-title">Escuchar como un ingeniero</div>
+            <p class="b-card-desc">Detectar los problemas antes de tocar un plugin.</p>
+          </div>
+          <div class="b-card">
+            <div class="b-card-num">03</div>
+            <div class="b-card-title">Decisiones rápidas y precisas</div>
+            <p class="b-card-desc">Tomar decisiones con seguridad, sin dar vueltas.</p>
+          </div>
+          <div class="b-card">
+            <div class="b-card-num">04</div>
+            <div class="b-card-title">Proceso real en tiempo real</div>
+            <p class="b-card-desc">Ver un master construirse de principio a fin.</p>
+          </div>
+          <div class="b-card">
+            <div class="b-card-num">05</div>
+            <div class="b-card-title">Técnicas concretas</div>
+            <p class="b-card-desc">Que aplicas al día siguiente en tu propio trabajo.</p>
+          </div>
+          <div class="b-card">
+            <div class="b-card-num">06</div>
+            <div class="b-card-title">Criterio profesional</div>
+            <p class="b-card-desc">Lo que separa un master amateur de uno competitivo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── OPTION C ── -->
+  <p class="label">Opción C</p>
+  <p class="option-title">Grid 3×2 con top-border animado al hover</p>
+  <div class="c-wrap">
+    <div class="section">
+      <div class="c-header">
+        <div class="eyebrow" style="justify-content:center;">Lo que vas a aprender</div>
+        <h2 class="c-title">
+          <span class="lo">Lo que </span><span class="grad">vas a aprender</span>
+        </h2>
+      </div>
+      <div class="c-grid">
+        <div class="c-item">
+          <div class="c-bg-num">01</div>
+          <div class="c-check">01</div>
+          <div class="c-name">Un sistema claro</div>
+          <p class="c-desc">Para abordar cualquier mastering desde cero.</p>
+        </div>
+        <div class="c-item">
+          <div class="c-bg-num">02</div>
+          <div class="c-check">02</div>
+          <div class="c-name">Escuchar como un ingeniero</div>
+          <p class="c-desc">Detectar los problemas antes de tocar un plugin.</p>
+        </div>
+        <div class="c-item">
+          <div class="c-bg-num">03</div>
+          <div class="c-check">03</div>
+          <div class="c-name">Decisiones rápidas y precisas</div>
+          <p class="c-desc">Tomar decisiones con seguridad, sin dar vueltas.</p>
+        </div>
+        <div class="c-item">
+          <div class="c-bg-num">04</div>
+          <div class="c-check">04</div>
+          <div class="c-name">Proceso real en tiempo real</div>
+          <p class="c-desc">Ver un master construirse de principio a fin.</p>
+        </div>
+        <div class="c-item">
+          <div class="c-bg-num">05</div>
+          <div class="c-check">05</div>
+          <div class="c-name">Técnicas concretas</div>
+          <p class="c-desc">Que aplicas al día siguiente en tu propio trabajo.</p>
+        </div>
+        <div class="c-item">
+          <div class="c-bg-num">06</div>
+          <div class="c-check">06</div>
+          <div class="c-name">Criterio profesional</div>
+          <p class="c-desc">Lo que separa un master amateur de uno comercialmente competitivo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

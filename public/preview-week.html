@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La semana — 3 opciones</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #050505; font-family: -apple-system, 'Inter', sans-serif; color: #fff; }
+
+    .label {
+      text-align: center;
+      padding: 60px 24px 10px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+    .option-title {
+      text-align: center;
+      padding: 0 24px 40px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.45);
+    }
+    .divider {
+      height: 1px;
+      background: rgba(255,255,255,0.05);
+      margin: 0 4%;
+    }
+    .section { padding: 80px 6%; }
+    .section-title {
+      text-align: center;
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      font-weight: 800;
+      margin-bottom: 72px;
+      letter-spacing: -0.04em;
+    }
+
+    /* ─── COLORS ─── */
+    :root {
+      --c1: #DD3333;
+      --c2: #E8734A;
+      --c3: #ED8E00;
+      --c4: #FB4141;
+      --c5: #D4882B;
+    }
+
+    /* ══════════════════════════════════════
+       OPTION A — Tabs interactivos con panel
+    ══════════════════════════════════════ */
+    .a-wrap { background: #050505; }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .tabs::-webkit-scrollbar { display: none; }
+
+    .tab {
+      flex: 0 0 auto;
+      padding: 18px 32px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+      user-select: none;
+    }
+    .tab.active { color: #fff; border-bottom-color: var(--tab-color); }
+    .tab:hover:not(.active) { color: rgba(255,255,255,0.6); }
+
+    .panels { position: relative; }
+    .panel {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: 340px;
+    }
+    .panel.active { display: grid; }
+
+    .panel-left {
+      padding: 64px 56px 64px 0;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .panel-day {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--panel-color);
+      margin-bottom: 16px;
+    }
+    .panel-genre {
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff 40%, rgba(255,255,255,0.55));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .panel-desc {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+      max-width: 420px;
+    }
+    .panel-right {
+      padding: 64px 0 64px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .panel-number {
+      font-size: clamp(9rem, 18vw, 16rem);
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      line-height: 1;
+      color: var(--panel-color);
+      opacity: 0.12;
+      user-select: none;
+    }
+
+    /* ══════════════════════════════════════
+       OPTION B — Línea de tiempo diagonal
+    ══════════════════════════════════════ */
+    .b-wrap { background: #030303; }
+
+    .diagonal-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .diag-row {
+      display: grid;
+      grid-template-columns: 90px 1fr auto;
+      align-items: center;
+      gap: 40px;
+      padding: 36px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+      cursor: default;
+      transition: background 0.25s;
+    }
+    .diag-row:first-child { border-top: 1px solid rgba(255,255,255,0.05); }
+    .diag-row:hover { background: rgba(255,255,255,0.015); }
+
+    .diag-row::before {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      bottom: -1px;
+      height: 1px;
+      background: var(--row-color);
+      opacity: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: opacity 0.35s, transform 0.35s;
+    }
+    .diag-row:hover::before { opacity: 0.45; transform: scaleX(1); }
+
+    .diag-num {
+      font-size: 5rem;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 1;
+      color: var(--row-color);
+      opacity: 0.35;
+      text-align: right;
+      transition: opacity 0.25s;
+    }
+    .diag-row:hover .diag-num { opacity: 0.7; }
+
+    .diag-body {}
+    .diag-day {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--row-color);
+      margin-bottom: 8px;
+    }
+    .diag-genre {
+      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .diag-desc {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.55;
+      max-width: 480px;
+    }
+
+    .diag-arrow {
+      font-size: 1.5rem;
+      color: rgba(255,255,255,0.12);
+      transition: color 0.25s, transform 0.25s;
+      padding-right: 8px;
+      flex-shrink: 0;
+    }
+    .diag-row:hover .diag-arrow { color: var(--row-color); transform: translateX(6px); opacity: 0.7; }
+
+    /* ══════════════════════════════════════
+       OPTION C — Bento grid asimétrico
+    ══════════════════════════════════════ */
+    .c-wrap { background: #050505; }
+
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto auto;
+      gap: 12px;
+    }
+
+    .bento-card {
+      border-radius: 20px;
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 220px;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      transition: transform 0.3s ease;
+    }
+    .bento-card:hover { transform: scale(1.015); }
+
+    .bento-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: inherit;
+      z-index: 0;
+    }
+
+    /* Big card spans 5 cols */
+    .bento-card.big { grid-column: span 5; min-height: 280px; }
+    /* Medium spans 4 */
+    .bento-card.med { grid-column: span 4; }
+    /* Small spans 3 */
+    .bento-card.sm  { grid-column: span 3; }
+
+    /* Color variants */
+    .bento-card.c1 { background: linear-gradient(145deg, #1c0404, #280808); border: 1px solid rgba(221,51,51,0.18); }
+    .bento-card.c2 { background: linear-gradient(145deg, #1a0b04, #251208); border: 1px solid rgba(232,115,74,0.18); }
+    .bento-card.c3 { background: linear-gradient(145deg, #1a1000, #251700); border: 1px solid rgba(237,142,0,0.18); }
+    .bento-card.c4 { background: linear-gradient(145deg, #1c0404, #280808); border: 1px solid rgba(251,65,65,0.18); }
+    .bento-card.c5 { background: linear-gradient(145deg, #1a0e00, #251500); border: 1px solid rgba(212,136,43,0.18); }
+
+    .bento-card:hover.c1 { box-shadow: 0 24px 60px rgba(221,51,51,0.18); }
+    .bento-card:hover.c2 { box-shadow: 0 24px 60px rgba(232,115,74,0.16); }
+    .bento-card:hover.c3 { box-shadow: 0 24px 60px rgba(237,142,0,0.16); }
+    .bento-card:hover.c4 { box-shadow: 0 24px 60px rgba(251,65,65,0.16); }
+    .bento-card:hover.c5 { box-shadow: 0 24px 60px rgba(212,136,43,0.14); }
+
+    .bento-bg-num {
+      position: absolute;
+      top: -10px; right: 16px;
+      font-size: 9rem;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 1;
+      color: #fff;
+      opacity: 0.04;
+      user-select: none;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bento-content {
+      position: relative;
+      z-index: 1;
+    }
+    .bento-day {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--bc);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .bento-day::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--bc);
+      flex-shrink: 0;
+    }
+    .bento-genre {
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    .bento-desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── OPTION A ── -->
+  <p class="label">Opción A</p>
+  <p class="option-title">Tabs interactivos con panel expandido</p>
+  <div class="a-wrap">
+    <div class="section">
+      <h2 class="section-title">La semana</h2>
+
+      <div class="tabs">
+        <div class="tab active" style="--tab-color:#DD3333" data-panel="0" onclick="switchTab(0)">Día 1</div>
+        <div class="tab" style="--tab-color:#E8734A" data-panel="1" onclick="switchTab(1)">Día 2</div>
+        <div class="tab" style="--tab-color:#ED8E00" data-panel="2" onclick="switchTab(2)">Día 3</div>
+        <div class="tab" style="--tab-color:#FB4141" data-panel="3" onclick="switchTab(3)">Día 4</div>
+        <div class="tab" style="--tab-color:#D4882B" data-panel="4" onclick="switchTab(4)">Día 5</div>
+      </div>
+
+      <div class="panels">
+        <div class="panel active" style="--panel-color:#DD3333">
+          <div class="panel-left">
+            <div class="panel-day">Día 1 · Techno Melódico</div>
+            <div class="panel-genre">Techno<br>Melódico</div>
+            <p class="panel-desc">Espacio, profundidad y movimiento en la cadena. Cómo conseguir que el bajo respire sin perder energía.</p>
+          </div>
+          <div class="panel-right"><div class="panel-number" style="color:#DD3333">01</div></div>
+        </div>
+        <div class="panel" style="--panel-color:#E8734A">
+          <div class="panel-left">
+            <div class="panel-day">Día 2 · EDM</div>
+            <div class="panel-genre">EDM</div>
+            <p class="panel-desc">Impacto, brillo y loudness sin destruir dinámica. El reto de los masters comerciales de alto nivel.</p>
+          </div>
+          <div class="panel-right"><div class="panel-number" style="color:#E8734A">02</div></div>
+        </div>
+        <div class="panel" style="--panel-color:#ED8E00">
+          <div class="panel-left">
+            <div class="panel-day">Día 3 · Urbano</div>
+            <div class="panel-genre">Urbano</div>
+            <p class="panel-desc">Graves que se sienten, voces que pegan adelante. El sonido que domina los streams globales.</p>
+          </div>
+          <div class="panel-right"><div class="panel-number" style="color:#ED8E00">03</div></div>
+        </div>
+        <div class="panel" style="--panel-color:#FB4141">
+          <div class="panel-left">
+            <div class="panel-day">Día 4 · Rock</div>
+            <div class="panel-genre">Rock</div>
+            <p class="panel-desc">Mantener el punch real de la batería y las guitarras. Cohesión sin perder la agresividad.</p>
+          </div>
+          <div class="panel-right"><div class="panel-number" style="color:#FB4141">04</div></div>
+        </div>
+        <div class="panel" style="--panel-color:#D4882B">
+          <div class="panel-left">
+            <div class="panel-day">Día 5 · Pop</div>
+            <div class="panel-genre">Pop</div>
+            <p class="panel-desc">Traducción perfecta en cualquier sistema de escucha. Brillo, limpieza y presencia sin sacrificar calidez.</p>
+          </div>
+          <div class="panel-right"><div class="panel-number" style="color:#D4882B">05</div></div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:52px;font-size:0.85rem;color:rgba(255,255,255,0.35);font-style:italic;">
+        Días 6 y 7: sesiones de feedback en vivo — revisión de masters y cierre de la semana.
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── OPTION B ── -->
+  <p class="label">Opción B</p>
+  <p class="option-title">Lista editorial con número grande y línea deslizante</p>
+  <div class="b-wrap">
+    <div class="section">
+      <h2 class="section-title">La semana</h2>
+
+      <div class="diagonal-list">
+        <div class="diag-row" style="--row-color:#DD3333">
+          <div class="diag-num">01</div>
+          <div class="diag-body">
+            <div class="diag-day">Día 1</div>
+            <div class="diag-genre">Techno Melódico</div>
+            <p class="diag-desc">Espacio, profundidad y movimiento en la cadena.</p>
+          </div>
+          <div class="diag-arrow">→</div>
+        </div>
+        <div class="diag-row" style="--row-color:#E8734A">
+          <div class="diag-num">02</div>
+          <div class="diag-body">
+            <div class="diag-day">Día 2</div>
+            <div class="diag-genre">EDM</div>
+            <p class="diag-desc">Impacto, brillo y loudness sin destruir dinámica.</p>
+          </div>
+          <div class="diag-arrow">→</div>
+        </div>
+        <div class="diag-row" style="--row-color:#ED8E00">
+          <div class="diag-num">03</div>
+          <div class="diag-body">
+            <div class="diag-day">Día 3</div>
+            <div class="diag-genre">Urbano</div>
+            <p class="diag-desc">Graves que se sienten, voces que pegan adelante.</p>
+          </div>
+          <div class="diag-arrow">→</div>
+        </div>
+        <div class="diag-row" style="--row-color:#FB4141">
+          <div class="diag-num">04</div>
+          <div class="diag-body">
+            <div class="diag-day">Día 4</div>
+            <div class="diag-genre">Rock</div>
+            <p class="diag-desc">Mantener el punch real de la batería y las guitarras.</p>
+          </div>
+          <div class="diag-arrow">→</div>
+        </div>
+        <div class="diag-row" style="--row-color:#D4882B">
+          <div class="diag-num">05</div>
+          <div class="diag-body">
+            <div class="diag-day">Día 5</div>
+            <div class="diag-genre">Pop</div>
+            <p class="diag-desc">Traducción perfecta en cualquier sistema de escucha.</p>
+          </div>
+          <div class="diag-arrow">→</div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:52px;font-size:0.85rem;color:rgba(255,255,255,0.35);font-style:italic;">
+        Días 6 y 7: sesiones de feedback en vivo — revisión de masters y cierre de la semana.
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── OPTION C ── -->
+  <p class="label">Opción C</p>
+  <p class="option-title">Bento grid asimétrico con fondo tonal por género</p>
+  <div class="c-wrap">
+    <div class="section">
+      <h2 class="section-title">La semana</h2>
+
+      <div class="bento">
+        <!-- Row 1: big + med + sm -->
+        <div class="bento-card big c1" style="--bc:#DD3333">
+          <div class="bento-bg-num">01</div>
+          <div class="bento-content">
+            <div class="bento-day">Día 1</div>
+            <div class="bento-genre">Techno Melódico</div>
+            <p class="bento-desc">Espacio, profundidad y movimiento en la cadena. Bajo que respira sin perder energía.</p>
+          </div>
+        </div>
+        <div class="bento-card med c2" style="--bc:#E8734A">
+          <div class="bento-bg-num">02</div>
+          <div class="bento-content">
+            <div class="bento-day">Día 2</div>
+            <div class="bento-genre">EDM</div>
+            <p class="bento-desc">Impacto, brillo y loudness sin destruir dinámica.</p>
+          </div>
+        </div>
+        <div class="bento-card sm c3" style="--bc:#ED8E00">
+          <div class="bento-bg-num">03</div>
+          <div class="bento-content">
+            <div class="bento-day">Día 3</div>
+            <div class="bento-genre">Urbano</div>
+            <p class="bento-desc">Graves que se sienten, voces adelante.</p>
+          </div>
+        </div>
+
+        <!-- Row 2: sm + big + med flipped -->
+        <div class="bento-card sm c4" style="--bc:#FB4141">
+          <div class="bento-bg-num">04</div>
+          <div class="bento-content">
+            <div class="bento-day">Día 4</div>
+            <div class="bento-genre">Rock</div>
+            <p class="bento-desc">Punch real de la batería y las guitarras.</p>
+          </div>
+        </div>
+        <div class="bento-card big c5" style="--bc:#D4882B">
+          <div class="bento-bg-num">05</div>
+          <div class="bento-content">
+            <div class="bento-day">Día 5</div>
+            <div class="bento-genre">Pop</div>
+            <p class="bento-desc">Traducción perfecta en cualquier sistema de escucha. Brillo, limpieza y presencia.</p>
+          </div>
+        </div>
+        <!-- Días 6 & 7 card -->
+        <div class="bento-card med" style="background:linear-gradient(145deg,#1c0404,#280808);border:1px solid rgba(221,51,51,0.18);--bc:#DD3333;justify-content:flex-end;">
+          <div class="bento-bg-num" style="top:-10px;right:16px;left:auto;opacity:0.07;font-size:9rem;letter-spacing:-0.04em;white-space:nowrap;">06 07</div>
+          <div class="bento-content">
+            <div class="bento-day">Días 6 &amp; 7</div>
+            <div style="font-size:2.6rem;margin-bottom:10px;line-height:1;">🎧</div>
+            <div class="bento-genre">Feedback en vivo</div>
+            <p class="bento-desc">Revisión de masters y cierre de la semana con la comunidad.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function switchTab(index) {
+      document.querySelectorAll('.tab').forEach((t, i) => {
+        t.classList.toggle('active', i === index);
+      });
+      document.querySelectorAll('.panel').forEach((p, i) => {
+        p.classList.toggle('active', i === index);
+      });
+    }
+  </script>
+</body>
+</html>

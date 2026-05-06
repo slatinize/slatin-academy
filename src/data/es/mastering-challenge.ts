@@ -91,28 +91,28 @@ export const pageData = {
     days: [
       {
         day: 1,
-        genre: "Techno Melódico",
-        description: "Espacio, profundidad y movimiento en la cadena.",
+        genre: "Electronica / House",
+        description: "",
       },
       {
         day: 2,
-        genre: "EDM",
-        description: "Impacto, brillo y loudness sin destruir dinámica.",
+        genre: "Trap",
+        description: "",
       },
       {
         day: 3,
-        genre: "Urbano",
-        description: "Graves que se sienten, voces que pegan adelante.",
+        genre: "Reggaeton",
+        description: "",
       },
       {
         day: 4,
         genre: "Rock",
-        description: "Mantener el punch real de la batería y las guitarras.",
+        description: "",
       },
       {
         day: 5,
         genre: "Pop",
-        description: "Traducción perfecta en cualquier sistema de escucha.",
+        description: "",
       },
     ],
     note: "Días 6 y 7: sesiones de feedback en vivo — revisión de masters y cierre de la semana.",

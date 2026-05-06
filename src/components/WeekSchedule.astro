@@ -46,7 +46,7 @@ const bentoSizes = ["big", "med", "sm", "sm", "big", "med"];
             <div class="bento-content">
               <div class="bento-day">Día {d.day}</div>
               <div class="bento-genre">{d.genre}</div>
-              <p class="bento-desc">{d.description}</p>
+              {d.description && <p class="bento-desc">{d.description}</p>}
             </div>
           </div>
         );

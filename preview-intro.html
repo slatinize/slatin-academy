@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intro Section Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: #020202; color: #fff; -webkit-font-smoothing: antialiased; }
+  .option-label { text-align: center; padding: 50px 20px 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+  .option-label:first-child { padding-top: 20px; }
+  hr.sep { max-width: 200px; margin: 30px auto; border: 0; border-top: 1px solid rgba(255,255,255,0.06); }
+  .gradient-text-red { background: linear-gradient(90deg, #FF4444, #DD3333, #aa1111); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ OPTION A: Cinematic Full-Width ═══════════ -->
+<div class="option-label">— Option A: Cinematic Full-Width with Overlay —</div>
+<section style="position: relative; overflow: hidden; padding: 0;">
+  <!-- BG image -->
+  <div style="position: relative; width: 100%; min-height: 500px; background: linear-gradient(135deg, #1a0000 0%, #020202 50%, #0a0a0a 100%);">
+    <!-- Headshot floating right -->
+    <div style="position: absolute; right: 8%; top: 50%; transform: translateY(-50%); width: 320px; height: 320px; border-radius: 50%; overflow: hidden; border: 3px solid rgba(221,51,51,0.3); box-shadow: 0 0 80px rgba(221,51,51,0.2);">
+      <img src="/images/mentoring/headshot.jpg" alt="Ruslan" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <!-- Content left -->
+    <div style="position: relative; z-index: 2; padding: 80px 7% 60px; max-width: 60%;">
+      <p style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #DD3333; margin-bottom: 16px;">Your Mentor</p>
+      <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 20px;">
+        Ruslan <span class="gradient-text-red">SLATIN</span>
+      </h2>
+      <p style="font-size: 1.1rem; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 520px; margin-bottom: 32px;">
+        Multi-platinum certified producer and engineer in the top 1% on Muso. Over 1,000 songs mixed and mastered for Sony, Warner, Def Jam, Netflix, and more. Now dedicated to helping you build a real career in music.
+      </p>
+      <!-- Stats row -->
+      <div style="display: flex; gap: 40px;">
+        <div>
+          <div style="font-size: 2.2rem; font-weight: 800; color: #DD3333;">Top 1%</div>
+          <div style="font-size: 0.75rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.1em;">Mixing Engineers</div>
+        </div>
+        <div>
+          <div style="font-size: 2.2rem; font-weight: 800; color: #fff;">1,000+</div>
+          <div style="font-size: 0.75rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.1em;">Songs Engineered</div>
+        </div>
+        <div>
+          <div style="font-size: 2.2rem; font-weight: 800; color: #fff;">Multi-Platinum</div>
+          <div style="font-size: 0.75rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.1em;">Certified</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Logos full width -->
+  <div style="padding: 28px 5% 32px; border-top: 1px solid rgba(255,255,255,0.05);">
+    <img src="/images/mentoring/logos-white.png" alt="Client logos" style="width: 100%; display: block; object-fit: contain; opacity: 0.5;">
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ═══════════ OPTION B: Bold Stats Hero ═══════════ -->
+<div class="option-label">— Option B: Stats-First Impact —</div>
+<section style="padding: 60px 7%; text-align: center;">
+  <!-- Big headline -->
+  <p style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #DD3333; margin-bottom: 12px;">Meet Your Mentor</p>
+  <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 40px;">
+    The Engineer Behind<br><span class="gradient-text-red">50M+ Streams</span>
+  </h2>
+
+  <!-- Photo + stats grid -->
+  <div style="display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: center; max-width: 900px; margin: 0 auto; text-align: left;">
+    <!-- Photo -->
+    <div style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; border: 3px solid rgba(221,51,51,0.4); box-shadow: 0 0 60px rgba(221,51,51,0.15);">
+      <img src="/images/mentoring/headshot.jpg" alt="Ruslan" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <!-- Text + stats -->
+    <div>
+      <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 8px;">Ruslan SLATIN</h3>
+      <p style="font-size: 0.95rem; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 24px;">
+        Award-winning producer and engineer. 15+ years turning passion into a six-figure music studio. Now sharing everything with you.
+      </p>
+      <!-- Stat pills -->
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <span style="padding: 8px 20px; border-radius: 9999px; background: rgba(221,51,51,0.15); border: 1px solid rgba(221,51,51,0.3); font-size: 0.85rem; font-weight: 600;">15+ Years</span>
+        <span style="padding: 8px 20px; border-radius: 9999px; background: rgba(237,142,0,0.12); border: 1px solid rgba(237,142,0,0.3); font-size: 0.85rem; font-weight: 600;">100+ Students</span>
+        <span style="padding: 8px 20px; border-radius: 9999px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; font-weight: 600;">50M+ Streams</span>
+        <span style="padding: 8px 20px; border-radius: 9999px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; font-weight: 600;">6-Figure Studio</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logos -->
+  <div style="margin-top: 40px;">
+    <img src="/images/mentoring/logos-white.png" alt="Client logos" style="width: 100%; max-width: 800px; margin: 0 auto; display: block; object-fit: contain; opacity: 0.5;">
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ═══════════ OPTION C: Vertical Centered Power ═══════════ -->
+<div class="option-label">— Option C: Centered Vertical Stack —</div>
+<section style="padding: 60px 7%; text-align: center; position: relative;">
+  <!-- Subtle gradient bg -->
+  <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, rgba(221,51,51,0.08) 0%, transparent 60%); pointer-events: none;"></div>
+
+  <div style="position: relative; z-index: 1;">
+    <!-- Photo centered with glow ring -->
+    <div style="width: 180px; height: 180px; border-radius: 50%; overflow: hidden; margin: 0 auto 28px; border: 3px solid rgba(221,51,51,0.3); box-shadow: 0 0 60px rgba(221,51,51,0.2), 0 0 120px rgba(221,51,51,0.08);">
+      <img src="/images/mentoring/headshot.jpg" alt="Ruslan" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+
+    <!-- Name huge -->
+    <h2 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.05; margin-bottom: 12px; letter-spacing: -0.02em;">
+      Ruslan <span class="gradient-text-red">SLATIN</span>
+    </h2>
+    <p style="font-size: 1rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; margin-bottom: 24px;">
+      Producer &bull; Engineer &bull; Mentor
+    </p>
+    <p style="font-size: 1.05rem; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 550px; margin: 0 auto 36px;">
+      15+ years engineering hits for major labels. Now helping producers and engineers build real, profitable music careers.
+    </p>
+
+    <!-- Stats inline -->
+    <div style="display: flex; justify-content: center; gap: 48px; margin-bottom: 40px;">
+      <div>
+        <div style="font-size: 2rem; font-weight: 800;" class="gradient-text-red">15+</div>
+        <div style="font-size: 0.7rem; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.1em;">Years</div>
+      </div>
+      <div style="width: 1px; background: rgba(255,255,255,0.08);"></div>
+      <div>
+        <div style="font-size: 2rem; font-weight: 800; color: #fff;">100+</div>
+        <div style="font-size: 0.7rem; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.1em;">Students</div>
+      </div>
+      <div style="width: 1px; background: rgba(255,255,255,0.08);"></div>
+      <div>
+        <div style="font-size: 2rem; font-weight: 800; color: #fff;">50M+</div>
+        <div style="font-size: 0.7rem; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.1em;">Streams</div>
+      </div>
+    </div>
+
+    <!-- Logos -->
+    <img src="/images/mentoring/logos-white.png" alt="Client logos" style="width: 100%; max-width: 750px; margin: 0 auto; display: block; object-fit: contain; opacity: 0.45;">
+  </div>
+</section>
+
+<div style="height: 40px;"></div>
+</body>
+</html>
