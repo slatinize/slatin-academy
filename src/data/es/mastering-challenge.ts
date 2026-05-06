@@ -3,7 +3,7 @@ import type { Testimonial, FaqItem, Feature, PricingPlan } from '../types';
 export const pageData = {
   meta: {
     title: "Mastering Challenge - SLATIN Academy",
-    description: "7 días. 5 masters. 1 semana intensiva con Ruslan Slatin que cambia tu forma de masterizar.",
+    description: "7 días. 5 másters. 1 semana intensiva con Ruslan Slatin que cambia tu forma de masterizar.",
   },
 
   hero: {
@@ -30,30 +30,30 @@ export const pageData = {
   },
 
   marquee: {
-    text: "Mastering Challenge · 7 días · 5 masters",
+    text: "<strong>Mastering Challenge</strong> · 7 días · 5 másters ·",
   },
 
   problems: {
     eyebrow: "El problema",
-    headline: 'Llevas meses intentando que tus masters suenen <strong>competitivos</strong>.',
+    headline: 'Llevas meses intentando que tus másters suenen <strong>competitivos</strong>...',
     items: [
       {
         icon: "&#x2715;",
-        title: "Ves tutoriales sin parar",
-        description: "Horas de YouTube, pero cuando comparas tu master con una referencia, sigue sin estar a la altura.",
+        title: "Ves tutoriales sin parar:",
+        description: "Horas y horas de YouTube, pero cuando comparas tu máster con una referencia, sigue sin estar a la altura.",
       },
       {
         icon: "&#x2715;",
-        title: "Pruebas plugins nuevos",
-        description: "Cada semana uno distinto. Pero el problema nunca era el plugin.",
+        title: 'Pruebas <em>plugins</em> nuevos:',
+        description: 'Cada semana uno distinto, esperando que alguno marque la diferencia, pero el problema nunca es el <em>plugin</em>.',
       },
       {
         icon: "&#x2715;",
-        title: "Te falta criterio",
-        description: "No tienes el oído de un ingeniero ni la velocidad de decisión que separa lo amateur de lo profesional.",
+        title: "Te falta criterio:",
+        description: "Sientes que no tienes el oído y esa velocidad de decisión que separa lo amateur de lo profesional.",
       },
     ],
-    closing: 'Lo que te falta no es información, es <strong>criterio</strong>. Y eso es exactamente lo que entrena esta semana.',
+    closing: 'Lo que te falta no es información, es <strong>criterio</strong>. Y eso es lo que vas a entrenar durante una semana en el <strong><span class="gradient-text-red">Mastering Challenge</span></strong>.',
   },
 
   howItWorks: {
@@ -61,27 +61,27 @@ export const pageData = {
     steps: [
       {
         number: "01",
-        title: "Clase en directo con Ruslan",
-        description: "1 hora sin cortes. Explica cada decisión en un master real.",
+        title: "Clase en vivo con Ruslan",
+        description: '1 hora sin cortes, explicando cada decisión en un máster real.',
         tag: "Directo",
       },
       {
         number: "02",
-        title: "Recibes un mix",
-        description: "Del mismo género que la clase, con stems incluidos.",
+        title: 'Recibes un <em>mix</em>',
+        description: 'Del mismo género que lo trabajado en clase, con <em>stems</em> incluidos.',
         tag: "Material",
       },
       {
         number: "03",
-        title: "Masterizas ese mismo día",
-        description: "Aplicas todo en caliente, mientras lo tienes fresco.",
+        title: 'Masterizas el <em>mix</em> ese mismo día',
+        description: "Aplicas todo lo aprendido en caliente, mientras lo tienes fresco.",
         tag: "Práctica",
       },
       {
         number: "04",
         title: "Subes tu resultado",
-        description: "Comparas con Rus y con tus compañeros. Feedback real.",
-        tag: "Feedback",
+        description: 'Comparas con Rus y con tus compañeros y recibes <em>feedback</em> real.',
+        tag: "Comentarios",
       },
     ],
   },
@@ -91,7 +91,7 @@ export const pageData = {
     days: [
       {
         day: 1,
-        genre: "Electronica / House",
+        genre: "Electrónica / House",
         description: "",
       },
       {
@@ -101,7 +101,7 @@ export const pageData = {
       },
       {
         day: 3,
-        genre: "Reggaeton",
+        genre: "Reguetón",
         description: "",
       },
       {
@@ -115,7 +115,7 @@ export const pageData = {
         description: "",
       },
     ],
-    note: "Días 6 y 7: sesiones de feedback en vivo — revisión de masters y cierre de la semana.",
+    note: "Días 6 y 7: sesiones de <em>feedback</em> en vivo — revisión de másters en directo con Rus y cierre de la semana junto a la comunidad.",
   },
 
   learn: {
@@ -158,7 +158,7 @@ export const pageData = {
     tagline: "Tu instructor",
     name: "Ruslan",
     nameAccent: "SLATIN",
-    bio: '1.000+ canciones al año para Sony, Warner, Def Jam, Netflix. No vas a necesitar otro tutorial ni otro plugin.',
+    bio: 'Multi-platino certificado con más de 1.000 canciones para Sony, Warner, Def Jam y Netflix. No vas a necesitar otro tutorial ni otro plugin.',
     stats: [
       { value: "Top 0,1%", label: "Ingenieros de Mastering", highlight: true },
       { value: "1.000+", label: "Canciones al Año" },
@@ -171,41 +171,41 @@ export const pageData = {
     subtitle: "Las dos te dan acceso a todo. La diferencia está en cuánto feedback personal recibes.",
     plans: [
       {
-        title: "Sigue el challenge",
+        title: '<em>Tier 1</em> - Sigue el Challenge',
         subtitle: "121 €",
         features: [
-          "Acceso completo a los 7 días del challenge",
-          "5 sesiones en directo con Ruslan (grabadas, para siempre)",
-          "2 sesiones de feedback en vivo",
-          "Comunidad privada durante toda la semana",
-          "Subida diaria de masters y comparación con alumnos",
-          "Dinámicas y ejercicios diarios",
-          "Participación en el sorteo de cascos profesionales",
+          "Acceso completo a los 7 días del Challenge.",
+          "5 sesiones en directo con Ruslan (que quedarán grabadas para poderlas revisionar siempre que quieras).",
+          '2 sesiones de <em>feedback</em> en vivo.',
+          "Acceso a una comunidad privada durante toda la semana para interactuar con otros productores e ingenieros.",
+          "Posibilidad de subir diariamente tus másters y compararlos con otros alumnos.",
+          "Dinámicas y ejercicios diarios que te servirán para el futuro.",
+          "Participación en los sorteos y en las sorpresas que tenemos preparadas.",
         ],
-        ctaText: "Reservar 121€",
+        ctaText: "Reservar: 121€",
         ctaHref: "https://l.slatin.pro/mc-onboard.html?tier=tier_1",
         variant: "dark" as const,
       },
       {
-        title: 'Revisado por <span class="gradient-text-red">slatin.pro</span>',
+        title: '<em>Tier 2</em> - Revisado por <span class="gradient-text-red">Slatin.pro</span>',
         subtitle: "389 €",
         features: [
-          "Acceso completo a los 7 días del challenge",
-          "5 sesiones en directo con Ruslan (grabadas, para siempre)",
-          "2 sesiones de feedback en vivo",
-          "Comunidad privada durante toda la semana",
-          "Subida diaria de masters y comparación con alumnos",
-          "Dinámicas y ejercicios diarios",
-          "Participación en el sorteo de cascos profesionales",
+          "Acceso completo a los 7 días del Challenge.",
+          "5 sesiones en directo con Ruslan (que quedarán grabadas para poderlas revisionar siempre que quieras).",
+          '2 sesiones de <em>feedback</em> en vivo.',
+          "Acceso a una comunidad privada durante toda la semana para interactuar con otros productores e ingenieros.",
+          "Posibilidad de subir diariamente tus másters y compararlos con otros alumnos.",
+          "Dinámicas y ejercicios diarios que te servirán para el futuro.",
+          "Participación en los sorteos y en las sorpresas que tenemos preparadas.",
         ],
         highlightFeatures: [
-          "Review personalizada de tus temas en las llamadas",
-          "Correcciones específicas sobre tu propio master",
-          "Indicaciones claras de qué mejorar y cómo",
-          "Prioridad en la interacción dentro de la comunidad",
-          "Doble posibilidad en el sorteo de plugins y equipo",
+          '<em>Review</em> personalizada de tus trabajos en las sesiones de <em>feedback</em>.',
+          "Resolución de dudas y correcciones específicas.",
+          "Indicaciones claras para saber qué mejorar y cómo.",
+          "Prioridad en la interacción dentro de la comunidad.",
+          "Doble participación en los sorteos.",
         ],
-        ctaText: "Reservar 389€",
+        ctaText: "Reservar: 389€",
         ctaHref: "https://l.slatin.pro/mc-onboard.html?tier=tier_2",
         variant: "light" as const,
       },
@@ -218,7 +218,7 @@ export const pageData = {
       {
         icon: "1",
         title: "Practicas cada día",
-        description: "5 masters terminados, no apuntes. Trabajo real.",
+        description: "5 másters terminados, no apuntes. Trabajo real.",
       },
       {
         icon: "2",
@@ -244,31 +244,32 @@ export const pageData = {
   },
 
   sorteos: {
-    sectionTitle: 'Llévate equipo profesional',
+    sectionTitle: '<span class="gradient-text-red">Extra:</span> Llévate <span class="sr-underline">equipo profesional</span>',
     items: [
       {
         icon: "&#x1F3A7;",
         image: "/images/sorteos-headphones.jpg",
-        title: "Cascos profesionales",
-        description: "Beyerdynamic DT 770 PRO. Sorteo entre todos los participantes.",
-      },
-      {
-        icon: "&#x1F50C;",
-        image: "/images/sorteos-plugin.png",
-        title: "Plugins de mastering",
-        description: "Bundles profesionales. Tier 2 tiene doble entrada.",
+        title: "Beyerdynamic DT 1770 Pro MK II",
+        description: "Consigue unos auriculares de estudio de referencia. Habrá sorteo entre todos los participantes.",
       },
       {
         icon: "&#x1F381;",
+        image: "/images/sorteos-plugin.png",
+        title: "Slatin.pro <em>Bundle</em>",
+        description: 'También estaremos sorteando un <em>bundle</em> que incluye camiseta y gorra + un <em>mastering</em> tradicional GRATIS.',
+      },
+      {
+        icon: "&#x2728;",
         image: "/images/analog-gear.jpg",
-        title: "Más sorpresas",
-        description: "Se anuncian durante la semana. Perks exclusivos para los que estén.",
+        title: 'Y más <span class="sr-underline">sorpresas</span>...',
+        description: "Se irán anunciando durante la semana. Premios exclusivos para los que estén.",
+        showBadge: false,
       },
     ],
   },
 
   testimonials: {
-    sectionTitle: "Lo que dicen los alumnos",
+    sectionTitle: "Lo que dicen los alumnos...",
     slides: [
       {
         quote: "Llevaba años con cursos sueltos. En una semana con Rus entendí más sobre criterio que en dos años de tutoriales.",
@@ -283,7 +284,7 @@ export const pageData = {
         avatar: "/images/mentoring/alumni-pablo.jpg",
       },
       {
-        quote: "Salí con 5 masters propios y con un sistema que sigo usando cada día. Ningún curso me había dado eso.",
+        quote: "Salí con 5 másters propios y con un sistema que sigo usando cada día. Ningún curso me había dado eso.",
         name: "Pere Aznar",
         role: "Productor & ingeniero",
         avatar: "/images/mentoring/alumni-pere.jpg",
@@ -294,11 +295,11 @@ export const pageData = {
   faqItems: [
     {
       question: "¿Qué nivel necesito?",
-      answer: "Nivel intermedio en adelante. Si ya masterizas tus propios temas (aunque no estés satisfecho con el resultado), estás dentro. No es para principiantes absolutos.",
+      answer: "Nivel intermedio en adelante. Si ya masterizas tus propios temas, aunque sientas que todavía te queda camino, este challenge es para ti.",
     },
     {
       question: "¿Qué pasa si no puedo asistir a alguna sesión en directo?",
-      answer: "Todas las sesiones quedan grabadas y son tuyas para siempre. Aunque lo ideal es masterizar el mismo día, puedes hacerlo a tu ritmo.",
+      answer: "No te preocupes, todas las sesiones quedan grabadas y son tuyas para siempre. Lo ideal es masterizar el mismo día para aprovecharlo al máximo, pero puedes hacerlo cuando mejor te venga.",
     },
     {
       question: "¿En qué idioma son las clases?",
@@ -310,15 +311,15 @@ export const pageData = {
     },
     {
       question: "¿Hay límite de plazas?",
-      answer: "Sí. Especialmente en el Tier 2, donde limitamos el número para garantizar feedback personalizado de calidad.",
+      answer: 'Sí, sobre todo en el <em>Tier</em> 2, donde limitamos el número de plazas para poder ofrecer un <em>feedback</em> personalizado y de calidad.',
     },
     {
       question: "¿Puedo subir de Tier 1 a Tier 2 más tarde?",
-      answer: "Solo si quedan plazas disponibles. Te recomendamos empezar directamente en Tier 2 si quieres feedback directo.",
+      answer: 'Sí, siempre que queden plazas disponibles. Si lo que buscas es <em>feedback</em> directo sobre tu trabajo, te recomendamos entrar directamente en el <em>Tier</em> 2.',
     },
     {
-      question: "¿Qué pasa después del challenge?",
-      answer: "Las grabaciones son tuyas para siempre. La comunidad se cierra al terminar la semana. Te quedas con tus apuntes, tus masters y el sistema.",
+      question: "¿Qué pasa después del Challenge?",
+      answer: "Todas las grabaciones son tuyas para siempre. La comunidad se cierra al terminar la semana, pero te llevas tus apuntes, tus másters y un sistema que podrás seguir aplicando por tu cuenta.",
     },
   ] as FaqItem[],
 

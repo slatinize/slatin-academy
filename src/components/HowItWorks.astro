@@ -34,8 +34,8 @@ const { sectionTitle, eyebrow = 'El proceso', steps } = Astro.props;
       {steps.map((step, i) => (
         <div class="tl-step hiw-step" style={`--step-i:${i}`}>
           <div class="tl-node">{step.number}</div>
-          <h3 class="tl-title">{step.title}</h3>
-          <p class="tl-desc">{step.description}</p>
+          <h3 class="tl-title" set:html={step.title} />
+          <p class="tl-desc" set:html={step.description} />
           {step.tag && <span class="tl-tag">{step.tag}</span>}
         </div>
       ))}

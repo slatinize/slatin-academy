@@ -13,23 +13,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="mc-en__halo" aria-hidden="true"></div>
 
     <div class="mc-en__inner">
+      <p class="mc-en__eyebrow">7-Day Intensive</p>
       <h1 id="mc-en-heading" class="mc-en__heading">
-        Mastering Challenge is<br/>currently in <span class="mc-en__grad">Spanish</span>
+        <span class="mc-en__grad">Mastering Challenge</span> is<br/>currently in <span class="mc-en__highlight mc-en__highlight--bold">Spanish</span>
       </h1>
 
       <p class="mc-en__sub">
-        In the meantime, check out our <strong>Mentoring program</strong> — available in English.
+        In the meantime, check out our <strong>Mentoring Program</strong>, available in <span class="mc-en__highlight">English</span>.
       </p>
 
       <div class="mc-en__ctas">
         <a class="mc-en__cta-primary" href="/es/mastering-challenge">
-          Ver en Español
+          <span class="mc-en__flag-sm" aria-hidden="true">&#x1F1EA;&#x1F1F8;</span>
+          View Page in Spanish
         </a>
 
         <a class="mc-en__cta-secondary" href="/mentoring">
-          <span class="mc-en__flag-sm" aria-hidden="true">&#x1F1FA;&#x1F1F8;</span>
           Explore Mentoring
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
             <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
@@ -103,6 +104,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     background: rgba(255,255,255,0.05);
   }
 
+  .mc-en__eyebrow {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #DD3333;
+  }
+
   .mc-en__flag { font-size: 16px; }
   .mc-en__flag-sm { font-size: 14px; }
 
@@ -125,6 +135,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: transparent;
   }
 
+  .mc-en__highlight {
+    font-weight: 500;
+    font-style: italic;
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: #DD3333;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 3px;
+  }
+  .mc-en__highlight--bold {
+    font-weight: 800;
+  }
+
   .mc-en__sub {
     margin: 0;
     max-width: 560px;
@@ -144,14 +167,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .mc-en__cta-primary {
-    display: inline-flex; align-items: center; justify-content: center; gap: 12px;
-    padding: 22px 40px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 20px 36px;
     border-radius: 14px;
     background: linear-gradient(180deg, #DD3333, #BA1616);
     color: #fff;
     font-weight: 800;
-    font-size: 1rem;
-    letter-spacing: 0.1em;
+    font-size: 0.875rem;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
@@ -165,10 +188,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .mc-en__cta-secondary {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 18px 24px;
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 20px 36px;
     border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 12px;
+    border-radius: 14px;
     background: transparent;
     color: rgba(255,255,255,0.8);
     font-weight: 700;

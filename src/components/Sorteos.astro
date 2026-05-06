@@ -30,9 +30,9 @@ const { sectionTitle, items } = Astro.props;
             </div>
           )}
           <div class="sr__body">
-            <span class="sr__badge">SORTEO</span>
-            <h3 class="sr__title">{item.title}</h3>
-            <p class="sr__desc">{item.description}</p>
+            {item.showBadge !== false && <span class="sr__badge">SORTEO</span>}
+            <h3 class="sr__title" set:html={item.title} />
+            <p class="sr__desc" set:html={item.description} />
           </div>
         </div>
       ))}
@@ -53,7 +53,7 @@ const { sectionTitle, items } = Astro.props;
   }
 
   .sr__header {
-    margin-bottom: 24px;
+    margin-bottom: 72px;
   }
 
   .sr__heading {
@@ -63,6 +63,13 @@ const { sectionTitle, items } = Astro.props;
     letter-spacing: -0.03em;
     color: #fff;
     margin: 0;
+  }
+  .sr__heading :global(.sr-underline),
+  .sr__title :global(.sr-underline) {
+    text-decoration: underline;
+    text-decoration-color: #DD3333;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 3px;
   }
 
   /* List */
@@ -123,9 +130,9 @@ const { sectionTitle, items } = Astro.props;
 
   .sr__badge {
     display: inline-block;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: #DD3333;
   }

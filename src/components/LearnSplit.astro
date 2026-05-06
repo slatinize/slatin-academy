@@ -13,7 +13,7 @@ interface Props {
 
 const {
   sectionTitle,
-  impactLine = 'Sal con criterio.<br/>No con teoría.',
+  impactLine = 'Sal haciendo másters profesionales.<br/>No tomando apuntes.',
   lead = '',
   features,
 } = Astro.props;
@@ -28,7 +28,7 @@ const {
     <!-- Header -->
     <div class="ls__header">
       <p class="ls__eyebrow">{sectionTitle}</p>
-      <h2 class="ls__big-title" set:html={impactLine.replace('criterio', '<span class="grad">criterio</span>')} />
+      <h2 class="ls__big-title" set:html={impactLine.replace('másters profesionales', '<span class="grad">másters profesionales</span>')} />
       {lead && <p class="ls__lead">{lead}</p>}
     </div>
 
