@@ -180,7 +180,7 @@ const {
   <section class="section-dark px-6 pt-32 pb-8 md:px-[5%] md:pt-44 md:pb-12 lg:px-[10%]" id="pricing">
     <div class="container-content text-center mb-0 reveal">
       <h2 class="text-heading" set:html={pricing.headline} />
-      <p class="text-base text-white/55 mt-4 max-w-xl mx-auto">{pricing.subtitle}</p>
+      <p class="text-base text-white/55 mt-4 max-w-xl mx-auto" set:html={pricing.subtitle} />
     </div>
   </section>
   <PricingDuo plans={pricing.plans} />

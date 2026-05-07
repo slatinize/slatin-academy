@@ -87,7 +87,7 @@ export const pageData = {
   },
 
   weekSchedule: {
-    sectionTitle: "La semana",
+    sectionTitle: "La Semana",
     days: [
       {
         day: 1,
@@ -174,13 +174,9 @@ export const pageData = {
         title: '<em>Tier 1</em> - Sigue el Challenge',
         subtitle: "121 €",
         features: [
-          "Acceso completo a los 7 días del Challenge.",
-          "5 sesiones en directo con Ruslan (que quedarán grabadas para poderlas revisionar siempre que quieras).",
-          '2 sesiones de <em>feedback</em> en vivo.',
-          "Acceso a una comunidad privada durante toda la semana para interactuar con otros productores e ingenieros.",
-          "Posibilidad de subir diariamente tus másters y compararlos con otros alumnos.",
-          "Dinámicas y ejercicios diarios que te servirán para el futuro.",
-          "Participación en los sorteos y en las sorpresas que tenemos preparadas.",
+          "7 días de acceso completo — sesiones en directo con Ruslan, grabadas para revisarlas cuando quieras.",
+          "Práctica real: sube tus másters cada día y recibe perspectiva del grupo.",
+          "Comunidad, sorteos y dinámicas que te quedan para el futuro.",
         ],
         ctaText: "Reservar: 121€",
         ctaHref: "https://l.slatin.pro/mc-onboard.html?tier=tier_1",
@@ -190,18 +186,12 @@ export const pageData = {
         title: '<em>Tier 2</em> - Revisado por <span class="gradient-text-red">Slatin.pro</span>',
         subtitle: "389 €",
         features: [
-          "Acceso completo a los 7 días del Challenge.",
-          "5 sesiones en directo con Ruslan (que quedarán grabadas para poderlas revisionar siempre que quieras).",
-          '2 sesiones de <em>feedback</em> en vivo.',
-          "Acceso a una comunidad privada durante toda la semana para interactuar con otros productores e ingenieros.",
-          "Posibilidad de subir diariamente tus másters y compararlos con otros alumnos.",
-          "Dinámicas y ejercicios diarios que te servirán para el futuro.",
-          "Participación en los sorteos y en las sorpresas que tenemos preparadas.",
+          "7 días de acceso completo — sesiones en directo con Ruslan, grabadas para revisarlas cuando quieras.",
+          "Práctica real: sube tus másters cada día y recibe perspectiva del grupo.",
+          "Comunidad, sorteos y dinámicas que te quedan para el futuro.",
         ],
         highlightFeatures: [
-          '<em>Review</em> personalizada de tus trabajos en las sesiones de <em>feedback</em>.',
-          "Resolución de dudas y correcciones específicas.",
-          "Indicaciones claras para saber qué mejorar y cómo.",
+          '<em>Review</em> personalizada de tu máster por Ruslan en directo: qué falla, por qué, y exactamente cómo arreglarlo.',
           "Prioridad en la interacción dentro de la comunidad.",
           "Doble participación en los sorteos.",
         ],
@@ -250,13 +240,15 @@ export const pageData = {
         icon: "&#x1F3A7;",
         image: "/images/sorteos-headphones.jpg",
         title: "Beyerdynamic DT 1770 Pro MK II",
-        description: "Consigue unos auriculares de estudio de referencia. Habrá sorteo entre todos los participantes.",
+        badge: "SORTEO GENERAL",
+        description: "Llévate unos auriculares de estudio de referencia.",
       },
       {
         icon: "&#x1F381;",
         image: "/images/sorteos-plugin.png",
         title: "Slatin.pro <em>Bundle</em>",
-        description: 'También estaremos sorteando un <em>bundle</em> que incluye camiseta y gorra + un <em>mastering</em> tradicional GRATIS.',
+        badge: "SORTEO GENERAL",
+        description: 'También estaremos sorteando un <em>bundle</em> que incluye camiseta y gorra + un <strong><em>mastering</em> tradicional GRATIS hecho por Slatin</strong>.',
       },
       {
         icon: "&#x2728;",

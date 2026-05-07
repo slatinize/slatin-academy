@@ -18,16 +18,16 @@ const { plans } = Astro.props;
 
 <section class="section-dark px-6 pt-8 pb-8 md:px-[5%] md:pt-10 md:pb-12 lg:px-[10%] lg:pb-16" id="pricing">
   <div class="container-content max-w-5xl mx-auto">
-    <div class="grid md:grid-cols-2 gap-5 items-start">
+    <div class="grid md:grid-cols-2 gap-5 items-stretch">
       {plans.map((plan) => {
         const isDark = plan.variant === 'dark';
         const hasHighlights = plan.highlightFeatures && plan.highlightFeatures.length > 0;
 
         return (
-          <div class={`pricing-card ${isDark ? 'pricing-dark' : 'pricing-light'} rounded-2xl p-8 md:p-10 reveal`}>
-            <h2 class="text-xl md:text-[1.65rem] font-extrabold mb-6 whitespace-nowrap text-center" set:html={plan.title} />
+          <div class={`pricing-card ${isDark ? 'pricing-dark' : 'pricing-light'} rounded-2xl p-5 md:p-6 reveal flex flex-col`}>
+            <h2 class="text-xl md:text-[1.5rem] font-extrabold mb-4 whitespace-nowrap text-center" set:html={plan.title} />
 
-            <ul class="pricing-features space-y-2.5 mb-8">
+            <ul class="pricing-features space-y-2 mb-6">
               {plan.features.map((feature) => (
                 <li class="flex items-start gap-2.5">
                   <span class="mt-0.5 flex-shrink-0 opacity-50">
@@ -53,7 +53,7 @@ const { plans } = Astro.props;
               ))}
             </ul>
 
-            <div class="mt-8">
+            <div class="mt-auto pt-5">
               <a
                 href={plan.ctaHref}
                 target="_blank"
@@ -95,7 +95,7 @@ const { plans } = Astro.props;
     display: block;
     width: 100%;
     text-align: center;
-    padding: 1.4rem 2rem;
+    padding: 1.1rem 2rem;
     background: #DD3333;
     color: white;
     font-weight: 700;

@@ -30,7 +30,7 @@ const { sectionTitle, items } = Astro.props;
             </div>
           )}
           <div class="sr__body">
-            {item.showBadge !== false && <span class="sr__badge">SORTEO</span>}
+            {item.showBadge !== false && <span class="sr__badge">{item.badge ?? 'SORTEO'}</span>}
             <h3 class="sr__title" set:html={item.title} />
             <p class="sr__desc" set:html={item.description} />
           </div>
@@ -43,7 +43,7 @@ const { sectionTitle, items } = Astro.props;
 
 <style>
   .sr {
-    padding: 56px 7% 56px;
+    padding: 70px 7% 30px;
     position: relative;
   }
 
