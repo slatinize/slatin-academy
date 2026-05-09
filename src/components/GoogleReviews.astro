@@ -215,9 +215,9 @@ const rowB = reviews.slice(8, 16);
     align-items: center;
     justify-content: center;
     gap: 300px;
-    padding-top: 59px;
+    padding-top: 41px;
     padding-bottom: 78px;
-    margin-top: 54px;
+    margin-top: 38px;
     margin-bottom: 0;
   }
 
@@ -278,7 +278,7 @@ const rowB = reviews.slice(8, 16);
   }
 
   .gr-score {
-    font-size: clamp(5rem, 10vw, 8.5rem);
+    font-size: clamp(7rem, 13vw, 12rem);
     font-weight: 500;
     line-height: .9;
     letter-spacing: -.04em;
@@ -289,7 +289,7 @@ const rowB = reviews.slice(8, 16);
   }
 
   .gr-score-out {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
     font-weight: 500;
     color: rgba(255,255,255,.4);
     letter-spacing: -.02em;
@@ -297,13 +297,13 @@ const rowB = reviews.slice(8, 16);
 
   .gr-big-stars {
     display: flex;
-    gap: 5px;
+    gap: 6px;
     justify-content: center;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
   .gr-big-stars svg {
-    width: 28px;
-    height: 28px;
+    width: 38px;
+    height: 38px;
     filter: drop-shadow(0 0 10px rgba(237,142,0,.35));
   }
   .gr-big-stars svg path {
@@ -500,25 +500,45 @@ const rowB = reviews.slice(8, 16);
   @media (max-width: 768px) {
     .gr-section {
       padding: 56px 22px;
+      margin-top: 0;
+      padding-top: 56px;
     }
 
     .gr-agg {
-      gap: 28px;
-      padding-top: 36px;
+      gap: 36px;
+      padding-top: 40px;
       margin-top: 36px;
       margin-bottom: 0;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      text-align: center;
     }
 
-    .gr-agg-left { flex: 1 1 auto; width: 100%; }
-    .gr-agg-right { width: 100%; }
+    .gr-agg-left {
+      flex: 1 1 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .gr-agg-right {
+      width: 100%;
+      align-items: center;
+    }
 
+    .gr-eyebrow { margin-bottom: 12px; }
     .gr-h2 { font-size: 1.75rem; }
-    .gr-lead { font-size: .95rem; }
+    .gr-lead { font-size: .95rem; max-width: 100%; }
 
-    .gr-score { font-size: 5rem; }
-    .gr-big-stars svg { width: 26px; height: 26px; }
+    .gr-score-row { justify-content: center; }
+    .gr-score { font-size: 3.8rem; }
+    .gr-big-stars svg { width: 22px; height: 22px; }
+
+    .gr-cta-link {
+      padding: 13px 24px;
+      font-size: .88rem;
+      width: auto;
+    }
 
     .gr-track-wrap {
       margin: 0 -22px;
@@ -536,11 +556,5 @@ const rowB = reviews.slice(8, 16);
     .gr-body { font-size: .88rem; }
 
     .gr-cta-row { margin-top: 36px; }
-    .gr-cta-link {
-      padding: 14px 22px;
-      font-size: .88rem;
-      width: 100%;
-      justify-content: center;
-    }
   }
 </style>

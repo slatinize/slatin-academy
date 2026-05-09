@@ -1,0 +1,159 @@
+---
+const NAMES = [
+  "J Balvin","Belinda","Sebastian Yatra","Quevedo","Lola Indigo","Rozalen",
+  "Danny Ocean","Bingo Players","Alex Ubago","Beret","Baauer","Like Mike",
+  "Rels B","Lil B","Dellafuente","Duki","Alvarito Diaz","Mariah Angeliq",
+  "Ingratax","Rvfv","Lali","Amaia","Chanel","María José Llergo","Tiago PZK",
+  "Recycled J","Villano Antillano","Natalia Lacunza","Yung Beef","Kidd Voodoo",
+  "Cano","YSY A","Omar Montes","Gente de Zona","NOREH","Maka","Ptazeta","Khea",
+  "JC Reyes","Rei","KG790","Cyril Kamer","Abraham Mateo","Alto Linaje","La Zowi",
+  "Chucky73","Cruz Cafuné","Delaossa","La Cruz","Alejo","l0rna","Adrian Mills",
+  "GRECAS","Gloosito","mvrk","Israel B","Fernando Costa","AC Slater",
+  "Callejero Fino","Pablo Chill-E","Gianluca","Lia Kali","Mala Rodriguez",
+  "Chiara Oliver","Belen Aguilera","ECKO","Bellakath","Brodinski","Aron","Bejo",
+  "Saiko","Patriboi69","Charles B","Julieta","Natos","Waor","Partiboi69","Walls",
+  "Yng Lucas","Violeta","Fabbio","Dollar Selmouni","Harry Nach","Rubius","Camin",
+  "Aleesha","Belly Basarte","D-Block Europe","Ill Nene De Oro","Sara Socas",
+  "Zetazen","Kaydy Cain","H Roto","Marlon","Bon Calso","Emy Perez","Digitzz",
+  "Jorge Luis Chacin","La Pantera","Juacko","Pol Granch","Ruslana","Mayo","Salma",
+  "Chico Blanco","Dirty Suc","AVAO","Juseph","Lennis Rodriguez","Anakena","Aissa",
+  "María Peláe","Don Patricio","B Jones","Baiuca","Gino Mella","Deva","Nella",
+  "Born Dirty","J Abecia","Selecta","Lowlight","Robledo","Khaled","Cocco Lexa",
+  "Delaporte","Anthony Godfather","Slushii","Tommie Sunshine","Arodes","Lulleaux",
+  "Wuki","Moksi","Mike Cervello","Kabasaki","Orslok","Ergo Pro","Ill Pekeño",
+  "Easy-S","Sofi De La Torre","Brisa Fenoy","Mygal","Munic","Nostalgix",
+  "Blanco Palamera","Vangoura","GARZI","La Xini","Kickbombo","Love Yi","Jedet",
+  "La Albany","Mainline Music Orchestra",
+];
+---
+
+<section class="cr section-dark">
+  <div class="cr__inner">
+
+    <div class="cr__title-wrap reveal">
+      <h2 class="cr__title">Créditos</h2>
+      <svg
+        class="cr__squiggle"
+        viewBox="0 0 600 24"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path d="M8 16 C 90 6, 180 22, 270 14 S 440 4, 540 16 S 588 18, 596 14" />
+      </svg>
+    </div>
+
+    <p class="cr__list reveal">
+      {NAMES.map((name, i) => (
+        <>
+          {name}
+          {i < NAMES.length - 1 && <span class="cr__sep" aria-hidden="true">–</span>}
+        </>
+      ))}
+      <span class="cr__sep" aria-hidden="true">–</span>
+      <span class="cr__tail">y muchos más…</span>
+    </p>
+
+  </div>
+</section>
+
+<style>
+  .cr {
+    padding: clamp(44px, 7vw, 84px) clamp(24px, 8vw, 120px);
+    text-align: center;
+  }
+
+  .cr__inner {
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  /* Title */
+  .cr__title-wrap {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto clamp(40px, 6vw, 72px);
+    padding: 0 .15em;
+  }
+
+  .cr__title {
+    margin: 0;
+    font-size: clamp(2.6rem, 6vw, 5rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: #ECECEC;
+  }
+
+  /* Animated squiggle underline */
+  .cr__squiggle {
+    position: absolute;
+    left: 4%;
+    right: 4%;
+    bottom: -.18em;
+    width: 92%;
+    height: .32em;
+    overflow: visible;
+    pointer-events: none;
+  }
+
+  .cr__squiggle path {
+    fill: none;
+    stroke: #BA1616;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    vector-effect: non-scaling-stroke;
+  }
+
+  /* Credits list */
+  .cr__list {
+    font-size: clamp(.9rem, 1.1vw, 1.05rem);
+    font-weight: 300;
+    line-height: 1.65;
+    letter-spacing: .005em;
+    color: #8a8780;
+    margin: 0 auto;
+  }
+
+  .cr__sep {
+    display: inline-block;
+    margin: 0 .22em;
+    color: rgba(255,255,255,.18);
+    font-weight: 300;
+    transform: translateY(-.08em);
+  }
+
+  .cr__tail {
+    font-style: italic;
+    color: rgba(255,255,255,.32);
+    font-weight: 300;
+  }
+
+  @media (max-width: 640px) {
+    .cr__list { line-height: 1.7; }
+    .cr__sep  { margin: 0 .35em; }
+  }
+</style>
+
+<script>
+  /* Animate squiggle on scroll-into-view */
+  const squiggles = document.querySelectorAll('.cr__squiggle path');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        (entry.target as SVGPathElement).style.animation =
+          'cr-squiggle-draw 1.3s cubic-bezier(0.65,0,0.35,1) .1s forwards';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  squiggles.forEach(p => observer.observe(p));
+</script>
+
+<style is:global>
+  @keyframes cr-squiggle-draw {
+    to { stroke-dashoffset: 0; }
+  }
+</style>

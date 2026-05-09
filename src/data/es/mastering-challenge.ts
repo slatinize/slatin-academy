@@ -1,4 +1,4 @@
-import type { Testimonial, FaqItem, Feature, PricingPlan } from '../types';
+import type { FaqItem, Feature } from '../types';
 
 export const pageData = {
   meta: {
@@ -67,13 +67,13 @@ export const pageData = {
       },
       {
         number: "02",
-        title: 'Recibes un <em>mix</em>',
+        title: 'Recibes un Mix',
         description: 'Del mismo género que lo trabajado en clase, con <em>stems</em> incluidos.',
         tag: "Material",
       },
       {
         number: "03",
-        title: 'Masterizas el <em>mix</em> ese mismo día',
+        title: 'Masterizas el Mix ese mismo día',
         description: "Aplicas todo lo aprendido en caliente, mientras lo tienes fresco.",
         tag: "Práctica",
       },
@@ -101,7 +101,7 @@ export const pageData = {
       },
       {
         day: 3,
-        genre: "Reguetón",
+        genre: "Reggaeton",
         description: "",
       },
       {
@@ -158,7 +158,7 @@ export const pageData = {
     tagline: "Tu instructor",
     name: "Ruslan",
     nameAccent: "SLATIN",
-    bio: 'Multi-platino certificado con más de 1.000 canciones para Sony, Warner, Def Jam y Netflix. No vas a necesitar otro tutorial ni otro plugin.',
+    bio: 'Soy Ruslan, un ingeniero galardonado con más de 15 años en la industria. He trabajado con sellos como Sony Music, Universal o Warner, más de 1.000 proyectos al año, y la misma pasión por la música que tenía desde el primer día.',
     stats: [
       { value: "Top 0,1%", label: "Ingenieros de Mastering", highlight: true },
       { value: "1.000+", label: "Canciones al Año" },
@@ -167,39 +167,45 @@ export const pageData = {
   },
 
   pricing: {
-    headline: '<span class="line-anim">Elige tu reto<svg class="wavy-line" viewBox="0 0 320 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M0,7 Q40,2 80,7 Q120,12 160,7 Q200,2 240,7 Q280,12 320,7" stroke="#DD3333" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>',
-    subtitle: 'Ambos <em>Tiers</em> incluyen acceso completo al Challenge. La diferencia está en el nivel de <em>feedback</em> personalizado que recibes.',
+    eyebrow: 'Mastering Challenge',
+    headline: 'Elige tu <em><span class="grad">Challenge</span></em>',
+    subtitle: 'Dos formas de entrar. Misma intensidad, distinto nivel de feedback directo de Slatin.Pro.',
     plans: [
       {
-        title: '<em>Tier 1</em> - Sigue el Challenge',
-        subtitle: "121 €",
+        tierLabel: "Tier 1",
+        tierName: "Sigue el Challenge",
+        price: "121",
+        currency: "€",
         features: [
-          "7 días de acceso completo — sesiones en directo con Ruslan, grabadas para revisarlas cuando quieras.",
+          "Acceso a las sesiones en directo con Ruslan, y grabaciones permanentes.",
           "Práctica real: sube tus másters cada día y recibe perspectiva del grupo.",
-          "Comunidad, sorteos y dinámicas que te quedan para el futuro.",
+          "Comunidad, sorteos y sorpresas.",
         ],
-        ctaText: "Reservar: 121€",
+        ctaText: "Reservar plaza",
         ctaHref: "https://l.slatin.pro/mc-onboard.html?tier=tier_1",
         variant: "dark" as const,
       },
       {
-        title: '<em>Tier 2</em> - Revisado por <span class="gradient-text-red">Slatin.pro</span>',
-        subtitle: "389 €",
+        tierLabel: "Tier 2",
+        tierName: 'Revisado por <span class="accent">Slatin.pro</span>',
+        price: "389",
+        currency: "€",
+        badge: "Recomendado",
         features: [
-          "7 días de acceso completo — sesiones en directo con Ruslan, grabadas para revisarlas cuando quieras.",
+          "Acceso a las sesiones en directo con Ruslan, y grabaciones permanentes.",
           "Práctica real: sube tus másters cada día y recibe perspectiva del grupo.",
-          "Comunidad, sorteos y dinámicas que te quedan para el futuro.",
+          "Comunidad, sorteos y sorpresas.",
         ],
         highlightFeatures: [
-          '<em>Review</em> personalizada de tu máster por Ruslan en directo: qué falla, por qué, y exactamente cómo arreglarlo.',
+          "Review personalizada de tu máster por slatin.pro.",
           "Prioridad en la interacción dentro de la comunidad.",
           "Doble participación en los sorteos.",
         ],
-        ctaText: "Reservar: 389€",
+        ctaText: "Reservar plaza",
         ctaHref: "https://l.slatin.pro/mc-onboard.html?tier=tier_2",
         variant: "light" as const,
       },
-    ] as PricingPlan[],
+    ],
   },
 
   whyDifferent: {
@@ -246,14 +252,14 @@ export const pageData = {
       {
         icon: "&#x1F381;",
         image: "/images/sorteos-plugin.png",
-        title: "Slatin.pro <em>Bundle</em>",
+        title: "Slatin.pro Bundle",
         badge: "SORTEO GENERAL",
         description: 'También estaremos sorteando un <em>bundle</em> que incluye camiseta y gorra + un <strong><em>mastering</em> tradicional GRATIS hecho por Slatin</strong>.',
       },
       {
         icon: "&#x2728;",
         image: "/images/analog-gear.jpg",
-        title: 'Y más <span class="sr-underline">sorpresas</span>...',
+        title: 'Y más <span class="sr-underline">Sorpresas</span>...',
         description: "Se irán anunciando durante la semana. Premios exclusivos para los que estén.",
         showBadge: false,
       },

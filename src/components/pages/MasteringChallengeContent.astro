@@ -9,6 +9,7 @@ import LearnSplit from '../LearnSplit.astro';
 import MentorIntro from '../MentorIntro.astro';
 import LogoBar from '../LogoBar.astro';
 import PricingDuo from '../PricingDuo.astro';
+import Credits from '../Credits.astro';
 import Sorteos from '../Sorteos.astro';
 import TestimonialSlider from '../TestimonialSlider.astro';
 import FAQ from '../FAQ.astro';
@@ -17,7 +18,7 @@ import ClosingCTA from '../ClosingCTA.astro';
 import LanguageBanner from '../LanguageBanner.astro';
 import GoogleReviews from '../GoogleReviews.astro';
 import type { Locale } from '../../utils/i18n';
-import type { Feature, FaqItem, PricingPlan } from '../../data/types';
+import type { Feature, FaqItem } from '../../data/types';
 
 interface Props {
   lang: Locale;
@@ -62,9 +63,10 @@ interface Props {
     stats: { value: string; label: string; highlight?: boolean }[];
   };
   pricing: {
+    eyebrow?: string;
     headline: string;
     subtitle: string;
-    plans: PricingPlan[];
+    plans: any[];
   };
   sorteos: {
     sectionTitle: string;
@@ -176,14 +178,16 @@ const {
     </div>
   </div>
 
+  <!-- 9b. Credits -->
+  <Credits />
+
   <!-- 9. Pricing -->
-  <section class="section-dark px-6 pt-32 pb-8 md:px-[5%] md:pt-44 md:pb-12 lg:px-[10%]" id="pricing">
-    <div class="container-content text-center mb-0 reveal">
-      <h2 class="text-heading" set:html={pricing.headline} />
-      <p class="text-base text-white/55 mt-4 max-w-xl mx-auto" set:html={pricing.subtitle} />
-    </div>
-  </section>
-  <PricingDuo plans={pricing.plans} />
+  <PricingDuo
+    eyebrow={pricing.eyebrow}
+    headline={pricing.headline}
+    subtitle={pricing.subtitle}
+    plans={pricing.plans}
+  />
 
   <!-- 11. Testimonials -->
   <TestimonialSlider
