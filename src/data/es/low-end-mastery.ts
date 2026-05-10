@@ -2,10 +2,10 @@ import type { Testimonial, Module, FaqItem, Feature, NumberedItem } from '../typ
 
 export const pageData = {
   meta: {
-    title: "Low-End Mastery: Curso de Mezcla de Kick y Bass | SLATIN Academy",
-    description: "Domina la relación entre kick y bass, la traducción del low end y la sonoridad. Curso online práctico para mezclas potentes y club-ready — por Ruslan Slatin.",
-    keywords: "mezcla de low end, mezcla de kick y bass, curso de mezcla online, sub bass, masterización de graves, mezcla de bajos, Ruslan Slatin, traducción de mezcla, ingeniería de audio, curso de producción musical",
-    ogImageAlt: "Low-End Mastery — curso de mezcla de kick y bass por SLATIN Academy",
+    title: "Low-End Mastery: El Curso Completo de Mezcla de Graves | SLATIN Academy",
+    description: "Domina todo el low end: sub, bass, kick y graves medios. Curso online práctico para mezclas potentes y club-ready que traducen en cualquier sistema — por Ruslan Slatin.",
+    keywords: "mezcla de graves, mezcla de low end, curso de mezcla online, sub bass, mezcla de bajos, kick y bass, graves medios, traducción de mezcla, sonoridad, Ruslan Slatin, ingeniería de audio, curso de producción musical",
+    ogImageAlt: "Low-End Mastery — curso completo de mezcla de graves por SLATIN Academy",
   },
 
   hero: {

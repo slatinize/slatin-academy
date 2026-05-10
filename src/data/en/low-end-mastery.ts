@@ -2,10 +2,10 @@ import type { Testimonial, Module, FaqItem, Feature, NumberedItem } from '../typ
 
 export const pageData = {
   meta: {
-    title: "Low-End Mastery: Kick & Bass Mixing Course | SLATIN Academy",
-    description: "Master kick and bass relationships, low-end translation and loudness. A practical online course to deliver punchy, club-ready mixes — by Ruslan Slatin.",
-    keywords: "low end mixing, kick and bass mixing, low end mastery, sub bass mixing, mixing course online, bass mixing tutorial, Ruslan Slatin, club ready mix, mix translation, audio engineering course",
-    ogImageAlt: "Low-End Mastery — kick and bass mixing course by SLATIN Academy",
+    title: "Low-End Mastery: The Complete Low-End Mixing Course | SLATIN Academy",
+    description: "Master sub-bass, kick, bass and low-mids. A practical online course for punchy, loud, club-ready mixes that translate on every system — by Ruslan Slatin.",
+    keywords: "low end mixing, low end mastery, sub bass mixing, bass mixing, kick and bass mixing, low mids mixing, mixing course online, mix translation, club ready mix, Ruslan Slatin, audio engineering course",
+    ogImageAlt: "Low-End Mastery — the complete low-end mixing course by SLATIN Academy",
   },
 
   hero: {
