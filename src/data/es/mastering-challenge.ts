@@ -7,7 +7,7 @@ export const pageData = {
   },
 
   hero: {
-    eyebrow: "Plazas abiertas · Edición Mayo 2026",
+    eyebrow: "Plazas abiertas · Edición Junio 2026",
     headline: 'Mastering <span class="grad">Challenge</span>',
     subtitle: '',
     ctaText: "¡ACEPTO!",
@@ -67,13 +67,13 @@ export const pageData = {
       },
       {
         number: "02",
-        title: 'Recibes un Mix',
+        title: 'Recibes un <em>Mix</em>',
         description: 'Del mismo género que lo trabajado en clase, con <em>stems</em> incluidos.',
         tag: "Material",
       },
       {
         number: "03",
-        title: 'Masterizas el Mix ese mismo día',
+        title: 'Masterizas el <em>Mix</em> ese mismo día',
         description: "Aplicas todo lo aprendido en caliente, mientras lo tienes fresco.",
         tag: "Práctica",
       },
@@ -158,7 +158,7 @@ export const pageData = {
     tagline: "Tu instructor",
     name: "Ruslan",
     nameAccent: "SLATIN",
-    bio: 'Soy Ruslan, un ingeniero galardonado con más de 15 años en la industria. He trabajado con sellos como Sony Music, Universal o Warner, más de 1.000 proyectos al año, y la misma pasión por la música que tenía desde el primer día.',
+    bio: 'Soy Ruslan, ingeniero galardonado con más de 15 años en la industria. He trabajado con sellos como Sony Music, Universal o Warner, más de 1.000 proyectos al año, y la misma pasión por la música desde el primer día.',
     stats: [
       { value: "Top 0,1%", label: "Ingenieros de Mastering", highlight: true },
       { value: "1.000+", label: "Canciones al Año" },
@@ -169,7 +169,7 @@ export const pageData = {
   pricing: {
     eyebrow: 'Mastering Challenge',
     headline: 'Elige tu <em><span class="grad">Challenge</span></em>',
-    subtitle: 'Dos formas de entrar. Misma intensidad, distinto nivel de feedback directo de Slatin.Pro.',
+    subtitle: 'Dos formas de entrar. Misma intensidad, distinto nivel de <em>feedback</em> directo de Slatin.pro.',
     plans: [
       {
         tierLabel: "Tier 1",
@@ -177,7 +177,7 @@ export const pageData = {
         price: "121",
         currency: "€",
         features: [
-          "Acceso a las sesiones en directo con Ruslan, y grabaciones permanentes.",
+          "Acceso a las sesiones en directo con Ruslan y grabaciones permanentes.",
           "Práctica real: recibe una canción para masterizar cada día.",
           "Comunidad, sorteos y sorpresas.",
         ],
@@ -192,12 +192,12 @@ export const pageData = {
         currency: "€",
         badge: "Recomendado",
         features: [
-          "Acceso a las sesiones en directo con Ruslan, y grabaciones permanentes.",
+          "Acceso a las sesiones en directo con Ruslan y grabaciones permanentes.",
           "Práctica real: recibe una canción para masterizar cada día.",
           "Comunidad, sorteos y sorpresas.",
         ],
         highlightFeatures: [
-          "Review personalizada de tu máster por slatin.pro.",
+          "<em>Review</em> personalizada de tu máster por Slatin.pro.",
           "Prioridad en la interacción dentro de la comunidad.",
           "Doble participación en los sorteos.",
         ],
@@ -318,6 +318,26 @@ export const pageData = {
     {
       question: "¿Qué pasa después del Challenge?",
       answer: "Todas las grabaciones son tuyas para siempre. La comunidad se cierra al terminar la semana, pero te llevas tus apuntes, tus másters y un sistema que podrás seguir aplicando por tu cuenta.",
+    },
+    {
+      question: '¿Necesito algún <em>plugin</em> o equipo específico?',
+      answer: 'Usaremos ciertos <em>plugins</em> durante las sesiones, pero no es imprescindible tenerlos. Te daremos alternativas y consejos para que puedas aplicar las mismas técnicas con las herramientas que ya tengas. Solo necesitas un DAW, unos auriculares o monitores y ganas de trabajar.',
+    },
+    {
+      question: "¿Puedo participar desde cualquier país?",
+      answer: "Sí, el Challenge es 100% online. Solo necesitas conexión a internet para unirte a las sesiones en directo. Si no puedes asistir en tu horario, recuerda que todo queda grabado.",
+    },
+    {
+      question: "¿A qué hora son las sesiones en directo?",
+      answer: "Las sesiones están programadas en horario de tarde-noche (hora peninsular española, CEST). Confirmaremos el horario exacto a todos los participantes antes del inicio del Challenge.",
+    },
+    {
+      question: "¿Qué DAW necesito?",
+      answer: "Puedes usar cualquier DAW. Ruslan trabaja con Ableton Live y Reaper, pero todas las técnicas y conceptos son 100% aplicables a cualquier otro entorno de trabajo.",
+    },
+    {
+      question: "¿En qué se diferencia del Programa de Mentoría?",
+      answer: 'El Challenge es una semana intensiva centrada exclusivamente en <em>mastering</em>, con práctica diaria y resultados inmediatos. El Programa de Mentoría es un acompañamiento continuo que cubre mezcla, <em>mastering</em>, negocio y carrera profesional a largo plazo. Son complementarios.',
     },
   ] as FaqItem[],
 
