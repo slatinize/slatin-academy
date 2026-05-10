@@ -19,7 +19,13 @@ import type { Testimonial, FaqItem } from '../../data/types';
 
 interface Props {
   lang: Locale;
-  meta: { title: string; description: string };
+  meta: {
+    title: string;
+    description: string;
+    keywords?: string;
+    ogImage?: string;
+    ogImageAlt?: string;
+  };
   hero: { tagline?: string; title: string; subtitle: string; ctaText: string; ctaHref: string; subCtaText: string };
   intro: { tagline: string; name: string; nameAccent: string; bio: string; stats: { value: string; label: string; highlight?: boolean }[] };
   backgroundQuote: string;
@@ -42,9 +48,47 @@ const {
   lang, meta, hero, intro, backgroundQuote, whatsIncluded,
   outcomes, marquee, alumniTitle, featuredTestimonials, faqItems,
 } = Astro.props;
+
+const siteUrl = Astro.site ?? new URL('https://academy.slatin.pro');
+const pageUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const courseImage = new URL(meta.ogImage ?? '/images/hero-gear.jpg', siteUrl).toString();
+
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: lang === 'es' ? 'Mentoring de Mezcla y Mastering' : 'Mixing & Mastering Mentoring',
+  description: meta.description,
+  inLanguage: lang === 'es' ? 'es' : 'en',
+  url: pageUrl,
+  image: courseImage,
+  provider: {
+    '@type': 'Organization',
+    name: 'SLATIN Academy',
+    url: siteUrl.toString(),
+    sameAs: ['https://slatin.pro'],
+  },
+  instructor: {
+    '@type': 'Person',
+    name: 'Ruslan Slatin',
+  },
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'online',
+    inLanguage: lang === 'es' ? 'es' : 'en',
+  },
+};
 ---
 
-<BaseLayout title={meta.title} description={meta.description} lang={lang}>
+<BaseLayout
+  title={meta.title}
+  description={meta.description}
+  keywords={meta.keywords}
+  ogImage={meta.ogImage}
+  ogImageAlt={meta.ogImageAlt}
+  ogType="product"
+  lang={lang}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
   <!-- 1. Hero -->
   <HeroCinematic
     eyebrow={hero.tagline}

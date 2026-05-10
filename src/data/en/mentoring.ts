@@ -2,8 +2,10 @@ import type { Testimonial, FaqItem, FeatureCard, OutcomeCard, PricingPlan, Alumn
 
 export const pageData = {
   meta: {
-    title: "Mentoring - SLATIN Academy",
-    description: "Build a Profitable Music Career on Your Own Terms. Revamp your Mixing and Mastering Skills in Record Time with SLATIN's Mentoring Program.",
+    title: "Music Production Mentoring: Mix & Master Like a Pro | SLATIN Academy",
+    description: "1-on-1 mixing and mastering mentoring with Ruslan Slatin. Build a profitable music career on your own terms — personalized feedback, live calls and a proven roadmap.",
+    keywords: "music production mentoring, mixing mentor, mastering mentor, mix and master coaching, music career coaching, Ruslan Slatin, online music mentor, audio engineering mentor",
+    ogImageAlt: "SLATIN Mentoring — 1-on-1 mixing and mastering coaching with Ruslan Slatin",
   },
 
   hero: {

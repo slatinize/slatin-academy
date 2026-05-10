@@ -2,8 +2,10 @@ import type { Testimonial, Module, FaqItem, Feature, NumberedItem } from '../typ
 
 export const pageData = {
   meta: {
-    title: "Advanced Microdynamics - Mixing & Mastering Course",
-    description: "Learn advanced microdynamic processing techniques for mixing and mastering. 4+ hours of practical video lessons by SLATIN.",
+    title: "Advanced Microdynamics: Mixing & Mastering Course | SLATIN Academy",
+    description: "Go beyond EQ and compression. Master microdynamic processing with 4+ hours of practical video lessons for pro-level mixes and masters — by Ruslan Slatin.",
+    keywords: "microdynamics, advanced mixing course, mastering course, transient shaping, dynamic processing, mixing and mastering tutorial, Ruslan Slatin, audio engineering, online mastering course, transient design",
+    ogImageAlt: "Advanced Microdynamics — mixing and mastering course by SLATIN Academy",
   },
 
   hero: {

@@ -18,7 +18,13 @@ import type { Testimonial, Module, FaqItem, Feature, NumberedItem } from '../../
 
 interface Props {
   lang: Locale;
-  meta: { title: string; description: string };
+  meta: {
+    title: string;
+    description: string;
+    keywords?: string;
+    ogImage?: string;
+    ogImageAlt?: string;
+  };
   hero: { badgeText: string; title: string; subtitle: string; ctaText: string; ctaHref: string; secondaryCtaText: string; secondaryCtaHref: string };
   splitSections: {
     getLoud: { heading: string; paragraphs: string[]; accent: string };
@@ -44,9 +50,47 @@ const {
   lang, meta, hero, splitSections, painPoints, featureGrid, idealFor,
   moduleCarousel, teacherBio, pricing, testimonials, modules, faqItems,
 } = Astro.props;
+
+const siteUrl = Astro.site ?? new URL('https://academy.slatin.pro');
+const pageUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const courseImage = new URL(meta.ogImage ?? '/images/hero-gear.jpg', siteUrl).toString();
+
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: 'Low-End Mastery',
+  description: meta.description,
+  inLanguage: lang === 'es' ? 'es' : 'en',
+  url: pageUrl,
+  image: courseImage,
+  provider: {
+    '@type': 'Organization',
+    name: 'SLATIN Academy',
+    url: siteUrl.toString(),
+    sameAs: ['https://slatin.pro'],
+  },
+  instructor: {
+    '@type': 'Person',
+    name: 'Ruslan Slatin',
+  },
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'online',
+    inLanguage: lang === 'es' ? 'es' : 'en',
+  },
+};
 ---
 
-<BaseLayout title={meta.title} description={meta.description} lang={lang}>
+<BaseLayout
+  title={meta.title}
+  description={meta.description}
+  keywords={meta.keywords}
+  ogImage={meta.ogImage}
+  ogImageAlt={meta.ogImageAlt}
+  ogType="product"
+  lang={lang}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
   <!-- 1. Hero -->
   <div class="relative section-dark overflow-hidden" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-bottom: 6vh;">
     <div class="absolute inset-0 z-0">
