@@ -296,7 +296,7 @@ const { eyebrow, headline, subtitle, plans } = Astro.props;
 <script>
   document.querySelectorAll('.pc-cta').forEach((el) => {
     el.addEventListener('click', () => {
-      if (window.zaraz) zaraz.track('InitiateCheckout');
+      if (window.zaraz && localStorage.getItem('slatin_cookie_consent') === 'accepted') zaraz.track('InitiateCheckout');
     });
   });
 </script>

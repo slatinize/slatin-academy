@@ -134,7 +134,7 @@ const { title, subtitle, price, features, ctaText, ctaHref } = Astro.props;
 
   document.querySelectorAll('.pricing-cta').forEach((el) => {
     el.addEventListener('click', () => {
-      if (window.zaraz) zaraz.track('InitiateCheckout');
+      if (window.zaraz && localStorage.getItem('slatin_cookie_consent') === 'accepted') zaraz.track('InitiateCheckout');
     });
   });
 </script>

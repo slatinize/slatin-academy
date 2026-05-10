@@ -213,7 +213,7 @@ const {
 </BaseLayout>
 
 <script>
-  if (window.zaraz) zaraz.track('ViewContent', {
+  if (window.zaraz && localStorage.getItem('slatin_cookie_consent') === 'accepted') zaraz.track('ViewContent', {
     content_name: 'Microdynamics', content_ids: ['6205122'], content_type: 'product',
   });
 </script>

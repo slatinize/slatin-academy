@@ -312,7 +312,7 @@ const {
 </style>
 
 <script>
-  if (window.zaraz) zaraz.track('ViewContent', {
+  if (window.zaraz && localStorage.getItem('slatin_cookie_consent') === 'accepted') zaraz.track('ViewContent', {
     content_name: 'Mastering Challenge', content_type: 'product',
   });
 </script>
