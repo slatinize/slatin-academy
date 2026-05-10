@@ -186,21 +186,5 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   }
 </style>
 
-<script>
-  function trackPurchase() {
-    if (typeof fbq === 'function') {
-      fbq('track', 'Purchase', {
-        value: 121,
-        currency: 'EUR',
-        content_name: 'Mastering Challenge Tier 1',
-        content_type: 'product',
-      });
-    }
-  }
-
-  if (window.__pixelInitialized) {
-    trackPurchase();
-  } else {
-    window.addEventListener('pixel:ready', trackPurchase, { once: true });
-  }
+<!-- Purchase event tracked on l.slatin.pro NDA step -->
 </script>

@@ -7,7 +7,6 @@ import '@fontsource/plus-jakarta-sans/800.css';
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import FacebookPixel from '../components/FacebookPixel.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 import { getAlternateUrl, locales, type Locale } from '../utils/i18n';
 
@@ -40,7 +39,6 @@ const { title, description = 'Premium music education by SLATIN', ogImage, lang 
     <link rel="alternate" hreflang="x-default" href={getAlternateUrl(Astro.url, 'en')} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <title>{title}</title>
-    <FacebookPixel />
   </head>
   <body>
     <Nav lang={lang} />

@@ -312,7 +312,7 @@ const {
 </style>
 
 <script>
-  if (typeof fbq === 'function') fbq('track', 'ViewContent', {
+  if (window.zaraz) zaraz.track('ViewContent', {
     content_name: 'Mastering Challenge', content_type: 'product',
   });
 </script>

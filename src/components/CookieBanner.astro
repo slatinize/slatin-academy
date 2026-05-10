@@ -36,17 +36,7 @@
     var CONSENT_KEY = 'slatin_cookie_consent';
     var stored = localStorage.getItem(CONSENT_KEY);
 
-    function loadPixel() {
-      if (typeof window.__initPixel === 'function') window.__initPixel();
-    }
-
-    if (stored === 'accepted') {
-      loadPixel();
-      return;
-    }
-    if (stored === 'declined') {
-      return;
-    }
+    if (stored === 'accepted' || stored === 'declined') return;
 
     var banner = document.getElementById('cookie-banner');
     var overlay = document.getElementById('cookie-overlay');
@@ -63,7 +53,6 @@
     document.getElementById('cookie-accept')?.addEventListener('click', function () {
       localStorage.setItem(CONSENT_KEY, 'accepted');
       dismiss();
-      loadPixel();
     });
 
     document.getElementById('cookie-decline')?.addEventListener('click', function () {
