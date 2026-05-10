@@ -1,3 +1,5 @@
+const CANONICAL_HOST = 'academy.slatin.pro';
+
 const ES_PAGES = new Set([
   '/',
   '/mastering-challenge/',
@@ -26,8 +28,33 @@ function getCookie(request: Request, name: string): string | null {
   return match ? match[1] : null;
 }
 
+function isPreviewHost(host: string): boolean {
+  return (
+    host === 'localhost' ||
+    host === '127.0.0.1' ||
+    host.endsWith('.pages.dev') ||
+    host.endsWith('.workers.dev')
+  );
+}
+
 export const onRequest: PagesFunction = async (context) => {
   const url = new URL(context.request.url);
+  const proto = context.request.headers.get('X-Forwarded-Proto') || url.protocol.replace(':', '');
+  const host = url.hostname;
+
+  // Canonicalize host + scheme on production hosts only.
+  // 301 to https://academy.slatin.pro/* for any non-canonical host or http://.
+  if (!isPreviewHost(host)) {
+    const wrongHost = host !== CANONICAL_HOST;
+    const wrongScheme = proto !== 'https';
+    if (wrongHost || wrongScheme) {
+      const canonical = new URL(url.toString());
+      canonical.protocol = 'https:';
+      canonical.hostname = CANONICAL_HOST;
+      return Response.redirect(canonical.toString(), 301);
+    }
+  }
+
   const path = url.pathname.replace(/\/?$/, '/');
 
   if (!ES_PAGES.has(path)) return context.next();
