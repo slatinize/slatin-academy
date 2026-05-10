@@ -40,6 +40,7 @@ const links = t.nav.links;
         href={alternateHref}
         class="lang-switcher"
         aria-label={t.langSwitcher.ariaLabel}
+        data-target-lang={alternateLang}
       >
         {t.langSwitcher.label}
       </a>
@@ -87,6 +88,7 @@ const links = t.nav.links;
         href={alternateHref}
         class="lang-switcher mt-2"
         aria-label={t.langSwitcher.ariaLabel}
+        data-target-lang={alternateLang}
       >
         {t.langSwitcher.label}
       </a>
@@ -262,5 +264,14 @@ const links = t.nav.links;
   // Enable transitions after first paint to prevent flash on page load
   requestAnimationFrame(() => {
     header?.setAttribute('data-ready', '');
+  });
+
+  document.querySelectorAll<HTMLAnchorElement>('a[data-target-lang]').forEach(link => {
+    link.addEventListener('click', () => {
+      const target = link.dataset.targetLang;
+      if (target) {
+        document.cookie = `lang-pref=${target};path=/;max-age=${60 * 60 * 24 * 365};SameSite=Lax`;
+      }
+    });
   });
 </script>

@@ -178,7 +178,7 @@ export const pageData = {
         currency: "€",
         features: [
           "Acceso a las sesiones en directo con Ruslan, y grabaciones permanentes.",
-          "Práctica real: sube tus másters cada día y recibe perspectiva del grupo.",
+          "Práctica real: recibe una canción para masterizar cada día.",
           "Comunidad, sorteos y sorpresas.",
         ],
         ctaText: "Reservar plaza",
@@ -193,7 +193,7 @@ export const pageData = {
         badge: "Recomendado",
         features: [
           "Acceso a las sesiones en directo con Ruslan, y grabaciones permanentes.",
-          "Práctica real: sube tus másters cada día y recibe perspectiva del grupo.",
+          "Práctica real: recibe una canción para masterizar cada día.",
           "Comunidad, sorteos y sorpresas.",
         ],
         highlightFeatures: [
