@@ -22,7 +22,13 @@ import type { Feature, FaqItem } from '../../data/types';
 
 interface Props {
   lang: Locale;
-  meta: { title: string; description: string };
+  meta: {
+    title: string;
+    description: string;
+    keywords?: string;
+    ogImage?: string;
+    ogImageAlt?: string;
+  };
   hero: {
     eyebrow?: string;
     headline: string;
@@ -90,9 +96,50 @@ const {
   learn, about, pricing, whyDifferent, sorteos, testimonials,
   faqItems, closing, modal,
 } = Astro.props;
+
+const siteUrl = Astro.site ?? new URL('https://academy.slatin.pro');
+const pageUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const courseImage = new URL(meta.ogImage ?? '/images/hero-gear.jpg', siteUrl).toString();
+const stripHtml = (s: string) => s.replace(/<[^>]*>/g, '').trim();
+
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: stripHtml(hero.headline) || 'Mastering Challenge',
+  description: meta.description,
+  inLanguage: lang === 'es' ? 'es' : 'en',
+  url: pageUrl,
+  image: courseImage,
+  provider: {
+    '@type': 'Organization',
+    name: 'SLATIN Academy',
+    url: siteUrl.toString(),
+    sameAs: ['https://slatin.pro'],
+  },
+  instructor: {
+    '@type': 'Person',
+    name: 'Ruslan Slatin',
+  },
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'online',
+    inLanguage: lang === 'es' ? 'es' : 'en',
+    startDate: hero.countdownTarget,
+    courseWorkload: 'P7D',
+  },
+};
 ---
 
-<BaseLayout title={meta.title} description={meta.description} lang={lang}>
+<BaseLayout
+  title={meta.title}
+  description={meta.description}
+  keywords={meta.keywords}
+  ogImage={meta.ogImage}
+  ogImageAlt={meta.ogImageAlt}
+  ogType="product"
+  lang={lang}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
   <!-- Language notice for non-Spanish speakers -->
   <LanguageBanner
     message="This event is in Spanish only — all sessions, materials, and community interactions."

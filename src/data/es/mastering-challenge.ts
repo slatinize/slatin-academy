@@ -2,8 +2,11 @@ import type { FaqItem, Feature } from '../types';
 
 export const pageData = {
   meta: {
-    title: "Mastering Challenge - SLATIN Academy",
-    description: "7 días. 5 másters. 1 semana intensiva con Ruslan Slatin que cambia tu forma de masterizar.",
+    title: "Mastering Challenge: 7 Días en Directo con Ruslan Slatin | SLATIN Academy",
+    description: "Curso intensivo de masterización online: 7 días, 5 másters en 5 géneros, 100% en directo con Ruslan Slatin. Plazas limitadas — edición Mayo 2026.",
+    keywords: "mastering, masterización, curso de masterización, masterizar online, mastering en directo, Ruslan Slatin, SLATIN Academy, producción musical, mezcla y mastering",
+    ogImage: "/images/hero-gear.jpg",
+    ogImageAlt: "Mastering Challenge — 7 días en directo con Ruslan Slatin",
   },
 
   hero: {

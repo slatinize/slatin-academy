@@ -1,0 +1,10 @@
+# https://academy.slatin.pro/robots.txt
+User-agent: *
+Allow: /
+
+# Block preview/mockup routes from indexing
+Disallow: /mockup-
+Disallow: /preview/
+Disallow: /preview-
+
+Sitemap: https://academy.slatin.pro/sitemap-index.xml
