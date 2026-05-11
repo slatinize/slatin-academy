@@ -294,7 +294,7 @@ export const pageData = {
   faqItems: [
     {
       question: "¿Qué nivel necesito?",
-      answer: "Nivel intermedio en adelante. Si ya masterizas tus propios temas, aunque sientas que todavía te queda camino, este Challenge es para ti. No está pensado para principiantes.",
+      answer: "Si ya masterizas tus propios temas, aunque sientas que todavía te queda camino, este Challenge es para ti. Si consideras que tienes un nivel avanzado, te recomendaríamos el tier 2 para sacarle el máximo partido 💪🏻",
     },
     {
       question: "¿Qué pasa si no puedo asistir a alguna sesión en directo?",
@@ -339,6 +339,14 @@ export const pageData = {
     {
       question: "¿En qué se diferencia del Programa de Mentoría?",
       answer: 'El Challenge es una semana intensiva centrada exclusivamente en <em>mastering</em>, con práctica diaria y resultados inmediatos. El Programa de Mentoría es un acompañamiento continuo que cubre mezcla, <em>mastering</em>, negocio y carrera profesional a largo plazo. Son complementarios.',
+    },
+    {
+      question: "¿Quién revisará mis trabajos?",
+      answer: "El trabajo será revisado por Ruslan o alguien del equipo de slatin.pro.",
+    },
+    {
+      question: "¿Cómo solicito la factura?",
+      answer: "La factura se emitirá de inmediato tras tu compra y se enviará a tu mail. Al comprar, rellena los datos con atención para que se genere de manera correcta.",
     },
   ] as FaqItem[],
 
