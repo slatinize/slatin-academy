@@ -11,7 +11,7 @@ export const pageData = {
     title: '<span class="hero-line">Build a <strong>Profitable Music Career</strong></span><span class="hero-line">on <span class="gradient-text-red">Your Own Terms</span></span>',
     subtitle: "Everything you need to know to <strong>Mix & Master</strong> like a pro and build a career that pays.",
     ctaText: "START TODAY",
-    ctaHref: "#getaccess",
+    ctaHref: "https://subscribepage.io/accelerator",
     subCtaText: "",
   },
 

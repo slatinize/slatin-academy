@@ -42,7 +42,7 @@ export const ui: Record<Locale, UIStrings> = {
       headline: 'Get full confidence in your sound',
       quickJumpTitle: 'Quick Jump',
       quickLinks: [
-        { label: 'Plugin Closer', href: '#' },
+        { label: 'Plugin Closer', href: 'https://www.slatin.pro/plugin-closer/' },
         { label: 'Testimonials', href: '#testimonials' },
         { label: 'Services', href: 'https://www.slatin.pro/#services' },
       ],
@@ -71,7 +71,7 @@ export const ui: Record<Locale, UIStrings> = {
       headline: 'Consigue plena confianza en tu sonido',
       quickJumpTitle: 'Acceso Rápido',
       quickLinks: [
-        { label: 'Plugin Closer', href: '#' },
+        { label: 'Plugin Closer', href: 'https://www.slatin.pro/plugin-closer/' },
         { label: 'Testimonios', href: '#testimonials' },
         { label: 'Servicios', href: 'https://www.slatin.pro/#services' },
       ],

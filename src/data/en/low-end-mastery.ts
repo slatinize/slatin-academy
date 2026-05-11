@@ -163,7 +163,7 @@ export const pageData = {
       "Live Q&A Sessions with SLATIN",
     ],
     ctaText: "GET FULL ACCESS 🔑",
-    ctaHref: "https://learn.slatin.pro/purchase?product_id=5700498",
+    ctaHref: "https://learn.slatin.pro/p/access",
   },
 
   testimonials: [

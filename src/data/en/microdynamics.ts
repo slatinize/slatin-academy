@@ -157,7 +157,7 @@ export const pageData = {
       "Live Q&A Sessions with SLATIN",
     ],
     ctaText: "JOIN NOW 🔑",
-    ctaHref: "https://learn.slatin.pro/purchase?product_id=6205122",
+    ctaHref: "https://checkout.teachable.com/secure/1996596/checkout/order_nhmx950r",
   },
 
   testimonials: [
