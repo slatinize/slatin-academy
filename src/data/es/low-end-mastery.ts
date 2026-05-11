@@ -139,7 +139,7 @@ export const pageData = {
   },
 
   moduleCarousel: {
-    subtitle: "7 módulos · 25+ lecciones · Todo lo que necesitas para dominar tu <em>low end</em>",
+    subtitle: "7 módulos · 25+ lecciones<br/>Todo lo que necesitas para dominar tu <em>low end</em>",
   },
 
   teacherBio: {

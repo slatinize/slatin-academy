@@ -139,7 +139,7 @@ export const pageData = {
   },
 
   moduleCarousel: {
-    subtitle: "7 modules · 25+ lessons · Everything you need to nail your low end",
+    subtitle: "7 modules · 25+ lessons<br/>Everything you need to nail your low end",
   },
 
   teacherBio: {

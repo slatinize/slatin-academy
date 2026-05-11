@@ -27,7 +27,7 @@ const cardBg = variant === 'dark' ? 'border border-white/10 bg-dark-card' : 'bg-
     {sectionTitle && (
       <div class="text-center mb-12 md:mb-16 reveal">
         {subtitle && (
-          <p class="text-sm font-semibold tracking-widest uppercase mb-4 opacity-60">{subtitle}</p>
+          <p class="fg-subtitle" set:html={subtitle} />
         )}
         <h2 class="text-heading">{sectionTitle}</h2>
       </div>
@@ -61,6 +61,21 @@ const cardBg = variant === 'dark' ? 'border border-white/10 bg-dark-card' : 'bg-
 
   .feature-card:hover {
     transform: translateY(-3px);
+  }
+
+  .fg-subtitle {
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+  }
+  @media (min-width: 768px) {
+    .fg-subtitle {
+      font-size: 0.875rem;
+      letter-spacing: 0.1em;
+    }
   }
 
   .feature-img-wrap {
