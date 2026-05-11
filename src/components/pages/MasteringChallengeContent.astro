@@ -22,7 +22,7 @@ import type { Feature, FaqItem } from '../../data/types';
 
 interface Props {
   lang: Locale;
-  meta: { title: string; description: string };
+  meta: { title: string; description: string; ogImage?: string };
   hero: {
     eyebrow?: string;
     headline: string;
@@ -92,7 +92,7 @@ const {
 } = Astro.props;
 ---
 
-<BaseLayout title={meta.title} description={meta.description} lang={lang}>
+<BaseLayout title={meta.title} description={meta.description} ogImage={meta.ogImage} lang={lang}>
   <!-- Language notice for non-Spanish speakers -->
   <LanguageBanner
     message="This event is in Spanish only — all sessions, materials, and community interactions."

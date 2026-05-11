@@ -4,6 +4,7 @@ export const pageData = {
   meta: {
     title: "Mastering Challenge - SLATIN Academy",
     description: "7 días. 5 másters. 1 semana intensiva con Ruslan Slatin que cambia tu forma de masterizar.",
+    ogImage: "https://academy.slatin.pro/images/og-mastering-challenge.jpg",
   },
 
   hero: {
