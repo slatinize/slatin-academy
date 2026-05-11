@@ -13,9 +13,9 @@ const { title, subtitle, price, features, ctaText, ctaHref, lang = 'en' } = Astr
 const isEs = lang === 'es';
 ---
 
-<section class="section-dark section-padding" id="pricing">
+<section class="section-dark section-padding">
   <div class="container-content flex justify-center">
-    <div class="w-full max-w-2xl rounded-2xl overflow-hidden pricing-reveal">
+    <div id="pricing" class="w-full max-w-2xl rounded-2xl overflow-hidden pricing-reveal" style="scroll-margin-top: 2rem;">
       <!-- Card with gradient -->
       <div class="pricing-card relative bg-gradient-to-br from-dark-card via-accent-red-dark/20 to-dark-card p-6 md:p-14 text-center border border-white/10 rounded-2xl">
         <!-- Subtle glow -->
