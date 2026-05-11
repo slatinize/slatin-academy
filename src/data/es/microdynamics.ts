@@ -156,7 +156,7 @@ export const pageData = {
       "Actualizaciones Frecuentes",
       "Sesiones de <em>Q&A</em> con SLATIN",
     ],
-    ctaText: "ÚNETE AHORA 🔑",
+    ctaText: "ÚNETE AHORA",
     ctaHref: "https://checkout.teachable.com/secure/1996596/checkout/order_nhmx950r",
   },
 

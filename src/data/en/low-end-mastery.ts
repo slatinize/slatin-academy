@@ -162,7 +162,7 @@ export const pageData = {
       "Ongoing Updates",
       "Live Q&A Sessions with SLATIN",
     ],
-    ctaText: "GET FULL ACCESS 🔑",
+    ctaText: "GET FULL ACCESS",
     ctaHref: "https://learn.slatin.pro/p/access",
   },
 

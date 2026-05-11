@@ -162,7 +162,7 @@ export const pageData = {
       "Actualizaciones Continuas",
       "Sesiones de <em>Q&A</em> con SLATIN",
     ],
-    ctaText: "ACCESO COMPLETO 🔑",
+    ctaText: "ACCESO COMPLETO",
     ctaHref: "https://learn.slatin.pro/p/access",
   },
 
