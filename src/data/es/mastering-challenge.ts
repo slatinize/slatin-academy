@@ -174,7 +174,7 @@ export const pageData = {
       {
         tierLabel: "Tier 1",
         tierName: "Sigue el Challenge",
-        price: "121",
+        price: "149",
         currency: "€",
         features: [
           "Acceso a las sesiones en directo con Ruslan y grabaciones permanentes.",
@@ -188,7 +188,7 @@ export const pageData = {
       {
         tierLabel: "Tier 2",
         tierName: 'Revisado por <span class="accent">Slatin.pro</span>',
-        price: "389",
+        price: "489",
         currency: "€",
         badge: "Recomendado",
         features: [
