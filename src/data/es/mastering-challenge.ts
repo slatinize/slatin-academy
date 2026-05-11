@@ -67,13 +67,13 @@ export const pageData = {
       },
       {
         number: "02",
-        title: 'Recibes un <em>Mix</em>',
+        title: 'Recibes un Mix',
         description: 'Del mismo género que lo trabajado en clase, con <em>stems</em> incluidos.',
         tag: "Material",
       },
       {
         number: "03",
-        title: 'Masterizas el <em>Mix</em> ese mismo día',
+        title: 'Masterizas el Mix ese mismo día',
         description: "Aplicas todo lo aprendido en caliente, mientras lo tienes fresco.",
         tag: "Práctica",
       },
@@ -305,7 +305,7 @@ export const pageData = {
     },
     {
       question: "¿Cuánto tiempo necesito dedicar cada día?",
-      answer: "Entre 2 y 3 horas: 1 hora de clase en directo y el resto para masterizar tu tema del día.",
+      answer: "Es suficiente con 2 horas diarias: 1 hora de clase en directo y el resto para masterizar tu tema del día.",
     },
     {
       question: "¿Hay límite de plazas?",
