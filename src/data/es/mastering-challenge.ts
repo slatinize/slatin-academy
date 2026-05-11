@@ -244,21 +244,21 @@ export const pageData = {
     items: [
       {
         icon: "&#x1F3A7;",
-        image: "/images/sorteos-headphones.jpg",
-        title: "Beyerdynamic DT 1770 Pro MK II",
+        image: "/images/sorteos-headphones.webp",
+        title: "Beyerdynamic DT 1990 PRO",
         badge: "SORTEO GENERAL",
         description: "Llévate unos auriculares de estudio de referencia.",
       },
       {
         icon: "&#x1F381;",
-        image: "/images/sorteos-plugin.png",
+        image: "/images/sorteos-bundle.jpg",
         title: "Slatin.pro Bundle",
         badge: "SORTEO GENERAL",
         description: 'También estaremos sorteando un <em>bundle</em> que incluye camiseta y gorra + un <strong><em>mastering</em> tradicional GRATIS hecho por Slatin</strong>.',
       },
       {
         icon: "&#x2728;",
-        image: "/images/analog-gear.jpg",
+        image: "/images/sorteos-sorpresas.jpg",
         title: 'Y más <span class="sr-underline">Sorpresas</span>...',
         description: "Se irán anunciando durante la semana. Premios exclusivos para los que estén.",
         showBadge: false,
@@ -329,7 +329,7 @@ export const pageData = {
     },
     {
       question: "¿A qué hora son las sesiones en directo?",
-      answer: "Las sesiones están programadas en horario de tarde-noche (hora peninsular española, CEST). Confirmaremos el horario exacto a todos los participantes antes del inicio del Challenge.",
+      answer: "Las sesiones están programadas a las 18:00h (6pm - hora peninsular española, CEST).",
     },
     {
       question: "¿Qué DAW necesito?",
