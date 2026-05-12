@@ -81,24 +81,24 @@ const {
       )}
     </div>
 
-    {videoId && (
-      <div class="hc__modal" data-video-modal aria-hidden="true">
-        <div class="hc__modal-backdrop" data-close-video></div>
-        <div class="hc__modal-body">
-          <button class="hc__modal-close" data-close-video aria-label="Close">&times;</button>
-          <div class="hc__modal-frame">
-            <iframe data-video-src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    )}
-
     <!-- Scroll indicator -->
     <div class="hc__scroll" aria-hidden="true">
       <div class="hc__scroll-line"></div>
     </div>
   </div>
 </section>
+
+{videoId && (
+  <div class="hc__modal" data-video-modal aria-hidden="true">
+    <div class="hc__modal-backdrop" data-close-video></div>
+    <div class="hc__modal-body">
+      <div class="hc__modal-frame">
+        <button class="hc__modal-close" data-close-video aria-label="Close">&times;</button>
+        <iframe data-video-src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+)}
 
 <style>
   .hc {
@@ -390,7 +390,7 @@ const {
   .hc__modal-backdrop {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.92);
     cursor: pointer;
   }
   .hc__modal-body {
@@ -400,15 +400,23 @@ const {
   }
   .hc__modal-close {
     position: absolute;
-    top: -40px;
-    right: 0;
-    background: none;
+    top: 8px;
+    right: 8px;
+    z-index: 10;
+    width: 36px;
+    height: 36px;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
     border: none;
+    border-radius: 50%;
     color: #fff;
-    font-size: 2rem;
+    font-size: 1.4rem;
     cursor: pointer;
     line-height: 1;
-    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.85;
     transition: opacity 0.2s;
   }
   .hc__modal-close:hover { opacity: 1; }
@@ -552,17 +560,25 @@ const {
   const iframe = modal?.querySelector('iframe');
   const src = iframe?.getAttribute('data-video-src') ?? '';
 
+  let scrollRaf: number | null = null;
+
   function openModal() {
     if (!modal || !iframe) return;
     iframe.src = src;
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    window.addEventListener('scroll', closeModal, { once: true });
+    // Delay scroll listener so the overflow change doesn't trigger it
+    scrollRaf = requestAnimationFrame(() => {
+      scrollRaf = requestAnimationFrame(() => {
+        window.addEventListener('scroll', closeModal, { once: true });
+      });
+    });
   }
 
   function closeModal() {
     if (!modal || !iframe) return;
+    if (scrollRaf) { cancelAnimationFrame(scrollRaf); scrollRaf = null; }
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     iframe.src = '';
