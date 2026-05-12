@@ -384,6 +384,8 @@ const {
   .hc__modal.is-open {
     opacity: 1;
     pointer-events: auto;
+    overscroll-behavior: contain;
+    touch-action: none;
   }
   .hc__modal-backdrop {
     position: absolute;
@@ -550,21 +552,27 @@ const {
   const iframe = modal?.querySelector('iframe');
   const src = iframe?.getAttribute('data-video-src') ?? '';
 
-  document.querySelectorAll('[data-open-video]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      if (!modal || !iframe) return;
-      iframe.src = src;
-      modal.classList.add('is-open');
-      modal.setAttribute('aria-hidden', 'false');
-    });
-  });
+  function openModal() {
+    if (!modal || !iframe) return;
+    iframe.src = src;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('scroll', closeModal, { once: true });
+  }
 
   function closeModal() {
     if (!modal || !iframe) return;
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     iframe.src = '';
+    document.body.style.overflow = '';
+    window.removeEventListener('scroll', closeModal);
   }
+
+  document.querySelectorAll('[data-open-video]').forEach((btn) => {
+    btn.addEventListener('click', openModal);
+  });
 
   document.querySelectorAll('[data-close-video]').forEach((el) => {
     el.addEventListener('click', closeModal);
