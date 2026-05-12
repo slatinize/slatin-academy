@@ -92,7 +92,7 @@ export const pageData = {
     days: [
       {
         day: 1,
-        genre: "Electrónica / House",
+        genre: "Techno/House",
         description: "",
       },
       {
