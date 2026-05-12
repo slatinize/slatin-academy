@@ -93,7 +93,7 @@ const {
     <div class="hc__modal-backdrop" data-close-video></div>
     <div class="hc__modal-body">
       <div class="hc__modal-frame">
-        <button class="hc__modal-close" data-close-video aria-label="Close">&times;</button>
+        <button class="hc__modal-close" data-close-video aria-label="Close"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
         <iframe data-video-src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
       </div>
     </div>
@@ -409,9 +409,7 @@ const {
     border: none;
     border-radius: 50%;
     color: #fff;
-    font-size: 1.25rem;
     cursor: pointer;
-    line-height: 0;
     display: flex;
     align-items: center;
     justify-content: center;
