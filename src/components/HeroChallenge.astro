@@ -20,6 +20,8 @@ interface Props {
   alumni?: Alumni[];
   proofText?: string;
   pills?: Pill[];
+  videoLabel?: string;
+  videoId?: string;
 }
 
 const {
@@ -33,6 +35,8 @@ const {
   alumni = [],
   proofText,
   pills = [],
+  videoLabel,
+  videoId,
 } = Astro.props;
 ---
 
@@ -62,10 +66,32 @@ const {
 
     <p class="hc__sub" set:html={subtitle} />
 
-    <a class="hc__cta" href={ctaHref}>
-      <span>{ctaText}</span>
-    </a>
+    <div class="hc__ctas">
+      <a class="hc__cta" href={ctaHref}>
+        <span>{ctaText}</span>
+      </a>
 
+      {videoId && videoLabel && (
+        <button class="hc__video" type="button" data-open-video>
+          <span class="hc__play" aria-hidden="true">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+          {videoLabel}
+        </button>
+      )}
+    </div>
+
+    {videoId && (
+      <div class="hc__modal" data-video-modal aria-hidden="true">
+        <div class="hc__modal-backdrop" data-close-video></div>
+        <div class="hc__modal-body">
+          <button class="hc__modal-close" data-close-video aria-label="Close">&times;</button>
+          <div class="hc__modal-frame">
+            <iframe data-video-src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    )}
 
     <!-- Scroll indicator -->
     <div class="hc__scroll" aria-hidden="true">
@@ -283,12 +309,12 @@ const {
   /* CTA */
   .hc__cta {
     display: inline-flex; align-items: center; gap: 14px;
-    padding: 24px 44px;
+    padding: 22px 44px;
     border-radius: 14px;
     background: linear-gradient(180deg, #DD3333, #BA1616);
     color: #fff;
     font-weight: 800;
-    font-size: 1.0625rem;
+    font-size: 1rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     text-decoration: none;
@@ -303,6 +329,101 @@ const {
     outline: none;
   }
   .hc__cta:active { transform: translateY(0); }
+
+  /* CTAs row */
+  .hc__ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Video button */
+  .hc__video {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 20px 28px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 14px;
+    background: transparent;
+    color: rgba(255,255,255,0.85);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    backdrop-filter: blur(8px);
+    transition: all 0.2s ease;
+  }
+  .hc__video:hover, .hc__video:focus-visible {
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    outline: none;
+  }
+  .hc__play {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Video modal */
+  .hc__modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .hc__modal.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .hc__modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    cursor: pointer;
+  }
+  .hc__modal-body {
+    position: relative;
+    width: 90vw;
+    max-width: 420px;
+  }
+  .hc__modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .hc__modal-close:hover { opacity: 1; }
+  .hc__modal-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+  }
+  .hc__modal-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
 
   /* Proof */
   .hc__proof {
@@ -387,6 +508,7 @@ const {
   /* Mobile */
   @media (max-width: 640px) {
     .hc__cta { padding: 20px 28px; font-size: 0.9375rem; width: 100%; justify-content: center; }
+    .hc__video { padding: 14px 20px; width: auto; align-self: center; }
     .hc__countdown { gap: 10px; }
     .hc__unit { min-width: 56px; padding: 10px 10px 8px; }
     .hc__heading :global(.grad)::after { display: none; }
@@ -422,4 +544,32 @@ const {
   }
 
   initCountdowns();
+
+  const modal = document.querySelector('[data-video-modal]');
+  const iframe = modal?.querySelector('iframe');
+  const src = iframe?.getAttribute('data-video-src') ?? '';
+
+  document.querySelectorAll('[data-open-video]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (!modal || !iframe) return;
+      iframe.src = src;
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+    });
+  });
+
+  function closeModal() {
+    if (!modal || !iframe) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    iframe.src = '';
+  }
+
+  document.querySelectorAll('[data-close-video]').forEach((el) => {
+    el.addEventListener('click', closeModal);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
 </script>
