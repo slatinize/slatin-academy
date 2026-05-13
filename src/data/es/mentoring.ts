@@ -353,27 +353,27 @@ export const pageData = {
     {
       question: "¿Puedes darme un resumen del Programa de Mentoría?",
       answer: 'Como las necesidades de cada persona son únicas, crearemos un plan personalizado. Los puntos destacados incluyen: Entender y Aplicar EQ, Dominar la Compresión, Compresión Avanzada / Curvas Complejas, Procesamiento Mid/Side, Negocio 101, Crecimiento en Redes Sociales, Cómo Conseguir Clientes, Diseño de Sonido, Compresión <em>Sidechain</em>, Microdinámica, Mezcla de Voces, La Magia de las Cintas, Todos los Secretos del <em>Mastering</em>, Compresión Avanzada / Control Tonal, Automatizar tu Estudio, Usar IA para Producción y Mezcla en Dolby Atmos.',
-      category: "Programa",
+      category: "Sobre el Programa",
     },
     {
       question: "¿En qué idioma se imparte el programa?",
-      answer: "La mentoría grupal se imparte en inglés, pero las llamadas 1-a-1 pueden realizarse en español y ruso.",
-      category: "Programa",
+      answer: "El programa se imparte en inglés. Las llamadas 1-a-1 pueden realizarse en español y ruso. Todo el contenido resubido está disponible con subtítulos en español.",
+      category: "Sobre el Programa",
     },
     {
       question: "¿Cuánto dura la llamada 1-a-1 semanal?",
       answer: 'La llamada 1-a-1 semanal dura 60 minutos, durante los cuales haremos seguimientos de compromiso; te ayudaré a ejecutar tu <em>roadmap</em>/plan personalizado, revisaremos tus proyectos, terminaremos canciones, resolveremos cualquier duda y te daré guía de negocio personalizada.',
-      category: "Programa",
+      category: "Sobre el Programa",
     },
     {
       question: "¿Cómo de grande es el grupo?",
       answer: 'El número mínimo de participantes en el programa de Mentoría Grupal es cuatro y el máximo quince. Esto asegura que el grupo sea lo suficientemente grande para fomentar un entorno colaborativo y de apoyo, permitiendo atención individual y <em>feedback</em> personalizado.',
-      category: "Programa",
+      category: "Sobre el Programa",
     },
     {
       question: "¿A qué hora son las clases?",
       answer: `Las clases están programadas generalmente los lunes a las 20:00 CEST (hora central europea). Los días y horas se pueden ajustar según las preferencias del grupo. Si no puedes asistir en directo, <strong>todas las sesiones se graban y se comparten</strong> con el grupo el mismo día.`,
-      category: "Programa",
+      category: "Sobre el Programa",
     },
     {
       question: "¿Qué Equipamiento (<em>Hardware</em>) necesito?",
