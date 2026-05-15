@@ -45,8 +45,8 @@ export const pageData = {
       },
       {
         icon: "&#x2715;",
-        title: 'Pruebas <em>plugins</em> nuevos:',
-        description: 'Cada semana uno distinto, esperando que alguno marque la diferencia, pero el problema nunca es el <em>plugin</em>.',
+        title: 'Pruebas plugins nuevos:',
+        description: 'Cada semana uno distinto, esperando que alguno marque la diferencia, pero el problema nunca es el plugin.',
       },
       {
         icon: "&#x2715;",
@@ -69,7 +69,7 @@ export const pageData = {
       {
         number: "02",
         title: 'Recibes un Mix',
-        description: 'Del mismo género que lo trabajado en clase, con <em>stems</em> incluidos.',
+        description: 'Del mismo género que lo trabajado en clase, con stems incluidos.',
         tag: "Material",
       },
       {
@@ -81,7 +81,7 @@ export const pageData = {
       {
         number: "04",
         title: "Subes tu resultado",
-        description: 'Comparas con Rus y con tus compañeros y recibes <em>feedback</em> real.',
+        description: 'Comparas con Rus y con tus compañeros y recibes feedback real.',
         tag: "Comentarios",
       },
     ],
@@ -116,7 +116,7 @@ export const pageData = {
         description: "",
       },
     ],
-    note: "Días 6 y 7: sesiones de <em>feedback</em> en vivo — revisión de másters en directo con Rus y cierre de la semana junto a la comunidad.",
+    note: "Días 6 y 7: sesiones de feedback en vivo — revisión de másters en directo con Rus y cierre de la semana junto a la comunidad.",
   },
 
   learn: {
@@ -169,8 +169,8 @@ export const pageData = {
 
   pricing: {
     eyebrow: 'Mastering Challenge',
-    headline: 'Elige tu <em><span class="grad">Challenge</span></em>',
-    subtitle: 'Dos formas de entrar. Misma intensidad, distinto nivel de <em>feedback</em> directo de Slatin.pro.',
+    headline: 'Elige tu <span class="grad">Challenge</span>',
+    subtitle: 'Dos formas de entrar. Misma intensidad, distinto nivel de feedback directo de Slatin.pro.',
     plans: [
       {
         tierLabel: "Tier 1",
@@ -198,7 +198,7 @@ export const pageData = {
           "Comunidad, sorteos y sorpresas.",
         ],
         highlightFeatures: [
-          "<em>Review</em> personalizada de tu máster por Slatin.pro.",
+          "Review personalizada de tu máster por Slatin.pro.",
           "Prioridad en la interacción dentro de la comunidad.",
           "Doble participación en los sorteos.",
         ],
@@ -255,7 +255,7 @@ export const pageData = {
         image: "/images/sorteos-bundle.jpg",
         title: "Slatin.pro Bundle",
         badge: "SORTEO GENERAL",
-        description: 'También estaremos sorteando un <em>bundle</em> que incluye camiseta y gorra + un <strong><em>mastering</em> tradicional GRATIS hecho por Slatin</strong>.',
+        description: 'También estaremos sorteando un bundle que incluye camiseta y gorra + un <strong>mastering tradicional GRATIS hecho por Slatin</strong>.',
       },
       {
         icon: "&#x2728;",
@@ -310,19 +310,19 @@ export const pageData = {
     },
     {
       question: "¿Hay límite de plazas?",
-      answer: 'Sí, sobre todo en el <em>Tier</em> 2, donde limitamos el número de plazas para poder ofrecer un <em>feedback</em> personalizado y de calidad.',
+      answer: 'Sí, sobre todo en el Tier 2, donde limitamos el número de plazas para poder ofrecer un feedback personalizado y de calidad.',
     },
     {
-      question: '¿Puedo subir de <em>Tier</em> 1 a <em>Tier</em> 2 más tarde?',
-      answer: 'Sí, siempre que queden plazas disponibles, aunque si quieres asegurarte el <em>feedback</em> directo de tu trabajo, te recomendamos entrar directamente en el <em>Tier</em> 2.',
+      question: '¿Puedo subir de Tier 1 a Tier 2 más tarde?',
+      answer: 'Sí, siempre que queden plazas disponibles, aunque si quieres asegurarte el feedback directo de tu trabajo, te recomendamos entrar directamente en el Tier 2.',
     },
     {
       question: "¿Qué pasa después del Challenge?",
       answer: "Todas las grabaciones son tuyas para siempre. La comunidad se cierra al terminar la semana, pero te llevas tus apuntes, tus másters y un sistema que podrás seguir aplicando por tu cuenta.",
     },
     {
-      question: '¿Necesito algún <em>plugin</em> o equipo específico?',
-      answer: 'Usaremos ciertos <em>plugins</em> durante las sesiones, pero no es imprescindible tenerlos. Te daremos alternativas y consejos para que puedas aplicar las mismas técnicas con las herramientas que ya tengas. Solo necesitas un DAW, unos auriculares o monitores y ganas de trabajar.',
+      question: '¿Necesito algún plugin o equipo específico?',
+      answer: 'Usaremos ciertos plugins durante las sesiones, pero no es imprescindible tenerlos. Te daremos alternativas y consejos para que puedas aplicar las mismas técnicas con las herramientas que ya tengas. Solo necesitas un DAW, unos auriculares o monitores y ganas de trabajar.',
     },
     {
       question: "¿Puedo participar desde cualquier país?",
@@ -338,7 +338,7 @@ export const pageData = {
     },
     {
       question: "¿En qué se diferencia del Programa de Mentoría?",
-      answer: 'El Challenge es una semana intensiva centrada exclusivamente en <em>mastering</em>, con práctica diaria y resultados inmediatos. El Programa de Mentoría es un acompañamiento continuo que cubre mezcla, <em>mastering</em>, negocio y carrera profesional a largo plazo. Son complementarios.',
+      answer: 'El Challenge es una semana intensiva centrada exclusivamente en mastering, con práctica diaria y resultados inmediatos. El Programa de Mentoría es un acompañamiento continuo que cubre mezcla, mastering, negocio y carrera profesional a largo plazo. Son complementarios.',
     },
     {
       question: "¿Quién revisará mis trabajos?",
