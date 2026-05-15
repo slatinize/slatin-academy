@@ -57,8 +57,28 @@ const bentoSizes = ["big", "med", "sm", "sm", "big", "med"];
         <div class="bento-bg-num feedback-nums"><span class="fn-num">6</span><span class="fn-amp">&amp;</span><span class="fn-num">7</span></div>
         <div class="bento-content">
           <div class="bento-day">Días 6 &amp; 7</div>
-          <div class="bento-genre"><em>Feedback</em> en vivo</div>
+          <div class="bento-genre">Feedback en vivo</div>
           <p class="bento-desc">Revisión de másters en directo con Rus y cierre de la semana junto a la comunidad.</p>
+        </div>
+      </div>
+    </div>
+    <div class="ws__note reveal">
+      <button class="ws__time-btn" type="button" aria-expanded="false">
+        Todas las sesiones a las 18:00 (hora española, CEST)
+        <svg class="ws__chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="ws__timezones" hidden>
+        <div class="ws__tz-grid">
+          <span>🇮🇨 Canarias - 17:00</span>
+          <span>🇲🇽 México (CDMX) - 11:00</span>
+          <span>🇨🇴 Colombia - 11:00</span>
+          <span>🇦🇷 Argentina - 13:00</span>
+          <span>🇨🇱 Chile - 12:00</span>
+          <span>🇵🇪 Perú - 11:00</span>
+          <span>🇪🇨 Ecuador - 11:00</span>
+          <span>🇻🇪 Venezuela - 12:00</span>
+          <span>🇧🇴 Bolivia - 12:00</span>
+          <span>🇺🇾 Uruguay - 13:00</span>
         </div>
       </div>
     </div>
@@ -145,6 +165,55 @@ const bentoSizes = ["big", "med", "sm", "sm", "big", "med"];
 
   .feedback-card {
     --bc: #DD3333;
+  }
+
+  .ws__note {
+    text-align: center;
+    margin-top: 32px;
+  }
+  .ws__time-btn {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 14px 24px;
+    color: rgba(255,255,255,0.7);
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+  }
+  .ws__time-btn:hover {
+    color: #fff;
+    border-color: rgba(255,255,255,0.3);
+  }
+  .ws__chevron {
+    transition: transform 0.25s ease;
+  }
+  .ws__time-btn[aria-expanded="true"] .ws__chevron {
+    transform: rotate(180deg);
+  }
+  .ws__timezones {
+    margin-top: 16px;
+  }
+  .ws__tz-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px 40px;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.55);
+  }
+  .ws__tz-grid span {
+    text-align: left;
+  }
+  @media (max-width: 640px) {
+    .ws__tz-grid {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
   }
 
   .bento-bg-num {
@@ -258,3 +327,14 @@ const bentoSizes = ["big", "med", "sm", "sm", "big", "med"];
     .feedback-card .bento-desc { display: none; }
   }
 </style>
+
+<script>
+  document.querySelectorAll('.ws__time-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      const panel = btn.nextElementSibling;
+      if (panel) panel.hidden = expanded;
+    });
+  });
+</script>

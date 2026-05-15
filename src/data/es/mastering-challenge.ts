@@ -116,7 +116,7 @@ export const pageData = {
         description: "",
       },
     ],
-    note: "Días 6 y 7: sesiones de feedback en vivo — revisión de másters en directo con Rus y cierre de la semana junto a la comunidad.",
+    note: "Todas las sesiones a las 18:00 (hora española, CEST). Días 6 y 7: sesiones de feedback en vivo — revisión de másters en directo con Rus y cierre de la semana junto a la comunidad.",
   },
 
   learn: {
@@ -330,7 +330,7 @@ export const pageData = {
     },
     {
       question: "¿A qué hora son las sesiones en directo?",
-      answer: "Las sesiones están programadas a las 18:00h (6pm - hora peninsular española, CEST).",
+      answer: "Las sesiones son a las 18:00 (hora peninsular española, CEST). Si no puedes asistir en directo, todas quedan grabadas.",
     },
     {
       question: "¿Qué DAW necesito?",
