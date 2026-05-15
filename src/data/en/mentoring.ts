@@ -357,7 +357,7 @@ export const pageData = {
     },
     {
       question: "What language will the mentoring program be conducted in?",
-      answer: "The program is conducted in English. One-on-one calls can be held in Spanish and Russian. All uploaded content is available with Spanish subtitles.",
+      answer: "The program is conducted in English. One-on-one calls can be held in Spanish and Russian.",
       category: "About the Program",
     },
     {
